@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Eric&#39;s Web.site</title>
+    <link>https://ericsweb.site/posts/</link>
+    <description>Recent content in Posts on Eric&#39;s Web.site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 29 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://ericsweb.site/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bearclaw. Cornstalk. Turtles. Get Yolked.</title>
+      <link>https://ericsweb.site/2019/11/29/Bearclaw.%20Cornstalk.%20Turtles.%20Get%20Yolked/</link>
+      <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2019/11/29/Bearclaw.%20Cornstalk.%20Turtles.%20Get%20Yolked/</guid>
+      <description>What do these words mean?
+I don&amp;rsquo;t know. I found them by accident, when poking around a part of the internet no one was ever supposed to find.
+I was poking around my Pi-Hole (an ad-blocking/privacy solution), and noticed that one of the most blocked domains was ads.mopub.com. If you visit that URL, you will find that most enigmatic phrase: Bearclaw. Cornstalk. Turtles. Get Yolked., followed by a number between 1 and 1000.</description>
+    </item>
+    
+    <item>
+      <title>Profiling Language Performance with Project Euler</title>
+      <link>https://ericsweb.site/posts/project-euler-performance-profiling/</link>
+      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/posts/project-euler-performance-profiling/</guid>
+      <description>I&amp;rsquo;ve been sitting on a side project for a while, working on it when I have time. The project in question is Project Euler - specifically, implementing Project Euler in a few different programming languages. Pretty soon after starting, I realized that I had an opportunity to compare the performance of these implementations across not only different programming languages, but also across different ways of running the code in question and optimizing it to not just reach the right answer, but to maximize performance in measurable ways.</description>
+    </item>
+    
+    <item>
+      <title>The New Package Managers</title>
+      <link>https://ericsweb.site/posts/package-managers/</link>
+      <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/posts/package-managers/</guid>
+      <description>From the time I first got Linux to boot on a laptop I had, I became entranced with the idea of a system package manager. From Wikipedia:
+ A package manager or package management system is a collection of software tools that automates the process of installing, upgrading, configuring, and removing computer programs for a computer&amp;rsquo;s operating system in a consistent manner.
+ Basically, a package manager lets you install software in a uniform way - on Ubuntu Linux, apt install 7zip.</description>
+    </item>
+    
+    <item>
+      <title>Apple&#39;s Gather Round - 12 September 2018</title>
+      <link>https://ericsweb.site/2018/09/23/Gather-Round/</link>
+      <pubDate>Sun, 23 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2018/09/23/Gather-Round/</guid>
+      <description>Once again, I have to start out by commenting on how well-shot the opening sequence is. Great use of lighting and camera angles. Though it wasn&amp;rsquo;t particularly funny or appropriate, it really is great from a technical standpoint to the point that even someone as pedestrian as me can see it.
+iPhone # Three new models of iPhone were announced - the iPhone XS, XS Max, and XR. At least the silly tone of Apple&amp;rsquo;s opening video matches the silly naming of these phones - sounding like they&amp;rsquo;re supposed to be sports cars.</description>
+    </item>
+    
+    <item>
+      <title>Apple&#39;s WWDC - 4 June 2018</title>
+      <link>https://ericsweb.site/2018/06/04/Apple-WWDC-4-June-2018/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2018/06/04/Apple-WWDC-4-June-2018/</guid>
+      <description>It&amp;rsquo;s that time of year again – Apple&amp;rsquo;s World-Wide Developer Conference. The first day, June 4, Apple announces new software, and sometimes new hardware, that will be upcoming around Q3 of the year. I&amp;rsquo;m here to break down and summarize what they&amp;rsquo;re releasing and what I expect it to actually look like once it&amp;rsquo;s released. This year&amp;rsquo;s WWDC was expected to have less major changes than in the past, as Apple just made major hardware announcements and changes last year, as well as because this year (according to rumor) they&amp;rsquo;ve been largely focused on internal improvements in terms of performance and bugfixes over adding on new features.</description>
+    </item>
+    
+    <item>
+      <title>General Purpose Computing – Then and Now</title>
+      <link>https://ericsweb.site/2018/04/04/General-Purpose-Computing/</link>
+      <pubDate>Wed, 04 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2018/04/04/General-Purpose-Computing/</guid>
+      <description>The term &amp;ldquo;general purpose computing&amp;rdquo; is kind of a strange term. Until I was introduced to it within the context of computer science history, it didn&amp;rsquo;t make much sense. I want to talk about the future and some interesting developments happening within the computer industry, but that&amp;rsquo;s really impossible without looking at how computers came to work like they do now.
+Before General Purpose Computing # In the 1940s, computers were machines of war.</description>
+    </item>
+    
+    <item>
+      <title>Duplicity: The Best Free Backup Software</title>
+      <link>https://ericsweb.site/2018/03/07/Duplicity/</link>
+      <pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2018/03/07/Duplicity/</guid>
+      <description>Lately, I&amp;rsquo;ve been looking into backups a lot. At one point, I even looked into setting up a Time Machine Server on my FreeBSD machine. That said, it&amp;rsquo;s all been a headache that sometimes works and sometimes doesn&amp;rsquo;t. Now, however, I&amp;rsquo;ve discovered Duplicity, a GPL software package, powered by python, that is feature-heavy, simple, reliable, and fast.
+Features of Duplicity #  Relatively easy to automate Encrypts your backups by default Compresses your backups by default Takes incremental backups Can self-heal if a backup goes wrong Allows incremental restoration from backups Supports a lot of different protocols Supports AWS S3 very well by default.</description>
+    </item>
+    
+    <item>
+      <title>The Case of the Circular Dependency</title>
+      <link>https://ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/</link>
+      <pubDate>Tue, 20 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/</guid>
+      <description>As some know, I keep a personal server. I&amp;rsquo;ve developed tales of my (mis)adventures and the things I&amp;rsquo;ve learned from them. I found this one humorous. Why? The root cause.
+My hard drive is too fast.
+ I&amp;rsquo;ll start at the beginning. If you&amp;rsquo;re not into computers, I&amp;rsquo;ll explain things in a way that hopefully anyone can understand, but to be honest I&amp;rsquo;m not sure if you&amp;rsquo;ll get a lot out of it.</description>
+    </item>
+    
+    <item>
+      <title>The Intel Disaster</title>
+      <link>https://ericsweb.site/2018/01/04/Intel-Security-Bug/</link>
+      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2018/01/04/Intel-Security-Bug/</guid>
+      <description>It&amp;rsquo;s a bit of a hot topic right now, still in the early stages: one of the biggest security bugs ever.
+Intel is a company that makes various components, but is most widely known for their processors for desktop and laptop computers. They are by far the largest processor manufacturer, with up to 70% market share, depending on your source. Processors power everything your computer does – in computer science 101, they&amp;rsquo;re called the main &amp;ldquo;brain&amp;rdquo; of the computer, which is fairly apt.</description>
+    </item>
+    
+    <item>
+      <title>What&#39;s Going on with Apple&#39;s Batteries?</title>
+      <link>https://ericsweb.site/2017/12/29/Whats-Going-On-With-Apples-Batteries/</link>
+      <pubDate>Fri, 29 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/12/29/Whats-Going-On-With-Apples-Batteries/</guid>
+      <description>There&amp;rsquo;ve been various articles going around about Apple&amp;rsquo;s batteries in iPhones, or, specifically, Apple&amp;rsquo;s throttling of phones&#39; hardware with older batteries. This post seeks to be primarily informational, but if you&amp;rsquo;re the owner of such a device that might be throttled, I&amp;rsquo;ll put in some useful information for you at the end of the post. But mostly, I&amp;rsquo;m going to be looking at the facts of the issue, since the internet in general and news in particular tends more towards sensationalism than complete information.</description>
+    </item>
+    
+    <item>
+      <title>How to Create a Time Machine Server with FreeBSD</title>
+      <link>https://ericsweb.site/2017/12/12/Time-Machine-with-FreeBSD/</link>
+      <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/12/12/Time-Machine-with-FreeBSD/</guid>
+      <description>Running a time machine server has historically been a pain. Which sucks, because it&amp;rsquo;s actually a pretty good backup system. For the uninitiated, Time Machine is the built-in backup system on macOS. It keeps incremental backups, which means you can restore your machine to an hour ago, a week ago, a month ago, a year ago, and various increments in between. However, running one tends to suck, because there have historically been two options for doing it.</description>
+    </item>
+    
+    <item>
+      <title>How Encryption Works</title>
+      <link>https://ericsweb.site/2017/10/26/How-Encryption-Works/</link>
+      <pubDate>Thu, 26 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/10/26/How-Encryption-Works/</guid>
+      <description>These days, encryption is becoming more and more important to understand, politically and personally. However, when it gets discussed in an open forum, it&amp;rsquo;s usually discussed so abstractly that the layperson doesn&amp;rsquo;t really understand the specifics of what&amp;rsquo;s going on. That&amp;rsquo;s what I&amp;rsquo;m here for. I&amp;rsquo;m going to talk about encryption in a way that anyone can understand, and explain how it works and why.
+What is Encryption? # From Wikipedia: &amp;ldquo;encryption is the process of encoding a message or information in such a way that only authorized parties can access it&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Apple Event 9/12/2017</title>
+      <link>https://ericsweb.site/2017/09/14/Apple-Event-9-23-2017/</link>
+      <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/09/14/Apple-Event-9-23-2017/</guid>
+      <description>Apple just did another event where they announced the iPhone 8 and iPhone X, among other things. Because I am as predictable as the flame wars about whether or not the event was any good, I&amp;rsquo;m here to give the highlights about the event so that you don&amp;rsquo;t have to watch the whole 2-hour keynote.
+Let&amp;rsquo;s Talk About iPhones # The next generation of iPhones is here, with the iPhone X and iPhone 8.</description>
+    </item>
+    
+    <item>
+      <title>How Modern Video Works</title>
+      <link>https://ericsweb.site/2017/08/27/how-video-works/</link>
+      <pubDate>Sun, 27 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/08/27/how-video-works/</guid>
+      <description>Video is one of the most important technologies on the internet today. We use it so much we don&amp;rsquo;t even really think about it anymore. We stream TV shows, watch cat videos, teleconference, and share on social media. It&amp;rsquo;s become common and mundane, but it took a lot of smart people working very hard to get to this point. Motion film is a bit over 100 years old, and in that time it&amp;rsquo;s gone from a strange novelty to a series of multibillion-dollar industries that we interact with every day.</description>
+    </item>
+    
+    <item>
+      <title>The Problem with PowerShell</title>
+      <link>https://ericsweb.site/2017/08/21/The-Problem-With-Powershell/</link>
+      <pubDate>Mon, 21 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/08/21/The-Problem-With-Powershell/</guid>
+      <description>In my past life as a Windows/.NET developer, I spent a lot of time working with various parts of the .NET world, including PowerShell.
+For those uninitiated, the .NET framework is the framework Microsoft has been increasingly pushing for development for their operating systems. Multiple programming languages in the MS world use this same framework - it&amp;rsquo;s made to work well across different programming languages. The most popular languages for the framework are C# (one of my favorite programming languages, right next to Swift), Visual C++, Visual Basic, F#, and PowerShell.</description>
+    </item>
+    
+    <item>
+      <title>Why I Like FreeBSD</title>
+      <link>https://ericsweb.site/2017/07/03/Why-I-Like-FreeBSD/</link>
+      <pubDate>Mon, 03 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/07/03/Why-I-Like-FreeBSD/</guid>
+      <description>Those of you who know me may have noticed I&amp;rsquo;ve been talking about FreeBSD. When I get into a technology, I like to research it. I like to understand the philosophy behind it, and I like to learn how to use it to its full potential. When I&amp;rsquo;m into a technology, I try to dig in and maximize my use of it. So since I&amp;rsquo;ve been living with FreeBSD for quite a while, I&amp;rsquo;ll explain why I like it so much, and what it has to offer (in my opinion) over other alternatives, as well as reasons why I, personally, like it.</description>
+    </item>
+    
+    <item>
+      <title>A Look Back</title>
+      <link>https://ericsweb.site/2017/06/18/A-Look-Back/</link>
+      <pubDate>Sun, 18 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/06/18/A-Look-Back/</guid>
+      <description>Since I just graduated college with a B.S. in software engineering, I think it&amp;rsquo;s a good time to look back.
+The Early Years # As a kid, some of my first exposure to computers was the computers the school had that we were sometimes allowed to play with after school. They had a few games on them, mostly edutainment games designed to help kids learn arithmetic, practice reading, and things like that.</description>
+    </item>
+    
+    <item>
+      <title>2016 MacBook Pro Review</title>
+      <link>https://ericsweb.site/2017/06/17/2016-MacBook-Pro-Review/</link>
+      <pubDate>Sat, 17 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/06/17/2016-MacBook-Pro-Review/</guid>
+      <description>Some Background # I have a bad habit of putting more background in these posts than I need to. So, if you want to know a bit more about the history of the product line, and the context of this review, read on. Otherwise, feel free to skip to the next section.
+For my new job (I just graduated) as a professional software engineer, I got my hands on a 2016 MacBook Pro as my personal machine.</description>
+    </item>
+    
+    <item>
+      <title>The Case for the Artificial Sciences</title>
+      <link>https://ericsweb.site/2017/06/09/The-Case-For-Artificial-Science/</link>
+      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/06/09/The-Case-For-Artificial-Science/</guid>
+      <description>The two traditional branches of science are the natural sciences (such as physics, chemistry, and biology) and the social sciences (such as sociology, psychology, and anthropology). Computer science falls into neither of these categories, as it is neither a study of the natural world nor a study of human society. It&amp;rsquo;s been argued that, because of this, the term &amp;ldquo;Computer Science&amp;rdquo; is a misnomer, instead relegating Computer Science to the realm of mathematics.</description>
+    </item>
+    
+    <item>
+      <title>2017 WWDC Coverage</title>
+      <link>https://ericsweb.site/2017/06/05/2017-WWDC-Coverage/</link>
+      <pubDate>Mon, 05 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/06/05/2017-WWDC-Coverage/</guid>
+      <description>As I&amp;rsquo;m beginning to write this, Apple&amp;rsquo;s 2017 World Wide Developer Conference keynote has just wrapped up. And what a big conference it was. Tim Cook said it was the biggest one they&amp;rsquo;ve ever done - and for once, that may not be hyperbole.
+In science and engineering, there are two kinds of breakthroughs. The one we most often think of is the creation of new technology. And while that is certainly important, the advances that really change things are the ones that don&amp;rsquo;t bring about a new technology, but that make it accessible.</description>
+    </item>
+    
+    <item>
+      <title>What is Ethical Hacking? And Contemporary Cybersecurity Ethics</title>
+      <link>https://ericsweb.site/2017/05/19/Ethical-Hacking/</link>
+      <pubDate>Fri, 19 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/05/19/Ethical-Hacking/</guid>
+      <description>Hackers. They&amp;rsquo;re becoming increasingly important and relevant. From government agencies, to international hackers and political controversies, to someone stealing your credit card. It&amp;rsquo;s becoming bigger and bigger, and question of how to deal with them is becoming increasingly important.
+For this, I&amp;rsquo;m going to use a definition of hacking that is a bit more expansive than most. Hacking, as far as I&amp;rsquo;m concerned, is deliberately getting unauthorized access to a computer system - whether that is reading data, running a program, or changing something.</description>
+    </item>
+    
+    <item>
+      <title>Linux and BSD - A Tale of Two Operating Systems</title>
+      <link>https://ericsweb.site/posts/adventures-in-bsd/</link>
+      <pubDate>Fri, 12 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/posts/adventures-in-bsd/</guid>
+      <description>I&amp;rsquo;ve been using FreeBSD a lot recently. FreeBSD is similar to Linux operating systems in many ways, and at least initially, it will feel like home to Linux users. But along the way, there are lots of pitfalls stemming from the historical philosophical differences in the BSD and Linux communities. In this article, I&amp;rsquo;m going to talk about my adventures in BSDand Linux, coming from mainly a MacOS background with some experience in Linux operating systems and a soft spot for FreeBSD.</description>
+    </item>
+    
+    <item>
+      <title>What is Beamforming, and How Will it Change the World?</title>
+      <link>https://ericsweb.site/posts/beamforming/</link>
+      <pubDate>Sat, 06 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/posts/beamforming/</guid>
+      <description>As the internet&amp;rsquo;s grown up, more and more areas have started to be explored, especially in consumer devices. The best examples are smarthome hardware, wearable tech, and the ever-growing power of smartphones. Engineers are moving Heaven and Earth to make everyday things slightly more convenient.
+What is Beamforming? # It&amp;rsquo;s a wireless technology, based around electomagnetic fields, especially WiFi. Traditionally, WiFi is radiated out in a sphere, in the same way that light emits from a lightbulb in every direction.</description>
+    </item>
+    
+    <item>
+      <title>The World Runs on Bad Code</title>
+      <link>https://ericsweb.site/posts/the-world-runs-on-bad-code/</link>
+      <pubDate>Fri, 05 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/posts/the-world-runs-on-bad-code/</guid>
+      <description>Code quality, the savior of, and the bane of, programmers.
+Writing code is easy. I really do believe that with effort and willingness to learn, just about anybody can write a simple program. The challenge, however, is writing good code.
+In the paraphrased words of Peter Welch (a lot of this post is inspired by his essay, Programming Sucks, and its counterpart by a different author, What Programming is Like), good code reads like poetry written by someone over thirty.</description>
+    </item>
+    
+    <item>
+      <title>Why Package Managers are Great - With a Focus on Homebrew</title>
+      <link>https://ericsweb.site/2017/04/21/Package-Managers/</link>
+      <pubDate>Fri, 21 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/04/21/Package-Managers/</guid>
+      <description>I really like package managers. Often, I&amp;rsquo;ll even get a bit preachy about them. So guess what I&amp;rsquo;m going to do!
+Package managers are a lovely piece of technology. Linux users will be very familiar with the terminology, but the fact is most of us interact with them regularly without even realizing it.
+From Wikipedia: A package manager or package management system is a collection of software tools that automates the process of installing, upgrading, configuring, and removing computer programs for a computer&amp;rsquo;s operating system in a consistent manner.</description>
+    </item>
+    
+    <item>
+      <title>The Problem with File Systems</title>
+      <link>https://ericsweb.site/2017/04/14/Filesystems-Suck/</link>
+      <pubDate>Fri, 14 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/04/14/Filesystems-Suck/</guid>
+      <description>File systems are organized hierarchically. This makes sense, and is somewhat intuitive to use. This is how your computer works. Everything is organized relative to the &amp;ldquo;root directory&amp;rdquo; (/ on Mac/Linux/BSD, C:\ on Windows). Every document, every executable, every system file is organized somewhere in that hierarchy. It&amp;rsquo;s how personal computers have worked for almost as long as we&amp;rsquo;ve had file systems on them. To those who are computer-savvy, or who grew up with computers, this makes complete sense.</description>
+    </item>
+    
+    <item>
+      <title>Today&#39;s Computers are Black Magic</title>
+      <link>https://ericsweb.site/2017/04/08/Computers-Are-Black-Magic/</link>
+      <pubDate>Sat, 08 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/04/08/Computers-Are-Black-Magic/</guid>
+      <description>Today&amp;rsquo;s computers are insanely fast and sophisticated. We don&amp;rsquo;t necessarily think of them that way, because they do such simple things like browse the web, read emails, and run dishwashers. Almost everything that uses electricity these days has a computer in it. We&amp;rsquo;re really seeing this with things like home automation, where even individual lightbulbs have small computers in them. They&amp;rsquo;re insanely cheap too, going to as little as $5 for something that can run a full operating system.</description>
+    </item>
+    
+    <item>
+      <title>On Internet Privacy - 31 March 2017</title>
+      <link>https://ericsweb.site/2017/03/31/Internet-Privacy/</link>
+      <pubDate>Fri, 31 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/03/31/Internet-Privacy/</guid>
+      <description>Prologue # I don&amp;rsquo;t like to post or write about politics. I&amp;rsquo;m much more interested in education and exploration of the kinds of topics I cover, and carefree writing. That said, I also feel that I can&amp;rsquo;t ignore it when the world of politics steps into the world of computer science; I would be doing a disservice to this website, to my (small) readership, and to myself if I ignore it and don&amp;rsquo;t speak up and voice my opinion.</description>
+    </item>
+    
+    <item>
+      <title>On the AES Encryption Algorithm</title>
+      <link>https://ericsweb.site/2017/03/29/AES-Security-Paper/</link>
+      <pubDate>Wed, 29 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/03/29/AES-Security-Paper/</guid>
+      <description>I wrote this paper for my Information Security class. Original publish date: 20 December 2016
+The Advanced Encryption Standard, or AES, is a symmetric algorithm released by the United States National Instritute of Standards and Technology (NIST). It is technically specified in FIPS-197. It is another name for the Rijndael algorithm, though they are distinct; the Rijndael is its own algorithm, but it was selected by the NIST for the AES standard.</description>
+    </item>
+    
+    <item>
+      <title>How to Make a Basic rc.d Script in FreeBSD</title>
+      <link>https://ericsweb.site/2017/03/28/FreeBSD-rcd-Setup/</link>
+      <pubDate>Tue, 28 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/03/28/FreeBSD-rcd-Setup/</guid>
+      <description>Recently, I wanted to make an rc.d script for my FreeBSD server, in order to include TeamCity in the service interface, which in FreeBSD is linked to the rc.d system, as opposed to Linux&amp;rsquo;s systemd system. I was unable to find an easy tutorial, until I stumbled upon a Minecraft forum where I found information on a suitable script. The rc.d system is actually rather nice to work with, and in my opinion, confers more power to the user than does systemd.</description>
+    </item>
+    
+    <item>
+      <title>March 21 2017 Apple Press Release Coverage</title>
+      <link>https://ericsweb.site/2017/03/23/Apple-Press-Release-Coverage/</link>
+      <pubDate>Thu, 23 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/03/23/Apple-Press-Release-Coverage/</guid>
+      <description>Apple put out a press release on Monday, announcing a few minor new products. I&amp;rsquo;m here to cover what they did, and what I think of it. I&amp;rsquo;ll also say that I&amp;rsquo;m aggregating a lot from MacRumors, which is a website with Apple news and, in my opinion, is the fairest and has the highest journalistic integrity of the mainstream Apple news aggregators.
+1. Now Lower-End iPad # Apple released a new lower-end iPad.</description>
+    </item>
+    
+    <item>
+      <title>Automatically Adding Screenshots to Photos in MacOS</title>
+      <link>https://ericsweb.site/2017/03/19/MacOS-Screenshots-AddToPhotos/</link>
+      <pubDate>Sun, 19 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/03/19/MacOS-Screenshots-AddToPhotos/</guid>
+      <description>I take a lot of screenshots. I use them for my website, for memory, for laughs, and a lot more. However, I also take lots of screenshots on my phone. So it winds up being really weird (and inconvenient) when the screenshots on my computer and the screenshots on my phone are organized differently and in completely different places.
+So naturally, being the procrastinating programmer I am, I engineered a solution to consolidate everything in one nice, organized package.</description>
+    </item>
+    
+    <item>
+      <title>Apple, Muster your Courage. It&#39;s time for USB-C.</title>
+      <link>https://ericsweb.site/2017/03/16/iPad-USB-C/</link>
+      <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/03/16/iPad-USB-C/</guid>
+      <description>Apple, I&amp;rsquo;ve watched your progress over the last few years with interest. As a fan, follower, and analyst, I feel I need to call you out on it when you&amp;rsquo;re making a mistake.
+And you&amp;rsquo;re making a mistake.
+USB-C is the future. You know this. It&amp;rsquo;s why your new laptops have solely USB-C (and despite what the haters say, that&amp;rsquo;s a good thing). So it&amp;rsquo;s time to muster your famous courage, and follow through on that.</description>
+    </item>
+    
+    <item>
+      <title>Setting up Simple Continuous Integration for iOS Development with XCode</title>
+      <link>https://ericsweb.site/2017/03/07/XCode-CI-Article/</link>
+      <pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/03/07/XCode-CI-Article/</guid>
+      <description>Setting up reliable continuous integration (CI) for XCode can be a nightmare. I personally wrestled with the problem for a long while, eventually finding a somewhat convoluted workaround to make it work. However, I&amp;rsquo;ve since found a way to develop and maintain a reliable CI solution. Following is how you can whip together something similar.
+In this guide, you&amp;rsquo;ll find a start-to-finish CI solution for an XCode project.
+Vocabulary # If you&amp;rsquo;re familiar with CI, you can probably skip this (short) section.</description>
+    </item>
+    
+    <item>
+      <title>3 Things I Like About Swift</title>
+      <link>https://ericsweb.site/2017/02/23/3-Things-About-Swift/</link>
+      <pubDate>Thu, 23 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/02/23/3-Things-About-Swift/</guid>
+      <description>Within the past several months, I&amp;rsquo;ve been working a lot in Swift 3 and XCode 8. The language was a brand new experience for me, and there was quite a learning curve. I&amp;rsquo;ve never worked with a language like it and while, as always, programming skills carry over, the syntax of Swift proved tricky. However, after this time, I&amp;rsquo;ve either gained an appreciation for some of the more novel features in Swift, or else I&amp;rsquo;ve gained stockholm syndrome.</description>
+    </item>
+    
+    <item>
+      <title>Photos of the Sunrise</title>
+      <link>https://ericsweb.site/2017/02/14/Sunrise-Photos/</link>
+      <pubDate>Tue, 14 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/02/14/Sunrise-Photos/</guid>
+      <description>A few nights ago, I was up all night working. Around 6:30 AM I got done, and my watch told me it was less than half an hour until sunrise (which was at 6:52). On a whim, I decided to go to the top of the hill by my house and try to take some pictures. It turned out to be a really nice view, where even though it was obfuscated by the lake, I could just barely see the horizon over the lake.</description>
+    </item>
+    
+    <item>
+      <title>Apple Watch Review</title>
+      <link>https://ericsweb.site/2017/01/27/Apple-Watch-Review/</link>
+      <pubDate>Fri, 27 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/01/27/Apple-Watch-Review/</guid>
+      <description>So, I&amp;rsquo;ve recently come into posession of an Apple Watch. I like to wait before making value judgements on things, so here I am writing a review a month later. For the record, this is a 42mm Series 2 model.
+Overall # In the time I&amp;rsquo;ve had it, I&amp;rsquo;ve gained a very favorable opinion of the Apple Watch. Its user experience is definitely one of the best I&amp;rsquo;ve experienced, and it feels very polished.</description>
+    </item>
+    
+    <item>
+      <title>Ethical Considerations in Advanced Robotics and AI</title>
+      <link>https://ericsweb.site/2017/01/20/Ethical-Considerations-In-Advanced-Robotics-and-AI/</link>
+      <pubDate>Fri, 20 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/01/20/Ethical-Considerations-In-Advanced-Robotics-and-AI/</guid>
+      <description>Advanced robotics and Artificial Intelligence is a very new area of scientific and sociological discussion. There wind up being a lot of problems with these kinds of products as they become increasingly complex, and when something goes wrong it&amp;rsquo;s not always clear whether responsibility lies with the user or with the manufacturer. I was inspired by this article, where the author discussed
+Important Terms # AI: Artificial Intelligence - A human-created entity that can respond to external stimuli in a way that is comparable to a human in terms of sophistication.</description>
+    </item>
+    
+    <item>
+      <title>How to Secure Your Online Life</title>
+      <link>https://ericsweb.site/2017/01/17/How-to-Secure-Your-Online-Life/</link>
+      <pubDate>Tue, 17 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/01/17/How-to-Secure-Your-Online-Life/</guid>
+      <description>Have an online stalker who you&amp;rsquo;re worried might hack your account? Have sensitive materials in your accounts or computer that you don&amp;rsquo;t want to be exposed to a threat? Just want to be safe in the modern day internet environment? Here you&amp;rsquo;ll find some simple guidelines to stay safe out there.
+As time goes on, personal information security has gotten more and more important, and knowing what exactly to do and how to do it is difficult.</description>
+    </item>
+    
+    <item>
+      <title>2016 MacBook Pro Impressions</title>
+      <link>https://ericsweb.site/2016/11/12/2016-Macbook-Pro-Impressions/</link>
+      <pubDate>Sat, 12 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2016/11/12/2016-Macbook-Pro-Impressions/</guid>
+      <description>Introduction # Now that I actually have some time on my hands, I&amp;rsquo;ll talk about Apple&amp;rsquo;s MacBook Pro line refresh. This refresh has long been asked for in Apple circles, after the line has gone stale. It seems to me that Apple has largely transitioned away from its computer line, treating them more as accessories to iPhone devices than as standalone products. It seems to me that the new iterations of MacBooks are largely informed by this philosophy, in that they&amp;rsquo;re coming in with lower power requirements, a smaller footprint, and longer battery life.</description>
+    </item>
+    
+    <item>
+      <title>How to use Avahi to advertise an HTTP service</title>
+      <link>https://ericsweb.site/2016/09/26/Avahi-HTTP-Service/</link>
+      <pubDate>Mon, 26 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2016/09/26/Avahi-HTTP-Service/</guid>
+      <description>This is a simple guide to how to set up avahi to advertise an HTTP service that a web browser (in this case, Safari&amp;rsquo;s Bonjour) can detect and hook into.
+Background: This is running on a server running FreeBSD 10.3.0. Avahi was installed using pkg and set up with the default configuration. It is used largely as a sandbox for experimenting, as well as being a media/file server and a light webserver.</description>
+    </item>
+    
+    <item>
+      <title>Jurassic World with Chris Pratt as the Velociraptors and a Velociraptor as Chris Pratt</title>
+      <link>https://ericsweb.site/2016/09/24/Jurassic-World-Reversal/</link>
+      <pubDate>Sat, 24 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2016/09/24/Jurassic-World-Reversal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Dramatic Re-enactment of the iPhone 7&#39;s Development Pitch</title>
+      <link>https://ericsweb.site/posts/iphone-7s-development-pitch/</link>
+      <pubDate>Wed, 14 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/posts/iphone-7s-development-pitch/</guid>
+      <description>T is Tim Cook. All others&#39; positions are inferred by context. This is just a fun little script I wrote.
+ T: &amp;ldquo;We need better photo quality.&amp;rdquo;
+A: &amp;ldquo;Really? I think users care more about-&amp;rdquo;
+The sniper Apple keeps across the street to monitor its engineers takes out A.
+B: &amp;ldquo;Photo quality is my top priority!&amp;rdquo;
+T: &amp;ldquo;Okay, good. What can we do about it?&amp;rdquo;
+B: &amp;ldquo;Well, people like zooming in, but digital zoom sucks.</description>
+    </item>
+    
+    <item>
+      <title>09/07 Apple Event Coverage</title>
+      <link>https://ericsweb.site/2016/09/10/0907-Apple-Event-Coverage/</link>
+      <pubDate>Sat, 10 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2016/09/10/0907-Apple-Event-Coverage/</guid>
+      <description>So, I&amp;rsquo;ll do my regular coverage of the Apple event now that I&amp;rsquo;ve sat on it a few days, broken into relevant subsections:
+Apple Watch: #  Added a new iteration, called &amp;ldquo;Series 2&amp;rdquo;, and one that&amp;rsquo;s basically the same but with a processor update, &amp;ldquo;Series 1&amp;rdquo;. Processor update to both. Nothing truly substantial, but it will help future-proof it. Series 2 is waterproof and has built-in GPS. This makes it more usable for fitness without an iPhone nearby.</description>
+    </item>
+    
+    <item>
+      <title>Excerpts from Apple&#39;s Review Guidelines</title>
+      <link>https://ericsweb.site/2015/09/23/Excerpts-from-Apple&#39;s-Review-Guidelines/</link>
+      <pubDate>Wed, 23 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2015/09/23/Excerpts-from-Apple&#39;s-Review-Guidelines/</guid>
+      <description>From this document: https://developer.apple.com/app-store/review/guidelines/
+ &amp;ldquo;…if your app is plain creepy, it may not be accepted&amp;rdquo; &amp;ldquo;We have lots of serious developers who don&amp;rsquo;t want their quality Apps to be surrounded by amateur hour.&amp;rdquo; &amp;ldquo;We will reject Apps for any content or behavior that we believe is over the line. What line, you ask? Well, as a Supreme Court Justice once said, &amp;ldquo;I&amp;rsquo;ll know it when I see it&amp;rdquo;.&amp;rdquo; &amp;ldquo;If you run to the press and trash us, it never helps.</description>
+    </item>
+    
+  </channel>
+</rss>

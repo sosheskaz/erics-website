@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  class="dark"
+><head>
+  <meta charset="utf-8" />
+  
+    <meta http-equiv="content-language" content="en-us" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>How to Create a Time Machine Server with FreeBSD &middot; Eric&#39;s Web.site</title>
+    <meta name="title" content="How to Create a Time Machine Server with FreeBSD &middot; Eric&#39;s Web.site" />
+  
+  <meta name="description" content="Eric Miller&#39;s website to post about Technology, life, and anything else that comes up." />
+  
+  
+  
+  <link rel="canonical" href="https://ericsweb.site/2017/12/12/Time-Machine-with-FreeBSD/" />
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/schemes/congo.min.b48d6ba061dc77186a2524fb8aac5ac3823b2679a9299ca60325abbccc9c1764c884715f0ba24b4e2776cb3814df4af1f4c854b87207cd5d4c7a254da9b55751.css"
+    integrity="sha512-tI1roGHcdxhqJST7iqxaw4I7JnmpKZymAyWrvMycF2TIhHFfC6JLTid2yzgU30rx9MhUuHIHzV1MeiVNqbVXUQ=="
+  />
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/compiled/main.min.4076b9cf114dd23cca017f3365e2205a4c9a4b2c0ef4193ccd08883f76e554aa40f674a8f6e77a1b2895be0975ba8e019b0c59996c2eea32e4970ca4d5221653.css"
+    integrity="sha512-QHa5zxFN0jzKAX8zZeIgWkyaSywO9Bk8zQiIP3blVKpA9nSo9ud6GyiVvgl1uo4BmwxZmWwu6jLklwyk1SIWUw=="
+  />
+  
+  
+  
+    <script>
+      function loadPreferredAppearance() {
+        if (localStorage.preferredAppearance === "dark" || (!("preferredAppearance" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      }
+      function setPreferredAppearance(scheme) {
+        if (scheme == "default") {
+          localStorage.removeItem("preferredAppearance");
+        } else {
+          localStorage.preferredAppearance = scheme;
+        }
+        loadPreferredAppearance();
+      }
+      loadPreferredAppearance();
+      window.matchMedia("(prefers-color-scheme: dark)").addListener(loadPreferredAppearance);
+    </script>
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="How to Create a Time Machine Server with FreeBSD" />
+<meta property="og:description" content="Running a time machine server has historically been a pain. Which sucks, because it&rsquo;s actually a pretty good backup system. For the uninitiated, Time Machine is the built-in backup system on macOS. It keeps incremental backups, which means you can restore your machine to an hour ago, a week ago, a month ago, a year ago, and various increments in between. However, running one tends to suck, because there have historically been two options for doing it." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ericsweb.site/2017/12/12/Time-Machine-with-FreeBSD/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-12-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-12-12T00:00:00+00:00" /><meta property="og:site_name" content="Eric&#39;s Web.site" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to Create a Time Machine Server with FreeBSD"/>
+<meta name="twitter:description" content="Running a time machine server has historically been a pain. Which sucks, because it&rsquo;s actually a pretty good backup system. For the uninitiated, Time Machine is the built-in backup system on macOS. It keeps incremental backups, which means you can restore your machine to an hour ago, a week ago, a month ago, a year ago, and various increments in between. However, running one tends to suck, because there have historically been two options for doing it."/>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "articleSection": "Posts",
+    "name": "How to Create a Time Machine Server with FreeBSD",
+    "headline": "How to Create a Time Machine Server with FreeBSD",
+    "description": "Running a time machine server has historically been a pain. Which sucks, because it\u0026rsquo;s actually a pretty good backup system. For the uninitiated, Time Machine is the built-in backup system on macOS. It keeps incremental backups, which means you can restore your machine to an hour ago, a week ago, a month ago, a year ago, and various increments in between. However, running one tends to suck, because there have historically been two options for doing it.",
+    "inLanguage": "en-us",
+    "author" : {
+      "@type": "Person",
+      "name": "Eric Miller"
+    },
+    "creator" : {
+      "@type": "Person",
+      "name": "Eric Miller"
+    },
+    "copyrightHolder": "Eric Miller",
+    "copyrightYear": "2017",
+    "dateCreated": "2017-12-12T00:00:00\u002b00:00",
+    "datePublished": "2017-12-12T00:00:00\u002b00:00",
+    "dateModified": "2017-12-12T00:00:00\u002b00:00",
+    "url" : "https:\/\/ericsweb.site\/2017\/12\/12\/Time-Machine-with-FreeBSD\/",
+    "wordCount": "1046",
+    "keywords": ["FreeBSD",]
+  }
+  </script>
+
+
+  
+  
+    <meta name="generator" content="Hugo 0.90.0-DEV" />
+  
+  
+  <meta name="author" content="Eric Miller" />
+  
+    
+      <link href="https://github.com/sosheskaz/" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 bg-neutral text-neutral-900 sm:px-14 md:px-24 lg:px-32 dark:bg-neutral-800 dark:text-neutral max-w-7xl"
+  ><header
+  class="flex justify-between py-6 font-semibold sm:items-center sm:py-10 text-neutral-800 dark:text-neutral"
+>
+  
+  <div>
+    
+      <a
+        class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+        rel="me"
+        href="/"
+        >Eric&rsquo;s Web.site</a
+      >
+  </div>
+  
+  
+    <nav>
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/posts/"
+              title="Posts"
+              >All Posts</a
+            >
+          </li>
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/categories/"
+              title="Categories"
+              >Categories</a
+            >
+          </li>
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/profile/"
+              title="About Me"
+              >About</a
+            >
+          </li>
+        
+      </ul>
+    </nav>
+  
+</header>
+<main class="flex-grow">
+  <article class="max-w-prose">
+    <header>
+      
+        <ol class="text-sm text-neutral-400 dark:text-neutral-500">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Index</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/posts/"
+      >Posts</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/2017/12/12/Time-Machine-with-FreeBSD/"
+      >How to Create a Time Machine Server with FreeBSD</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-800 dark:text-neutral">
+        How to Create a Time Machine Server with FreeBSD
+      </h1>
+      <div class="mt-8 mb-12 text-base text-neutral-400 dark:text-neutral-500">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row items-center">
+    
+    
+      <time datetime="2017-12-12 00:00:00 &#43;0000 UTC">12 December 2017</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
+    
+
+    
+    
+  </div>
+
+
+      </div>
+    </header>
+    <section class="prose dark:prose-light">
+      <p>Running a time machine server has historically been a pain. Which sucks, because it&rsquo;s actually a
+pretty good backup system. For the uninitiated, Time Machine is the built-in backup system on macOS.
+It keeps incremental backups, which means you can restore your machine to an hour ago, a week ago,
+a month ago, a year ago, and various increments in between. However, running one tends to suck,
+because there have historically been two options for doing it. Either sinking $300 on an Apple
+router (they&rsquo;re nice enough routers, but not something I want personally) that&rsquo;s capable of it, or
+buying macOS server and getting a spare mac to just be a server for backups. This is silly, because
+macOS doesn&rsquo;t make for a good server. Luckily, with the new macOS, they made the time machine server
+functionality part of the OS, rather than part of their server app.</p>
+<p>Somehow, it&rsquo;s taken me embarassingly long to finally figure out how to set up a Time Machine server
+on my FreeBSD machine. Though details proved hard to find, I eventually dug up some guides on how
+to do it on Linux, and adapted it for my setup. This guide will walk you through how to do it on
+FreeBSD, and if you&rsquo;re on Linux, you can probably figure it out between this and finding other
+guides.</p>
+<h3 id="0-notes">0. Notes <a class="heading-anchor" href="#0-notes" aria-label="Anchor">#</a></h3>
+<p>You don&rsquo;t want to run this over an insecure network. This is designed for running inside of home
+or business networks, not being open on the internet or available to anyone on a guest network.</p>
+<h3 id="1-netatalk">1. Netatalk <a class="heading-anchor" href="#1-netatalk" aria-label="Anchor">#</a></h3>
+<p>First, we need to install <code>netatalk3</code>. <code>Netatalk</code> is an open-source server for running AFP (Apple
+Filing Protocol) file shares over your network. AFP is generally considered an inferior protocol,
+but it&rsquo;s the only thing Time Machine supports, so we&rsquo;re stuck with it (unless you want this to get
+complicated and unreliable). Do this with <code>pkg install netatalk3</code>.</p>
+<h3 id="2-prepping-your-file-system">2. Prepping your File System <a class="heading-anchor" href="#2-prepping-your-file-system" aria-label="Anchor">#</a></h3>
+<p>This is basically an optional step. I wanted to limit the total size of all my backups to 1TB, and
+have a partition on my file system specifically for Time Machine. I&rsquo;m using ZFS for my data share,
+so the command I ran was <code>zfs create -o quota=1T storage/timemachine</code>. You&rsquo;ll also need to set up
+ZFS to auto-mount this new partition.</p>
+<p>You can do this (or not do this) however you want, but you&rsquo;ll need to have a location ready to
+hold Time Machine&rsquo;s files. Mine is <code>/storage/timemachine</code>. You&rsquo;ll also want to make sure that
+the user accounts (on the machine) can access the underlying filesystem. Use <code>chown</code>, <code>chgrp</code>, and
+<code>chmod</code> as appropriate.</p>
+<h3 id="3-netatalk-settings">3. Netatalk Settings <a class="heading-anchor" href="#3-netatalk-settings" aria-label="Anchor">#</a></h3>
+<p>Next, you&rsquo;ll need to edit netatalk&rsquo;s settings, which are found on FreeBSD in
+<code>/usr/local/etc/afp.conf</code>. You&rsquo;ll want at least two sections - a &ldquo;Global&rdquo; section, and a &ldquo;Time
+Machine&rdquo; section. Here&rsquo;s a quick look at mine, before I go through it piece by piece. A full
+reference document can be found
+<a href="http://netatalk.sourceforge.net/3.0/htmldocs/afp.conf.5.html">here</a>.</p>
+<pre tabindex="0"><code>[Global]
+; Global server settings
+hostname = myserver
+hosts allow = 192.168.1.0/24
+afp listen = 192.168.1.111
+zeroconf = yes
+
+[Time Machine]
+path = /storage/timemachine
+time machine = yes
+valid users = ericmiller
+</code></pre><p>[Global] defines the settings that apply to <strong>all</strong> your following shares. If you ever choose to
+set up another AFP share, it&rsquo;ll be useful to have these as a shorthand.</p>
+<ul>
+<li>Hostname defines what hostname you advertise on your local network. You&rsquo;ll want this to reflect
+a real domain or IP address that can be used to connect to your server.</li>
+<li>Hosts allow says what hosts are allowed to connect to your server. This is a basic security
+measure that limits what IP addresses can connect to your share. The range I have here
+(<code>192.168.1.0/24</code>) is standard CIDR notation saying that all IP addresses from <code>192.168.1.0</code> to
+<code>192.168.1.255</code> are allowed to connect. <code>192.168.1.0/24</code> is the typical subnet for consumer
+routers. <code>192.168.0.0/24</code> is also common (ish).</li>
+<li>AFP listen tells it which network interfaces (and port) to listen on and advertise. I only have
+one outward-facing network interface, which is the IP address of my server. Running
+<code>ifconfig | grep inet</code> should give you a short list of options.</li>
+<li>Zeroconf tells the server to advertise on the local network that it is an AFP server. You&rsquo;ll
+want to enable this to get time machine to work properly. If you&rsquo;re using avahi, you may not
+need this as long as you configure an avahi service for <code>_afpovertcp._tcp</code>.</li>
+<li>[Time Machine] tells netatalk that the following settings are specific to just the share we&rsquo;re
+using for Time Machine. In the brackets, put whatever you want the display name of your Time
+Machine share to be.</li>
+<li>path is the path to the place on the file system you want to use for time machine.</li>
+<li>time machine tells the server that this share <em>is</em> for time machine, and enables support for it.</li>
+<li>valid users tells it what users (as defined through PAM) are allowed to access/modify the share.</li>
+<li>This isn&rsquo;t in my config, but you may consider another line like <code>vol size limit = 1000000</code>,
+where the value given is in Megabytes. I don&rsquo;t need this because I have my own area carved out
+on the file system level, but it is generally recommended for Time Machine backups.</li>
+<li>Look at the <a href="http://netatalk.sourceforge.net/3.0/htmldocs/afp.conf.5.html">reference document</a>.
+There may be other options you want (and more details) there.</li>
+</ul>
+<h3 id="4-service">4. Service <a class="heading-anchor" href="#4-service" aria-label="Anchor">#</a></h3>
+<p>Next, you&rsquo;ll want to enable the service by adding the line <code>netatalk_enable=&quot;YES&quot;</code> to
+<code>/etc/rc.conf</code>. Then, just run <code>service netatalk start</code> to get it running.</p>
+<h3 id="5-start-using-it">5. Start Using It <a class="heading-anchor" href="#5-start-using-it" aria-label="Anchor">#</a></h3>
+<p>On your mac, open System Preferences and go to the Time Machine pane. Click &ldquo;Select Backup Disk&rdquo;.
+The share you just created should pop up as an option. Select it. I also recommend selecting the
+&ldquo;Encrypt backups&rdquo; checkbox, especially if the underlying file system is not encrypted (maybe even
+if it is, just to be safe). Click &ldquo;Use Disk&rdquo;. It will prompt you for a login - use the login for
+your server that you should have in &ldquo;valid users&rdquo;. Normally, this is the same as your general login
+for the server. Make sure to set up any files or directories you want to exclude. Large binary
+files (like virtual machines) and temporary files (like ~/Downloads) are great candidates here.</p>
+
+    </section>
+    <footer class="pt-8">
+      
+  <div class="flex">
+    
+      <img class="w-24 h-24 !mt-0 !mb-0 mr-4 rounded-full" src="/images/ericmiller.png" />
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] leading-3 text-neutral-400 dark:text-neutral-500 uppercase">
+          Author
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          Eric Miller
+        </div>
+      
+      
+        <div class="text-sm text-neutral-700 dark:text-neutral-400">DevOps Engineer, Kuberneter</div>
+      
+      
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/sosheskaz/"
+          target="_blank"
+          alt="Github"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+  </span>
+
+</a
+        >
+      
+    
+  </div>
+
+
+    </div>
+  </div>
+
+
+      
+
+      
+  
+    <div class="pt-8 article-pagination">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex" href="/2017/12/29/Whats-Going-On-With-Apples-Batteries/">
+              <span class="mr-3 article-pagination-direction">&larr;</span>
+              <span class="flex flex-col">
+                <span class="article-pagination-title mt-[0.1rem] leading-6"
+                  >What's Going on with Apple's Batteries?</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                  
+                    <time datetime="2017-12-29 00:00:00 &#43;0000 UTC">29 December 2017</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right" href="/2017/10/26/How-Encryption-Works/">
+              <span class="flex flex-col">
+                <span class="article-pagination-title mt-[0.1rem] leading-6"
+                  >How Encryption Works</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                  
+                    <time datetime="2017-10-26 00:00:00 &#43;0000 UTC">26 October 2017</time>
+                  
+                </span>
+              </span>
+              <span class="ml-3 article-pagination-direction">&rarr;</span>
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    </footer>
+    
+  </article>
+</main><footer class="py-10">
+  
+  
+  <div class="flex justify-between">
+    <div>
+      
+      <p class="text-sm text-neutral-400 dark:text-neutral-500">
+          &copy;
+          2021
+          Eric Miller
+      </p>
+      
+      
+        <p class="text-xs text-neutral-300 dark:text-neutral-600">
+          
+          
+          Powered by <a class="hover:underline hover:underline-primary-300 hover:text-primary-400"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:underline-primary-300 hover:text-primary-400" href="https://git.io/hugo-congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    
+    
+      <div class="text-sm cursor-pointer text-neutral-400 dark:text-neutral-500">
+        <button
+          id="dark-toggle"
+          onclick="setPreferredAppearance('dark');"
+          oncontextmenu="setPreferredAppearance('default'); return false;"
+          class="inline px-2 py-1 border rounded-md border-neutral-200 dark:hidden hover:text-primary-500 hover:border-primary-400"
+          title="Switch to dark appearance"
+        >
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="moon" class="svg-inline--fa fa-moon fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"></path></svg>
+  </span>
+
+
+        </button>
+        <button
+          id="light-toggle"
+          onclick="setPreferredAppearance('light');"
+          oncontextmenu="setPreferredAppearance('default'); return false;"
+          class="hidden px-2 py-1 border rounded-md cursor-pointer dark:inline border-neutral-700 hover:text-primary-400 hover:border-primary-500"
+          title="Switch to light appearance"
+        >
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sun" class="svg-inline--fa fa-sun fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"></path></svg>
+  </span>
+
+
+        </button>
+      </div>
+    
+  </div>
+  
+  
+</footer>
+</body>
+</html>

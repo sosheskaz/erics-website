@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  class="dark"
+><head>
+  <meta charset="utf-8" />
+  
+    <meta http-equiv="content-language" content="en-us" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>3 Things I Like About Swift &middot; Eric&#39;s Web.site</title>
+    <meta name="title" content="3 Things I Like About Swift &middot; Eric&#39;s Web.site" />
+  
+  <meta name="description" content="Eric Miller&#39;s website to post about Technology, life, and anything else that comes up." />
+  
+  
+  
+  <link rel="canonical" href="https://ericsweb.site/2017/02/23/3-Things-About-Swift/" />
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/schemes/congo.min.b48d6ba061dc77186a2524fb8aac5ac3823b2679a9299ca60325abbccc9c1764c884715f0ba24b4e2776cb3814df4af1f4c854b87207cd5d4c7a254da9b55751.css"
+    integrity="sha512-tI1roGHcdxhqJST7iqxaw4I7JnmpKZymAyWrvMycF2TIhHFfC6JLTid2yzgU30rx9MhUuHIHzV1MeiVNqbVXUQ=="
+  />
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/compiled/main.min.4076b9cf114dd23cca017f3365e2205a4c9a4b2c0ef4193ccd08883f76e554aa40f674a8f6e77a1b2895be0975ba8e019b0c59996c2eea32e4970ca4d5221653.css"
+    integrity="sha512-QHa5zxFN0jzKAX8zZeIgWkyaSywO9Bk8zQiIP3blVKpA9nSo9ud6GyiVvgl1uo4BmwxZmWwu6jLklwyk1SIWUw=="
+  />
+  
+  
+  
+    <script>
+      function loadPreferredAppearance() {
+        if (localStorage.preferredAppearance === "dark" || (!("preferredAppearance" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      }
+      function setPreferredAppearance(scheme) {
+        if (scheme == "default") {
+          localStorage.removeItem("preferredAppearance");
+        } else {
+          localStorage.preferredAppearance = scheme;
+        }
+        loadPreferredAppearance();
+      }
+      loadPreferredAppearance();
+      window.matchMedia("(prefers-color-scheme: dark)").addListener(loadPreferredAppearance);
+    </script>
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="3 Things I Like About Swift" />
+<meta property="og:description" content="Within the past several months, I&rsquo;ve been working a lot in Swift 3 and XCode 8. The language was a brand new experience for me, and there was quite a learning curve. I&rsquo;ve never worked with a language like it and while, as always, programming skills carry over, the syntax of Swift proved tricky. However, after this time, I&rsquo;ve either gained an appreciation for some of the more novel features in Swift, or else I&rsquo;ve gained stockholm syndrome." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ericsweb.site/2017/02/23/3-Things-About-Swift/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-02-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-02-23T00:00:00+00:00" /><meta property="og:site_name" content="Eric&#39;s Web.site" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="3 Things I Like About Swift"/>
+<meta name="twitter:description" content="Within the past several months, I&rsquo;ve been working a lot in Swift 3 and XCode 8. The language was a brand new experience for me, and there was quite a learning curve. I&rsquo;ve never worked with a language like it and while, as always, programming skills carry over, the syntax of Swift proved tricky. However, after this time, I&rsquo;ve either gained an appreciation for some of the more novel features in Swift, or else I&rsquo;ve gained stockholm syndrome."/>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "articleSection": "Posts",
+    "name": "3 Things I Like About Swift",
+    "headline": "3 Things I Like About Swift",
+    "description": "Within the past several months, I\u0026rsquo;ve been working a lot in Swift 3 and XCode 8. The language was a brand new experience for me, and there was quite a learning curve. I\u0026rsquo;ve never worked with a language like it and while, as always, programming skills carry over, the syntax of Swift proved tricky. However, after this time, I\u0026rsquo;ve either gained an appreciation for some of the more novel features in Swift, or else I\u0026rsquo;ve gained stockholm syndrome.",
+    "inLanguage": "en-us",
+    "author" : {
+      "@type": "Person",
+      "name": "Eric Miller"
+    },
+    "creator" : {
+      "@type": "Person",
+      "name": "Eric Miller"
+    },
+    "copyrightHolder": "Eric Miller",
+    "copyrightYear": "2017",
+    "dateCreated": "2017-02-23T00:00:00\u002b00:00",
+    "datePublished": "2017-02-23T00:00:00\u002b00:00",
+    "dateModified": "2017-02-23T00:00:00\u002b00:00",
+    "url" : "https:\/\/ericsweb.site\/2017\/02\/23\/3-Things-About-Swift\/",
+    "wordCount": "964",
+    "keywords": ["swift","programming",]
+  }
+  </script>
+
+
+  
+  
+    <meta name="generator" content="Hugo 0.90.0-DEV" />
+  
+  
+  <meta name="author" content="Eric Miller" />
+  
+    
+      <link href="https://github.com/sosheskaz/" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 bg-neutral text-neutral-900 sm:px-14 md:px-24 lg:px-32 dark:bg-neutral-800 dark:text-neutral max-w-7xl"
+  ><header
+  class="flex justify-between py-6 font-semibold sm:items-center sm:py-10 text-neutral-800 dark:text-neutral"
+>
+  
+  <div>
+    
+      <a
+        class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+        rel="me"
+        href="/"
+        >Eric&rsquo;s Web.site</a
+      >
+  </div>
+  
+  
+    <nav>
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/posts/"
+              title="Posts"
+              >All Posts</a
+            >
+          </li>
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/categories/"
+              title="Categories"
+              >Categories</a
+            >
+          </li>
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/profile/"
+              title="About Me"
+              >About</a
+            >
+          </li>
+        
+      </ul>
+    </nav>
+  
+</header>
+<main class="flex-grow">
+  <article class="max-w-prose">
+    <header>
+      
+        <ol class="text-sm text-neutral-400 dark:text-neutral-500">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Index</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/posts/"
+      >Posts</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/2017/02/23/3-Things-About-Swift/"
+      >3 Things I Like About Swift</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-800 dark:text-neutral">
+        3 Things I Like About Swift
+      </h1>
+      <div class="mt-8 mb-12 text-base text-neutral-400 dark:text-neutral-500">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row items-center">
+    
+    
+      <time datetime="2017-02-23 00:00:00 &#43;0000 UTC">23 February 2017</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
+    
+
+    
+    
+  </div>
+
+
+      </div>
+    </header>
+    <section class="prose dark:prose-light">
+      <!-- raw HTML omitted -->
+<p>Within the past several months, I&rsquo;ve been working a lot in Swift 3 and XCode 8. The language was a brand
+new experience for me, and there was quite a learning curve. I&rsquo;ve never worked with a language like it and
+while, as always, programming skills carry over, the syntax of Swift proved tricky. However, after this time,
+I&rsquo;ve either gained an appreciation for some of the more novel features in Swift, or else I&rsquo;ve gained
+stockholm syndrome. Determining which is left as an exercise to the reader.</p>
+<!-- raw HTML omitted -->
+<h1 id="1-nil-nada-nothing">1. Nil! Nada! Nothing! <a class="heading-anchor" href="#1-nil-nada-nothing" aria-label="Anchor">#</a></h1>
+<p>That&rsquo;s right, &ldquo;nil&rdquo;. That&rsquo;s what null is called. Yes, it&rsquo;s weird that they&rsquo;ve eschewed traditional
+labeling in favor of this. The logic kind of makes sense, but I won&rsquo;t go into it - I&rsquo;m not actually here
+to talk about nil, but about <em>how it&rsquo;s handled</em> in Swift.</p>
+<p>In C#, there&rsquo;s a concept called <strong>Nullable.</strong> This makes primatives, like floating-point numbers and
+integers, which one would not normally be able to assign a value of null, to be assigned null.
+This is often quite useful when you want primatives to behave like normal objects. Swift implements a
+similar system, but instead it works for any object.</p>
+<p>As an example, say you have a &ldquo;Point&rdquo; object, stored in the variable point.</p>
+<pre><code>var point: Point = Point(1, 3)
+</code></pre>
+<p>The variable point can never be nil. If one tries the following code: <code>point = nil</code> it will raise a compiler
+error. However, if you wanted it to be able to be nil, all you have to do is add a &lsquo;?&rsquo; to Point, so that
+the type is now &ldquo;nillable&rdquo;.</p>
+<pre><code>var point: Point? = Point(1, 3)
+point = nil
+</code></pre>
+<p>This seems novel at first, but in conjunction with other features (one of which is coming up next) it really
+simplifies programming. When writing a function, if one wants, they can mandate that no values passed in are
+nil, which can simplify edge cases and testing. Now, onto &ldquo;nillable&rsquo;s&rdquo; best friend:</p>
+<h1 id="2-guard-statements">2. Guard Statements <a class="heading-anchor" href="#2-guard-statements" aria-label="Anchor">#</a></h1>
+<p>Guard statements were, for me, covered briefly in a class, but beyond that, not talked about much. A guard
+statement is a statement at the beginning of a function where it&rsquo;s decided whether the function can basically
+work. They&rsquo;re often used to check for null or for error conditions. Swift, however, has its own dedicated
+keyword for this, logically called <code>guard</code>. The keyword alone is useful for keeping code readable, because
+one can see the keyword, realize it&rsquo;s just checking for error conditions, and skip over it when understanding
+how some code works.</p>
+<p>But other than that, what benefits are there? For one, they force good practice; the compiler won&rsquo;t allow
+you to forget to <code>return</code>, <code>break</code>, or execute some other control flow. They allow one to create variables
+for future use, allowing one to seamlessly unwrap a nillable. Here&rsquo;s that in practice:</p>
+<pre><code>func doThing(thisReallyShouldNotBeNil: Int?, shouldBeTrue: Bool) {
+    guard let notNil = thisReallyShouldNotBeNil else {
+        print(&quot;you put in nil you dummy!&quot;)
+        return
+    }
+    guard shouldBeTrue == true else {
+        print(&quot;This should never happen :P&quot;)
+        return
+    }
+    
+    // notNil is an Int now, not an Int?.
+    
+    print(notNil != nil) // you will get a compiler warning because this will never be possible. 
+}
+</code></pre>
+<p>Obviously this is simplified, but it becomes very powerful in keeping things from getting out of hand as
+they get more complicated.</p>
+<h1 id="3-string-templating">3. String Templating <a class="heading-anchor" href="#3-string-templating" aria-label="Anchor">#</a></h1>
+<p>Y&rsquo;all, this is the best templating I&rsquo;ve ever seen. Even better than Ruby or C#. It&rsquo;s simply beautiful. Say
+one wants to print out a person&rsquo;s information:</p>
+<pre><code>print(&quot;Name: \(person.name)    Height: \(person.height)    Profession: \(person.profession)&quot;)
+</code></pre>
+<p>It&rsquo;s the simplest thing. Backslash, parenthesis. Fits the context of the language, is perfectly clear,
+and is one of the least verbose methods out there in any language. Simple beauty. It&rsquo;s the small things in
+life.</p>
+<h1 id="the-bad">The Bad <a class="heading-anchor" href="#the-bad" aria-label="Anchor">#</a></h1>
+<p>Swift is an innovative, different, and unique language, and it has its share of bad. Most of it boils down to</p>
+<h2 id="xcode">XCode <a class="heading-anchor" href="#xcode" aria-label="Anchor">#</a></h2>
+<p>Swift is hard to build without XCode. Really hard. Even JetBrains' AppCode relies on opening XCode for
+certain operations. One of the main reasons for this boils down to the flat filemap. In most programming
+languages, if you put something in a folder, that means it&rsquo;s in that folder in the operating system.
+This makes traversing and interacting with your project from the command line natural. Instead, there&rsquo;s an
+XML file that keeps track of the folder and subfolder in every file. If you want to look at the project as
+intended, you need XCode. While this maps well to Apple&rsquo;s (and arguable BSD&rsquo;s) centralized philosophy, it&rsquo;s
+an annoyance to developers.</p>
+<p>XCode is buggy and crash-prone; lots of times features simply stop working and XCode needs to be restarted.
+It reminds me of my early days with Eclipse over 5 years ago, and even then I believe Eclipse was more
+reliable.</p>
+<p>Beyond that, it just has poor design in many ways. Keyboard shortcuts aren&rsquo;t shown in menus, the toolbar is
+at times incomplete, and &ldquo;generate&rdquo; code functionality is painfully absent, to name a few.</p>
+<h1 id="closing">Closing <a class="heading-anchor" href="#closing" aria-label="Anchor">#</a></h1>
+<p>So yes, I like Swift quite a bit. It winds up being a different language, but some of the language features
+have shown to not only be nice to use, but to be very forward-thinking in terms of keeping large codebases
+sustainable. It also keeps up with more modern functionality, syntax, and paradigms quite well, while also
+putting its own spin on it.</p>
+<p>Finally, it&rsquo;s important to consider that Swift is designed very specifically around building UI apps. In
+this way it&rsquo;s often more specific, or at least has a different focus, than many other languages. When
+learning it, it&rsquo;s important to keep an open mind, and to give Swift&rsquo;s way of doing things a shot. I&rsquo;m glad
+I did.</p>
+
+    </section>
+    <footer class="pt-8">
+      
+  <div class="flex">
+    
+      <img class="w-24 h-24 !mt-0 !mb-0 mr-4 rounded-full" src="/images/ericmiller.png" />
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] leading-3 text-neutral-400 dark:text-neutral-500 uppercase">
+          Author
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          Eric Miller
+        </div>
+      
+      
+        <div class="text-sm text-neutral-700 dark:text-neutral-400">DevOps Engineer, Kuberneter</div>
+      
+      
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/sosheskaz/"
+          target="_blank"
+          alt="Github"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+  </span>
+
+</a
+        >
+      
+    
+  </div>
+
+
+    </div>
+  </div>
+
+
+      
+
+      
+  
+    <div class="pt-8 article-pagination">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex" href="/2017/03/07/XCode-CI-Article/">
+              <span class="mr-3 article-pagination-direction">&larr;</span>
+              <span class="flex flex-col">
+                <span class="article-pagination-title mt-[0.1rem] leading-6"
+                  >Setting up Simple Continuous Integration for iOS Development with XCode</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                  
+                    <time datetime="2017-03-07 00:00:00 &#43;0000 UTC">7 March 2017</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right" href="/2017/02/14/Sunrise-Photos/">
+              <span class="flex flex-col">
+                <span class="article-pagination-title mt-[0.1rem] leading-6"
+                  >Photos of the Sunrise</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                  
+                    <time datetime="2017-02-14 00:00:00 &#43;0000 UTC">14 February 2017</time>
+                  
+                </span>
+              </span>
+              <span class="ml-3 article-pagination-direction">&rarr;</span>
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    </footer>
+    
+  </article>
+</main><footer class="py-10">
+  
+  
+  <div class="flex justify-between">
+    <div>
+      
+      <p class="text-sm text-neutral-400 dark:text-neutral-500">
+          &copy;
+          2021
+          Eric Miller
+      </p>
+      
+      
+        <p class="text-xs text-neutral-300 dark:text-neutral-600">
+          
+          
+          Powered by <a class="hover:underline hover:underline-primary-300 hover:text-primary-400"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:underline-primary-300 hover:text-primary-400" href="https://git.io/hugo-congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    
+    
+      <div class="text-sm cursor-pointer text-neutral-400 dark:text-neutral-500">
+        <button
+          id="dark-toggle"
+          onclick="setPreferredAppearance('dark');"
+          oncontextmenu="setPreferredAppearance('default'); return false;"
+          class="inline px-2 py-1 border rounded-md border-neutral-200 dark:hidden hover:text-primary-500 hover:border-primary-400"
+          title="Switch to dark appearance"
+        >
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="moon" class="svg-inline--fa fa-moon fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"></path></svg>
+  </span>
+
+
+        </button>
+        <button
+          id="light-toggle"
+          onclick="setPreferredAppearance('light');"
+          oncontextmenu="setPreferredAppearance('default'); return false;"
+          class="hidden px-2 py-1 border rounded-md cursor-pointer dark:inline border-neutral-700 hover:text-primary-400 hover:border-primary-500"
+          title="Switch to light appearance"
+        >
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sun" class="svg-inline--fa fa-sun fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"></path></svg>
+  </span>
+
+
+        </button>
+      </div>
+    
+  </div>
+  
+  
+</footer>
+</body>
+</html>

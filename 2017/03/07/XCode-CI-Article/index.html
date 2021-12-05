@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  class="dark"
+><head>
+  <meta charset="utf-8" />
+  
+    <meta http-equiv="content-language" content="en-us" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Setting up Simple Continuous Integration for iOS Development with XCode &middot; Eric&#39;s Web.site</title>
+    <meta name="title" content="Setting up Simple Continuous Integration for iOS Development with XCode &middot; Eric&#39;s Web.site" />
+  
+  <meta name="description" content="Eric Miller&#39;s website to post about Technology, life, and anything else that comes up." />
+  
+  
+  
+  <link rel="canonical" href="https://ericsweb.site/2017/03/07/XCode-CI-Article/" />
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/schemes/congo.min.b48d6ba061dc77186a2524fb8aac5ac3823b2679a9299ca60325abbccc9c1764c884715f0ba24b4e2776cb3814df4af1f4c854b87207cd5d4c7a254da9b55751.css"
+    integrity="sha512-tI1roGHcdxhqJST7iqxaw4I7JnmpKZymAyWrvMycF2TIhHFfC6JLTid2yzgU30rx9MhUuHIHzV1MeiVNqbVXUQ=="
+  />
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/compiled/main.min.4076b9cf114dd23cca017f3365e2205a4c9a4b2c0ef4193ccd08883f76e554aa40f674a8f6e77a1b2895be0975ba8e019b0c59996c2eea32e4970ca4d5221653.css"
+    integrity="sha512-QHa5zxFN0jzKAX8zZeIgWkyaSywO9Bk8zQiIP3blVKpA9nSo9ud6GyiVvgl1uo4BmwxZmWwu6jLklwyk1SIWUw=="
+  />
+  
+  
+  
+    <script>
+      function loadPreferredAppearance() {
+        if (localStorage.preferredAppearance === "dark" || (!("preferredAppearance" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      }
+      function setPreferredAppearance(scheme) {
+        if (scheme == "default") {
+          localStorage.removeItem("preferredAppearance");
+        } else {
+          localStorage.preferredAppearance = scheme;
+        }
+        loadPreferredAppearance();
+      }
+      loadPreferredAppearance();
+      window.matchMedia("(prefers-color-scheme: dark)").addListener(loadPreferredAppearance);
+    </script>
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Setting up Simple Continuous Integration for iOS Development with XCode" />
+<meta property="og:description" content="Setting up reliable continuous integration (CI) for XCode can be a nightmare. I personally wrestled with the problem for a long while, eventually finding a somewhat convoluted workaround to make it work. However, I&rsquo;ve since found a way to develop and maintain a reliable CI solution. Following is how you can whip together something similar.
+In this guide, you&rsquo;ll find a start-to-finish CI solution for an XCode project.
+Vocabulary # If you&rsquo;re familiar with CI, you can probably skip this (short) section." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ericsweb.site/2017/03/07/XCode-CI-Article/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-03-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-03-07T00:00:00+00:00" /><meta property="og:site_name" content="Eric&#39;s Web.site" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Setting up Simple Continuous Integration for iOS Development with XCode"/>
+<meta name="twitter:description" content="Setting up reliable continuous integration (CI) for XCode can be a nightmare. I personally wrestled with the problem for a long while, eventually finding a somewhat convoluted workaround to make it work. However, I&rsquo;ve since found a way to develop and maintain a reliable CI solution. Following is how you can whip together something similar.
+In this guide, you&rsquo;ll find a start-to-finish CI solution for an XCode project.
+Vocabulary # If you&rsquo;re familiar with CI, you can probably skip this (short) section."/>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "articleSection": "Posts",
+    "name": "Setting up Simple Continuous Integration for iOS Development with XCode",
+    "headline": "Setting up Simple Continuous Integration for iOS Development with XCode",
+    "description": "Setting up reliable continuous integration (CI) for XCode can be a nightmare. I personally wrestled with the problem for a long while, eventually finding a somewhat convoluted workaround to make it work. However, I\u0026rsquo;ve since found a way to develop and maintain a reliable CI solution. Following is how you can whip together something similar.\nIn this guide, you\u0026rsquo;ll find a start-to-finish CI solution for an XCode project.\nVocabulary # If you\u0026rsquo;re familiar with CI, you can probably skip this (short) section.",
+    "inLanguage": "en-us",
+    "author" : {
+      "@type": "Person",
+      "name": "Eric Miller"
+    },
+    "creator" : {
+      "@type": "Person",
+      "name": "Eric Miller"
+    },
+    "copyrightHolder": "Eric Miller",
+    "copyrightYear": "2017",
+    "dateCreated": "2017-03-07T00:00:00\u002b00:00",
+    "datePublished": "2017-03-07T00:00:00\u002b00:00",
+    "dateModified": "2017-03-07T00:00:00\u002b00:00",
+    "url" : "https:\/\/ericsweb.site\/2017\/03\/07\/XCode-CI-Article\/",
+    "wordCount": "2273",
+    "keywords": ["Apple,","programming",]
+  }
+  </script>
+
+
+  
+  
+    <meta name="generator" content="Hugo 0.90.0-DEV" />
+  
+  
+  <meta name="author" content="Eric Miller" />
+  
+    
+      <link href="https://github.com/sosheskaz/" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 bg-neutral text-neutral-900 sm:px-14 md:px-24 lg:px-32 dark:bg-neutral-800 dark:text-neutral max-w-7xl"
+  ><header
+  class="flex justify-between py-6 font-semibold sm:items-center sm:py-10 text-neutral-800 dark:text-neutral"
+>
+  
+  <div>
+    
+      <a
+        class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+        rel="me"
+        href="/"
+        >Eric&rsquo;s Web.site</a
+      >
+  </div>
+  
+  
+    <nav>
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/posts/"
+              title="Posts"
+              >All Posts</a
+            >
+          </li>
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/categories/"
+              title="Categories"
+              >Categories</a
+            >
+          </li>
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/profile/"
+              title="About Me"
+              >About</a
+            >
+          </li>
+        
+      </ul>
+    </nav>
+  
+</header>
+<main class="flex-grow">
+  <article class="max-w-prose">
+    <header>
+      
+        <ol class="text-sm text-neutral-400 dark:text-neutral-500">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Index</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/posts/"
+      >Posts</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/2017/03/07/XCode-CI-Article/"
+      >Setting up Simple Continuous Integration for iOS Development with XCode</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-800 dark:text-neutral">
+        Setting up Simple Continuous Integration for iOS Development with XCode
+      </h1>
+      <div class="mt-8 mb-12 text-base text-neutral-400 dark:text-neutral-500">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row items-center">
+    
+    
+      <time datetime="2017-03-07 00:00:00 &#43;0000 UTC">7 March 2017</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">11 mins</span>
+    
+
+    
+    
+  </div>
+
+
+      </div>
+    </header>
+    <section class="prose dark:prose-light">
+      <p>Setting up reliable continuous integration (CI) for XCode can be a nightmare. I personally wrestled with the
+problem for a long while, eventually finding a somewhat convoluted workaround to make it work. However, I&rsquo;ve
+since found a way to develop and maintain a reliable CI solution. Following is how you can whip together something
+similar.</p>
+<p>In this guide, you&rsquo;ll find a start-to-finish CI solution for an XCode project.</p>
+<h2 id="vocabulary">Vocabulary <a class="heading-anchor" href="#vocabulary" aria-label="Anchor">#</a></h2>
+<p>If you&rsquo;re familiar with CI, you can probably skip this (short) section.</p>
+<ul>
+<li>Version Control System (VCS): The system used for tracking changes and version control. In this example,
+it is git/BitBucket.</li>
+<li>CI Server: The server that monitors the VCS and tells build agents when and what to run.</li>
+<li>Build Agent: The computer that runs builds and tests, at the behest of the CI server.</li>
+<li>Package Manager: From <a href="https://en.wikipedia.org/wiki/Package_manager">Wikipedia</a>: &ldquo;A package manager or package management system is a collection of
+software tools that automates the process of installing, upgrading, configuring, and removing computer
+programs for a computer&rsquo;s operating system in a consistent manner.&rdquo; This means when you add new third-party
+libraries, no additional work is necessary to make them work on the server.</li>
+<li>Dependency Resolution: This is a technology that provides a way to programmatically install,
+manage, and update third-party libraries.</li>
+<li>GUID/UUID: Globally Unique IDentifier, or Universally Unique IDentifier. These two terms are
+interchangeable. It is a 128-bit number that, when generated, is guaranteed to always be unique. It is
+usually in hexadecimal, with a few dashes in between. If you want to know more, here&rsquo;s the
+<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">Wikipedia Article</a>.</li>
+</ul>
+<h2 id="what-youll-need">What You&rsquo;ll Need <a class="heading-anchor" href="#what-youll-need" aria-label="Anchor">#</a></h2>
+<p>Unfortunately, this process requires some resources that are not insubstantial. They are as follows:</p>
+<ul>
+<li>A server to host your CI. This can be run on most operating systems, including MacOS, Windows, most Linux
+distros, and even BSD. The server in my example is a dedicated computer running FreeBSD 11.0. Ideally, this
+machine will have a high uptime, so a personal laptop is not ideal.</li>
+<li>A build agent. This machine must run the most recent version of MacOS. A high uptime is ideal, but not
+necessary for a small operation, like mine. I use a dedicated 2011 MacBook Pro using
+<a href="https://integralpro.github.io/nosleep/">NoSleep</a>. This keeps the machine from going to sleep when closing
+the lid. <strong>This can be the same machine as the CI server if desired</strong>.</li>
+<li>XCode must be installed on the build agent, along with all of the command line tools. It can
+be installed from the <a href="https://itunes.apple.com/us/app/xcode/id497799835?mt=12">Mac App Store</a>.
+Once XCode is installed, run <code>xcode-select -install</code> from the Terminal.</li>
+<li><a href="https://www.jetbrains.com/teamcity/">TeamCity</a> or another CI solution. My guide will use TeamCity,
+because it&rsquo;s what I&rsquo;m most familiar with, as well as because it has <em>XCode support out-of-the-box</em>.</li>
+<li>(Optional) <a href="https://github.com/Carthage/Carthage">Carthage</a> or another package manager. This simplifies
+building dependencies on the build agent, as you&rsquo;ll see later in the guide.</li>
+</ul>
+<h2 id="step-1-setting-up-the-ci-server">Step 1: Setting up the CI Server <a class="heading-anchor" href="#step-1-setting-up-the-ci-server" aria-label="Anchor">#</a></h2>
+<p>In my example, I&rsquo;ll be setting it up on a MacOS machine. If using a Linux or BSD machine, this should be
+similar. For a Windows machine, your mileage may vary.</p>
+<h3 id="prerequisites">Prerequisites <a class="heading-anchor" href="#prerequisites" aria-label="Anchor">#</a></h3>
+<p>First, ensure that your computer has
+<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">JDK 1.8</a> installed.
+Note that this is the most recent version at the time of writing, and so in the future this dependency may
+change. If you are not using TeamCity, this step may or may not be necessary.</p>
+<h3 id="setting-up-the-teamcity-service">Setting up the TeamCity Service <a class="heading-anchor" href="#setting-up-the-teamcity-service" aria-label="Anchor">#</a></h3>
+<p>To start, on the machine that will be running the CI server, download
+<a href="https://www.jetbrains.com/teamcity/download/#">TeamCity</a>. There are respective download options for various
+common operating systems. In this tutorial, I&rsquo;m assuming use of one of the tar.gz downloads.
+If using FreeBSD or another flavor of BSD, the Linux version should work. It&rsquo;s up
+to you to choose the version that&rsquo;s right for you. If the machine running this server is a MacOS laptop,
+I highly recommend also downloading <a href="https://integralpro.github.io/nosleep/">NoSleep</a> and
+<a href="https://itunes.apple.com/us/app/amphetamine/id937984704?mt=12">Amphetamine</a> to keep it running at all
+times. This assumes a dedicated computer; for a small or temporary setup, using a non-dedicated computer
+(such as a dev laptop) may be sufficient.</p>
+<p>In the extracted directory structure, the configuration files can be found in <code>conf</code> and the executable
+files can be found in <code>bin</code>. The configuration files can be changed to suit your needs. I won&rsquo;t get into it
+here, but if you want to customize your settings, look up a guide on configuring TomCat.</p>
+<p>Navigate to <code>bin</code> in your Terminal, and run <code>./runAll.sh start</code>. This will start the server, and you can expect
+an output similar to the following. To stop the process, run <code>./runAll.sh stop kill</code>. Note that this process
+will not run on startup, and you will need to use launchd/systemd/Services as appropriate for the OS.</p>
+<p><img src="runAll-start.jpg" alt="Sample output"></p>
+<p>Now navigate to <a href="http://localhost:8111/">http://localhost:8111/</a>. If accessing this from a machine other
+than the one you just set up the server on, use that machine&rsquo;s hostname instead of localhost. You&rsquo;ll see
+a setup dialog, similar to the one below. Walk through the setup process. The default settings should be
+fine for simple use cases.</p>
+<p><img src="setup-dialog.jpg" alt="Setup Dialog"></p>
+<p>Once you&rsquo;ve finished the process and created an administrator account, you&rsquo;re ready to start using TeamCity.
+If it&rsquo;s installed on MacOS, it will also install the TeamCity agent, which will make the next step easier.</p>
+<p>From there, go to the administration page. From the administration page, create a project, and create a
+build configuration under that project. I recommend creating a project from a VCS source, as this will
+make things easier down the line.</p>
+<p><img src="admin-page-link.jpg" alt="admin page">
+<img src="create-project.jpg" alt="create project"></p>
+<p>Setting up additional user accounts, builds, and other settings is left as an exercise to the reader 😉.</p>
+<h4 id="some-nice-additions">Some nice additions <a class="heading-anchor" href="#some-nice-additions" aria-label="Anchor">#</a></h4>
+<p>If you&rsquo;re running this on a company network, or you use a VPN to connect to the server, you&rsquo;re probably done.
+However, if this is for personal use or for use of a small project, you may want to look at a DDNS configuration.
+DDNS means Dynamic Domain Name System. Basically, it sets it up such that a computer that may or may not
+have a permanent IP address has a domain name that tracks it and follows it wherever it goes. You can get
+a free version of this service from <a href="https://ddns.net">ddns.net</a>.</p>
+<h3 id="configuring-your-build-steps">Configuring your Build Steps <a class="heading-anchor" href="#configuring-your-build-steps" aria-label="Anchor">#</a></h3>
+<p>TeamCity will try to auto-detect build steps. If they&rsquo;re appropriate for you, you can use them. If not,
+creating them manually is easy. My example build will contain four steps, but these can be adjusted as
+necessary.</p>
+<h4 id="substep-1-dependency-resolution">Substep 1: Dependency Resolution <a class="heading-anchor" href="#substep-1-dependency-resolution" aria-label="Anchor">#</a></h4>
+<p>The goal of this step is to ensure that your build agent has whatever software packages or libraries
+your app will need to work.</p>
+<p>You only need to follow this step if you use a package manager for dependency resolution (which I
+<em><strong>highly</strong></em> recommend). If you don&rsquo;t, resolving dependencies is left up to you. Note that the following
+are simplified somewhat; best practices would dictate that one store something like the path to
+<code>carthage</code> in an environment variable. This would make it scale better if you have more than one build
+agent, or if some agents do not have <code>carthage</code> installed.</p>
+<p>Create a command line build step, as shown below. Name the step something like &ldquo;dependency resolution&rdquo;
+or &ldquo;Carthage&rdquo; (if you&rsquo;re using Carthage as a package manager). For the &ldquo;build script content&rdquo; you&rsquo;ll enter
+something like <code>carthage bootstrap --platform iOS</code>. The industry standard for dependency resolution is
+<a href="https://cocoapods.org/">Cocoapods</a>, but carthage has a slightly simpler setup. When running builds, this
+may make it take a bit longer, but the reliability is worth the minutes in my opinion. Note that if this
+is a concern, cocoapods can be faster.</p>
+<p><img src="carthage-step.jpg" alt="Carthage in XCode"></p>
+<h4 id="substep-2-simulator-configuration">Substep 2: Simulator Configuration <a class="heading-anchor" href="#substep-2-simulator-configuration" aria-label="Anchor">#</a></h4>
+<p>First, some background: In order to run tests, XCode uses an app, the aptly-named Simulator, which
+simulates an iOS device. When you run tests, it will open the simulator, install the app you&rsquo;re testing
+onto it, and then run tests through the app it installed.</p>
+<p>The iOS Simulator can cause lots of problems if not handled properly. This step makes the builds much easier
+and much more reliable, albeit taking a few minutes longer. Ignoring this step can cause your build to
+hang indefinitely.</p>
+<p>Before you do this, identify the iOS simulator that you want to build for and run your tests.
+You will have multiple options for the various devices that Apple supports, such as the iPhone 7 or the
+iPhone SE. If you wish to use multiple simulators, then the <code>xcrun</code> commands shown below should be run
+for those devices as well. To get a list of possible devices, run <code>xcrun simctl list</code>. This will give you
+a list of the devices, and their GUIDs, available for testing. Let&rsquo;s say we choose the GUID
+&ldquo;94639904-0FEF-4E7F-9F74-F22631A15DBE&rdquo;. In the following steps, replace that GUID with the GUID of your
+choice (or better yet, put it in an environment variable on the build agent).</p>
+<p>Once again, create a command line build step. Call the step something like &ldquo;Reset Simulator&rdquo;. For the
+script content, enter the following (with your simulated device&rsquo;s GUID):</p>
+<pre><code>xcrun simctl shutdown 94639904-0FEF-4E7F-9F74-F22631A15DBE
+killall Simulator
+killall com.apple.CoreSimulator.CoreSimulatorService
+xcrun simctl erase 94639904-0FEF-4E7F-9F74-F22631A15DBE
+</code></pre>
+<p>The first line shuts down the simulator for the device if it&rsquo;s running. The second and third lines ensure
+that the Simulator is shut down, to ensure a sanitary testing environment. Finally, the final line erases
+the content and settings of the simulated device. This ensures both a sanitary testing environment, and
+avoids an issue where, when running an automated build, it can hang indefinitely.</p>
+<h4 id="substep-3-the-fun-part">Substep 3: The Fun Part <a class="heading-anchor" href="#substep-3-the-fun-part" aria-label="Anchor">#</a></h4>
+<p>At long last, it&rsquo;s time to set up our XCode build step! In the build step type, select XCode Project.
+Click &ldquo;Show advanced options&rdquo;. Set the Path to the project or workspace to your .xcodeproj file. Use a
+scheme-based build. (Note that to use scheme-based builds, you must configure a build scheme in XCode and
+push your changes to VCS.) Set build action(s) to <code>clean build</code>. Check the &ldquo;Run tests&rdquo; box. Finally, in
+the Additional command line parameters box, enter the following:
+<code>-destination &quot;id=94639904-0FEF-4E7F-9F74-F22631A15DBE&quot;</code>. This will tell it to run the build on and for
+the device we set up in the previous step.</p>
+<p>Here&rsquo;s an example of my setup for one of my projects (with some minor changes to make it more readable):</p>
+<p><img src="xcode-step.jpg" alt="XCode Step"></p>
+<h4 id="substep-4-cleanup">Substep 4: Cleanup <a class="heading-anchor" href="#substep-4-cleanup" aria-label="Anchor">#</a></h4>
+<p>Finally, we want to clean up to save resources. This is fairly self-explanatory. Create a final command-line
+step with the following code:</p>
+<pre><code>xcrun simctl shutdown %env.simulator_guid%
+killall Simulator
+killall com.apple.CoreSimulator.CoreSimulatorService
+</code></pre>
+<h3 id="icing-on-the-cake">Icing on the cake <a class="heading-anchor" href="#icing-on-the-cake" aria-label="Anchor">#</a></h3>
+<p>Finally, a few options to add some nice features to your build.</p>
+<h4 id="vcs">VCS <a class="heading-anchor" href="#vcs" aria-label="Anchor">#</a></h4>
+<p>Head to the version control settings tab of the build configuration. Here, you can customize your VCS
+settings. In the branch specification, I recommend choosing which branches the server should run. To run
+all branches and commits, enter <code>+:*</code> in the branch specification box.</p>
+<p><img src="vcs-config.jpg" alt="VCS Configuration"></p>
+<p><img src="branch-spec.jpg" alt="Branch Specification"></p>
+<h4 id="vcs-labeling">VCS Labeling <a class="heading-anchor" href="#vcs-labeling" aria-label="Anchor">#</a></h4>
+<p>TeamCity has a lot of really cool features. One of my favorites is VCS labeling. To reach this, go to the
+Build Features tab. Click &ldquo;Add build feature&rdquo; and select the VCS root and the branches you want to enable
+it for. I like to set up two of these: One with the labeling pattern <code>build-%system.build.number%</code> for all
+builds, and one with the labeling pattern <code>build-%system.build.number%-passed</code> that is added to successful
+builds only. Then, from a GUI client like SourceTree, you can see at a glance which build is associated
+with which commit, as well as which commits failed.</p>
+<h2 id="step-2-setting-up-the-teamcity-agent">Step 2: Setting up the TeamCity Agent <a class="heading-anchor" href="#step-2-setting-up-the-teamcity-agent" aria-label="Anchor">#</a></h2>
+<p>If your agent is the same as the CI server, skip to step 3.</p>
+<p>There are some basic requirements for setup. If these requirements are not met, you will <strong>not</strong> be able to
+successfully install the agent.</p>
+<ul>
+<li>The desired agent must have a stable (and preferably fast) internet connection.</li>
+<li>The desired agent must have space to install the agent.</li>
+<li>Time. The agent will take a while to install, because the agent installation process installs all of its
+dependencies (and there are a lot of them). Let the agent sit for an hour (depending on connection speed)
+before you decide that something&rsquo;s wrong. Activity monitor may be used to investigate. The name of the
+process running the installation is &ldquo;java&rdquo;. There may be multiple processes doing this.</li>
+</ul>
+<p>On the MacOS machine you want to run as an agent, the simplest way is using TeamCity&rsquo;s <em>agent push</em>
+functionality. To use this, you must enable remote login on the desired agent in System Preferences &gt;
+Sharing. This allows TeamCity to ssh to your machine and install the agent. To use TeamCity&rsquo;s agent push
+functionality, you must either be on the same network, or have an IP/DNS address at which the <strong>server</strong>
+will be able to reach the <strong>agent</strong>.</p>
+<p>To reach TeamCity&rsquo;s agent push functionality, click the &ldquo;Agents&rdquo; tab at the top menu. In the submenu,
+select agent push, and then click the install agent button. Enter appropriate details for the agent,
+then go.</p>
+<p>If you can&rsquo;t use agent push, it may be more reliable to manually install. To manually install, go to the
+&ldquo;Agents&rdquo; tab at the top, then click the link on the right that says &ldquo;Install build agent&rdquo;, and select the
+zip file distribution.</p>
+<p><img src="agent-install.jpg" alt="Agent Installation"></p>
+<h3 id="configuring">Configuring <a class="heading-anchor" href="#configuring" aria-label="Anchor">#</a></h3>
+<p>Once the agent is installed, you can configure the agent&rsquo;s settings in the <code>conf/buildAgent.properties</code>
+file. Here you can set the agent name, environment variables for TeamCity, and more.</p>
+<h3 id="running">Running <a class="heading-anchor" href="#running" aria-label="Anchor">#</a></h3>
+<p>To run, in Terminal navigate to the <code>bin</code> folder. Then, run <code>./agent.sh start</code>. To stop the process, run
+<code>./agent.sh stop kill</code>. This will <strong>not</strong> run on start, but you can find tutorials online for configuring
+this with launchd. I recommend <a href="http://www.soma-zone.com/LaunchControl/">Launch Control</a> to make configuring
+these easier.</p>
+<h2 id="step-3-concluding">Step 3: Concluding <a class="heading-anchor" href="#step-3-concluding" aria-label="Anchor">#</a></h2>
+<p>You&rsquo;re set up! Congratulations! 🎉</p>
+
+    </section>
+    <footer class="pt-8">
+      
+  <div class="flex">
+    
+      <img class="w-24 h-24 !mt-0 !mb-0 mr-4 rounded-full" src="/images/ericmiller.png" />
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] leading-3 text-neutral-400 dark:text-neutral-500 uppercase">
+          Author
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          Eric Miller
+        </div>
+      
+      
+        <div class="text-sm text-neutral-700 dark:text-neutral-400">DevOps Engineer, Kuberneter</div>
+      
+      
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/sosheskaz/"
+          target="_blank"
+          alt="Github"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+  </span>
+
+</a
+        >
+      
+    
+  </div>
+
+
+    </div>
+  </div>
+
+
+      
+
+      
+  
+    <div class="pt-8 article-pagination">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex" href="/2017/03/16/iPad-USB-C/">
+              <span class="mr-3 article-pagination-direction">&larr;</span>
+              <span class="flex flex-col">
+                <span class="article-pagination-title mt-[0.1rem] leading-6"
+                  >Apple, Muster your Courage. It's time for USB-C.</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                  
+                    <time datetime="2017-03-16 00:00:00 &#43;0000 UTC">16 March 2017</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right" href="/2017/02/23/3-Things-About-Swift/">
+              <span class="flex flex-col">
+                <span class="article-pagination-title mt-[0.1rem] leading-6"
+                  >3 Things I Like About Swift</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                  
+                    <time datetime="2017-02-23 00:00:00 &#43;0000 UTC">23 February 2017</time>
+                  
+                </span>
+              </span>
+              <span class="ml-3 article-pagination-direction">&rarr;</span>
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    </footer>
+    
+  </article>
+</main><footer class="py-10">
+  
+  
+  <div class="flex justify-between">
+    <div>
+      
+      <p class="text-sm text-neutral-400 dark:text-neutral-500">
+          &copy;
+          2021
+          Eric Miller
+      </p>
+      
+      
+        <p class="text-xs text-neutral-300 dark:text-neutral-600">
+          
+          
+          Powered by <a class="hover:underline hover:underline-primary-300 hover:text-primary-400"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:underline-primary-300 hover:text-primary-400" href="https://git.io/hugo-congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    
+    
+      <div class="text-sm cursor-pointer text-neutral-400 dark:text-neutral-500">
+        <button
+          id="dark-toggle"
+          onclick="setPreferredAppearance('dark');"
+          oncontextmenu="setPreferredAppearance('default'); return false;"
+          class="inline px-2 py-1 border rounded-md border-neutral-200 dark:hidden hover:text-primary-500 hover:border-primary-400"
+          title="Switch to dark appearance"
+        >
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="moon" class="svg-inline--fa fa-moon fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"></path></svg>
+  </span>
+
+
+        </button>
+        <button
+          id="light-toggle"
+          onclick="setPreferredAppearance('light');"
+          oncontextmenu="setPreferredAppearance('default'); return false;"
+          class="hidden px-2 py-1 border rounded-md cursor-pointer dark:inline border-neutral-700 hover:text-primary-400 hover:border-primary-500"
+          title="Switch to light appearance"
+        >
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sun" class="svg-inline--fa fa-sun fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"></path></svg>
+  </span>
+
+
+        </button>
+      </div>
+    
+  </div>
+  
+  
+</footer>
+</body>
+</html>

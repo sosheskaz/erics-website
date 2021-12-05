@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  class="dark"
+><head>
+  <meta charset="utf-8" />
+  
+    <meta http-equiv="content-language" content="en-us" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>The World Runs on Bad Code &middot; Eric&#39;s Web.site</title>
+    <meta name="title" content="The World Runs on Bad Code &middot; Eric&#39;s Web.site" />
+  
+  <meta name="description" content="Eric Miller&#39;s website to post about Technology, life, and anything else that comes up." />
+  
+  
+  
+  <link rel="canonical" href="https://ericsweb.site/posts/the-world-runs-on-bad-code/" />
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/schemes/congo.min.b48d6ba061dc77186a2524fb8aac5ac3823b2679a9299ca60325abbccc9c1764c884715f0ba24b4e2776cb3814df4af1f4c854b87207cd5d4c7a254da9b55751.css"
+    integrity="sha512-tI1roGHcdxhqJST7iqxaw4I7JnmpKZymAyWrvMycF2TIhHFfC6JLTid2yzgU30rx9MhUuHIHzV1MeiVNqbVXUQ=="
+  />
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/compiled/main.min.4076b9cf114dd23cca017f3365e2205a4c9a4b2c0ef4193ccd08883f76e554aa40f674a8f6e77a1b2895be0975ba8e019b0c59996c2eea32e4970ca4d5221653.css"
+    integrity="sha512-QHa5zxFN0jzKAX8zZeIgWkyaSywO9Bk8zQiIP3blVKpA9nSo9ud6GyiVvgl1uo4BmwxZmWwu6jLklwyk1SIWUw=="
+  />
+  
+  
+  
+    <script>
+      function loadPreferredAppearance() {
+        if (localStorage.preferredAppearance === "dark" || (!("preferredAppearance" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      }
+      function setPreferredAppearance(scheme) {
+        if (scheme == "default") {
+          localStorage.removeItem("preferredAppearance");
+        } else {
+          localStorage.preferredAppearance = scheme;
+        }
+        loadPreferredAppearance();
+      }
+      loadPreferredAppearance();
+      window.matchMedia("(prefers-color-scheme: dark)").addListener(loadPreferredAppearance);
+    </script>
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="The World Runs on Bad Code" />
+<meta property="og:description" content="Code quality, the savior of, and the bane of, programmers.
+Writing code is easy. I really do believe that with effort and willingness to learn, just about anybody can write a simple program. The challenge, however, is writing good code.
+In the paraphrased words of Peter Welch (a lot of this post is inspired by his essay, Programming Sucks, and its counterpart by a different author, What Programming is Like), good code reads like poetry written by someone over thirty." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ericsweb.site/posts/the-world-runs-on-bad-code/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-05-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-05-05T00:00:00+00:00" /><meta property="og:site_name" content="Eric&#39;s Web.site" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="The World Runs on Bad Code"/>
+<meta name="twitter:description" content="Code quality, the savior of, and the bane of, programmers.
+Writing code is easy. I really do believe that with effort and willingness to learn, just about anybody can write a simple program. The challenge, however, is writing good code.
+In the paraphrased words of Peter Welch (a lot of this post is inspired by his essay, Programming Sucks, and its counterpart by a different author, What Programming is Like), good code reads like poetry written by someone over thirty."/>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "articleSection": "Posts",
+    "name": "The World Runs on Bad Code",
+    "headline": "The World Runs on Bad Code",
+    "description": "Code quality, the savior of, and the bane of, programmers.\nWriting code is easy. I really do believe that with effort and willingness to learn, just about anybody can write a simple program. The challenge, however, is writing good code.\nIn the paraphrased words of Peter Welch (a lot of this post is inspired by his essay, Programming Sucks, and its counterpart by a different author, What Programming is Like), good code reads like poetry written by someone over thirty.",
+    "inLanguage": "en-us",
+    "author" : {
+      "@type": "Person",
+      "name": "Eric Miller"
+    },
+    "creator" : {
+      "@type": "Person",
+      "name": "Eric Miller"
+    },
+    "copyrightHolder": "Eric Miller",
+    "copyrightYear": "2017",
+    "dateCreated": "2017-05-05T00:00:00\u002b00:00",
+    "datePublished": "2017-05-05T00:00:00\u002b00:00",
+    "dateModified": "2017-05-05T00:00:00\u002b00:00",
+    "url" : "https:\/\/ericsweb.site\/posts\/the-world-runs-on-bad-code\/",
+    "wordCount": "1231",
+    "keywords": []
+  }
+  </script>
+
+
+  
+  
+    <meta name="generator" content="Hugo 0.90.0-DEV" />
+  
+  
+  <meta name="author" content="Eric Miller" />
+  
+    
+      <link href="https://github.com/sosheskaz/" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 bg-neutral text-neutral-900 sm:px-14 md:px-24 lg:px-32 dark:bg-neutral-800 dark:text-neutral max-w-7xl"
+  ><header
+  class="flex justify-between py-6 font-semibold sm:items-center sm:py-10 text-neutral-800 dark:text-neutral"
+>
+  
+  <div>
+    
+      <a
+        class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+        rel="me"
+        href="/"
+        >Eric&rsquo;s Web.site</a
+      >
+  </div>
+  
+  
+    <nav>
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/posts/"
+              title="Posts"
+              >All Posts</a
+            >
+          </li>
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/categories/"
+              title="Categories"
+              >Categories</a
+            >
+          </li>
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/profile/"
+              title="About Me"
+              >About</a
+            >
+          </li>
+        
+      </ul>
+    </nav>
+  
+</header>
+<main class="flex-grow">
+  <article class="max-w-prose">
+    <header>
+      
+        <ol class="text-sm text-neutral-400 dark:text-neutral-500">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Index</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/posts/"
+      >Posts</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/posts/the-world-runs-on-bad-code/"
+      >The World Runs on Bad Code</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-800 dark:text-neutral">
+        The World Runs on Bad Code
+      </h1>
+      <div class="mt-8 mb-12 text-base text-neutral-400 dark:text-neutral-500">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row items-center">
+    
+    
+      <time datetime="2017-05-05 00:00:00 &#43;0000 UTC">5 May 2017</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span>
+    
+
+    
+    
+  </div>
+
+
+      </div>
+    </header>
+    <section class="prose dark:prose-light">
+      <p>Code quality, the savior of, and the bane of, programmers.</p>
+<p>Writing code is easy. I really do believe that with effort and willingness to learn, just about anybody
+can write a simple program. The challenge, however, is writing good code.</p>
+<p>In the paraphrased words of Peter Welch (a lot of this post is inspired by his essay,
+<a href="https://www.stilldrinking.org/programming-sucks">Programming Sucks</a>, and its counterpart by a different
+author,
+<a href="http://blog.samstokes.co.uk/blog/2014/05/01/what-programming-is-like/">What Programming is Like</a>),
+good code reads like poetry
+written by someone over thirty.
+Expounding on this idea, it&rsquo;s quite accurate. Good code is descriptive without being obnoxious, neither
+too concise nor too verbose, carefully thought out, well organized, and has a nice rhythm.</p>
+<p>And it&rsquo;s really difficult.</p>
+<h2 id="okay-but-why-is-it-that-difficult">Okay, but Why is it that Difficult? <a class="heading-anchor" href="#okay-but-why-is-it-that-difficult" aria-label="Anchor">#</a></h2>
+<p>We all wrote those papers in high school. Perfectly prescribed formatting, with one introduction paragraph,
+three middle paragraphs, and a conclusion. We&rsquo;re taught that because it&rsquo;s an easy writing style to make
+coherent for a brief essay, but it&rsquo;s really not much good beyond that. It lacks sophisticated flow, is
+unsuited for expressing complex ideas, and of course, doesn&rsquo;t work very well if you&rsquo;re doing something
+substantially longer. It&rsquo;s something teachers use to introduce you to the basic idea of how to structure
+your thoughts for something legible and meaningful. Computer science is similar: you&rsquo;re taught basic
+structures and patterns that are more legible, coherent, and effective than pure stream-of-consciousness.
+But since each project takes maybe a few weeks, you don&rsquo;t really do anything sophisticated - you&rsquo;re writing
+those 5-paragraph essays, when your job will be to crank out encyclopedias.</p>
+<p>But it&rsquo;s not just like written language - it&rsquo;s much, much worse. Imagine, if you will, a world where not
+only is it your job to crank out book after book, but that the history of written language is completely
+different. In this scenario, written language is only 60 years old. Not only that, but every few years
+a new revision of the language is put out, and whatever you wrote before is no longer compliant. Languages
+don&rsquo;t translate easily, so you need to choose the right language to reach your entire desired audience.
+Some languages are better suited toward certain ideas, and almost everyone specializes in 1-3 languages.
+It&rsquo;s a haphazard imbroglio of rushing to find the best way to structure your words, what only works in
+certain languages, and trying to keep up with the newest changes.</p>
+<p>Now, on top of all of that, you&rsquo;re writing it with a team of other people, all with their own linguistic
+voice, different specialties, and ideas. You try to divide it up - agree on conventions, design the layout
+of the book beforehand, divide up chapters - but as they say, no battle plan survives contact with the
+enemy.</p>
+<h2 id="but-its-your-job-you-should-be-able-to-do-it">But it&rsquo;s your Job. You Should be Able to Do it. <a class="heading-anchor" href="#but-its-your-job-you-should-be-able-to-do-it" aria-label="Anchor">#</a></h2>
+<p>There&rsquo;s truth to this, but computer science is an immense field. There are countless sub-areas, many of
+which are probably too broad in and of themselves for any individual to have a thorough understanding.
+There&rsquo;s the mathematics, the philosophy, the design, data engineering, security, tech support, the
+internet, robotics, and so much more. Code quality could probably nestle itself within the philosophy
+of computer science, and it&rsquo;s still something that&rsquo;s hard to pin down. There are guidelines, things that
+we all agree are good, but to a large extent judging code quality is a case of &ldquo;I know it when I see it.&rdquo;</p>
+<p>That said, there are gray areas. Sometimes something becomes completely illegible due to a programmer
+using some &ldquo;black magic&rdquo; to get the job done, and do it efficiently. My favorite example is the
+<a href="https://en.wikipedia.org/wiki/Fast_inverse_square_root">Fast Inverse Square Root Approximation</a>,
+a bit of code used to power graphics in a lot of old games.
+To be honest, I don&rsquo;t understand the mathematics behind it, but the code speaks for itself.</p>
+<pre><code>float Q_rsqrt( float number )
+{
+    long i;
+    float x2, y;
+    const float threehalfs = 1.5F;
+
+    x2 = number * 0.5F;
+    y  = number;
+    i  = * ( long * ) &amp;y;                       // evil floating point bit level hacking
+    i  = 0x5f3759df - ( i &gt;&gt; 1 );               // what the fuck?
+    y  = * ( float * ) &amp;i;
+    y  = y * ( threehalfs - ( x2 * y * y ) );   // 1st iteration
+//	y  = y * ( threehalfs - ( x2 * y * y ) );   // 2nd iteration, this can be removed
+
+    return y;
+}
+</code></pre>
+<p>This violates a <strong>LOT</strong> of the principles of clean code (swearing in comments is also always a bad sign).
+And yet, the author managed to abstract it away
+deep enough that no one who uses the function will really need to know how it works (this is an important
+principle of clean code), and it does its job more quickly and effectively than other algorithms of its
+time. It&rsquo;s ugly, and it&rsquo;s beautiful. It&rsquo;s awful code, and it&rsquo;s great code.</p>
+<p>Most programmers have decent code quality. They have to. If you don&rsquo;t have a basic level of quality in
+your code, you hit a point where you can&rsquo;t expand on it anymore because you don&rsquo;t know what it does. But
+most programmers also drop their quality here and there, because management says <em>we need three weeks of
+code done in three days and I don&rsquo;t care how</em>, or sometimes simply because it doesn&rsquo;t make sense to invest
+that much effort in designing a basic piece of code.</p>
+<h2 id="so-what-does-any-of-this-have-to-do-with-your-title">So What Does any of This Have to Do With Your Title? <a class="heading-anchor" href="#so-what-does-any-of-this-have-to-do-with-your-title" aria-label="Anchor">#</a></h2>
+<p>Writing good code is an art. And like many arts, there are journeymen, experts, and masters. The
+journeymen are common enough, but the experts and masters are rarities. People who write clean code as easily
+as they think it, whose skills have progressed so far they&rsquo;ve forgotten how to write bad code, whose
+work toils unseen under the systems we experience every day and holds everything together.</p>
+<p>It really is too bad that they are so rare.</p>
+<p>Any shmuck with a computer and some determination can write some code and put it up online somewhere. And
+there&rsquo;s a lot of shmucks with determination.</p>
+<p>Since it&rsquo;s such a difficult art, there are many people writing code that just isn&rsquo;t up to par. It&rsquo;s what
+powers the internet, what powers our computers, and what drives our entire experience. And perhaps the
+scariest part, we wouldn&rsquo;t be where we are without them. Behind every major website or application is at
+least some bad code, and if there weren&rsquo;t people to write that code, nothing would work in the first
+place.</p>
+<h2 id="where-do-we-go-from-here">Where Do We Go From Here? <a class="heading-anchor" href="#where-do-we-go-from-here" aria-label="Anchor">#</a></h2>
+<p>If the arts reached their greatest era in the renaissance, we&rsquo;re still doing cave paintings. Doing
+guesswork and experimentation, finding the berries that make the best pigments, and theorizing what will
+work based on a small sample size. The greatest masters of the art of clean code, most likely, have not
+written their first program yet. One day, when languages have evolved, truths have been discovered,
+and the likes of Donald Knuth, Linus Torvalds, and Jon Skeet are considered archaic example of what was
+considered good code before we knew what we were doing, the premise of this post will no longer be true.</p>
+<hr>
+<p><em>&ldquo;When you do things right, people won&rsquo;t be sure that you have done anything at all.&quot;</em></p>
+
+    </section>
+    <footer class="pt-8">
+      
+  <div class="flex">
+    
+      <img class="w-24 h-24 !mt-0 !mb-0 mr-4 rounded-full" src="/images/ericmiller.png" />
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] leading-3 text-neutral-400 dark:text-neutral-500 uppercase">
+          Author
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          Eric Miller
+        </div>
+      
+      
+        <div class="text-sm text-neutral-700 dark:text-neutral-400">DevOps Engineer, Kuberneter</div>
+      
+      
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/sosheskaz/"
+          target="_blank"
+          alt="Github"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+  </span>
+
+</a
+        >
+      
+    
+  </div>
+
+
+    </div>
+  </div>
+
+
+      
+
+      
+  
+    <div class="pt-8 article-pagination">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex" href="/posts/beamforming/">
+              <span class="mr-3 article-pagination-direction">&larr;</span>
+              <span class="flex flex-col">
+                <span class="article-pagination-title mt-[0.1rem] leading-6"
+                  >What is Beamforming, and How Will it Change the World?</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                  
+                    <time datetime="2017-05-06 00:00:00 &#43;0000 UTC">6 May 2017</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right" href="/2017/04/21/Package-Managers/">
+              <span class="flex flex-col">
+                <span class="article-pagination-title mt-[0.1rem] leading-6"
+                  >Why Package Managers are Great - With a Focus on Homebrew</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                  
+                    <time datetime="2017-04-21 00:00:00 &#43;0000 UTC">21 April 2017</time>
+                  
+                </span>
+              </span>
+              <span class="ml-3 article-pagination-direction">&rarr;</span>
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    </footer>
+    
+  </article>
+</main><footer class="py-10">
+  
+  
+  <div class="flex justify-between">
+    <div>
+      
+      <p class="text-sm text-neutral-400 dark:text-neutral-500">
+          &copy;
+          2021
+          Eric Miller
+      </p>
+      
+      
+        <p class="text-xs text-neutral-300 dark:text-neutral-600">
+          
+          
+          Powered by <a class="hover:underline hover:underline-primary-300 hover:text-primary-400"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:underline-primary-300 hover:text-primary-400" href="https://git.io/hugo-congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    
+    
+      <div class="text-sm cursor-pointer text-neutral-400 dark:text-neutral-500">
+        <button
+          id="dark-toggle"
+          onclick="setPreferredAppearance('dark');"
+          oncontextmenu="setPreferredAppearance('default'); return false;"
+          class="inline px-2 py-1 border rounded-md border-neutral-200 dark:hidden hover:text-primary-500 hover:border-primary-400"
+          title="Switch to dark appearance"
+        >
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="moon" class="svg-inline--fa fa-moon fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"></path></svg>
+  </span>
+
+
+        </button>
+        <button
+          id="light-toggle"
+          onclick="setPreferredAppearance('light');"
+          oncontextmenu="setPreferredAppearance('default'); return false;"
+          class="hidden px-2 py-1 border rounded-md cursor-pointer dark:inline border-neutral-700 hover:text-primary-400 hover:border-primary-500"
+          title="Switch to light appearance"
+        >
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sun" class="svg-inline--fa fa-sun fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"></path></svg>
+  </span>
+
+
+        </button>
+      </div>
+    
+  </div>
+  
+  
+</footer>
+</body>
+</html>

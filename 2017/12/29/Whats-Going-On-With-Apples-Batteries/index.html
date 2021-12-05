@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  class="dark"
+><head>
+  <meta charset="utf-8" />
+  
+    <meta http-equiv="content-language" content="en-us" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>What&#39;s Going on with Apple&#39;s Batteries? &middot; Eric&#39;s Web.site</title>
+    <meta name="title" content="What&#39;s Going on with Apple&#39;s Batteries? &middot; Eric&#39;s Web.site" />
+  
+  <meta name="description" content="Eric Miller&#39;s website to post about Technology, life, and anything else that comes up." />
+  
+  
+  
+  <link rel="canonical" href="https://ericsweb.site/2017/12/29/Whats-Going-On-With-Apples-Batteries/" />
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/schemes/congo.min.b48d6ba061dc77186a2524fb8aac5ac3823b2679a9299ca60325abbccc9c1764c884715f0ba24b4e2776cb3814df4af1f4c854b87207cd5d4c7a254da9b55751.css"
+    integrity="sha512-tI1roGHcdxhqJST7iqxaw4I7JnmpKZymAyWrvMycF2TIhHFfC6JLTid2yzgU30rx9MhUuHIHzV1MeiVNqbVXUQ=="
+  />
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/compiled/main.min.4076b9cf114dd23cca017f3365e2205a4c9a4b2c0ef4193ccd08883f76e554aa40f674a8f6e77a1b2895be0975ba8e019b0c59996c2eea32e4970ca4d5221653.css"
+    integrity="sha512-QHa5zxFN0jzKAX8zZeIgWkyaSywO9Bk8zQiIP3blVKpA9nSo9ud6GyiVvgl1uo4BmwxZmWwu6jLklwyk1SIWUw=="
+  />
+  
+  
+  
+    <script>
+      function loadPreferredAppearance() {
+        if (localStorage.preferredAppearance === "dark" || (!("preferredAppearance" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      }
+      function setPreferredAppearance(scheme) {
+        if (scheme == "default") {
+          localStorage.removeItem("preferredAppearance");
+        } else {
+          localStorage.preferredAppearance = scheme;
+        }
+        loadPreferredAppearance();
+      }
+      loadPreferredAppearance();
+      window.matchMedia("(prefers-color-scheme: dark)").addListener(loadPreferredAppearance);
+    </script>
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="What&#39;s Going on with Apple&#39;s Batteries?" />
+<meta property="og:description" content="There&rsquo;ve been various articles going around about Apple&rsquo;s batteries in iPhones, or, specifically, Apple&rsquo;s throttling of phones&#39; hardware with older batteries. This post seeks to be primarily informational, but if you&rsquo;re the owner of such a device that might be throttled, I&rsquo;ll put in some useful information for you at the end of the post. But mostly, I&rsquo;m going to be looking at the facts of the issue, since the internet in general and news in particular tends more towards sensationalism than complete information." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ericsweb.site/2017/12/29/Whats-Going-On-With-Apples-Batteries/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-12-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-12-29T00:00:00+00:00" /><meta property="og:site_name" content="Eric&#39;s Web.site" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="What&#39;s Going on with Apple&#39;s Batteries?"/>
+<meta name="twitter:description" content="There&rsquo;ve been various articles going around about Apple&rsquo;s batteries in iPhones, or, specifically, Apple&rsquo;s throttling of phones&#39; hardware with older batteries. This post seeks to be primarily informational, but if you&rsquo;re the owner of such a device that might be throttled, I&rsquo;ll put in some useful information for you at the end of the post. But mostly, I&rsquo;m going to be looking at the facts of the issue, since the internet in general and news in particular tends more towards sensationalism than complete information."/>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "articleSection": "Posts",
+    "name": "What\u0027s Going on with Apple\u0027s Batteries?",
+    "headline": "What\u0027s Going on with Apple\u0027s Batteries?",
+    "description": "There\u0026rsquo;ve been various articles going around about Apple\u0026rsquo;s batteries in iPhones, or, specifically, Apple\u0026rsquo;s throttling of phones\u0027 hardware with older batteries. This post seeks to be primarily informational, but if you\u0026rsquo;re the owner of such a device that might be throttled, I\u0026rsquo;ll put in some useful information for you at the end of the post. But mostly, I\u0026rsquo;m going to be looking at the facts of the issue, since the internet in general and news in particular tends more towards sensationalism than complete information.",
+    "inLanguage": "en-us",
+    "author" : {
+      "@type": "Person",
+      "name": "Eric Miller"
+    },
+    "creator" : {
+      "@type": "Person",
+      "name": "Eric Miller"
+    },
+    "copyrightHolder": "Eric Miller",
+    "copyrightYear": "2017",
+    "dateCreated": "2017-12-29T00:00:00\u002b00:00",
+    "datePublished": "2017-12-29T00:00:00\u002b00:00",
+    "dateModified": "2017-12-29T00:00:00\u002b00:00",
+    "url" : "https:\/\/ericsweb.site\/2017\/12\/29\/Whats-Going-On-With-Apples-Batteries\/",
+    "wordCount": "2178",
+    "keywords": []
+  }
+  </script>
+
+
+  
+  
+    <meta name="generator" content="Hugo 0.90.0-DEV" />
+  
+  
+  <meta name="author" content="Eric Miller" />
+  
+    
+      <link href="https://github.com/sosheskaz/" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 bg-neutral text-neutral-900 sm:px-14 md:px-24 lg:px-32 dark:bg-neutral-800 dark:text-neutral max-w-7xl"
+  ><header
+  class="flex justify-between py-6 font-semibold sm:items-center sm:py-10 text-neutral-800 dark:text-neutral"
+>
+  
+  <div>
+    
+      <a
+        class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+        rel="me"
+        href="/"
+        >Eric&rsquo;s Web.site</a
+      >
+  </div>
+  
+  
+    <nav>
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/posts/"
+              title="Posts"
+              >All Posts</a
+            >
+          </li>
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/categories/"
+              title="Categories"
+              >Categories</a
+            >
+          </li>
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/profile/"
+              title="About Me"
+              >About</a
+            >
+          </li>
+        
+      </ul>
+    </nav>
+  
+</header>
+<main class="flex-grow">
+  <article class="max-w-prose">
+    <header>
+      
+        <ol class="text-sm text-neutral-400 dark:text-neutral-500">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Index</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/posts/"
+      >Posts</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/2017/12/29/Whats-Going-On-With-Apples-Batteries/"
+      >What&#39;s Going on with Apple&#39;s Batteries?</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-800 dark:text-neutral">
+        What's Going on with Apple's Batteries?
+      </h1>
+      <div class="mt-8 mb-12 text-base text-neutral-400 dark:text-neutral-500">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row items-center">
+    
+    
+      <time datetime="2017-12-29 00:00:00 &#43;0000 UTC">29 December 2017</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">11 mins</span>
+    
+
+    
+    
+  </div>
+
+
+      </div>
+    </header>
+    <section class="prose dark:prose-light">
+      <p>There&rsquo;ve been various articles going around about Apple&rsquo;s batteries in iPhones, or, specifically,
+Apple&rsquo;s throttling of phones' hardware with older batteries. This post seeks to be primarily
+informational, but if you&rsquo;re the owner of such a device that might be throttled, I&rsquo;ll put in some
+useful information for you at the end of the post. But mostly, I&rsquo;m going to be looking at the facts
+of the issue, since the internet in general and news in particular tends more towards
+sensationalism than complete information.</p>
+<p>The main place I&rsquo;m getting information from is <a href="https://www.macrumors.com">MacRumors</a>. While that
+sounds like a biased source, in my experience they do their best to provide fair, nuanced, and
+informational coverage, rather than the fanboyism associated with many Apple-focused news sites.</p>
+<hr>
+<h2 id="accusations-of-throttling">Accusations of Throttling <a class="heading-anchor" href="#accusations-of-throttling" aria-label="Anchor">#</a></h2>
+<p>In truth, this story has roots going further back than just this story, and the two can get
+confused because they brooch similar topics, but are actually separate issues. What I&rsquo;m talking
+about in particular is that Apple has been accused of intentionally slowing down older devices with
+new iOS updates.</p>
+<p>It should come as a surprise to no one that Apple primarily develops iOS with their newest devices
+in mind. This is generally a good thing – having the second camera on the 7 Plus, or the FaceID
+sensor on the X would be completely pointless without making software to drive it. Part of the
+hardware improvements made over time are CPU changes, which increase the overall &ldquo;power&rdquo; of the
+phone, as well as its energy efficiency. iPhone CPU improvements have been very dramatic, growing
+dramatically year-by-year.</p>
+<p><img src="performance-graph.jpg" alt="Performance Year-by-Year"></p>
+<p>Source: Apple (though these figures are relatively representative of real performance gains)</p>
+<p>Energy efficiency has grown similarly. With much more computational power available, for a much
+lower battery hit, it&rsquo;s natural for developers to use more power for both low-level tasks and to
+engage in more intensive tasks at the high end. What this means is that basic things, like the home
+screen, use more energy with every iteration of the software, just because it&rsquo;s <em>doing more stuff</em>.
+This means an older phone will struggle more with each iteration of iOS. This is both <em>by-design</em>
+on Apple&rsquo;s part, to upsell the newer model, as well as a natural consequence of Apple&rsquo;s business
+model. The alternative is more like the Android market, where many phones don&rsquo;t support upgrading
+to the latest versions of the operating system. This is a difference in how each market works, and
+each has benefits (keeping up-to-date with the latest features vs. more stable performance over
+time).</p>
+<p>Evidence gathered has suggested that Apple is not <em>intentionally</em> slowing down older phones, but
+that the natural progression of the software itself has caused slowdowns, as I was describing. This
+is a separate issue from the battery-based controversy now happening.</p>
+<h2 id="the-battery-controversy">The Battery Controversy <a class="heading-anchor" href="#the-battery-controversy" aria-label="Anchor">#</a></h2>
+<p>So now on to the new controversy, that unlike the previously-mentioned one, has strong evidence
+supporting it, as well as Apple actually confirming their activity. Much of the defense of Apple
+here is supplied by Apple themselves, explaining why they&rsquo;re doing what they are, but because it&rsquo;s
+more or less impossible to confirm or deny their statements (since they have data that the public
+simply doesn&rsquo;t). What we do know for certain is that Apple is intentionally slowing down some older
+phones using iOS updates.</p>
+<p>It was uncovered that, as of iOS 10.2.1, interesting patterns were occurring in the benchmark (a
+measurement of a computer or phone&rsquo;s computing power). Basically, there were spikes in the
+frequency of phones performing in specific ranges, rather than along a more natural curve.</p>
+<p><img src="geekbench-score-graph.jpg" alt="GeekBench Scores Graphs"></p>
+<p>Source: Graphs by <a href="https://www.geekbench.com">GeekBench</a>, compilation by
+<a href="https://www.macrumors.com">MacRumors</a></p>
+<p>The left graph is of performance of a number iPhone 6s devices prior to iOS 10.2.1, while the one
+on the right is after. The horizontal axis is performance scores, while the vertical access is the
+number of phones getting that score. What we see in the second graph is that there are unnatural
+groupings along certain points – points that Apple is throttling some phones to.</p>
+<p>Apple has admitted to the throttling, so this isn&rsquo;t just speculation, this is fact backed up by
+experimentation.</p>
+<p>But what <strong>is</strong> notable, is that Apple is not throttling all devices equally, which is what I
+believe they would do if they were just trying to upsell phones with this maneuver. This backs
+up their story.</p>
+<h3 id="apples-story">Apple&rsquo;s Story <a class="heading-anchor" href="#apples-story" aria-label="Anchor">#</a></h3>
+<p>Apple claims that the throttling was introduced as a strategy of power management in older phones.
+Put simply, as the battery degrades over time (as Lithium-Ion batteries do), this causes some
+issues in the electronics. Batteries can run out faster than they &ldquo;should&rdquo;, because they can no
+longer hold as much charge. More seriously, degradation of the battery can cause more serious
+issues. For example, the battery can fail to provide enough power to run a CPU at full blast,
+causing brownouts when performing intensive tasks. The battery can swell and put pressure on other
+components, causing them to malfunction. And of course, the readings can become faulty.</p>
+<p>Some of you may be rolling your eyes at this claim, but it is <strong>true</strong>. I say that using my own
+personal experience. I own a laptop with such a degraded battery, and it can suddenly power off at
+40%-50% charge when performing intensive tasks for exactly this reason. Believe me, it sucks to be
+in the middle of compiling code and have your laptop cut out.</p>
+<p>Personally, I suspect that Apple has had some poor quality management of their sourced batteries
+for a while, based on the variety of incidents surrounding Apple&rsquo;s batteries lately (I am not the
+only person with this problem with this model of laptop).</p>
+<hr>
+<h3 id="the-counterattack">The Counterattack <a class="heading-anchor" href="#the-counterattack" aria-label="Anchor">#</a></h3>
+<p>Apple is being sued over this. Frankly, I hope that they receive a favorable result, because I feel
+that Apple&rsquo;s behavior here is unacceptable, for reasons I&rsquo;ll explain shortly. The argument of this
+lawsuit is that Apple neither gave notice, nor any choice, to any users whose phones were
+throttled. This was done silently, with no meaningful consent, to people who <strong>own</strong> their
+products. I don&rsquo;t know enough about law to know whether this has any merit anymore, but while I
+don&rsquo;t necessarily feel that the throttling was <em>wrong</em> exactly, I find Apple&rsquo;s approach to it
+lacking and concerning.</p>
+<h3 id="apples-response">Apple&rsquo;s Response <a class="heading-anchor" href="#apples-response" aria-label="Anchor">#</a></h3>
+<blockquote>
+<p>A chemically aged battery also becomes less capable of delivering peak energy loads, especially in a low state of charge, which may result in a device unexpectedly shutting itself down in some situations.
+To help customers learn more about iPhone&rsquo;s rechargeable battery and the factors affecting its performance, we&rsquo;ve posted a new support article, iPhone Battery and Performance.
+It should go without saying that we think sudden, unexpected shutdowns are unacceptable. We don&rsquo;t want any of our users to lose a call, miss taking a picture or have any other part of their iPhone experience interrupted if we can avoid it.</p>
+</blockquote>
+<p>Source: Apple</p>
+<p>Apple has responded to this in a few ways. First, they owned up to, and justified, the things they
+did. Secrecy and denial was the wrong approach here, and I&rsquo;m glad Apple was (in my opinion) honest
+in that regard. Second, they&rsquo;ve committed to making changes in iOS to be more transparent in
+regard to this particular issue. Namely, they plan to give more insight into the present health of
+an iPhone&rsquo;s battery at any given point, and make that information available on demand. <em>They should
+have done this a long time ago</em>. MacOS has features to tell you the health of your battery, and
+third-party apps that do the same. iOS should too. Finally, they&rsquo;re reducing the price of a battery
+replacement from $79 to $29, so if you&rsquo;re affected by this, I recommend taking advantage (if you&rsquo;re
+not planning on leaving the Apple ecosystem in response to this).</p>
+<h3 id="my-insight">My Insight <a class="heading-anchor" href="#my-insight" aria-label="Anchor">#</a></h3>
+<p>As someone who has experienced the battery issues (unexpected shutdowns) that Apple alluded to (as
+well as much worse), let me just say that, despite what you may think, throttling the CPU when on
+battery power is <em>vastly</em> preferable.</p>
+<p>However, what they did was unacceptable. Why? Because there had to be <em>public outrage</em> before they
+were the least bit transparent about it. Damn it Apple, your customers are <em>adults</em>. Throttling the
+phones themselves is one thing, but without doing anything to inform your customers? Seriously?
+That&rsquo;s one of the most contemptuous moves towards your customers you&rsquo;ve ever made.</p>
+<blockquote>
+<p>So, you like what Apple did, but not how they did it? How should they have done it then?</p>
+</blockquote>
+<p>Source: You, maybe</p>
+<p>Yes, exactly. Apple could have <em>easily</em> done this in a palatable way, using any (or all) of my
+suggestions here.</p>
+<ul>
+<li>Before throttling a phone, display an alert to a user. The alert could say something like: &ldquo;Your
+battery has degraded, and the performance of the device will be reduced. This is to prevent
+unexpected shutdowns, substantially decreased battery life, and other issues. It&rsquo;s recommended to
+get a battery replacement. See [linked article] for more details.&rdquo;</li>
+<li>Alert users when their battery has degraded, and tell them how bad it is.</li>
+<li>Make the health of the battery easily accessible (to their credit, they are doing this, but it&rsquo;s
+too late in my opinion)</li>
+<li>Tell your users <em>how much</em> their phone is being throttled.</li>
+<li>Detect a degraded battery and display an alert with information on <strong>how</strong> to get a battery
+repair.</li>
+</ul>
+<p>There. There&rsquo;s 5 ideas on how to have not turned this into a complete and utter PR <strong>disaster</strong>.</p>
+<p>So yes. I think that the throttling is a good thing, but the way that Apple did it is utterly
+distasteful, shows contempt for their users, and is consumer-unfriendly.</p>
+<h2 id="i-am-affected-by-the-throttling-or-am-concerned-that-i-may-be-affected">I am Affected by the Throttling, or am Concerned that I May be Affected <a class="heading-anchor" href="#i-am-affected-by-the-throttling-or-am-concerned-that-i-may-be-affected" aria-label="Anchor">#</a></h2>
+<p>Alright, the promised &ldquo;what to do&rdquo; section. While I&rsquo;m staying in the Apple ecosystem for now, I
+don&rsquo;t blame anyone who jumps ship at this point. This is potentially an indicator of bad things to
+come, and honestly, you should ask yourself if you want to stay invested in a company that did
+something like this. You may choose, like I did, to stick around, but it is at the very least
+something you should ask yourself.</p>
+<h3 id="wait-until-the-january-ios-update">Wait until the January iOS Update <a class="heading-anchor" href="#wait-until-the-january-ios-update" aria-label="Anchor">#</a></h3>
+<p>In January, Apple will release an update to iOS that will allow you to see more detailed
+information about your battery&rsquo;s health. That information may be useful to making a decision about
+what to do, and if you&rsquo;re uncertain about whether you&rsquo;re affected, it should hopefully provide some
+insight.</p>
+<h3 id="take-a-look-at-apples-battery-article">Take a Look at Apple&rsquo;s Battery Article <a class="heading-anchor" href="#take-a-look-at-apples-battery-article" aria-label="Anchor">#</a></h3>
+<p>Apple explains the circumstances surrounding batteries better than I can, so take a look at their
+new <a href="https://support.apple.com/en-us/HT208387">support article</a> to educate yourself a bit further.
+Just keep in mind that you <strong>are</strong> reading something from the company itself that may have inherent
+bias or points to make. If you played with DC circuits in high school or college (and still
+remember it) you will probably understand most or all of what they talk about. If not, you should
+still be able to follow it and understand what they&rsquo;re getting at.</p>
+<h3 id="consider-upgrading">Consider Upgrading <a class="heading-anchor" href="#consider-upgrading" aria-label="Anchor">#</a></h3>
+<p>This may be weird following the previous point, but it may be worth it. The insight that phones
+with older batteries are being throttled may make it a good time to switch to a new phone. If you
+want to stay in the Apple camp, the iPhone 8 and 8 Plus are well-liked (though I still feel that
+the X is too new/untested for a reliable main phone). If you want to switch to Android, the Google
+Pixel 2 is by all accounts a loved phone (if you can get over the fact that
+Goo-We-Make-Our-Money-By-Essentially-Selling-Your-Data-To-Advertisers-gle makes it).</p>
+<h3 id="plan-for-a-battery-upgrade">Plan For a Battery Upgrade <a class="heading-anchor" href="#plan-for-a-battery-upgrade" aria-label="Anchor">#</a></h3>
+<p>Starting in late January, Apple will begin providing battery servicing at a much lower price of
+$29, as opposed to the current $79. This is a pretty good deal. If, once the iOS update with the
+new battery health features drops, your device could use a repair (threshold is below 80% health
+for Macs, I&rsquo;d expect similar), I&rsquo;d look into getting it serviced.</p>
+<h3 id="talk-to-apple-support">Talk to Apple Support <a class="heading-anchor" href="#talk-to-apple-support" aria-label="Anchor">#</a></h3>
+<p>There&rsquo;s nothing like a real human to answer questions and concerns, and to give you a hand.
+Personally, I like live chat, because it can be done passively (while watching TV or whatever), it
+gives support time to more naturally look up information, and doesn&rsquo;t have <em>hold music</em>. I&rsquo;d hold
+off on this, just because there&rsquo;s not that much they can do until the iOS changes are rolled out
+and the price of battery servicing is reduced. As always with tech support, you&rsquo;ll get the best
+service by remaining calm, cooperating fully, and answering questions clearly and with detail. Keep
+in mind that they had no choice over Apple&rsquo;s approach here. Here&rsquo;s how to get there:</p>
+<ol>
+<li>Visit the <a href="https://getsupport.apple.com">support website</a>.</li>
+<li>Select &ldquo;Batteries, Power, and Charging&rdquo;.</li>
+<li>Select &ldquo;Battery Questions or Troubleshooting&rdquo;.</li>
+<li>Select &ldquo;Chat&rdquo;. You&rsquo;ll be connected to someone within a couple minutes (in my experience).</li>
+</ol>
+
+    </section>
+    <footer class="pt-8">
+      
+  <div class="flex">
+    
+      <img class="w-24 h-24 !mt-0 !mb-0 mr-4 rounded-full" src="/images/ericmiller.png" />
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] leading-3 text-neutral-400 dark:text-neutral-500 uppercase">
+          Author
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          Eric Miller
+        </div>
+      
+      
+        <div class="text-sm text-neutral-700 dark:text-neutral-400">DevOps Engineer, Kuberneter</div>
+      
+      
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/sosheskaz/"
+          target="_blank"
+          alt="Github"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+  </span>
+
+</a
+        >
+      
+    
+  </div>
+
+
+    </div>
+  </div>
+
+
+      
+
+      
+  
+    <div class="pt-8 article-pagination">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex" href="/2018/01/04/Intel-Security-Bug/">
+              <span class="mr-3 article-pagination-direction">&larr;</span>
+              <span class="flex flex-col">
+                <span class="article-pagination-title mt-[0.1rem] leading-6"
+                  >The Intel Disaster</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                  
+                    <time datetime="2018-01-04 00:00:00 &#43;0000 UTC">4 January 2018</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right" href="/2017/12/12/Time-Machine-with-FreeBSD/">
+              <span class="flex flex-col">
+                <span class="article-pagination-title mt-[0.1rem] leading-6"
+                  >How to Create a Time Machine Server with FreeBSD</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                  
+                    <time datetime="2017-12-12 00:00:00 &#43;0000 UTC">12 December 2017</time>
+                  
+                </span>
+              </span>
+              <span class="ml-3 article-pagination-direction">&rarr;</span>
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    </footer>
+    
+  </article>
+</main><footer class="py-10">
+  
+  
+  <div class="flex justify-between">
+    <div>
+      
+      <p class="text-sm text-neutral-400 dark:text-neutral-500">
+          &copy;
+          2021
+          Eric Miller
+      </p>
+      
+      
+        <p class="text-xs text-neutral-300 dark:text-neutral-600">
+          
+          
+          Powered by <a class="hover:underline hover:underline-primary-300 hover:text-primary-400"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:underline-primary-300 hover:text-primary-400" href="https://git.io/hugo-congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    
+    
+      <div class="text-sm cursor-pointer text-neutral-400 dark:text-neutral-500">
+        <button
+          id="dark-toggle"
+          onclick="setPreferredAppearance('dark');"
+          oncontextmenu="setPreferredAppearance('default'); return false;"
+          class="inline px-2 py-1 border rounded-md border-neutral-200 dark:hidden hover:text-primary-500 hover:border-primary-400"
+          title="Switch to dark appearance"
+        >
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="moon" class="svg-inline--fa fa-moon fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"></path></svg>
+  </span>
+
+
+        </button>
+        <button
+          id="light-toggle"
+          onclick="setPreferredAppearance('light');"
+          oncontextmenu="setPreferredAppearance('default'); return false;"
+          class="hidden px-2 py-1 border rounded-md cursor-pointer dark:inline border-neutral-700 hover:text-primary-400 hover:border-primary-500"
+          title="Switch to light appearance"
+        >
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sun" class="svg-inline--fa fa-sun fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"></path></svg>
+  </span>
+
+
+        </button>
+      </div>
+    
+  </div>
+  
+  
+</footer>
+</body>
+</html>

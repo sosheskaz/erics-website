@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  class="dark"
+><head>
+  <meta charset="utf-8" />
+  
+    <meta http-equiv="content-language" content="en-us" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>The New Package Managers &middot; Eric&#39;s Web.site</title>
+    <meta name="title" content="The New Package Managers &middot; Eric&#39;s Web.site" />
+  
+  <meta name="description" content="Eric Miller&#39;s website to post about Technology, life, and anything else that comes up." />
+  
+  
+  
+  <link rel="canonical" href="https://ericsweb.site/posts/package-managers/" />
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/schemes/congo.min.b48d6ba061dc77186a2524fb8aac5ac3823b2679a9299ca60325abbccc9c1764c884715f0ba24b4e2776cb3814df4af1f4c854b87207cd5d4c7a254da9b55751.css"
+    integrity="sha512-tI1roGHcdxhqJST7iqxaw4I7JnmpKZymAyWrvMycF2TIhHFfC6JLTid2yzgU30rx9MhUuHIHzV1MeiVNqbVXUQ=="
+  />
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/compiled/main.min.4076b9cf114dd23cca017f3365e2205a4c9a4b2c0ef4193ccd08883f76e554aa40f674a8f6e77a1b2895be0975ba8e019b0c59996c2eea32e4970ca4d5221653.css"
+    integrity="sha512-QHa5zxFN0jzKAX8zZeIgWkyaSywO9Bk8zQiIP3blVKpA9nSo9ud6GyiVvgl1uo4BmwxZmWwu6jLklwyk1SIWUw=="
+  />
+  
+  
+  
+    <script>
+      function loadPreferredAppearance() {
+        if (localStorage.preferredAppearance === "dark" || (!("preferredAppearance" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      }
+      function setPreferredAppearance(scheme) {
+        if (scheme == "default") {
+          localStorage.removeItem("preferredAppearance");
+        } else {
+          localStorage.preferredAppearance = scheme;
+        }
+        loadPreferredAppearance();
+      }
+      loadPreferredAppearance();
+      window.matchMedia("(prefers-color-scheme: dark)").addListener(loadPreferredAppearance);
+    </script>
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="The New Package Managers" />
+<meta property="og:description" content="From the time I first got Linux to boot on a laptop I had, I became entranced with the idea of a system package manager. From Wikipedia:
+ A package manager or package management system is a collection of software tools that automates the process of installing, upgrading, configuring, and removing computer programs for a computer&rsquo;s operating system in a consistent manner.
+ Basically, a package manager lets you install software in a uniform way - on Ubuntu Linux, apt install 7zip." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ericsweb.site/posts/package-managers/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-01-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-01-03T00:00:00+00:00" /><meta property="og:site_name" content="Eric&#39;s Web.site" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="The New Package Managers"/>
+<meta name="twitter:description" content="From the time I first got Linux to boot on a laptop I had, I became entranced with the idea of a system package manager. From Wikipedia:
+ A package manager or package management system is a collection of software tools that automates the process of installing, upgrading, configuring, and removing computer programs for a computer&rsquo;s operating system in a consistent manner.
+ Basically, a package manager lets you install software in a uniform way - on Ubuntu Linux, apt install 7zip."/>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "articleSection": "Posts",
+    "name": "The New Package Managers",
+    "headline": "The New Package Managers",
+    "description": "From the time I first got Linux to boot on a laptop I had, I became entranced with the idea of a system package manager. From Wikipedia:\n A package manager or package management system is a collection of software tools that automates the process of installing, upgrading, configuring, and removing computer programs for a computer\u0026rsquo;s operating system in a consistent manner.\n Basically, a package manager lets you install software in a uniform way - on Ubuntu Linux, apt install 7zip.",
+    "inLanguage": "en-us",
+    "author" : {
+      "@type": "Person",
+      "name": "Eric Miller"
+    },
+    "creator" : {
+      "@type": "Person",
+      "name": "Eric Miller"
+    },
+    "copyrightHolder": "Eric Miller",
+    "copyrightYear": "2019",
+    "dateCreated": "2019-01-03T00:00:00\u002b00:00",
+    "datePublished": "2019-01-03T00:00:00\u002b00:00",
+    "dateModified": "2019-01-03T00:00:00\u002b00:00",
+    "url" : "https:\/\/ericsweb.site\/posts\/package-managers\/",
+    "wordCount": "2637",
+    "keywords": ["technology","package","manager","freebsd","ports","macos","homebrew","macports","chocolatey",]
+  }
+  </script>
+
+
+  
+  
+    <meta name="generator" content="Hugo 0.90.0-DEV" />
+  
+  
+  <meta name="author" content="Eric Miller" />
+  
+    
+      <link href="https://github.com/sosheskaz/" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 bg-neutral text-neutral-900 sm:px-14 md:px-24 lg:px-32 dark:bg-neutral-800 dark:text-neutral max-w-7xl"
+  ><header
+  class="flex justify-between py-6 font-semibold sm:items-center sm:py-10 text-neutral-800 dark:text-neutral"
+>
+  
+  <div>
+    
+      <a
+        class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+        rel="me"
+        href="/"
+        >Eric&rsquo;s Web.site</a
+      >
+  </div>
+  
+  
+    <nav>
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/posts/"
+              title="Posts"
+              >All Posts</a
+            >
+          </li>
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/categories/"
+              title="Categories"
+              >Categories</a
+            >
+          </li>
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/profile/"
+              title="About Me"
+              >About</a
+            >
+          </li>
+        
+      </ul>
+    </nav>
+  
+</header>
+<main class="flex-grow">
+  <article class="max-w-prose">
+    <header>
+      
+        <ol class="text-sm text-neutral-400 dark:text-neutral-500">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Index</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/posts/"
+      >Posts</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/posts/package-managers/"
+      >The New Package Managers</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-800 dark:text-neutral">
+        The New Package Managers
+      </h1>
+      <div class="mt-8 mb-12 text-base text-neutral-400 dark:text-neutral-500">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row items-center">
+    
+    
+      <time datetime="2019-01-03 00:00:00 &#43;0000 UTC">3 January 2019</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">13 mins</span>
+    
+
+    
+    
+  </div>
+
+
+      </div>
+    </header>
+    <section class="prose dark:prose-light">
+      <p>From the time I first got Linux to boot on a laptop I had, I became entranced with the idea of a
+system <em>package manager</em>. From <a href="https://en.wikipedia.org/wiki/Package_manager">Wikipedia</a>:</p>
+<blockquote>
+<p>A package manager or package management system is a collection of software tools that automates the process of installing, upgrading, configuring, and removing computer programs for a computer&rsquo;s operating system in a consistent manner.</p>
+</blockquote>
+<p>Basically, a package manager lets you install software in a uniform way - on Ubuntu Linux,
+<code>apt install 7zip</code>. On CentOS Linux, <code>yum install 7zip</code>. On OpenSUSE Linux <code>zypper install 7zip</code>. No
+more double-checking that you&rsquo;re installing it from the right source, no more &ldquo;Choose where you want
+to install this&rdquo;, no more &ldquo;oh crap oh crap I forgot to uncheck the &lsquo;Install NotMalware™️ Toolbar&rsquo;&rdquo;.
+Clean. Uniform. It just knows how to install it.</p>
+<p>Around this time I also learned about the Mac package managers <a href="https://brew.sh/">Homebrew</a> and
+<a href="https://www.macports.org/">MacPorts</a>, and came to use them religiously. I used them without
+thinking about what they were or how they did it, and probably assumed that they worked the same way
+as the Linux ones. I just enjoyed that package managers were easy and worked, and that I had one on
+my OS. It wasn&rsquo;t until I ran FreeBSD that I came to understand even the basics of how package
+managers really worked.</p>
+<h2 id="the-linux-answer">The Linux Answer <a class="heading-anchor" href="#the-linux-answer" aria-label="Anchor">#</a></h2>
+<p>Let&rsquo;s say we were going to build a system to do the same thing - have a simple platform that would
+manage programs on a system for the user. You&rsquo;re probably thinking along the lines of one of the
+various app stores out there - you, a trusted party, host all the software that people will download
+in a nice, easy-to-install format, and people can download and install it as they please. All you
+need is a place to host it. And in the meantime, anyone else can run their own repository of
+software next to yours, and as long as they have the same format, it&rsquo;ll be fully-compatible.</p>
+<p>This isn&rsquo;t a bad solution - in fact, in some ways it&rsquo;s utterly brilliant. Having a central
+repository makes for lots of opportunities. You can have specific repositories curated for
+compatibility against a specific version of a specific operating system. Everyone downloads from a
+trusted source without having to think about it. Third parties who don&rsquo;t want to share their code
+with you can host their own. If someone needs a bit of software from a  different repo, all they
+have to do is subscribe to it. There are plenty of benefits.</p>
+<p>But there are downsides to this approach too. There&rsquo;s a central point of failure - your servers -
+if they go down, all the people using your repository are SOL. If someone won&rsquo;t let you use your
+repository for their software (or you don&rsquo;t want their software (or both)), and don&rsquo;t want to host
+their own - congratulations - your beautiful package manager becomes useless in that scenario.
+Further there is a <strong>lot</strong> of software out there, and hosting all of it for countless people to all
+use at the same time gets expensive, which is a bit of an issue if you don&rsquo;t have servers,
+bandwidth, or money.</p>
+<p>Though Linux didn&rsquo;t implement this sprawling infrastructure out of the gate, the basic tooling for
+distributing and installing these packages was first implemented around 1994 (I&rsquo;m referring here to
+the creation of <code>dpkg</code>).</p>
+<p>Recently, starting in 2013, two big players arrived on the scene, with similar promises but very
+different implementations - <a href="https://en.wikipedia.org/wiki/Docker_(software)">Docker</a> and
+<a href="https://en.wikipedia.org/wiki/Snappy_(package_manager)">Snappy</a>. Docker became the symbol of
+containerization, a practice involving packaging up every single thing needed to run a piece of
+software, and running it in what is basically a virtual-machine-but-not-really. Promising optimal
+reliability, reproduceability, and integration with sophisticated machine orchestration tools, it&rsquo;s
+become a popular and different means of addressing many older problems by taking isolation between
+&ldquo;packages&rdquo; to relative extremes. Snappy, on the other hand, takes portability by building itself a
+little sandbox with everything it needs and shipping that around on-demand, crossing Linux
+distributions, computer architectures, and device types in the process while bypassing many of the
+limitations of containerization, especially as they apply to desktop apps.</p>
+<h3 id="linux-dishonorable-mentions">Linux Dishonorable Mentions <a class="heading-anchor" href="#linux-dishonorable-mentions" aria-label="Anchor">#</a></h3>
+<p>None, really. The GNU folks have collectively put a lot of time and effort into building a system
+that works both easily and well (most of the time -
+<a href="https://twitter.com/sosheskaz/status/1047339775030702080">looking at you, OpenSUSE</a>) and even when
+the result hasn&rsquo;t been great, their hearts are usually in the right place, even if I sometimes feel
+they&rsquo;re a bit too aggressive about their GNU ideology in some places.</p>
+<h2 id="the-bsd-answer">The BSD Answer <a class="heading-anchor" href="#the-bsd-answer" aria-label="Anchor">#</a></h2>
+<p>For BSD, many of those benefits were meager, and the downsides were more serious. Where Linux had
+a genuine need for versatility given the vast number of different distributions and their vast
+differences, BSD had relatively few public distributions and more consistency within an operating
+system Where commercialized Linux distributions (or even just popular distributions that make a lot
+through donations) were able to run their dedicated repositories, such a thing was non-trivial for
+BSD, and an alternative that was more decentralized would be easier to implement and maintain.*</p>
+<p>* I&rsquo;m making some guesses about why the ports tree was adopted based on its relative technical
+merits, especially as they applied circa 1993. Honestly, I suspect it was added because it was
+&ldquo;useful at the time&rdquo; and it happened to work well for their needs.</p>
+<p>So instead, in 1993-1994, FreeBSD developed the beginnings of the ports tree (really called the
+ports collection, but I prefer tree, because that&rsquo;s how it&rsquo;s structured). The basic idea was that,
+instead of downloading the software itself, you&rsquo;d download the source code yourself, and compile it
+for your own machine, using only a simple script called a
+<a href="https://en.wikipedia.org/wiki/Makefile">Makefile</a>. This had the benefit of supporting multiple
+architectures, without needing to compile for all of them ahead of time, and allowing changing of
+advanced compilation options to suit the needs of the users and allowing greater control, all using
+just the version control software (subversion) that was already widely used for collaborating on
+code.</p>
+<p>Over time, it was realized that ports didn&rsquo;t necessarily need to build the package from source -
+after all, they were basically just arbitrary scripts in the form of
+Makefiles. This meant that they could be adapted to
+install proprietary software, that may not be packaged in an expected way, from an open-source
+repository that you had a copy of on your machine without necessarily violating licenses.</p>
+<p>Later, Arch Linux, Gentoo Linux, and other open-source BSD operating systems would adopt ports trees
+inspired by, or even descended from, the original FreeBSD ports tree. This wound up being a great
+feature for advanced users, because of its huge flexibility and the fact that it wasn&rsquo;t dependent on
+a single repository being up at any given time.</p>
+<h3 id="bsd-dishonorable-mentions">BSD Dishonorable Mentions <a class="heading-anchor" href="#bsd-dishonorable-mentions" aria-label="Anchor">#</a></h3>
+<ul>
+<li>It took forever (2012) for FreeBSD to get a good native binary package manager. Though I prefer the ports tree, not having one can alienate new users. What&rsquo;s more, it&rsquo;s generally lacking compared to its Linux counterparts.</li>
+</ul>
+<p>This is offered with the caveat that the BSD community generally has less resources than the Linux
+community to invest in endeavors like this. The pointless infighting between types of BSD (well,
+really just FreeBSD and OpenBSD, everybody likes NetBSD) also doesn&rsquo;t help the platform as a whole.</p>
+<h2 id="package-managers-come-to-macos">Package Managers come to macOS <a class="heading-anchor" href="#package-managers-come-to-macos" aria-label="Anchor">#</a></h2>
+<p>In 2000, <a href="https://en.wikipedia.org/wiki/Fink_(software)">Fink</a> arrived on the scene for macOS.
+Built on top of the <code>dpkg</code> utility from Debian Linux:</p>
+<blockquote>
+<p>With the help of dpkg, it maintains a separate directory hierarchy. It downloads original source releases, patches them if necessary, configures them for Darwin and compiles and installs them. The information about available packages and the necessary patches (the &ldquo;package descriptions&rdquo;) are maintained separately, but are usually included with this distribution. The actual source code is downloaded from the Internet as necessary.</p>
+</blockquote>
+<p>Like its Linux counterparts, it used dedicated repositories (often of source code rather than
+binaries) to port, compile, install, and maintain common open-source utilities for macOS. It hooked
+into many of the source code distributions already out there (including FreeBSD&rsquo;s own ports tree) in
+order to install and manage software for macOS with almost none of the necessary infrastructure for
+doing so, by integrating the repositories already maintained by the open-source community at large
+and providing an &ldquo;adapter&rdquo; to macOS by rebuilding the Linux binaries using macOS build tools.</p>
+<p>Hot on Fink&rsquo;s heels, in 2002, MacPorts was created. As the name implies, it was based on the idea
+of the FreeBSD ports tree, but instead targeting macOS. Like the ports tree, it installed everything
+by building from the source code, with a depth of configuration options available to suit the needs
+of the user. It quickly became popular among power users and developed a following of contributors,
+and to date has more packages available than any other mac package manager.</p>
+<p>In 2009, the now most-popular mac package manager was announced, Homebrew. It was basically the
+ultimate mutt, incorporating ideas from all the package mangers up to that point about how packages
+should be managed, and had the benefit of being built on git. Its popularity took off, in 2013 being
+<a href="https://web.archive.org/web/20140207125857/https://octoverse.github.com/">one of the most popular repositories on GitHub</a>.
+Like BSD, it used a repository of scripts to define how to install software, but as was more common
+in the Linux world, it typically downloaded pre-built binaries. and supported adding additional
+repositories. Like ports, it keeps local copies of all its scripts using version control tools, but
+like traditional package managers, allows one to subscribe to additional repositories, and manages
+those using <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">an advanced feature of git</a>. It
+tries to take the best of all worlds, and in my opinion, does a damn good job of it.</p>
+<h3 id="macos-dishonorable-mentions">macOS Dishonorable Mentions <a class="heading-anchor" href="#macos-dishonorable-mentions" aria-label="Anchor">#</a></h3>
+<ul>
+<li>App Store: A cynical and half-hearted attempt to bring Apple&rsquo;s iOS cash cow to the desktop while simultaneously making life more difficult for users and developers alike, and generally being a flop.</li>
+<li>Swift Package Manager: Released with Swift 3.0, this package manager couples being the last to market behind CocoaPods and Carthage while simultaneously being more obtuse and less reliable.</li>
+</ul>
+<p>Really, it seems like Apple just can&rsquo;t wrap their heads around how to make a good package manager&hellip;
+Or maybe the open-source community are the only people pure enough in purpose to be able to do so
+successfully without needing to <em>establish a total monopoly</em> on their ecosystem to do so.</p>
+<h2 id="windows">Windows <a class="heading-anchor" href="#windows" aria-label="Anchor">#</a></h2>
+<p>Honestly, I can&rsquo;t muster much more than an honorable mention for Windows in the package management
+area, but I also don&rsquo;t want to leave it out. That&rsquo;s not to denigrate the people working on it
+at all - they do great work, and as someone who fell in love with package managers as soon as I
+found them, the work they do on bringing package managers to an ecosystem that seems to think it&rsquo;s
+too good for them is greatly appreciated. That said, nothing that&rsquo;s come out of it has been
+particularly impressive or reliable when compared to the *NIX counterparts.</p>
+<h3 id="windows-honorable-mentions">Windows Honorable Mentions <a class="heading-anchor" href="#windows-honorable-mentions" aria-label="Anchor">#</a></h3>
+<ul>
+<li>Various managers or environments for FOSS packages in Windows - <code>Cygwin</code>, <code>MSYS2</code>, <code>wpkg</code>.</li>
+<li>NuGet: The much needed package manager for Windows software development. Originally started as an open-source project, but the best one available, to the point that it started being included in Visual Studio by default.</li>
+<li>Chocolatey: The lonely missing package manager for Windows, built on top of NuGet. Like homebrew, it&rsquo;s open-source and free, but it doesn&rsquo;t have anywhere near the same community involvement (despite having comparatively massive market share 🤔) and just isn&rsquo;t as mature as those on other operating systems in terms of end-usage. It&rsquo;s a similar to homebrew in the idea of how its install scripts work, but not being built with the same flexibility via git, it just doesn&rsquo;t wind up being as strong.</li>
+</ul>
+<h4 id="on-the-off-chance-the-maintainer-i-ran-into-in-irc-is-reading-this">On the Off Chance the Maintainer I Ran Into in IRC is Reading This <a class="heading-anchor" href="#on-the-off-chance-the-maintainer-i-ran-into-in-irc-is-reading-this" aria-label="Anchor">#</a></h4>
+<p>One time you stopped into the Freenode #freebsd IRC channel when you were looking for advice about
+running some of the <code>choco</code> servers on FreeBSD. Despite saying some perhaps mean things above, I
+really do admire the hard work you folks put in making a package manager for an ecosystem that&rsquo;s
+just not receptive to it. It made my life loads easier when I worked in that ecosystem. Keep on
+doing your great work - Windows needs you, even if it doesn&rsquo;t realize it.</p>
+<h3 id="windows-dishonorable-mentions">Windows Dishonorable Mentions <a class="heading-anchor" href="#windows-dishonorable-mentions" aria-label="Anchor">#</a></h3>
+<ul>
+<li>Windows Store: Like the Mac App Store, but worse in just about every way. A cynical attempt to monopolize software distribution on their own operating system (Remember Windows 10 S?) while rolling back quality control to such an extent that there are <em>competing <strong>paid</strong> &ldquo;apps&rdquo; that download <strong>free</strong> software</em>. It would be funny, if it weren&rsquo;t so sad.</li>
+</ul>
+<p>To reiterate:</p>
+<blockquote>
+<p>maybe the open-source community are the only people pure enough in purpose to be able to do so successfully without needing to <em>establish a total monopoly</em> on their ecosystem to do so.</p>
+</blockquote>
+<hr>
+<h2 id="musing">Musing <a class="heading-anchor" href="#musing" aria-label="Anchor">#</a></h2>
+<p>I don&rsquo;t like ending on that note, so I&rsquo;m going to write some pseudo-stream-of-conscousness stuff to
+give the illusion of having learned something from this long-winded and esoteric post.</p>
+<p>Obviously, I&rsquo;m a pretty big fan of homebrew. I&rsquo;ve long been impressed by the mac developer
+community&rsquo;s tenacity in developing for the operating system - it seems ironic that one of the
+operating systems that most jealously guards its walled garden ecosystem has such a rich community
+of people experimenting to see what they can do with it. Maybe it&rsquo;s because of the BSD roots that
+become apparent once you dive in, and this community takes on some of the properties of the other
+from those shared roots. Maybe Apple&rsquo;s limitations of the system encourage innovation to get around
+them, or to see how they can make the most of those constraints. Or maybe somebody just had a clever
+idea that happened to grow up well, and happened to be working on a mac at the time.</p>
+<p>As far as FreeBSD and the ports tree goes, it really was a satisfying and useful way of managing the
+operating system. Maybe it was just my intrigue in the subject matter, but it was satisfying to
+compile my own programs, attaching all the settings I wanted, choosing which libraries they used,
+and manually setting them up to work just the way I wanted. I&rsquo;ve never driven a manual transmission,
+I have to imagine it&rsquo;s a similar feeling to what has been described to me - getting closer to the
+machine and getting a closer feel for what it&rsquo;s doing, having a greater deal of control to go along
+with it. It&rsquo;s something MacPorts maintained well, but the spirit of which seems to have been lost in
+homebrew on the mac side of things. Even so, I have to wonder how it&rsquo;s going to hold up as
+containerization continues to evolve, and purpose-build not-quite-virtual machines become more
+common, while FreeBSD gets left in the lurch because it lacks proper docker compatibility.</p>
+<p>Speaking of which, containerization is getting ever bigger in my field which makes me wonder how the
+split between server and desktop management of software dependencies is ultimately going to resolve
+itself. Are we just going to see bigger splits, where containers running in VMs hundreds of miles
+away become the new racks of servers, while stripped down carbon copies of google chrome coupled
+with a handful of javascript become the new desktop apps? Or will things re-converge into some new
+form that somehow takes the best of both, like homebrew did with ports trees and binary
+repositories?</p>
+<hr>
+<p>And now, for your entertainment, Windows 95, being run raw though a javascript renderer provided by
+Chromium.</p>
+<p><img src="windows-95.png" alt="tru dat"></p>
+
+    </section>
+    <footer class="pt-8">
+      
+  <div class="flex">
+    
+      <img class="w-24 h-24 !mt-0 !mb-0 mr-4 rounded-full" src="/images/ericmiller.png" />
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] leading-3 text-neutral-400 dark:text-neutral-500 uppercase">
+          Author
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          Eric Miller
+        </div>
+      
+      
+        <div class="text-sm text-neutral-700 dark:text-neutral-400">DevOps Engineer, Kuberneter</div>
+      
+      
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/sosheskaz/"
+          target="_blank"
+          alt="Github"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+  </span>
+
+</a
+        >
+      
+    
+  </div>
+
+
+    </div>
+  </div>
+
+
+      
+
+      
+  
+    <div class="pt-8 article-pagination">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex" href="/posts/project-euler-performance-profiling/">
+              <span class="mr-3 article-pagination-direction">&larr;</span>
+              <span class="flex flex-col">
+                <span class="article-pagination-title mt-[0.1rem] leading-6"
+                  >Profiling Language Performance with Project Euler</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                  
+                    <time datetime="2019-05-26 00:00:00 &#43;0000 UTC">26 May 2019</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right" href="/2018/09/23/Gather-Round/">
+              <span class="flex flex-col">
+                <span class="article-pagination-title mt-[0.1rem] leading-6"
+                  >Apple's Gather Round - 12 September 2018</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                  
+                    <time datetime="2018-09-23 00:00:00 &#43;0000 UTC">23 September 2018</time>
+                  
+                </span>
+              </span>
+              <span class="ml-3 article-pagination-direction">&rarr;</span>
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    </footer>
+    
+  </article>
+</main><footer class="py-10">
+  
+  
+  <div class="flex justify-between">
+    <div>
+      
+      <p class="text-sm text-neutral-400 dark:text-neutral-500">
+          &copy;
+          2021
+          Eric Miller
+      </p>
+      
+      
+        <p class="text-xs text-neutral-300 dark:text-neutral-600">
+          
+          
+          Powered by <a class="hover:underline hover:underline-primary-300 hover:text-primary-400"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:underline-primary-300 hover:text-primary-400" href="https://git.io/hugo-congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    
+    
+      <div class="text-sm cursor-pointer text-neutral-400 dark:text-neutral-500">
+        <button
+          id="dark-toggle"
+          onclick="setPreferredAppearance('dark');"
+          oncontextmenu="setPreferredAppearance('default'); return false;"
+          class="inline px-2 py-1 border rounded-md border-neutral-200 dark:hidden hover:text-primary-500 hover:border-primary-400"
+          title="Switch to dark appearance"
+        >
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="moon" class="svg-inline--fa fa-moon fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"></path></svg>
+  </span>
+
+
+        </button>
+        <button
+          id="light-toggle"
+          onclick="setPreferredAppearance('light');"
+          oncontextmenu="setPreferredAppearance('default'); return false;"
+          class="hidden px-2 py-1 border rounded-md cursor-pointer dark:inline border-neutral-700 hover:text-primary-400 hover:border-primary-500"
+          title="Switch to light appearance"
+        >
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sun" class="svg-inline--fa fa-sun fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"></path></svg>
+  </span>
+
+
+        </button>
+      </div>
+    
+  </div>
+  
+  
+</footer>
+</body>
+</html>

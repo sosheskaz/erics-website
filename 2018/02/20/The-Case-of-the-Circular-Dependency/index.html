@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  class="dark"
+><head>
+  <meta charset="utf-8" />
+  
+    <meta http-equiv="content-language" content="en-us" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>The Case of the Circular Dependency &middot; Eric&#39;s Web.site</title>
+    <meta name="title" content="The Case of the Circular Dependency &middot; Eric&#39;s Web.site" />
+  
+  <meta name="description" content="Eric Miller&#39;s website to post about Technology, life, and anything else that comes up." />
+  
+  
+  
+  <link rel="canonical" href="https://ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/" />
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/schemes/congo.min.b48d6ba061dc77186a2524fb8aac5ac3823b2679a9299ca60325abbccc9c1764c884715f0ba24b4e2776cb3814df4af1f4c854b87207cd5d4c7a254da9b55751.css"
+    integrity="sha512-tI1roGHcdxhqJST7iqxaw4I7JnmpKZymAyWrvMycF2TIhHFfC6JLTid2yzgU30rx9MhUuHIHzV1MeiVNqbVXUQ=="
+  />
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/compiled/main.min.4076b9cf114dd23cca017f3365e2205a4c9a4b2c0ef4193ccd08883f76e554aa40f674a8f6e77a1b2895be0975ba8e019b0c59996c2eea32e4970ca4d5221653.css"
+    integrity="sha512-QHa5zxFN0jzKAX8zZeIgWkyaSywO9Bk8zQiIP3blVKpA9nSo9ud6GyiVvgl1uo4BmwxZmWwu6jLklwyk1SIWUw=="
+  />
+  
+  
+  
+    <script>
+      function loadPreferredAppearance() {
+        if (localStorage.preferredAppearance === "dark" || (!("preferredAppearance" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      }
+      function setPreferredAppearance(scheme) {
+        if (scheme == "default") {
+          localStorage.removeItem("preferredAppearance");
+        } else {
+          localStorage.preferredAppearance = scheme;
+        }
+        loadPreferredAppearance();
+      }
+      loadPreferredAppearance();
+      window.matchMedia("(prefers-color-scheme: dark)").addListener(loadPreferredAppearance);
+    </script>
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="The Case of the Circular Dependency" />
+<meta property="og:description" content="As some know, I keep a personal server. I&rsquo;ve developed tales of my (mis)adventures and the things I&rsquo;ve learned from them. I found this one humorous. Why? The root cause.
+My hard drive is too fast.
+ I&rsquo;ll start at the beginning. If you&rsquo;re not into computers, I&rsquo;ll explain things in a way that hopefully anyone can understand, but to be honest I&rsquo;m not sure if you&rsquo;ll get a lot out of it." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-02-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-02-20T00:00:00+00:00" /><meta property="og:site_name" content="Eric&#39;s Web.site" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="The Case of the Circular Dependency"/>
+<meta name="twitter:description" content="As some know, I keep a personal server. I&rsquo;ve developed tales of my (mis)adventures and the things I&rsquo;ve learned from them. I found this one humorous. Why? The root cause.
+My hard drive is too fast.
+ I&rsquo;ll start at the beginning. If you&rsquo;re not into computers, I&rsquo;ll explain things in a way that hopefully anyone can understand, but to be honest I&rsquo;m not sure if you&rsquo;ll get a lot out of it."/>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "articleSection": "Posts",
+    "name": "The Case of the Circular Dependency",
+    "headline": "The Case of the Circular Dependency",
+    "description": "As some know, I keep a personal server. I\u0026rsquo;ve developed tales of my (mis)adventures and the things I\u0026rsquo;ve learned from them. I found this one humorous. Why? The root cause.\nMy hard drive is too fast.\n I\u0026rsquo;ll start at the beginning. If you\u0026rsquo;re not into computers, I\u0026rsquo;ll explain things in a way that hopefully anyone can understand, but to be honest I\u0026rsquo;m not sure if you\u0026rsquo;ll get a lot out of it.",
+    "inLanguage": "en-us",
+    "author" : {
+      "@type": "Person",
+      "name": "Eric Miller"
+    },
+    "creator" : {
+      "@type": "Person",
+      "name": "Eric Miller"
+    },
+    "copyrightHolder": "Eric Miller",
+    "copyrightYear": "2018",
+    "dateCreated": "2018-02-20T00:00:00\u002b00:00",
+    "datePublished": "2018-02-20T00:00:00\u002b00:00",
+    "dateModified": "2018-02-20T00:00:00\u002b00:00",
+    "url" : "https:\/\/ericsweb.site\/2018\/02\/20\/The-Case-of-the-Circular-Dependency\/",
+    "wordCount": "1752",
+    "keywords": []
+  }
+  </script>
+
+
+  
+  
+    <meta name="generator" content="Hugo 0.90.0-DEV" />
+  
+  
+  <meta name="author" content="Eric Miller" />
+  
+    
+      <link href="https://github.com/sosheskaz/" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 bg-neutral text-neutral-900 sm:px-14 md:px-24 lg:px-32 dark:bg-neutral-800 dark:text-neutral max-w-7xl"
+  ><header
+  class="flex justify-between py-6 font-semibold sm:items-center sm:py-10 text-neutral-800 dark:text-neutral"
+>
+  
+  <div>
+    
+      <a
+        class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+        rel="me"
+        href="/"
+        >Eric&rsquo;s Web.site</a
+      >
+  </div>
+  
+  
+    <nav>
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/posts/"
+              title="Posts"
+              >All Posts</a
+            >
+          </li>
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/categories/"
+              title="Categories"
+              >Categories</a
+            >
+          </li>
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/profile/"
+              title="About Me"
+              >About</a
+            >
+          </li>
+        
+      </ul>
+    </nav>
+  
+</header>
+<main class="flex-grow">
+  <article class="max-w-prose">
+    <header>
+      
+        <ol class="text-sm text-neutral-400 dark:text-neutral-500">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Index</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/posts/"
+      >Posts</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/2018/02/20/The-Case-of-the-Circular-Dependency/"
+      >The Case of the Circular Dependency</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-800 dark:text-neutral">
+        The Case of the Circular Dependency
+      </h1>
+      <div class="mt-8 mb-12 text-base text-neutral-400 dark:text-neutral-500">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row items-center">
+    
+    
+      <time datetime="2018-02-20 00:00:00 &#43;0000 UTC">20 February 2018</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">9 mins</span>
+    
+
+    
+    
+  </div>
+
+
+      </div>
+    </header>
+    <section class="prose dark:prose-light">
+      <p>As some know, I keep a personal server. I&rsquo;ve developed tales of my (mis)adventures and the things
+I&rsquo;ve learned from them. I found this one humorous. Why? The root cause.</p>
+<p>My hard drive is <em>too fast</em>.</p>
+<hr>
+<p>I&rsquo;ll start at the beginning. If you&rsquo;re not into computers, I&rsquo;ll explain things in a way that
+hopefully anyone can understand, but to be honest I&rsquo;m not sure if you&rsquo;ll get a lot out of it. In
+either case, I hope you&rsquo;ll enjoy it.</p>
+<h2 id="the-background">The Background <a class="heading-anchor" href="#the-background" aria-label="Anchor">#</a></h2>
+<p>So, background on my server setup. The operating system is installed on a medium-quality solid
+state drive (SSD). The main appeal of solid state drives is that they&rsquo;re really fast, at the cost of
+size. My server is used for a multitude of things – including backups and file, which take up
+hundreds of GigaBytes of data. I want it to boot fast, but I also want lots of storage space. The
+result is that the operating system is installed on the SSD while large files are stored on an
+external USB 3.0 drive. The USB 3.0 drive is fast enough that, for what I use it for, it never
+causes substantial slowdowns. The upside of using USB 3.0 is that external drives can get pretty
+much as big as you want, but the downside is that USB 3.0 isn&rsquo;t as fast or reliable as a built-in
+drive.</p>
+<p>The server runs FreeBSD as its operating system, which works pretty well. Since I wanted to learn
+more about using it, I did some experimentation with the file system. FreeBSD supports two file
+systems – UFS and ZFS. UFS is old and simple, but rock-solid and fast. ZFS has tons of features,
+but is very very slightly slower and is considered to be less reliable just because it&rsquo;s younger.
+UFS is installed on the SSD for maximum reliability and simplicity, while ZFS is installed on the
+USB 3.0 drive for its self-recovery and other features.</p>
+<p>I later found out that this setup is kind of stupid, and I should be using ZFS across the board.
+But it&rsquo;s more work than I&rsquo;m interested in to reimage my whole machine and fix it, so I&rsquo;m just
+going to have to live with its quirks for now.</p>
+<h2 id="the-problem">The Problem <a class="heading-anchor" href="#the-problem" aria-label="Anchor">#</a></h2>
+<p>The problem was simple enough, albeit a bit enigmatic. From time to time, the external drive will
+freeze up. The processes that need to access the data on it will try, and get stuck. No data is
+retrieved, and no error is triggered. Nothing goes wrong directly until one of my monitors starts
+triggering because it can&rsquo;t retrieve test data.</p>
+<p>This is strange. FreeBSD still thinks the drive is there. The drive shows as being mounted. But when
+I look at the drive&rsquo;s status, it says <code>UNAVAILABLE</code> and shows an unhelpful error message about
+something going wrong.</p>
+<h2 id="my-first-attempts">My First Attempts <a class="heading-anchor" href="#my-first-attempts" aria-label="Anchor">#</a></h2>
+<p>The first thing I did was try to list the files in the external drive. It hung forever and never
+showed me any of my files or folders. Vexing.</p>
+<p>I could identify the process that was tied up trying to access the drive by seeing which one my
+monitors showed was down. My first attempt was pretty simple, restart the service that ran the
+process.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">service restart myservice
+</code></pre></div><p>I waited. And waited. I figured it was trying to figure out what was going on with the drive in
+order to clean itself up. But after a while, it was apparent that it was totally stuck with no way
+out. So then I tried something a bit nastier. I got the process ID and tried to kill it myself.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kill <span style="color:#ae81ff">9876</span>
+</code></pre></div><p>I waited. And waited. And nothing happened. What that command basically does is tell the process
+in question &ldquo;You need to stop. Right now please. Seriously.&rdquo; It almost always works. Sometimes it
+doesn&rsquo;t. When it doesn&rsquo;t, there&rsquo;s a fallback that always works.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kill -9 <span style="color:#ae81ff">9876</span>
+</code></pre></div><p>Unlike normal <code>kill</code>, this doesn&rsquo;t ask the process to stop. It tells the operating system to
+terminate the process immediately. No being nice, no letting it clean up resources. Just drop
+everything it&rsquo;s doing. That&rsquo;s why it can&rsquo;t fail – you&rsquo;re telling the part of the computer that
+allows processes to run <strong>at all</strong> to not let that process run anymore.</p>
+<p>I waited, and the process didn&rsquo;t stop. That shouldn&rsquo;t happen.</p>
+<p>This xkcd comic seemed apt at the time.</p>
+<p><img src="inexplicable_2x.png" alt="Source: xkcd.com"></p>
+<p>Well, nothing&rsquo;s working. Time to pull out the big guns.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">reboot
+</code></pre></div><p>Here&rsquo;s a note to the Linux/BSD fans out there. If the operating system isn&rsquo;t able to force kill
+a process, it can&rsquo;t reboot. The reboot hung my server in a state of purgatory, unable to die
+but far from alive.</p>
+<p>Ultimately, my solution was to force a restart. You know, when you hold down the power button
+until everything stops. This is potentially really bad for your computer, especially if it&rsquo;s in the
+middle of writing to the disk, which is what it looks at this point like mine was doing. At this
+point, I&rsquo;m prepared for it to be broken when I come back.</p>
+<p>I log back in, the drive mounts, and everything is fine. Huh? I list the errors the drive is having.
+With ZFS, this is pretty easy, because it actively tracks the problems with it. It&rsquo;s showing two
+issues with metadata. I run <code>zfs scrub</code>, which auto-fixes anything wrong. This fixes the issues and
+I move on, figuring it was a one-off glitch.</p>
+<h2 id="the-second-time">The Second Time <a class="heading-anchor" href="#the-second-time" aria-label="Anchor">#</a></h2>
+<p>Then it happened again. I remembered the headaches of the time before, and just hard rebooted it
+again, feeling bad about doing it, but not wanting to deal with the headache. At some point, I make
+a mental note that I should actually figure out how to fix it. That day comes, and the problems
+manifest again in the same way they always do. I get googling (and reading the manual) and
+eventually try a command I found on the internet: <code>zpool clear</code>. It works again!</p>
+<p><code>zpool clear</code> basically just says &ldquo;ignore any issues you&rsquo;ve found, just keep working&rdquo;. It seems odd
+to me that the default behavior is to fail as enigmatically as possible, but I&rsquo;m also not willing to
+dive deep enough to the C++ source code to try and make a fix, so I left it as-is.</p>
+<p>I go to bed, happy that I have a better (if not ideal) solution.</p>
+<h2 id="the-third-time">The Third Time <a class="heading-anchor" href="#the-third-time" aria-label="Anchor">#</a></h2>
+<p>Why, oh why, didn&rsquo;t I write down what I did. Stupid, stupid, stupid Eric. Hard reboot again.</p>
+<h2 id="the-fourth-time">The Fourth Time <a class="heading-anchor" href="#the-fourth-time" aria-label="Anchor">#</a></h2>
+<p>This time, I&rsquo;m going to find the right way to solve it. And then I&rsquo;m going to make a script to do
+it for me, called something like <code>fix_zfs</code>. Then I won&rsquo;t miss it again. I rediscover <code>zfs clear</code>,
+much more quickly this time, and start working on a script that detects if it&rsquo;s down and clears it
+if it is, then runs an auto-repair. I finally have a self-fixing system.</p>
+<p>At this point, I&rsquo;ve got a few hints, and can deduce my best guess on what happened that caused this
+enigmatic behavior. It looks like the ZFS drive is in a zombie-like state – it&rsquo;s not mounted,
+because the file system is inaccessible, but something is in the middle of some sort of operation
+with it. The process can&rsquo;t stop because it&rsquo;s in the middle of an I/O (input/output) operation and
+stopping would be dangerous (in terms of data corruption. The drive can&rsquo;t be fully unmounted because
+a process is in the middle of accessing it, and stopping would be dangerous. Luckily, because of how
+ZFS works, it can auto-repair those errors.</p>
+<p>And so we have our result – a circular dependency. Everything is in gridlock, unable to move because
+it would might break things. And nothing can stop it because nothing can move. It&rsquo;s bizarre, and
+it&rsquo;s a little bit cool. But the inquisitive mind will ask: <em>why?</em></p>
+<h2 id="the-autopsy">The Autopsy <a class="heading-anchor" href="#the-autopsy" aria-label="Anchor">#</a></h2>
+<p>So, I have something that will detect and fix my problem within 4 minutes of it happening, but why
+did it go wrong in the first place? If you guessed that it was because I did something stupid, you
+win the prize. At this point, I described my predicament to a friend, and they sent me back (once
+again) an apt xkcd comic.</p>
+<p><img src="tv_problems_2x.png" alt="Source: xkcd.com"></p>
+<p>So what was I doing that was so stupid? Here&rsquo;s a look at my crontab:</p>
+<pre tabindex="0"><code class="language-cron" data-lang="cron">* * * * * zfs mount storage
+</code></pre><p>What that&rsquo;s doing is, every minute, it tries to mount my ZFS drive. One of the fun side effects of
+this is that if the drive is already mounted, it throws off an error. And when a <code>cron</code> job throws
+an error, it sends a local email to the root account. I had over 170,000 emails from that job in
+my root account, and they took up about a GigaByte of space. That&rsquo;s not directly related to the
+issue, but it is pretty hilariously inept on my part.</p>
+<p>What was happening, as best I can tell, is that eventually the <code>zfs mount</code> process interfered in
+<em>just</em> the wrong way with the other processes trying to access that drive, and things went wrong.
+This is an insane problem caused by an insane solution and all ultimately my fault.</p>
+<hr>
+<p>Then the solution is obvious, right? Just remove that <code>cron</code> job. Well, there&rsquo;s a problem with that.
+Without the <code>cron</code> job, the drive isn&rsquo;t mounted on boot. And if it&rsquo;s not done on boot, then I have
+to log in and do it manually, which is <em>such a hassle</em>. Thing is, it <strong>is</strong> supposed to be mounted
+on boot. I&rsquo;ve jumped through all the hoops and made 100% sure – it&rsquo;s definitely running the code to
+mount all of my ZFS drives on boot. So why aren&rsquo;t they there when I log in?</p>
+<p>So I took to IRC, started diving through the boot logs, and going through built-in operating system
+files to try to hack something to work. And there it is, buried deep in the time stamps. The
+auto-mount is running a few seconds before the USB ports are fully on. That&rsquo;s it – my SSD is booting
+up <strong>too fast</strong> for it to work correctly.</p>
+<p>Taking to IRC, someone gives me a helpful line to add to <code>/boot/loader.conf</code> (the settings for
+booting up).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#a6e22e">kern.cam.boot_delay</span><span style="color:#f92672">=</span><span style="color:#e6db74">10000</span>
+</code></pre></div><p>That&rsquo;s delaying 10 seconds (10,000 milliseconds) before starting the bootup processes.</p>
+<p>And when I say computers are the work of the Devil, that&rsquo;s what I mean.</p>
+
+    </section>
+    <footer class="pt-8">
+      
+  <div class="flex">
+    
+      <img class="w-24 h-24 !mt-0 !mb-0 mr-4 rounded-full" src="/images/ericmiller.png" />
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] leading-3 text-neutral-400 dark:text-neutral-500 uppercase">
+          Author
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          Eric Miller
+        </div>
+      
+      
+        <div class="text-sm text-neutral-700 dark:text-neutral-400">DevOps Engineer, Kuberneter</div>
+      
+      
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/sosheskaz/"
+          target="_blank"
+          alt="Github"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+  </span>
+
+</a
+        >
+      
+    
+  </div>
+
+
+    </div>
+  </div>
+
+
+      
+
+      
+  
+    <div class="pt-8 article-pagination">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex" href="/2018/03/07/Duplicity/">
+              <span class="mr-3 article-pagination-direction">&larr;</span>
+              <span class="flex flex-col">
+                <span class="article-pagination-title mt-[0.1rem] leading-6"
+                  >Duplicity: The Best Free Backup Software</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                  
+                    <time datetime="2018-03-07 00:00:00 &#43;0000 UTC">7 March 2018</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right" href="/2018/01/04/Intel-Security-Bug/">
+              <span class="flex flex-col">
+                <span class="article-pagination-title mt-[0.1rem] leading-6"
+                  >The Intel Disaster</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                  
+                    <time datetime="2018-01-04 00:00:00 &#43;0000 UTC">4 January 2018</time>
+                  
+                </span>
+              </span>
+              <span class="ml-3 article-pagination-direction">&rarr;</span>
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    </footer>
+    
+  </article>
+</main><footer class="py-10">
+  
+  
+  <div class="flex justify-between">
+    <div>
+      
+      <p class="text-sm text-neutral-400 dark:text-neutral-500">
+          &copy;
+          2021
+          Eric Miller
+      </p>
+      
+      
+        <p class="text-xs text-neutral-300 dark:text-neutral-600">
+          
+          
+          Powered by <a class="hover:underline hover:underline-primary-300 hover:text-primary-400"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:underline-primary-300 hover:text-primary-400" href="https://git.io/hugo-congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    
+    
+      <div class="text-sm cursor-pointer text-neutral-400 dark:text-neutral-500">
+        <button
+          id="dark-toggle"
+          onclick="setPreferredAppearance('dark');"
+          oncontextmenu="setPreferredAppearance('default'); return false;"
+          class="inline px-2 py-1 border rounded-md border-neutral-200 dark:hidden hover:text-primary-500 hover:border-primary-400"
+          title="Switch to dark appearance"
+        >
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="moon" class="svg-inline--fa fa-moon fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"></path></svg>
+  </span>
+
+
+        </button>
+        <button
+          id="light-toggle"
+          onclick="setPreferredAppearance('light');"
+          oncontextmenu="setPreferredAppearance('default'); return false;"
+          class="hidden px-2 py-1 border rounded-md cursor-pointer dark:inline border-neutral-700 hover:text-primary-400 hover:border-primary-500"
+          title="Switch to light appearance"
+        >
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sun" class="svg-inline--fa fa-sun fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"></path></svg>
+  </span>
+
+
+        </button>
+      </div>
+    
+  </div>
+  
+  
+</footer>
+</body>
+</html>

@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  class="dark"
+><head>
+  <meta charset="utf-8" />
+  
+    <meta http-equiv="content-language" content="en-us" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>How Encryption Works &middot; Eric&#39;s Web.site</title>
+    <meta name="title" content="How Encryption Works &middot; Eric&#39;s Web.site" />
+  
+  <meta name="description" content="Eric Miller&#39;s website to post about Technology, life, and anything else that comes up." />
+  
+  
+  
+  <link rel="canonical" href="https://ericsweb.site/2017/10/26/How-Encryption-Works/" />
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/schemes/congo.min.b48d6ba061dc77186a2524fb8aac5ac3823b2679a9299ca60325abbccc9c1764c884715f0ba24b4e2776cb3814df4af1f4c854b87207cd5d4c7a254da9b55751.css"
+    integrity="sha512-tI1roGHcdxhqJST7iqxaw4I7JnmpKZymAyWrvMycF2TIhHFfC6JLTid2yzgU30rx9MhUuHIHzV1MeiVNqbVXUQ=="
+  />
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/compiled/main.min.4076b9cf114dd23cca017f3365e2205a4c9a4b2c0ef4193ccd08883f76e554aa40f674a8f6e77a1b2895be0975ba8e019b0c59996c2eea32e4970ca4d5221653.css"
+    integrity="sha512-QHa5zxFN0jzKAX8zZeIgWkyaSywO9Bk8zQiIP3blVKpA9nSo9ud6GyiVvgl1uo4BmwxZmWwu6jLklwyk1SIWUw=="
+  />
+  
+  
+  
+    <script>
+      function loadPreferredAppearance() {
+        if (localStorage.preferredAppearance === "dark" || (!("preferredAppearance" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      }
+      function setPreferredAppearance(scheme) {
+        if (scheme == "default") {
+          localStorage.removeItem("preferredAppearance");
+        } else {
+          localStorage.preferredAppearance = scheme;
+        }
+        loadPreferredAppearance();
+      }
+      loadPreferredAppearance();
+      window.matchMedia("(prefers-color-scheme: dark)").addListener(loadPreferredAppearance);
+    </script>
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="How Encryption Works" />
+<meta property="og:description" content="These days, encryption is becoming more and more important to understand, politically and personally. However, when it gets discussed in an open forum, it&rsquo;s usually discussed so abstractly that the layperson doesn&rsquo;t really understand the specifics of what&rsquo;s going on. That&rsquo;s what I&rsquo;m here for. I&rsquo;m going to talk about encryption in a way that anyone can understand, and explain how it works and why.
+What is Encryption? # From Wikipedia: &ldquo;encryption is the process of encoding a message or information in such a way that only authorized parties can access it&rdquo;." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ericsweb.site/2017/10/26/How-Encryption-Works/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-10-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-10-26T00:00:00+00:00" /><meta property="og:site_name" content="Eric&#39;s Web.site" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How Encryption Works"/>
+<meta name="twitter:description" content="These days, encryption is becoming more and more important to understand, politically and personally. However, when it gets discussed in an open forum, it&rsquo;s usually discussed so abstractly that the layperson doesn&rsquo;t really understand the specifics of what&rsquo;s going on. That&rsquo;s what I&rsquo;m here for. I&rsquo;m going to talk about encryption in a way that anyone can understand, and explain how it works and why.
+What is Encryption? # From Wikipedia: &ldquo;encryption is the process of encoding a message or information in such a way that only authorized parties can access it&rdquo;."/>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "articleSection": "Posts",
+    "name": "How Encryption Works",
+    "headline": "How Encryption Works",
+    "description": "These days, encryption is becoming more and more important to understand, politically and personally. However, when it gets discussed in an open forum, it\u0026rsquo;s usually discussed so abstractly that the layperson doesn\u0026rsquo;t really understand the specifics of what\u0026rsquo;s going on. That\u0026rsquo;s what I\u0026rsquo;m here for. I\u0026rsquo;m going to talk about encryption in a way that anyone can understand, and explain how it works and why.\nWhat is Encryption? # From Wikipedia: \u0026ldquo;encryption is the process of encoding a message or information in such a way that only authorized parties can access it\u0026rdquo;.",
+    "inLanguage": "en-us",
+    "author" : {
+      "@type": "Person",
+      "name": "Eric Miller"
+    },
+    "creator" : {
+      "@type": "Person",
+      "name": "Eric Miller"
+    },
+    "copyrightHolder": "Eric Miller",
+    "copyrightYear": "2017",
+    "dateCreated": "2017-10-26T00:00:00\u002b00:00",
+    "datePublished": "2017-10-26T00:00:00\u002b00:00",
+    "dateModified": "2017-10-26T00:00:00\u002b00:00",
+    "url" : "https:\/\/ericsweb.site\/2017\/10\/26\/How-Encryption-Works\/",
+    "wordCount": "3053",
+    "keywords": []
+  }
+  </script>
+
+
+  
+  
+    <meta name="generator" content="Hugo 0.90.0-DEV" />
+  
+  
+  <meta name="author" content="Eric Miller" />
+  
+    
+      <link href="https://github.com/sosheskaz/" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 bg-neutral text-neutral-900 sm:px-14 md:px-24 lg:px-32 dark:bg-neutral-800 dark:text-neutral max-w-7xl"
+  ><header
+  class="flex justify-between py-6 font-semibold sm:items-center sm:py-10 text-neutral-800 dark:text-neutral"
+>
+  
+  <div>
+    
+      <a
+        class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+        rel="me"
+        href="/"
+        >Eric&rsquo;s Web.site</a
+      >
+  </div>
+  
+  
+    <nav>
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/posts/"
+              title="Posts"
+              >All Posts</a
+            >
+          </li>
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/categories/"
+              title="Categories"
+              >Categories</a
+            >
+          </li>
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/profile/"
+              title="About Me"
+              >About</a
+            >
+          </li>
+        
+      </ul>
+    </nav>
+  
+</header>
+<main class="flex-grow">
+  <article class="max-w-prose">
+    <header>
+      
+        <ol class="text-sm text-neutral-400 dark:text-neutral-500">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Index</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/posts/"
+      >Posts</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/2017/10/26/How-Encryption-Works/"
+      >How Encryption Works</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-800 dark:text-neutral">
+        How Encryption Works
+      </h1>
+      <div class="mt-8 mb-12 text-base text-neutral-400 dark:text-neutral-500">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row items-center">
+    
+    
+      <time datetime="2017-10-26 00:00:00 &#43;0000 UTC">26 October 2017</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">15 mins</span>
+    
+
+    
+    
+  </div>
+
+
+      </div>
+    </header>
+    <section class="prose dark:prose-light">
+      <p>These days, encryption is becoming more and more important to understand, politically and
+personally. However, when it gets discussed in an open forum, it&rsquo;s usually discussed so abstractly
+that the layperson doesn&rsquo;t really understand the specifics of what&rsquo;s going on. That&rsquo;s what I&rsquo;m here
+for. I&rsquo;m going to talk about encryption in a way that anyone can understand, and explain how it
+works and why.</p>
+<h1 id="what-is-encryption">What is Encryption? <a class="heading-anchor" href="#what-is-encryption" aria-label="Anchor">#</a></h1>
+<p>From <a href="https://en.wikipedia.org/wiki/Encryption">Wikipedia</a>: &ldquo;<em>encryption is the process of
+encoding a message or information in such a way that only authorized parties can access it</em>&rdquo;.
+Essentially, this means we want our data to be a secret from anyone who tries to look at it. The
+internet, and almost everything on it, <em>needs</em> encryption to function. The process of turning
+encrypted information back into useful information is called &ldquo;decryption&rdquo;. Banks need to protect
+information to protect identity theft. Companies need it to protect intellectual property. In fact,
+<em>everything that has a login screen</em> should have encryption (some sites haven&rsquo;t caught up yet) to
+prevent bad actors from intercepting the message and stealing passwords.</p>
+<p>As an example, one of the oldest, simplest, and least secure forms of encryption is the
+<a href="https://en.wikipedia.org/wiki/Caesar_cipher">Caesar Cipher</a>. The idea is that you take a message
+and shift all the letters. So for a Caesar Cipher of shift 1, A becomes B, B becomes C, Z becomes A,
+and so on. The idea is that someone who sees the message can&rsquo;t read it without knowing the shift.</p>
+<p>Important to understanding encryption is the idea of <em>keys</em>. A key is essentially a secret code that
+tells you how the cipher works. In a Caesar Cipher, the <em>key</em> is the shift. So if we have a shift
+of 5, we know that to encrypt it we have to shift the letters forward 5, and to decrypt it we have
+to shift them backward 5. A key can be used to lock or unlock your data as needed.</p>
+<h1 id="symmetric-and-asymmetric">Symmetric and Asymmetric <a class="heading-anchor" href="#symmetric-and-asymmetric" aria-label="Anchor">#</a></h1>
+<p>There are two kinds of encryption: symmetric and asymmetric. These words refer to how the keys work.
+In symmetric encryption, you use the same key for encryption and decryption. It&rsquo;s the same on both
+sides, so it&rsquo;s <em>symmetric</em>. This means that in asymmetric encryption, you need a different key for
+encrypting and decrypting.</p>
+<p>Both are important, for different reasons. The short of it is that symmetric keys are usually used
+for storing data, while asymmetric keys are typically used for communication. To understand why, we
+need to look a bit closer at how they actually work.</p>
+<h1 id="walkthrough">Walkthrough <a class="heading-anchor" href="#walkthrough" aria-label="Anchor">#</a></h1>
+<p>I&rsquo;m going to be walking through an example using <a href="https://www.openssl.org">OpenSSL</a>, a widely-used,
+free, and libre/open-source (meaning that the code behind it is in the public domain) encryption
+tool. My examples will be designed to work in the macOS Terminal (/Applications/Utilities/Terminal),
+the Linux terminal, and the Windows command prompt (cmd.exe).</p>
+<p>If you&rsquo;re on a mac and want to follow along, you&rsquo;ll need to do two things. First, if you haven&rsquo;t
+installed <a href="https://brew.sh">homebrew</a>, do so now. Next, run <code>brew install openssl</code>.</p>
+<p>If you&rsquo;re on Windows, you&rsquo;ll need to download and install
+<a href="https://slproweb.com/download/Win32OpenSSL-1_1_0f.exe">OpenSSL for Windows</a>. Then, press the
+&ldquo;Windows&rdquo; key on your keyboard, type &ldquo;cmd&rdquo; and hit enter - it should open the command prompt.</p>
+<h2 id="terminal-crash-course">Terminal Crash Course <a class="heading-anchor" href="#terminal-crash-course" aria-label="Anchor">#</a></h2>
+<p>The terminal, or command prompt on Windows, is one of the oldest ways of using a computer
+interactively. The idea is pretty simple - type a command, hit enter, and it executes a program and
+writes the output on the screen below your command. Commands are generally made of two parts - the
+command name and the arguments. The command name tells it what program to run like how when you open
+an application, you need to tell it what application to run. Arguments give it information on <em>how</em>
+it should run. For example, if you open Notepad, you might send it a file, and it will open that
+file instead of making a new document.</p>
+<p>Arguments on the command line are often more complex than that example though. Commands like these
+are generally made to be able to run without human interaction, so arguments replace the user
+interface. There are generally three types of arguments:</p>
+<ul>
+<li>Flags: These are a simple way to toggle something on/off. for example, in Windows installers,
+running them with <code>/q</code> will run them in quiet mode, where they don&rsquo;t have any prompts. They
+usually start with <code>-</code> or <code>--</code> (or <code>/</code> on Windows).</li>
+<li>Keyword Arguments: These are arguments whose significance is determined by a flag-like preceding
+command. The difference between a keyword argument and a flag can be hard to tell -
+syntactically they&rsquo;re very similar. It depends on how the developer implemented that argument -
+there is no standard differentiator.</li>
+<li>Positional Arguments: These are arguments that aren&rsquo;t part of a keyword argument, and whose
+meaning is determined by their order. For example, in the UNIX copy command, the first argument
+is the file to copy, and the second is where to put it. For example, <code>cp myfile.txt ~/Documents</code>
+will copy the file &ldquo;myfile.txt&rdquo; to my Documents folder.</li>
+</ul>
+<h1 id="symmetric-encryption">Symmetric Encryption <a class="heading-anchor" href="#symmetric-encryption" aria-label="Anchor">#</a></h1>
+<p>Okay, we&rsquo;ve got our terminal, we&rsquo;ve got OpenSSL, let&rsquo;s make a secret file that we want to encrypt.
+I&rsquo;m putting it in <code>secret.txt</code>, and the secret text in the file is &ldquo;the quick brown fox jumped over
+the lazy dog&rdquo;.</p>
+<p>Now, it&rsquo;s pretty easy to encrypt it. For our &ldquo;key&rdquo;, all we need is a password. For my example, I&rsquo;m
+going to use <code>aovj[pr{14-0c9r/y423895]2.77u5rjf-sld</code>. This will be an example of how to encrypt a
+file using symmetric encryption.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ openssl enc -aes-256-cbc -k <span style="color:#e6db74">&#34;aovj[pr{14-0c9r/y423895]2.77u5rjf-sld&#34;</span> -in secret.txt -out encrypted.txt
+</code></pre></div><p>Whoa, that&rsquo;s a lot. Let&rsquo;s go step by step and break down exactly what happened, one command at a
+time.</p>
+<ul>
+<li><code>enc</code> - this positional argument tells OpenSSL that we want to run in &ldquo;encode/decode&rdquo; mode.</li>
+<li><code>-aes-256-cbc</code> - this flag specifies the encryption algorithm we&rsquo;re going to use. AES-256 is an industry
+standard symmetric encryption method for sensitive documents. Even U.S. intelligence uses this
+algorithm to keep Top Secret documents safe.</li>
+<li><code>-k &quot;aovj[pr{14-0c9r/y423895]2.77u5rjf-sld&quot;</code> - this keyword argument tells OpenSSL the password to use as the key.</li>
+<li><code>-in secret.txt</code> - this keyword argument tells OpenSSL the file to create an encrypted version of.</li>
+<li><code>-out encrypted.txt</code> - this keyword argument tells OpenSSL where to save the encrypted file</li>
+</ul>
+<p>Now let&rsquo;s look at what&rsquo;s in encrypted.txt.</p>
+<pre tabindex="0"><code>    Salted__q°öµ`f!ÏÀQùW≤!	êƒÂ®[Vá K-|)&amp;Ö⁄ ºíÌ^Õ
+n6µá˚◊´0Î?z
+</code></pre><p>Wow! That&rsquo;s certainly unreadable. You may note the word &ldquo;Salted&rdquo; in there. Salting is basically just
+an additional low-level security measure - it doesn&rsquo;t matter to us right now. The word &ldquo;Salted&rdquo; is
+in there so that, when we&rsquo;re decrypting, OpenSSL knows that salting is used.</p>
+<p>Now, just for fun, let&rsquo;s try decrypting it with the wrong password.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ openssl enc -aes-256-cbc -d -k <span style="color:#e6db74">&#34;ThisIsNotThePassword&#34;</span> -in encrypted.txt -out decrypted.txt
+bad decrypt
+49993:error:06065064:digital envelope routines:EVP_DecryptFinal_ex:bad decrypt:/BuildRoot/Library/Caches/com.apple.xbs/Sources/OpenSSL098/OpenSSL098-64.50.6/src/crypto/evp/evp_enc.c:330:
+</code></pre></div><p>As you can see, we don&rsquo;t know what&rsquo;s in the file. We are <em>completely
+unable</em> to figure out what&rsquo;s in the file without the password. In order to get in, we need to guess
+the password, which could take trillions of trillions of trillions of attempts, if we&rsquo;re really
+lucky. Breaking into AES, when it&rsquo;s protected with a good password, is conventionally thought of
+as impossible because of the computing time it would take (on current machines, think hea).</p>
+<p>Now, let&rsquo;s decrypt it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ openssl enc -aes-256-cbc -d -k <span style="color:#e6db74">&#34;aovj[pr{14-0c9r/y423895]2.77u5rjf-sld&#34;</span> -in encrypted.txt -out decrypted.txt
+</code></pre></div><p>This is mostly the same, except we&rsquo;re going the other way around. the <code>-d</code> flag in there tells OpenSSL
+that we&rsquo;re using &ldquo;decode&rdquo; mode. Let&rsquo;s look at the contents of <code>decrypted.txt</code>.</p>
+<pre tabindex="0"><code>    the quick brown fox jumped over the lazy dog
+</code></pre><p>Exactly what we expected! So now you should have some understanding of how symmetric encryption
+works, and why it&rsquo;s secure. On a side note, the exact algorithm and technology that AES uses is
+publicly available in <a href="https://tools.ietf.org/html/rfc3565">RFC 3565</a> (this has very advanced
+computer engineering and mathematics - don&rsquo;t expect to understand it, just take away that the exact
+implementation details are in the public domain).</p>
+<h2 id="what-its-used-for">What it&rsquo;s Used For <a class="heading-anchor" href="#what-its-used-for" aria-label="Anchor">#</a></h2>
+<ul>
+<li>Encrypting laptops and phones so if they get stolen or accessed by a bad actor, data can&rsquo;t
+be stolen.</li>
+<li>WiFi passwords - used to encrypt the airwaves so any shmuck with an antenna can&rsquo;t skim data, and
+so to let someone join, you just give them the password.</li>
+<li>Locking PDFs or other documents so they can only be accessed by people you give the password to.</li>
+</ul>
+<h2 id="the-problems">The Problems <a class="heading-anchor" href="#the-problems" aria-label="Anchor">#</a></h2>
+<ul>
+<li>If it&rsquo;s used for communication, everyone involved needs to share the secret password beforehand,
+if they want their communication to be secure.</li>
+<li>Because in many cases, people are encouraged to share the password (like with WiFi), it&rsquo;s more
+likely for someone bad to get access.</li>
+<li>Because the key can be shared around, you can&rsquo;t tell if someone you&rsquo;re communicating with is who
+they say they are.</li>
+</ul>
+<h1 id="asymmetric-encryption">Asymmetric Encryption <a class="heading-anchor" href="#asymmetric-encryption" aria-label="Anchor">#</a></h1>
+<p>Now we&rsquo;re on to asymmetric encryption, which is a bit more complicated. It&rsquo;s less efficient than
+symmetric encryption in terms of CPU usage, but it has a few benefits. There are a few scenarios,
+however, where symmetric encryption just doesn&rsquo;t cut it. Say you need encryption between two parties
+(think you and your online bank) but we don&rsquo;t have a symmetric key agreed upon to encrypt our communications. We can&rsquo;t send it,
+because then anyone snooping will have the key and be able to decrypt our data anyway. We need a way
+to talk secretly without agreeing on anything beforehand.</p>
+<p>Enter asymmetric encryption and RSA. RSA is just an implementation of asymmetric encryption, but
+it&rsquo;s currently the best. It is to asymmetric encryption as AES is to symmetric encryption.</p>
+<p>The first thing to note is that, unlike AES, our &ldquo;key&rdquo; isn&rsquo;t a password, it&rsquo;s actually a file. Or
+rather, a pair of files. Asymmetric encryption has 2 &ldquo;keys&rdquo;, a private, and a public. The private
+key, unlike a symmetric encryption password, shouldn&rsquo;t be shared, and should be closely guarded.
+The public key, on the other hand, can be given out freely to anyone. In fact, it should be.</p>
+<p>The best way to understand how this works is to see it in action, so I&rsquo;ll show how to do it, and
+comment as we go along.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ openssl genrsa -out harry-private-key.pem <span style="color:#ae81ff">4096</span>
+Generating RSA private key, <span style="color:#ae81ff">4096</span> bit long modulus
+...........+++
+..............................................................................................................................................................+++
+e is <span style="color:#ae81ff">65537</span> <span style="color:#f92672">(</span>0x10001<span style="color:#f92672">)</span>
+</code></pre></div><ul>
+<li><code>genrsa</code> - this tells OpenSSL that we want to create a new private RSA key.</li>
+<li><code>-out harry-private-key.pem</code> - this tells OpenSSL where to save the key.</li>
+<li><code>4096</code> - how many &ldquo;bits&rdquo; to use in the RSA key. More bits is more secure - 4096 is considered to
+be highly secure.</li>
+</ul>
+<p>If we look at <code>harry-private-key.pem</code>, it looks like this:</p>
+<pre tabindex="0"><code>-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEAxoGOg5t2jyk8NapJlCSg0XBIudR32oMb2pGS5r74uLFDAdVA
+ZLFuVPjY1Ba6ZlwMhakUxQb2obUqzGBJAgp5zfhxRU9bgv4w9RYdX5Cib2+0uaez
+Myf16Gfb5oghvCNQC1laXWtDQe9TkUv+6a8/E47Gwbz1fVRFChnuJKN68ODhejdi
++I9rxqa8Za+BJhA6g82HTi/JrNIh8q1OlyD/mjrNYrztuH0RQNf52cm9HhhFFcqy
+H5zys4glbLUDkzc8r50ElcABpnoG+T5vS2U54tta2F1Jbth6zlITrD8gEKbnGRQb
+xxt/AdSaRvdfrWC5ARMzUKR14LTk8EjMNPJUZQIDAQABAoIBAQCBbPNop7JTgUU6
+kD7NElywcY9ZakiC9jzw8z1eqWEtupW/2jTT8kPHr0BgeDksiBO6ChX6qKGhqaev
+/Y9cf0wPmU7xK960t9tf0P1x07G1CpZA/jB+yC0zTJQ56MRmEHgeDjI2+rqtgMdx
+0qTv5E0yCUNaCkPdZVZmUaXNybFc33yfu5v8wsRk2pqH1kZlx36DK5peICc8Cxil
+obdBfWII5BzldCw/kB71+rZx6mlIVsvO3mjT7v4KiL/9z7FHbX04EXdYKYWMdfsf
+WfXv5EtYi5dw1Ec8gJtkhBbZD+uZYAMc2tBQU/FVDno6Cxv6cnH+VYRTgnKA+SjL
+XVUNvtPBAoGBAOvvDuI2KGuG5whdAojBz3UXHvDgUa9g9NJS0EmmAZAHjHKp1etz
+XrdQIYd2kYKqnd2uRPyepZTlx6XOFCnOLC39nAWFBO6L/b6bhGIkVy8hF54qaWK5
+zrBVnrUaz/bFr6xfEDsKOc0WP6L2z3Uq4QsaULmoEn/fqAm6SS1EPuspAoGBANdj
+l2+cUX96eswXbtRAwBeqngr+Z+n7nhzZ+ZRfrcmR2nljKcmbkWnT/kcUgNt5vo7Q
+3l4B8aOaWwGKF7tN4B8Krh5v4FdOa1GAJSomgJWmUdiel92MT8eWyoXZ038T5dcd
+ACsaxdB+LGbN8v2Qa2cbFsQiPrJLzBsVwO1q0wLdAoGACM8pQBsDkVg9IhvO72pF
+I7sURawqgKDfI0dCTa2sG0Oc498hhKQPIksUpWkw768NK+zI2KHXzuJxfOhf6luv
+XJw+iho4X+vMMqS94ag3tSPILPiqbKxBYmYgAeUZZL5m28nE4l90Xwr4n04V2usZ
+8f8uinATGMEyFgLlnpIQw1kCgYBPg6KqP2kOyKaApb3yeZzwn7oMkPLHvG4YdJfg
+oJnFqiSfX25T0SyThwF+OCGB5KXmj1EoH0uXfCpQnSw5p3wvuX+iGOcXFAomYkpW
+DzS1Clt4vsONtHjXU+GcHFgpt6zIBxrCzvVsDMhTg4BK/3/G5oc3DPVcWQMWlKdO
+fns7uQKBgGpjJzK23Nak70HjJz/xtdCYqnglRChoJ+/KGl6CHxi8M4k7l5JxjUIn
+MuLFSf/dnV6AI8ELYLaMaD14fCPkt3EzIW9cIFmVlhYaDJrCYNgebzdPqjrN7KAu
+pmYplN3YpsM34VLMv1e0ZkldqwQMbsNiiL7ah+PTYCpmYQXdMvHP
+-----END RSA PRIVATE KEY-----
+</code></pre><p>Now we&rsquo;ll create the public key that goes with the private key we just made. <strong>NOTE:</strong> the public
+key can be created from the private key, but the private key cannot be reproduced from the public
+key. This is critical.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ openssl rsa -in harry-private-key.pem -outform PEM -pubout -out harry-public-key.pem
+writing RSA key
+</code></pre></div><ul>
+<li><code>rsa</code> - tells OpenSSL we&rsquo;re doing something with RSA.</li>
+<li><code>-in harry-private-key.pem</code> - we&rsquo;re using the private key we just made as the base.</li>
+<li><code>-outform PEM</code> - there are a few formats that public keys can take, pem is just a way the key
+is formatted.</li>
+<li><code>-pubout</code> - tells OpenSSL we want to create a public key.</li>
+<li><code>-out harry-public-key.pem</code> - tells OpenSSL where to save the public key.</li>
+</ul>
+<p><code>harry-public-key.pem</code> will look something like this:</p>
+<pre tabindex="0"><code>-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxoGOg5t2jyk8NapJlCSg
+0XBIudR32oMb2pGS5r74uLFDAdVAZLFuVPjY1Ba6ZlwMhakUxQb2obUqzGBJAgp5
+zfhxRU9bgv4w9RYdX5Cib2+0uaezMyf16Gfb5oghvCNQC1laXWtDQe9TkUv+6a8/
+E47Gwbz1fVRFChnuJKN68ODhejdi+I9rxqa8Za+BJhA6g82HTi/JrNIh8q1OlyD/
+mjrNYrztuH0RQNf52cm9HhhFFcqyH5zys4glbLUDkzc8r50ElcABpnoG+T5vS2U5
+4tta2F1Jbth6zlITrD8gEKbnGRQbxxt/AdSaRvdfrWC5ARMzUKR14LTk8EjMNPJU
+ZQIDAQAB
+-----END PUBLIC KEY-----
+</code></pre><p>Now, these keys work pretty differently. The public key is used to encrypt, while the private key
+is used to decrypt. You don&rsquo;t encrypt with the private key or decrypt with the public key - you&rsquo;ll
+see why as we go on. So let&rsquo;s say you&rsquo;re Sally, and you want to send Harry a secret message about a
+certain brown fox.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ openssl rsautl -encrypt -pubin -inkey harry-public-key.pem -in secret.txt -out dearharry.txt
+</code></pre></div><ul>
+<li><code>rsautl</code> - RSA Utility</li>
+<li><code>-encrypt</code> - we&rsquo;re encrypting using a public key.</li>
+<li><code>-pubin</code> - tells OpenSSL we&rsquo;re inputting a public key.</li>
+<li><code>-inkey harry-public-key.pem</code> - path to the public key we&rsquo;re using.</li>
+<li><code>-in secret.txt</code> - file to encrypt.</li>
+<li><code>-out dearharry.txt</code> - where to save the encrypted file.</li>
+</ul>
+<p>Let&rsquo;s look at <code>dearharry.txt</code></p>
+<pre tabindex="0"><code>õÒIˆc
+nËÁú∞ò¥7Ñ¯'ΩkÈQ¥òù&quot;âˆ˘≠r/I
+÷›wE]“Ï’/í·2ƒã´À1U&gt;¥G‡áÈíªát‡∆¥‡'Ñ3&amp;∂ÙÊ3§(ê
+
+≤
+üƒlùDHWáMê7Odn-ù_©q2ˆwÆædà4
+êØ¶œ4BŒAˇ)
+≠},ç∏ìY$‡òé˙
+ﬂ
+)hGóUÖS›z˘cãC¨—ÁRö.Ó+§Ω€u˝	»›NΩ+x…›©tÓöﬂ´ﬂXhë:ﬁ&gt;ìáCÀ¯ä&gt;»7W&quot;GŒ-W¢Â:Å£&lt;^YÌƒ7¢I9ç+VMê”
+7ZÂr˝¡¶û,Ä“ÈY, ÏE~
+</code></pre><p>That&rsquo;s a big mess of garbage! Because of the nature of private/public keys, even though Sally encrypted
+this with the public key, she is unable to decrypt this file. Because we encrypted it with Harry&rsquo;s
+public key, only his private key can decrypt it. There is no way to recover the message without it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ openssl rsautl -decrypt -inkey harry-private-key.pem -in dearharry.txt
+the quick brown fox jumped over the lazy dog
+</code></pre></div><p>It worked! This means Sally can send Harry a secret message that no one will be able to see, without
+them ever needing to share a secret password. Like AES, this is considered more or less impossible
+to crack.</p>
+<h2 id="what-its-used-for-1">What it&rsquo;s Used For <a class="heading-anchor" href="#what-its-used-for-1" aria-label="Anchor">#</a></h2>
+<ul>
+<li>When you connect to a secure website, it uses this to figure out how to communicate privately,
+without ever agreeing on a shared secret in the open.</li>
+<li>Secure communications use this to get messages
+from point A to point B without being intercepted or tampered with.</li>
+</ul>
+<h2 id="the-problems-1">The Problems <a class="heading-anchor" href="#the-problems-1" aria-label="Anchor">#</a></h2>
+<ul>
+<li>It&rsquo;s much slower than symmetric encryption. This is gotten around by using asymmetric encryption
+to privately negotiate a symmetric key to use.</li>
+<li>It&rsquo;s really only useful for sending messages, not for storing secrets.</li>
+</ul>
+<h1 id="opening-up-encryption">Opening up Encryption <a class="heading-anchor" href="#opening-up-encryption" aria-label="Anchor">#</a></h1>
+<p>My purpose in writing this was ultimately to try to explain why opening up encryption so that, as an
+example, allowing a law enforcement officer with a warrant to tap into encrypted communication is simply
+not feasible. Let&rsquo;s contrast keeping something safe with encryption versus keeping it safe with a
+lock. People like to make this comparison, but it&rsquo;s not really apt. Locks live in the world of
+physics, and while the lock itself may be secure, it&rsquo;s still vulnerable to physics - you can get
+through it in any number of ways. Obviously, you could steal the key, but it&rsquo;s not easy and risks
+identifying an attacker. You could pick the lock, you could blow it off with explosives, or cut
+through the locking mechanism.</p>
+<p>Another important thing to note is that stealing a physical key makes
+it likely for the perpetrator to be noticed by the owner, picking a lock is conspicuous and
+suspicious, and of course explosives or power tools will draw eyes. Cyberattackers don&rsquo;t have to
+deal with this so much. Attacks can be conspicuous, or they can be covert - but most cyberattackers
+can attack very, <em>very</em> quietly if they want to (at least compared to explosives 😉). Basically,
+if you&rsquo;re going to compare it to something physical, imagine that every theif could turn invisible.</p>
+<p>Encryption doesn&rsquo;t work through physics, or through trust - it works through mathematics. It&rsquo;s not
+vulnerable to physics or workarounds. If you want a physical metaphor, it&rsquo;d be like, instead of
+having a lock on your filing cabinet, having a wand that can turn it into an unbreakable rock. No
+one else can change it back from a rock. No one can even tell it used to be a filing cabinet.
+Thousands of invisible thieves can all gather around and try to figure it out for weeks or even
+years on end, and they won&rsquo;t be able to open the metaphorical rock.</p>
+<p>That felt like a silly metaphor, but here&rsquo;s the thing - there&rsquo;s no true physical analogue of
+encryption. I&rsquo;ll make one more attempt. It&rsquo;s like tapping the phone conversation of the only two
+people in the world who know a secret language. Doesn&rsquo;t matter how long you watch it, you won&rsquo;t
+figure out what they&rsquo;re talking about.</p>
+<p>Putting a back door in encryption, a way to &ldquo;tap&rdquo; digital encrypted communications, would be an
+insane logistical nightmare to begin with. Why?</p>
+<p>First off, making it illegal would be incredibly
+ineffective. As I mentioned, powerful encryption is open-source. This means that, even if there&rsquo;s
+nowhere you can download the openssl executable, you could make it yourself. Going back to the magic
+rock metaphor, this is like if everyone had the ability to create magic rock wands at will. Even if
+they wiped every trace of it from the main internet (insanely difficult), it would be all over the
+place on the dark net (a hyper-secure part of the internet famously used for online drugs/weapons
+vending, exchange of illegal services, and anonymous escrow bank accounts). It would be about as
+difficult as banning profanity in a society where everyone wore masks 100% of the time.</p>
+<p>Second, every bank, company, and blog would need to upend their security infrastructure. This would
+take years to roll out (at best) and cost billions of dollars (at best).</p>
+<p>Third, it puts all security at a single point of failure. A single mistake by a government employee
+could ruin everything. As I mentioned, the weakness that encryption and locks both share is that
+someone could steal the key. But it&rsquo;s even more dangerous because, since an encryption key is data,
+it can be copied without signs of tampering. If it was stolen, it&rsquo;s likely no one would know. Even
+if they did, it can be shared among friends, then friends of friends, then posted on the internet
+somewhere. Trust in private communication is <del>eroded</del> annhilated. The government has to release
+a new key and every company and individual in the country has to switch over - bringing us back to
+point 2. No one trusts that their bank communication is confidential. Or their WiFi. Or their
+Facebook login. There is no privacy on the internet. There are no secrets. Any time you type in a
+password, you may as well be painting it on the side of a bus. The internet dies. The industry
+tanks. We enter a second great depression, and technology regresses decades. The criminals,
+terrorists, and hackers all laugh, because they never stopped using true encryption, because <em>why
+would they.</em></p>
+<p>And that&rsquo;s why encryption is important.</p>
+
+    </section>
+    <footer class="pt-8">
+      
+  <div class="flex">
+    
+      <img class="w-24 h-24 !mt-0 !mb-0 mr-4 rounded-full" src="/images/ericmiller.png" />
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] leading-3 text-neutral-400 dark:text-neutral-500 uppercase">
+          Author
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          Eric Miller
+        </div>
+      
+      
+        <div class="text-sm text-neutral-700 dark:text-neutral-400">DevOps Engineer, Kuberneter</div>
+      
+      
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/sosheskaz/"
+          target="_blank"
+          alt="Github"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+  </span>
+
+</a
+        >
+      
+    
+  </div>
+
+
+    </div>
+  </div>
+
+
+      
+
+      
+  
+    <div class="pt-8 article-pagination">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex" href="/2017/12/12/Time-Machine-with-FreeBSD/">
+              <span class="mr-3 article-pagination-direction">&larr;</span>
+              <span class="flex flex-col">
+                <span class="article-pagination-title mt-[0.1rem] leading-6"
+                  >How to Create a Time Machine Server with FreeBSD</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                  
+                    <time datetime="2017-12-12 00:00:00 &#43;0000 UTC">12 December 2017</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right" href="/2017/09/14/Apple-Event-9-23-2017/">
+              <span class="flex flex-col">
+                <span class="article-pagination-title mt-[0.1rem] leading-6"
+                  >Apple Event 9/12/2017</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                  
+                    <time datetime="2017-09-14 00:00:00 &#43;0000 UTC">14 September 2017</time>
+                  
+                </span>
+              </span>
+              <span class="ml-3 article-pagination-direction">&rarr;</span>
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    </footer>
+    
+  </article>
+</main><footer class="py-10">
+  
+  
+  <div class="flex justify-between">
+    <div>
+      
+      <p class="text-sm text-neutral-400 dark:text-neutral-500">
+          &copy;
+          2021
+          Eric Miller
+      </p>
+      
+      
+        <p class="text-xs text-neutral-300 dark:text-neutral-600">
+          
+          
+          Powered by <a class="hover:underline hover:underline-primary-300 hover:text-primary-400"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:underline-primary-300 hover:text-primary-400" href="https://git.io/hugo-congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    
+    
+      <div class="text-sm cursor-pointer text-neutral-400 dark:text-neutral-500">
+        <button
+          id="dark-toggle"
+          onclick="setPreferredAppearance('dark');"
+          oncontextmenu="setPreferredAppearance('default'); return false;"
+          class="inline px-2 py-1 border rounded-md border-neutral-200 dark:hidden hover:text-primary-500 hover:border-primary-400"
+          title="Switch to dark appearance"
+        >
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="moon" class="svg-inline--fa fa-moon fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"></path></svg>
+  </span>
+
+
+        </button>
+        <button
+          id="light-toggle"
+          onclick="setPreferredAppearance('light');"
+          oncontextmenu="setPreferredAppearance('default'); return false;"
+          class="hidden px-2 py-1 border rounded-md cursor-pointer dark:inline border-neutral-700 hover:text-primary-400 hover:border-primary-500"
+          title="Switch to light appearance"
+        >
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sun" class="svg-inline--fa fa-sun fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"></path></svg>
+  </span>
+
+
+        </button>
+      </div>
+    
+  </div>
+  
+  
+</footer>
+</body>
+</html>

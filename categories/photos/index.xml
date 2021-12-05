@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Photos on Eric&#39;s Web.site</title>
+    <link>https://ericsweb.site/categories/photos/</link>
+    <description>Recent content in Photos on Eric&#39;s Web.site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 14 Feb 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://ericsweb.site/categories/photos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Photos of the Sunrise</title>
+      <link>https://ericsweb.site/2017/02/14/Sunrise-Photos/</link>
+      <pubDate>Tue, 14 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2017/02/14/Sunrise-Photos/</guid>
+      <description>A few nights ago, I was up all night working. Around 6:30 AM I got done, and my watch told me it was less than half an hour until sunrise (which was at 6:52). On a whim, I decided to go to the top of the hill by my house and try to take some pictures. It turned out to be a really nice view, where even though it was obfuscated by the lake, I could just barely see the horizon over the lake.</description>
+    </item>
+    
+    <item>
+      <title>Jurassic World with Chris Pratt as the Velociraptors and a Velociraptor as Chris Pratt</title>
+      <link>https://ericsweb.site/2016/09/24/Jurassic-World-Reversal/</link>
+      <pubDate>Sat, 24 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://ericsweb.site/2016/09/24/Jurassic-World-Reversal/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  class="dark"
+><head>
+  <meta charset="utf-8" />
+  
+    <meta http-equiv="content-language" content="en-us" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>General Purpose Computing – Then and Now &middot; Eric&#39;s Web.site</title>
+    <meta name="title" content="General Purpose Computing – Then and Now &middot; Eric&#39;s Web.site" />
+  
+  <meta name="description" content="Eric Miller&#39;s website to post about Technology, life, and anything else that comes up." />
+  
+  
+  
+  <link rel="canonical" href="https://ericsweb.site/2018/04/04/General-Purpose-Computing/" />
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/schemes/congo.min.b48d6ba061dc77186a2524fb8aac5ac3823b2679a9299ca60325abbccc9c1764c884715f0ba24b4e2776cb3814df4af1f4c854b87207cd5d4c7a254da9b55751.css"
+    integrity="sha512-tI1roGHcdxhqJST7iqxaw4I7JnmpKZymAyWrvMycF2TIhHFfC6JLTid2yzgU30rx9MhUuHIHzV1MeiVNqbVXUQ=="
+  />
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/compiled/main.min.4076b9cf114dd23cca017f3365e2205a4c9a4b2c0ef4193ccd08883f76e554aa40f674a8f6e77a1b2895be0975ba8e019b0c59996c2eea32e4970ca4d5221653.css"
+    integrity="sha512-QHa5zxFN0jzKAX8zZeIgWkyaSywO9Bk8zQiIP3blVKpA9nSo9ud6GyiVvgl1uo4BmwxZmWwu6jLklwyk1SIWUw=="
+  />
+  
+  
+  
+    <script>
+      function loadPreferredAppearance() {
+        if (localStorage.preferredAppearance === "dark" || (!("preferredAppearance" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      }
+      function setPreferredAppearance(scheme) {
+        if (scheme == "default") {
+          localStorage.removeItem("preferredAppearance");
+        } else {
+          localStorage.preferredAppearance = scheme;
+        }
+        loadPreferredAppearance();
+      }
+      loadPreferredAppearance();
+      window.matchMedia("(prefers-color-scheme: dark)").addListener(loadPreferredAppearance);
+    </script>
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="General Purpose Computing – Then and Now" />
+<meta property="og:description" content="The term &ldquo;general purpose computing&rdquo; is kind of a strange term. Until I was introduced to it within the context of computer science history, it didn&rsquo;t make much sense. I want to talk about the future and some interesting developments happening within the computer industry, but that&rsquo;s really impossible without looking at how computers came to work like they do now.
+Before General Purpose Computing # In the 1940s, computers were machines of war." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ericsweb.site/2018/04/04/General-Purpose-Computing/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-04-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-04-04T00:00:00+00:00" /><meta property="og:site_name" content="Eric&#39;s Web.site" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="General Purpose Computing – Then and Now"/>
+<meta name="twitter:description" content="The term &ldquo;general purpose computing&rdquo; is kind of a strange term. Until I was introduced to it within the context of computer science history, it didn&rsquo;t make much sense. I want to talk about the future and some interesting developments happening within the computer industry, but that&rsquo;s really impossible without looking at how computers came to work like they do now.
+Before General Purpose Computing # In the 1940s, computers were machines of war."/>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "articleSection": "Posts",
+    "name": "General Purpose Computing – Then and Now",
+    "headline": "General Purpose Computing – Then and Now",
+    "description": "The term \u0026ldquo;general purpose computing\u0026rdquo; is kind of a strange term. Until I was introduced to it within the context of computer science history, it didn\u0026rsquo;t make much sense. I want to talk about the future and some interesting developments happening within the computer industry, but that\u0026rsquo;s really impossible without looking at how computers came to work like they do now.\nBefore General Purpose Computing # In the 1940s, computers were machines of war.",
+    "inLanguage": "en-us",
+    "author" : {
+      "@type": "Person",
+      "name": "Eric Miller"
+    },
+    "creator" : {
+      "@type": "Person",
+      "name": "Eric Miller"
+    },
+    "copyrightHolder": "Eric Miller",
+    "copyrightYear": "2018",
+    "dateCreated": "2018-04-04T00:00:00\u002b00:00",
+    "datePublished": "2018-04-04T00:00:00\u002b00:00",
+    "dateModified": "2018-04-04T00:00:00\u002b00:00",
+    "url" : "https:\/\/ericsweb.site\/2018\/04\/04\/General-Purpose-Computing\/",
+    "wordCount": "1539",
+    "keywords": ["technology","apple","general","purpose","computing","history",]
+  }
+  </script>
+
+
+  
+  
+    <meta name="generator" content="Hugo 0.90.0-DEV" />
+  
+  
+  <meta name="author" content="Eric Miller" />
+  
+    
+      <link href="https://github.com/sosheskaz/" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 bg-neutral text-neutral-900 sm:px-14 md:px-24 lg:px-32 dark:bg-neutral-800 dark:text-neutral max-w-7xl"
+  ><header
+  class="flex justify-between py-6 font-semibold sm:items-center sm:py-10 text-neutral-800 dark:text-neutral"
+>
+  
+  <div>
+    
+      <a
+        class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+        rel="me"
+        href="/"
+        >Eric&rsquo;s Web.site</a
+      >
+  </div>
+  
+  
+    <nav>
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/posts/"
+              title="Posts"
+              >All Posts</a
+            >
+          </li>
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/categories/"
+              title="Categories"
+              >Categories</a
+            >
+          </li>
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/profile/"
+              title="About Me"
+              >About</a
+            >
+          </li>
+        
+      </ul>
+    </nav>
+  
+</header>
+<main class="flex-grow">
+  <article class="max-w-prose">
+    <header>
+      
+        <ol class="text-sm text-neutral-400 dark:text-neutral-500">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Index</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/posts/"
+      >Posts</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/2018/04/04/General-Purpose-Computing/"
+      >General Purpose Computing – Then and Now</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-800 dark:text-neutral">
+        General Purpose Computing – Then and Now
+      </h1>
+      <div class="mt-8 mb-12 text-base text-neutral-400 dark:text-neutral-500">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row items-center">
+    
+    
+      <time datetime="2018-04-04 00:00:00 &#43;0000 UTC">4 April 2018</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">8 mins</span>
+    
+
+    
+    
+  </div>
+
+
+      </div>
+    </header>
+    <section class="prose dark:prose-light">
+      <p>The term &ldquo;general purpose computing&rdquo; is kind of a strange term. Until I was introduced to it within
+the context of computer science history, it didn&rsquo;t make much sense. I want to talk about the future
+and some interesting developments happening within the computer industry, but that&rsquo;s really
+impossible without looking at how computers came to work like they do now.</p>
+<h2 id="before-general-purpose-computing">Before General Purpose Computing <a class="heading-anchor" href="#before-general-purpose-computing" aria-label="Anchor">#</a></h2>
+<p>In the 1940s, computers were machines of war. They were for calculating the trajectories of
+explosives, making aeronautical calculations, and so on. As former government employees who built
+computers moved into the private sector, the technology started to come to market. Computers were
+then used largely for high-level number crunching, in particular payroll. However, because of their
+extremely high price, they were really only used by the largest customers who had a massive amount
+of information to process.</p>
+<p>There was a push to specialize the machines, which was somewhat natural at the time. The idea was
+basically that one computer would only do one thing – for example, if a computer was only ever
+going to be used for payroll, why bother making it versatile enough to be used for anything else?
+Lots of companies decided to capitalize on that idea, and move in on that opportunity. They went
+out of business.</p>
+<h2 id="general-purpose-computing-wins-out">General Purpose Computing Wins Out <a class="heading-anchor" href="#general-purpose-computing-wins-out" aria-label="Anchor">#</a></h2>
+<p>In the 50s and 60s, the computer science industry was growing very, very fast. Computers jumped from being
+super-exclusive artifacts saved for the military to doing hardcore processing in large business and
+science. Hobbyists were getting into it, in the same way that people are interested in HAM radio.
+It went from a hyper-inclusive field to something that affected all sorts of people, even if they
+weren&rsquo;t interacting with computers directly.</p>
+<hr>
+<p>In the first half of the 20th century, a manufacturing methodology called &ldquo;Lean&rdquo; started catching
+on. It made huge improvements in efficiency, and made the manufacturing that fuels our lives today
+possible. It maximized the speed, efficiency, and scale of manufacturing, and made it possible to
+build things better and cheaper.</p>
+<hr>
+<p>Between the lean methodology, the rapid growth in the industry, and how wide it spread, a perfect
+environment for general purpose computing was formed. It shaped the way we think about computers,
+to the point where what were radical ideas now seem like the intuitive way to do it. For example,
+it was a radical idea to store the data a computer processes, and the program it uses to process
+it, on the same device. Now days, we don&rsquo;t even think about doing it any other way. After all, to
+the hard drive, the programs and the data they run are both just chunks of binary.</p>
+<p>Ideas like that one took off across the entire architecture of the computer. Instead of hard-coding
+a processor to work with one kind of data, they&rsquo;d make one that could do everything reasonably well
+and specialize it in software. This allowed the people building computers to sell their products to
+a much larger audience. Since they could sell to a larger audience, they could benefit from
+<a href="https://en.wikipedia.org/wiki/Economies_of_scale">economies of scale</a>, allowing them to make
+components cheaper and cheaper to manufacture, and spend more and more money on research and
+development. This essentially meant non-stop breakthrough developments and upsets for people in
+general purpose computing, while specific purpose computing would flounder because they couldn&rsquo;t
+compete with the huge markets and low prices of their general purpose counterparts. And of course,
+general purpose processors could be swapped out as rapid advancements were made, making using them
+a lot cheaper over time.</p>
+<hr>
+<h2 id="rethinking-general-purpose">Rethinking General Purpose <a class="heading-anchor" href="#rethinking-general-purpose" aria-label="Anchor">#</a></h2>
+<p>General purpose computing dominated the industry for the last half of the 20th century. However, in
+the 21st century, we&rsquo;ve been seeing particular industries creating markets for much more specialized
+components. In the 19th century, general purpose computing could keep pace just because of how
+incredibly rapidly the power of computers was growing. These days, however, we&rsquo;re running into more
+and more problems. With 21st century manufacturing technology, we can only make transistors so small,
+can only cram so many billion transistors onto a piece of silicon, and can only run processors so
+fast before they start combusting. The laws of thermodynamics have not been very kind to our desires
+for faster and smaller processing chips.</p>
+<p>These days, specific purpose computing is growing more and more. The market is more inundated with
+general purpose computing power than ever before, thanks to cloud providers like Google and Amazon,
+where if you have a big enough credit card, you can rent a fleet of virtual computers with thousands
+of processors between them by the hour.</p>
+<p>And yet, with this incredible amount of computing power at our fingertips, new inventions in
+high-performance hardware continue. On the most basic level, we can look at graphics processors
+and solid state drives as great examples. It&rsquo;s become very common for computers, especially gaming
+or animation computers, to have multiple of the same kind of component so that they can be
+specialized. Many computers have a graphics processor in addition to a central processor, just to
+speed up certain kinds of operations. Many people use a solid state drive to store their programs
+to load as fast as possible, and a slower disk drive to store large amounts of data. Going back to
+how storing programs and data on the same device was the way of the future, we&rsquo;re now moving away
+from it.</p>
+<p>Even the kinds of processors we use has been branching out. In processors, there are two popular
+architectures: x86 and ARM. x86 is fast but inefficient, while ARM is slower but much more
+efficient. The result is that, when manufacturers are building a device, they now have choices to
+make about which specialized processor is better for what they need to do.</p>
+<h2 id="the-economics-of-the-resurgence-of-special-purpose">The Economics of the Resurgence of Special Purpose <a class="heading-anchor" href="#the-economics-of-the-resurgence-of-special-purpose" aria-label="Anchor">#</a></h2>
+<p>What makes this possible? Well, the same economies of scale that made general purpose computing
+take off are now working against it, and the rapid year-over-year advances in computing power
+are&hellip; no longer quite so rapid.</p>
+<p>Economies of scale. The more you produce, the less it costs you to make an individual unit. This is
+the market force that drives why buying wholesale is cheaper than buying small-scale, and why
+short-run manufacturing is so expensive. However, there&rsquo;s a limit to that effect; the bigger you
+get, the lesser the effect gets. There are only so many places where you can reduce cost on a
+per-unit basis thanks to up-scaling your operation.</p>
+<p>The computer industry is utterly huge. If you&rsquo;re making a specialized component that caters to one
+group of peple, that group of people is realistically big enough that you can get most of the
+effect of an economy of scale just by specializing. That levels the playing field between general
+purpose and new-generation specialized purpose computing. And because the devices you&rsquo;re selling
+are specialized, they can run circles around their general purpose counterparts in their chosen
+activity. And general purpose computing can&rsquo;t keep up, because there&rsquo;s only so much you can do
+with electronics before the laws of thermodynamics start to blow things up.</p>
+<h2 id="apple--special-purpose-in-embedded-electronics">Apple &amp; Special Purpose in Embedded Electronics <a class="heading-anchor" href="#apple--special-purpose-in-embedded-electronics" aria-label="Anchor">#</a></h2>
+<p>Because this blog is what it is, and many roads lead back to Apple, I want to bring up some things
+that they&rsquo;re doing that are interesting considering these trends.</p>
+<p>If you keep up with the iPhone and iOS changes, you probably know that Apple is <em>cramming</em> as many
+&ldquo;coprocessors&rdquo; as they can into their electronics. There are coprocessors for motion tracking,
+image processing, and sound processing. New MacBook Pros ship with a coprocessor just to run the
+touch bar. iPhones use specialized processors with different levels of processor cores that switch
+out depending on whether they need maximum power or should run more power-efficiently. And because
+they&rsquo;re a company with such a huge market share, they&rsquo;re uniquely well-suited to capitalize on the
+economies of scale that specialized computing can take advantage of these days.</p>
+<hr>
+<h2 id="what-happens-next">What Happens Next? <a class="heading-anchor" href="#what-happens-next" aria-label="Anchor">#</a></h2>
+<p>When I learned about general purpose computing, and its history, I was surprised that Apple was
+trying so hard to specialize their coprocessors. After all, it was historically shown that
+general purpose computing just wasn&rsquo;t profitable. With how sophisticated their main competitor,
+Google is, I thought that it might be a misguided attempt at claiming relevance that would
+ultimately lead to making their products fail to keep up even more.</p>
+<p>But looking at it deeper, I think that we&rsquo;re at the beginning of the rebirth of specialized
+processing, in a new form. General purpose has been pushed far, and it&rsquo;s not going anywhere, but
+it&rsquo;s just not a complete solution anymore when it can&rsquo;t keep up with general purpose computing
+that&rsquo;s integrated with other special purpose components.</p>
+<p>Ultimately, I wouldn&rsquo;t be surprised if we look back on the techniques being used to create
+coprocessors today as the pioneering efforts that ultimately make incredible things possible in the
+next few years (and decades?). I think that this is going to ultimately prove to be a very big
+deal, starting in consumer electronics and working their way up as the techniques involved in these
+kinds of coprocessors.</p>
+
+    </section>
+    <footer class="pt-8">
+      
+  <div class="flex">
+    
+      <img class="w-24 h-24 !mt-0 !mb-0 mr-4 rounded-full" src="/images/ericmiller.png" />
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] leading-3 text-neutral-400 dark:text-neutral-500 uppercase">
+          Author
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          Eric Miller
+        </div>
+      
+      
+        <div class="text-sm text-neutral-700 dark:text-neutral-400">DevOps Engineer, Kuberneter</div>
+      
+      
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/sosheskaz/"
+          target="_blank"
+          alt="Github"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+  </span>
+
+</a
+        >
+      
+    
+  </div>
+
+
+    </div>
+  </div>
+
+
+      
+
+      
+  
+    <div class="pt-8 article-pagination">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex" href="/2018/06/04/Apple-WWDC-4-June-2018/">
+              <span class="mr-3 article-pagination-direction">&larr;</span>
+              <span class="flex flex-col">
+                <span class="article-pagination-title mt-[0.1rem] leading-6"
+                  >Apple's WWDC - 4 June 2018</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                  
+                    <time datetime="2018-06-04 00:00:00 &#43;0000 UTC">4 June 2018</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right" href="/2018/03/07/Duplicity/">
+              <span class="flex flex-col">
+                <span class="article-pagination-title mt-[0.1rem] leading-6"
+                  >Duplicity: The Best Free Backup Software</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                  
+                    <time datetime="2018-03-07 00:00:00 &#43;0000 UTC">7 March 2018</time>
+                  
+                </span>
+              </span>
+              <span class="ml-3 article-pagination-direction">&rarr;</span>
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    </footer>
+    
+  </article>
+</main><footer class="py-10">
+  
+  
+  <div class="flex justify-between">
+    <div>
+      
+      <p class="text-sm text-neutral-400 dark:text-neutral-500">
+          &copy;
+          2021
+          Eric Miller
+      </p>
+      
+      
+        <p class="text-xs text-neutral-300 dark:text-neutral-600">
+          
+          
+          Powered by <a class="hover:underline hover:underline-primary-300 hover:text-primary-400"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:underline-primary-300 hover:text-primary-400" href="https://git.io/hugo-congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    
+    
+      <div class="text-sm cursor-pointer text-neutral-400 dark:text-neutral-500">
+        <button
+          id="dark-toggle"
+          onclick="setPreferredAppearance('dark');"
+          oncontextmenu="setPreferredAppearance('default'); return false;"
+          class="inline px-2 py-1 border rounded-md border-neutral-200 dark:hidden hover:text-primary-500 hover:border-primary-400"
+          title="Switch to dark appearance"
+        >
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="moon" class="svg-inline--fa fa-moon fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"></path></svg>
+  </span>
+
+
+        </button>
+        <button
+          id="light-toggle"
+          onclick="setPreferredAppearance('light');"
+          oncontextmenu="setPreferredAppearance('default'); return false;"
+          class="hidden px-2 py-1 border rounded-md cursor-pointer dark:inline border-neutral-700 hover:text-primary-400 hover:border-primary-500"
+          title="Switch to light appearance"
+        >
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sun" class="svg-inline--fa fa-sun fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"></path></svg>
+  </span>
+
+
+        </button>
+      </div>
+    
+  </div>
+  
+  
+</footer>
+</body>
+</html>

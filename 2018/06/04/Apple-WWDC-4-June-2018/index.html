@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  class="dark"
+><head>
+  <meta charset="utf-8" />
+  
+    <meta http-equiv="content-language" content="en-us" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Apple&#39;s WWDC - 4 June 2018 &middot; Eric&#39;s Web.site</title>
+    <meta name="title" content="Apple&#39;s WWDC - 4 June 2018 &middot; Eric&#39;s Web.site" />
+  
+  <meta name="description" content="Eric Miller&#39;s website to post about Technology, life, and anything else that comes up." />
+  
+  
+  
+  <link rel="canonical" href="https://ericsweb.site/2018/06/04/Apple-WWDC-4-June-2018/" />
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/schemes/congo.min.b48d6ba061dc77186a2524fb8aac5ac3823b2679a9299ca60325abbccc9c1764c884715f0ba24b4e2776cb3814df4af1f4c854b87207cd5d4c7a254da9b55751.css"
+    integrity="sha512-tI1roGHcdxhqJST7iqxaw4I7JnmpKZymAyWrvMycF2TIhHFfC6JLTid2yzgU30rx9MhUuHIHzV1MeiVNqbVXUQ=="
+  />
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/compiled/main.min.4076b9cf114dd23cca017f3365e2205a4c9a4b2c0ef4193ccd08883f76e554aa40f674a8f6e77a1b2895be0975ba8e019b0c59996c2eea32e4970ca4d5221653.css"
+    integrity="sha512-QHa5zxFN0jzKAX8zZeIgWkyaSywO9Bk8zQiIP3blVKpA9nSo9ud6GyiVvgl1uo4BmwxZmWwu6jLklwyk1SIWUw=="
+  />
+  
+  
+  
+    <script>
+      function loadPreferredAppearance() {
+        if (localStorage.preferredAppearance === "dark" || (!("preferredAppearance" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      }
+      function setPreferredAppearance(scheme) {
+        if (scheme == "default") {
+          localStorage.removeItem("preferredAppearance");
+        } else {
+          localStorage.preferredAppearance = scheme;
+        }
+        loadPreferredAppearance();
+      }
+      loadPreferredAppearance();
+      window.matchMedia("(prefers-color-scheme: dark)").addListener(loadPreferredAppearance);
+    </script>
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Apple&#39;s WWDC - 4 June 2018" />
+<meta property="og:description" content="It&rsquo;s that time of year again – Apple&rsquo;s World-Wide Developer Conference. The first day, June 4, Apple announces new software, and sometimes new hardware, that will be upcoming around Q3 of the year. I&rsquo;m here to break down and summarize what they&rsquo;re releasing and what I expect it to actually look like once it&rsquo;s released. This year&rsquo;s WWDC was expected to have less major changes than in the past, as Apple just made major hardware announcements and changes last year, as well as because this year (according to rumor) they&rsquo;ve been largely focused on internal improvements in terms of performance and bugfixes over adding on new features." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ericsweb.site/2018/06/04/Apple-WWDC-4-June-2018/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-06-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-06-04T00:00:00+00:00" /><meta property="og:site_name" content="Eric&#39;s Web.site" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Apple&#39;s WWDC - 4 June 2018"/>
+<meta name="twitter:description" content="It&rsquo;s that time of year again – Apple&rsquo;s World-Wide Developer Conference. The first day, June 4, Apple announces new software, and sometimes new hardware, that will be upcoming around Q3 of the year. I&rsquo;m here to break down and summarize what they&rsquo;re releasing and what I expect it to actually look like once it&rsquo;s released. This year&rsquo;s WWDC was expected to have less major changes than in the past, as Apple just made major hardware announcements and changes last year, as well as because this year (according to rumor) they&rsquo;ve been largely focused on internal improvements in terms of performance and bugfixes over adding on new features."/>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "articleSection": "Posts",
+    "name": "Apple\u0027s WWDC - 4 June 2018",
+    "headline": "Apple\u0027s WWDC - 4 June 2018",
+    "description": "It\u0026rsquo;s that time of year again – Apple\u0026rsquo;s World-Wide Developer Conference. The first day, June 4, Apple announces new software, and sometimes new hardware, that will be upcoming around Q3 of the year. I\u0026rsquo;m here to break down and summarize what they\u0026rsquo;re releasing and what I expect it to actually look like once it\u0026rsquo;s released. This year\u0026rsquo;s WWDC was expected to have less major changes than in the past, as Apple just made major hardware announcements and changes last year, as well as because this year (according to rumor) they\u0026rsquo;ve been largely focused on internal improvements in terms of performance and bugfixes over adding on new features.",
+    "inLanguage": "en-us",
+    "author" : {
+      "@type": "Person",
+      "name": "Eric Miller"
+    },
+    "creator" : {
+      "@type": "Person",
+      "name": "Eric Miller"
+    },
+    "copyrightHolder": "Eric Miller",
+    "copyrightYear": "2018",
+    "dateCreated": "2018-06-04T00:00:00\u002b00:00",
+    "datePublished": "2018-06-04T00:00:00\u002b00:00",
+    "dateModified": "2018-06-04T00:00:00\u002b00:00",
+    "url" : "https:\/\/ericsweb.site\/2018\/06\/04\/Apple-WWDC-4-June-2018\/",
+    "wordCount": "3231",
+    "keywords": ["apple","wwdc",]
+  }
+  </script>
+
+
+  
+  
+    <meta name="generator" content="Hugo 0.90.0-DEV" />
+  
+  
+  <meta name="author" content="Eric Miller" />
+  
+    
+      <link href="https://github.com/sosheskaz/" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 bg-neutral text-neutral-900 sm:px-14 md:px-24 lg:px-32 dark:bg-neutral-800 dark:text-neutral max-w-7xl"
+  ><header
+  class="flex justify-between py-6 font-semibold sm:items-center sm:py-10 text-neutral-800 dark:text-neutral"
+>
+  
+  <div>
+    
+      <a
+        class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+        rel="me"
+        href="/"
+        >Eric&rsquo;s Web.site</a
+      >
+  </div>
+  
+  
+    <nav>
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/posts/"
+              title="Posts"
+              >All Posts</a
+            >
+          </li>
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/categories/"
+              title="Categories"
+              >Categories</a
+            >
+          </li>
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/profile/"
+              title="About Me"
+              >About</a
+            >
+          </li>
+        
+      </ul>
+    </nav>
+  
+</header>
+<main class="flex-grow">
+  <article class="max-w-prose">
+    <header>
+      
+        <ol class="text-sm text-neutral-400 dark:text-neutral-500">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Index</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/posts/"
+      >Posts</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/2018/06/04/Apple-WWDC-4-June-2018/"
+      >Apple&#39;s WWDC - 4 June 2018</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-800 dark:text-neutral">
+        Apple's WWDC - 4 June 2018
+      </h1>
+      <div class="mt-8 mb-12 text-base text-neutral-400 dark:text-neutral-500">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row items-center">
+    
+    
+      <time datetime="2018-06-04 00:00:00 &#43;0000 UTC">4 June 2018</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">16 mins</span>
+    
+
+    
+    
+  </div>
+
+
+      </div>
+    </header>
+    <section class="prose dark:prose-light">
+      <p>It&rsquo;s that time of year again – Apple&rsquo;s World-Wide Developer Conference. The first day, June 4, Apple
+announces new software, and sometimes new hardware, that will be upcoming around Q3 of the year. I&rsquo;m
+here to break down and summarize what they&rsquo;re releasing and what I expect it to actually look like
+once it&rsquo;s released. This year&rsquo;s WWDC was expected to have less major changes than in the past, as
+Apple just made major hardware announcements and changes last year, as well as because this year
+(according to rumor) they&rsquo;ve been largely focused on internal improvements in terms of performance
+and bugfixes over adding on new features.</p>
+<p>Of course, while Apple has a few leaks, they still manage to be very secretive, so there are of
+course new things that were not necessarily expected.</p>
+<h2 id="software-announcements">Software Announcements <a class="heading-anchor" href="#software-announcements" aria-label="Anchor">#</a></h2>
+<h3 id="ios-12">iOS 12 <a class="heading-anchor" href="#ios-12" aria-label="Anchor">#</a></h3>
+<p>The changes made to iOS were primarily targeted at improving the existing experience and addressing
+existing problems or shortcomings in the ecosystem, as well as adding on content to existing
+functionality.</p>
+<h4 id="performance-improvements">Performance Improvements <a class="heading-anchor" href="#performance-improvements" aria-label="Anchor">#</a></h4>
+<p>One of the major focuses of this release was improving the performance of iOS 12. Apple trotted out
+its metrics for the iPhone 6 plus, a model that&rsquo;s about 3.5 years old. In the past, I&rsquo;ve found that
+Apple&rsquo;s performance metrics tend to be fairly accurate, if just a smidge optimistic, so these are
+probably relatively fair benchmarks.</p>
+<ul>
+<li>Apps load 40% faster</li>
+<li>Keyboard slides up 50% faster</li>
+<li>Camera opens 70% faster</li>
+</ul>
+<p>There&rsquo;s a special emphasis on the way that iOS performs under load. In particular, they&rsquo;ve paid
+attention to how they speed up the CPU under load so that it ramps up its performance more quickly,
+and ramps down its performance more quickly, which should improve performance for little cost (or
+even a small benefit) in battery life.</p>
+<h4 id="arkit-2">ARKit 2 <a class="heading-anchor" href="#arkit-2" aria-label="Anchor">#</a></h4>
+<p>I&rsquo;m a believer in Augmented Reality having a lot of potential (virtual reality, on the other hand,
+I&rsquo;m much more skeptical about). Apple is continuing to work on ARKit, adding a whole bunch of new
+functionality.</p>
+<p>Their flagship creation for the next iteration of their AR platform, ARKit 2, is the USDZ file
+format. USDZ is an open (meaning anyone can integrate it without licensing costs) file format for 3D
+models. Adobe, Autodesk, and other major producers of 3D content software, have already signed on to
+support it. USDZ will be supported natively on iOS across the platform. This means someone could
+create a 3D animated model, put it on their website, and on iOS you can visualize it in the real
+world immediately. Adobe has also committed to adding USDZ support to Creative Cloud in the near
+future, allowing for
+<a href="https://en.wikipedia.org/wiki/WYSIWYG"><em>What You See Is What You get</em> (WYSIWYG)</a> editing of 3D
+models and animations. These have the cumulative effect of making 3D content much easier to create
+and distribute, which will proliferate it to some extent.</p>
+<p>Apple has announced the Measure app, which looks a lot like <a href="https://measurekit.com">MeasureKit</a> but
+with less features. Their demo worked well, but I did notice a few things:</p>
+<ul>
+<li>There was very bright lighting, which likely means that they have issues operating in dim (or even just not blindingly bright) lighting. MeasureKit has similar issues.</li>
+<li>They measured by moving the phone, rather than rotating the camera. MeasureKit is more accurate when measuring using this technique, so it&rsquo;s likely they encountered the same issues.</li>
+<li>While the Measure app looks a lot like MeasureKit (albeit with a more polished UI), it lacks some of the features that MeasureKit has, which means Apple is likely copying MeasureKit rather than actually acquiring the software, as they&rsquo;ve done in other places.</li>
+</ul>
+<p>Apple is also modifying ARKit to support shared experiences across multiple devices, along with
+several other features (such as saving the state of an ARKit experience). This means that you can
+have multiple people all looking at the same 3D environment, which stays the same across multiple
+devices by recognizing shared geography and objects and binding the AR environment to those things.
+The demos of this Apple shared were games, where multiple people were all looking at the same
+environment to play a shared game together. Apple partnered with LEGO to demonstrate a hybrid
+virtual/physical LEGO game based on a real physical set, where the people could be controlled and
+events/stories could unfold. I&rsquo;m skeptical of how much value this adds, but I&rsquo;m also not their
+target audience. <a href="https://youtu.be/WNVJ2pWVNXE">Here&rsquo;s a video of the demo</a> (the link seems a bit
+sketchy so I won&rsquo;t be surprised if it gets taken down).</p>
+<p>Overall, I think this is a healthy way to flesh out and grow the platform, and I&rsquo;m interested to see
+where it goes from here.</p>
+<h4 id="siri--shortcuts">Siri &amp; Shortcuts <a class="heading-anchor" href="#siri--shortcuts" aria-label="Anchor">#</a></h4>
+<p>A while ago, Apple acquired an app called Workflowy, which allowed users to use simple drag-and-drop
+programming to set up their own automations with iOS. Here, we&rsquo;re seeing that Apple has done some
+tweaking (the UI looks almost exactly the same though) to that app and released it as their own,
+called Shortcuts. However, Shortcuts is also supported by Siri, which means that you can easily set
+up your own automations (or download automations others have made) to do most anything, including
+interacting with most third-party apps. You can also link these automations to Siri, effectively
+letting users create and share basic Siri support for apps without Apple needing to create the
+integrations for developers to do this, and without the developers needing to actually implement it.</p>
+<p>These shortcuts can also work based on context, and have some auto-filled options from Apple. For
+example, if you&rsquo;re running late for a meeting and aren&rsquo;t in the correct geographical location, Siri
+will prepare a text to the organizer to let them know you&rsquo;re on your way (of course, you need to
+push a button to send it).</p>
+<p>Overall, I&rsquo;m really happy with these changes because it&rsquo;s a simple tool that can be used for just
+about anything, and it will really open up the possibilities available through Siri and go some ways
+towards catching up with more advanced virtual assistants, without compromising data privacy.</p>
+<h4 id="notifications-control">Notifications Control <a class="heading-anchor" href="#notifications-control" aria-label="Anchor">#</a></h4>
+<p>Apple is rolling out refined notifications control to iOS. It&rsquo;s still missing some key features I&rsquo;d
+like to see (like allowing some apps to bypass Do Not Disturb mode), but it&rsquo;s a step in the right
+direction by allowing people more control over the ways apps can subtly manipulate you to spend more
+time on them. I have a software-based pager for work that I need to respond to, so I often can&rsquo;t use DND mode on my phone.</p>
+<p>Here are some of the features being added:</p>
+<ul>
+<li>Do Not Disturb (During Bedtime). This allows you to set a special Do Not Disturb session for the time when you (plan to be) sleeping. This not only silences notifications, but it also hides them from the lock screen, hopefully making it easier to avoid getting distracted when you&rsquo;re trying to go to sleep.</li>
+<li>Notifications are grouped together by application, topic, or thread, so that your lock screen won&rsquo;t get spammed with 50 notifications from the same conversation. You can still see all these notifications, they&rsquo;re just grouped together.</li>
+<li>Smart suggestions for tuning of your notification preferences, and easier access to modify them.</li>
+<li>Weekly &ldquo;Activity Summaries&rdquo; of what you&rsquo;re spending time on, and what you&rsquo;re getting notifications for, to make it easier to avoid spending too much time on time-waster apps, or to quiet notifications that you get a lot of but don&rsquo;t necessarily care about.</li>
+<li>Set &ldquo;limits&rdquo; (that can be bypassed) for how much time per day you want to spend in an app, to remind you not to use it so much.</li>
+<li>Ad-Hoc Do Not Disturb can be set to turn itself back off after a period of time, so that you don&rsquo;t forget to turn it off and miss important notifications.</li>
+</ul>
+<p>There are also a series of related parental controls expansions, allowing parents to see or limit
+how their children use the device. It&rsquo;s not necessarily as much of an invasion of privacy as some
+parents may like, but it does give parents some useful tools for addressing how their kids are using
+the devices.</p>
+<ul>
+<li>These settings can be controlled remotely, from the parent&rsquo;s iOS device.</li>
+<li>Parents can see the same &ldquo;Weekly Activity&rdquo; reports that their kids can see.</li>
+<li>Parents can set limits for how long children can use some apps, or even the device overall, but can also set &ldquo;always available&rdquo; apps, like the phone.</li>
+<li>Content controls.</li>
+</ul>
+<p>Many of these features are based around the idea of limiting screen time and around control, but as
+someone whose personal beliefs skew towards the idea of minors having autonomy, I feel that (for
+the most part) these modifications are reasonable. That said, I can&rsquo;t help but feel that if
+children are young enough to need parental controls, they may be a bit young to have personal
+smartphones (though I may be starting to show my age). I probably won&rsquo;t personally benefit too much
+from most of these changes, but I&rsquo;d imagine that for some people these will be very useful tools to
+practice better self-control with device usage.</p>
+<h4 id="apps">Apps <a class="heading-anchor" href="#apps" aria-label="Anchor">#</a></h4>
+<p>Several apps on iOS 12 are being updated with new layouts or functionality as well.</p>
+<ul>
+<li>The News app is being updated to support curated content.</li>
+<li>The Stocks app is being updated with a new layout, iPad support, macOS support, and Apple News integration.</li>
+<li>Voice Memos is being updated with a new layout, iPad support, macOS support, and iCloud Sync.</li>
+<li>iBooks is being renamed to Apple Books and is getting a UI redesign.</li>
+<li>CarPlay is adopting support for 3rd party navigation apps, like Google Maps and MapQuest.</li>
+</ul>
+<p>The Messages and Facetime apps are getting some additional content.</p>
+<p>4 new animojis have been announced: Ghost, Koala, Tiger, and T-Rex. Notably, the T-Rex doesn&rsquo;t have
+feathers, which I personally object to. Apple seems to be really excited about animojis, and I&rsquo;m not
+sure why. They&rsquo;ve also added &ldquo;Memoji&rdquo;, which are basically Bitmoji (cartoony self-portraits), but
+you can make them follow your face. Animoji, including Memoji, can be used in Messages as before,
+but can also plant them over your face during a Facetime call. I don&rsquo;t really understand why any of
+this is interesting or exciting, but Apple sure seems to think it is. That said, I&rsquo;ve never used
+animoji. If you use animoji and enjoy it, send me an email explaining what it adds to your
+experience (Contact in the menu bar) and let me know; I&rsquo;m genuinely curious.</p>
+<p>The main FaceTime feature being rolled out is Group Facetime, supporting up to 32 people. The UI
+looks pretty, but a bit clunky, and without support for Android/Windows I don&rsquo;t personally see that
+as being very useful (although I&rsquo;m aware plenty of people disagree with me – more power to them).
+That said, group video chat is a pretty basic feature for video calling, so it&rsquo;s good to see
+FaceTime finally gaining support for it.</p>
+<h3 id="ios-12-and-macos-1014">iOS 12 and macOS 10.14 <a class="heading-anchor" href="#ios-12-and-macos-1014" aria-label="Anchor">#</a></h3>
+<p>Some improvements apply to both iOS and macOS, and here is the place where it will (hopefully) be
+easiest to find.</p>
+<h4 id="safari">Safari <a class="heading-anchor" href="#safari" aria-label="Anchor">#</a></h4>
+<p>Safari is coming out with better built-in privacy support, building on the foundation of the
+cross-site-tracking prevention they released last year. The main additional feature is &ldquo;fingerprint
+obfuscation&rdquo;. A &ldquo;fingerprint&rdquo; in this case is unique device information that can be used to track
+you. Here&rsquo;s how it works. A data company records lots of things when you access a site with some of
+their code on it (hint: pretty much all of them), like the fonts your system has, your screen size,
+and other things that tell them about your device. Then, when you visit another page their code
+lives on, they can cross-reference that information to figure out that you were the same person who
+looked at the other page, and track you without even knowing who you are. Of course, if they can
+figure out who you are through another means (like a Facebook integration), they can put that data
+to a name and develop an in-depth profile of you, even if you&rsquo;re preventing cross-site tracking.
+Apple is making efforts in Safari to make devices running Safari (iOS and macOS) look much more
+similar to each other, making this method of tracking much more difficult.</p>
+<p>Safari is also limiting social media fields on sites, which can be used to harvest a lot of
+information about you (even if you don&rsquo;t interact with them), disabling them by default and
+requiring you to explicitly allow them if you want to use them.</p>
+<h4 id="cross-platform-support">Cross-Platform Support <a class="heading-anchor" href="#cross-platform-support" aria-label="Anchor">#</a></h4>
+<p>Apple is working on making it easier (still not trivial) to port applications between iOS and macOS
+by consolidating some of the libraries and removing what used to be custom logic and replacing it
+with reasonable defaults, based on how users will interact with their device. In short, this will
+make it much easier to develop cross-platform apps between macOS and iOS. Apple actually used this
+new functionality to migrate previously iOS-only apps to macOS, including Apple News, Stocks, Voice
+Memos, and Apple Home.</p>
+<h3 id="macos-1014-mojave">macOS 10.14 Mojave <a class="heading-anchor" href="#macos-1014-mojave" aria-label="Anchor">#</a></h3>
+<p>The new macOS changes have a lot of long-needed improvements, and shouldn&rsquo;t really interrupt
+anyone&rsquo;s workflows. There are many features that have been long-awaited, but that we haven&rsquo;t seen
+from Apple until now, as well as features that people likely won&rsquo;t have realized they needed until
+they came out.</p>
+<h4 id="dark-mode">Dark Mode <a class="heading-anchor" href="#dark-mode" aria-label="Anchor">#</a></h4>
+<p>Apple is rolling out a long-awaited &ldquo;Dark Mode&rdquo; for macOS. Unfortunately, it doesn&rsquo;t <em>look</em> like
+it integrates with Night Shift, but it is a long-awaited feature from many a user. Not only are the
+dock and menu bar darkened, but apps are as well, including support for Mail, Photos, XCode, and
+most other Apple apps. If you want this, you most likely already know.</p>
+<h4 id="desktop">Desktop <a class="heading-anchor" href="#desktop" aria-label="Anchor">#</a></h4>
+<p>Apple is adding in some dynamic desktops. In their example, they had a landscape where the lighting
+changes depending on the time of day. They also have a feature for cleaning up desktops (this is
+useless for me – 3 items on my desktop is cluttered by my standards) called &ldquo;Stacks&rdquo;. Essentially,
+this allows you to automatically group items on your desktop by kind, date, or tag, rather than
+having all the items just be free-floating. If you have a cluttered desktop and want to get a handle
+on it, check out this feature when it comes out.</p>
+<h4 id="finder">Finder <a class="heading-anchor" href="#finder" aria-label="Anchor">#</a></h4>
+<p>Finder is getting a new view, &ldquo;Gallery&rdquo;. Gallery is based around thumbnails, and seems to me like a
+Quicklook-based view where the content is placed before the actual structure of the file system. To
+photographers and videographers, this will be a boon. It also supports quick actions, like rotating
+a photo or combining several photos into a multi-page PDF. There&rsquo;s also a new pane in all the other
+views (column view already has it) that allows you to access the same functionality from your
+preferred finder view. QuickLook has also gotten some love, as Apple&rsquo;s standard Markup tools are
+now available in Quicklook. If you&rsquo;re a power user, Automator actions can be added to Finder as
+quick buttons (this is useful for me).</p>
+<h4 id="screenshots">Screenshots <a class="heading-anchor" href="#screenshots" aria-label="Anchor">#</a></h4>
+<p>Screenshots are getting the same treatment as they got on iOS, so if you take a screenshot, it will
+immediately show up in the corner of your screen, allowing you to perform quick markups, or to
+immediately use it without having to navigate to your screenshots folder. Video capture has also
+been pulled out of QuickTime Player and added directly to the Operating System itself, which is also
+nice.</p>
+<h4 id="security-and-privacy">Security and Privacy <a class="heading-anchor" href="#security-and-privacy" aria-label="Anchor">#</a></h4>
+<p>Aside from the privacy improvements made to Safari, better controls are being rolled out surrounding
+what applications are allowed to access what system features. For example, apps must now explicitly
+request permission before they&rsquo;re allowed to modify the camera. Likewise, certain locations on the
+file system, like the mail database, are protected with a prompt. This will help you be sure that
+developers can&rsquo;t take information for integrations that they don&rsquo;t need for their app to run, and
+give you more control over your device.</p>
+<h4 id="metal">Metal <a class="heading-anchor" href="#metal" aria-label="Anchor">#</a></h4>
+<p>Apple&rsquo;s graphics platform, Metal, is gaining support for external GPUs, making it easier to perform
+intensive workloads and play games (if you&rsquo;re willing to spend the money on an external GPU). The
+performance scales very well with additional GPUs, up to 4.</p>
+<p>Apple has also been working on making machine learning more accessible through multiple means.
+First, it&rsquo;s integrating with existing machine learning frameworks, like Tensorflow, to use Metal
+for GPU processing instead of CPU processing, which makes it work dramatically faster. In the use
+case they provided, training was 30x faster and the resulting model was 30x smaller on the disk.
+They&rsquo;re also releasing new machine learning developer tools to make it easier for developers to use
+machine learning in their applications, hopefully without the extensive expertise in machine
+learning previously required.</p>
+<h3 id="watchos-5">watchOS 5 <a class="heading-anchor" href="#watchos-5" aria-label="Anchor">#</a></h3>
+<p>watchOS 5 will bring several new features, largely aimed around continuous improvements to the
+things that the device is already good at.</p>
+<ul>
+<li>Health and Exercise.
+<ul>
+<li>Allows you to create week-long competitions with your friends to see who fills more activity rings.</li>
+<li>Several new workout types.</li>
+<li>Improvements for exercise tracking of runs.</li>
+<li>Automatic workout start and finish detection, if you forget to turn workout mode on/off.</li>
+</ul>
+</li>
+<li>Walkie Talkie - this lets you communicate people by voice in short spurts, using a push-to-talk mechanism, over a cellular or WiFi connection. I could see this being useful in some scenarios (I prefer PTT over a mute button).</li>
+<li>Web content support - if someone texts or emails you a link, you can look at it on your watch rather than needing your phone.</li>
+<li>Can function as a student ID card (for a few major campuses).</li>
+<li>Podcasts app.</li>
+<li>Uses the context of a wrist raise to trigger Siri&rsquo;s background listening, rather than &ldquo;Hey Siri&rdquo;, which will shave as much as a whole second off your time to issue a command.</li>
+</ul>
+<h3 id="tvos-12">tvOS 12 <a class="heading-anchor" href="#tvos-12" aria-label="Anchor">#</a></h3>
+<p>tvOS has a few more minor improvements, with the Keynote mostly talking about expanding integrations
+with Cable TV providers.</p>
+<ul>
+<li>Dolby Atmos sound now supported, and free upgrades given to content you&rsquo;ve already bought that supports it. Atmos is a surround sound system, but more sophisticated in that it models how it should sound in 3D space, rather than just having multiple audio channels.</li>
+<li>Live sports &amp; live news.</li>
+<li>Developing better integration with cable providers.</li>
+<li>Developing support for Apple TV to work with universal remotes.</li>
+</ul>
+<h2 id="looking-ahead--q3-hardware">Looking Ahead – Q3 Hardware <a class="heading-anchor" href="#looking-ahead--q3-hardware" aria-label="Anchor">#</a></h2>
+<p>Aside from the changes here, Apple is expected in Q3 to perform its regular hardware announcements.
+The primary expected announcements are centered around iPhones, and you can check the <a href="https://www.macrumors.com/roundup/2018-iphones/">MacRumors
+iPhone 2018 roundup</a> for a summary of the expected
+changes. MacRumors is my primary rumors source, as I&rsquo;ve found them to have competent journalistic
+practices surrounding acknowledging the credibility of their rumors and sources, and as a result
+their information tends to be fairly reliable. There&rsquo;s not much point in me doing a writeup on that
+since I&rsquo;d pretty much just be parroting their information.</p>
+<p>Also, I find their Facebook comments section to be a hilarious microcosm of the iOS vs Android
+&ldquo;console wars&rdquo;. I find it entertaining to watch people vehemently argue about whose preference in
+cellular phone is better.</p>
+
+    </section>
+    <footer class="pt-8">
+      
+  <div class="flex">
+    
+      <img class="w-24 h-24 !mt-0 !mb-0 mr-4 rounded-full" src="/images/ericmiller.png" />
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] leading-3 text-neutral-400 dark:text-neutral-500 uppercase">
+          Author
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          Eric Miller
+        </div>
+      
+      
+        <div class="text-sm text-neutral-700 dark:text-neutral-400">DevOps Engineer, Kuberneter</div>
+      
+      
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/sosheskaz/"
+          target="_blank"
+          alt="Github"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+  </span>
+
+</a
+        >
+      
+    
+  </div>
+
+
+    </div>
+  </div>
+
+
+      
+
+      
+  
+    <div class="pt-8 article-pagination">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex" href="/2018/09/23/Gather-Round/">
+              <span class="mr-3 article-pagination-direction">&larr;</span>
+              <span class="flex flex-col">
+                <span class="article-pagination-title mt-[0.1rem] leading-6"
+                  >Apple's Gather Round - 12 September 2018</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                  
+                    <time datetime="2018-09-23 00:00:00 &#43;0000 UTC">23 September 2018</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right" href="/2018/04/04/General-Purpose-Computing/">
+              <span class="flex flex-col">
+                <span class="article-pagination-title mt-[0.1rem] leading-6"
+                  >General Purpose Computing – Then and Now</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                  
+                    <time datetime="2018-04-04 00:00:00 &#43;0000 UTC">4 April 2018</time>
+                  
+                </span>
+              </span>
+              <span class="ml-3 article-pagination-direction">&rarr;</span>
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    </footer>
+    
+  </article>
+</main><footer class="py-10">
+  
+  
+  <div class="flex justify-between">
+    <div>
+      
+      <p class="text-sm text-neutral-400 dark:text-neutral-500">
+          &copy;
+          2021
+          Eric Miller
+      </p>
+      
+      
+        <p class="text-xs text-neutral-300 dark:text-neutral-600">
+          
+          
+          Powered by <a class="hover:underline hover:underline-primary-300 hover:text-primary-400"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:underline-primary-300 hover:text-primary-400" href="https://git.io/hugo-congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    
+    
+      <div class="text-sm cursor-pointer text-neutral-400 dark:text-neutral-500">
+        <button
+          id="dark-toggle"
+          onclick="setPreferredAppearance('dark');"
+          oncontextmenu="setPreferredAppearance('default'); return false;"
+          class="inline px-2 py-1 border rounded-md border-neutral-200 dark:hidden hover:text-primary-500 hover:border-primary-400"
+          title="Switch to dark appearance"
+        >
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="moon" class="svg-inline--fa fa-moon fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"></path></svg>
+  </span>
+
+
+        </button>
+        <button
+          id="light-toggle"
+          onclick="setPreferredAppearance('light');"
+          oncontextmenu="setPreferredAppearance('default'); return false;"
+          class="hidden px-2 py-1 border rounded-md cursor-pointer dark:inline border-neutral-700 hover:text-primary-400 hover:border-primary-500"
+          title="Switch to light appearance"
+        >
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sun" class="svg-inline--fa fa-sun fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"></path></svg>
+  </span>
+
+
+        </button>
+      </div>
+    
+  </div>
+  
+  
+</footer>
+</body>
+</html>

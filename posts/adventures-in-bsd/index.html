@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  class="dark"
+><head>
+  <meta charset="utf-8" />
+  
+    <meta http-equiv="content-language" content="en-us" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Linux and BSD - A Tale of Two Operating Systems &middot; Eric&#39;s Web.site</title>
+    <meta name="title" content="Linux and BSD - A Tale of Two Operating Systems &middot; Eric&#39;s Web.site" />
+  
+  <meta name="description" content="Eric Miller&#39;s website to post about Technology, life, and anything else that comes up." />
+  
+  
+  
+  <link rel="canonical" href="https://ericsweb.site/posts/adventures-in-bsd/" />
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/schemes/congo.min.b48d6ba061dc77186a2524fb8aac5ac3823b2679a9299ca60325abbccc9c1764c884715f0ba24b4e2776cb3814df4af1f4c854b87207cd5d4c7a254da9b55751.css"
+    integrity="sha512-tI1roGHcdxhqJST7iqxaw4I7JnmpKZymAyWrvMycF2TIhHFfC6JLTid2yzgU30rx9MhUuHIHzV1MeiVNqbVXUQ=="
+  />
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/compiled/main.min.4076b9cf114dd23cca017f3365e2205a4c9a4b2c0ef4193ccd08883f76e554aa40f674a8f6e77a1b2895be0975ba8e019b0c59996c2eea32e4970ca4d5221653.css"
+    integrity="sha512-QHa5zxFN0jzKAX8zZeIgWkyaSywO9Bk8zQiIP3blVKpA9nSo9ud6GyiVvgl1uo4BmwxZmWwu6jLklwyk1SIWUw=="
+  />
+  
+  
+  
+    <script>
+      function loadPreferredAppearance() {
+        if (localStorage.preferredAppearance === "dark" || (!("preferredAppearance" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      }
+      function setPreferredAppearance(scheme) {
+        if (scheme == "default") {
+          localStorage.removeItem("preferredAppearance");
+        } else {
+          localStorage.preferredAppearance = scheme;
+        }
+        loadPreferredAppearance();
+      }
+      loadPreferredAppearance();
+      window.matchMedia("(prefers-color-scheme: dark)").addListener(loadPreferredAppearance);
+    </script>
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Linux and BSD - A Tale of Two Operating Systems" />
+<meta property="og:description" content="I&rsquo;ve been using FreeBSD a lot recently. FreeBSD is similar to Linux operating systems in many ways, and at least initially, it will feel like home to Linux users. But along the way, there are lots of pitfalls stemming from the historical philosophical differences in the BSD and Linux communities. In this article, I&rsquo;m going to talk about my adventures in BSDand Linux, coming from mainly a MacOS background with some experience in Linux operating systems and a soft spot for FreeBSD." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ericsweb.site/posts/adventures-in-bsd/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-05-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-05-12T00:00:00+00:00" /><meta property="og:site_name" content="Eric&#39;s Web.site" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux and BSD - A Tale of Two Operating Systems"/>
+<meta name="twitter:description" content="I&rsquo;ve been using FreeBSD a lot recently. FreeBSD is similar to Linux operating systems in many ways, and at least initially, it will feel like home to Linux users. But along the way, there are lots of pitfalls stemming from the historical philosophical differences in the BSD and Linux communities. In this article, I&rsquo;m going to talk about my adventures in BSDand Linux, coming from mainly a MacOS background with some experience in Linux operating systems and a soft spot for FreeBSD."/>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "articleSection": "Posts",
+    "name": "Linux and BSD - A Tale of Two Operating Systems",
+    "headline": "Linux and BSD - A Tale of Two Operating Systems",
+    "description": "I\u0026rsquo;ve been using FreeBSD a lot recently. FreeBSD is similar to Linux operating systems in many ways, and at least initially, it will feel like home to Linux users. But along the way, there are lots of pitfalls stemming from the historical philosophical differences in the BSD and Linux communities. In this article, I\u0026rsquo;m going to talk about my adventures in BSDand Linux, coming from mainly a MacOS background with some experience in Linux operating systems and a soft spot for FreeBSD.",
+    "inLanguage": "en-us",
+    "author" : {
+      "@type": "Person",
+      "name": "Eric Miller"
+    },
+    "creator" : {
+      "@type": "Person",
+      "name": "Eric Miller"
+    },
+    "copyrightHolder": "Eric Miller",
+    "copyrightYear": "2017",
+    "dateCreated": "2017-05-12T00:00:00\u002b00:00",
+    "datePublished": "2017-05-12T00:00:00\u002b00:00",
+    "dateModified": "2017-05-12T00:00:00\u002b00:00",
+    "url" : "https:\/\/ericsweb.site\/posts\/adventures-in-bsd\/",
+    "wordCount": "1893",
+    "keywords": []
+  }
+  </script>
+
+
+  
+  
+    <meta name="generator" content="Hugo 0.90.0-DEV" />
+  
+  
+  <meta name="author" content="Eric Miller" />
+  
+    
+      <link href="https://github.com/sosheskaz/" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 bg-neutral text-neutral-900 sm:px-14 md:px-24 lg:px-32 dark:bg-neutral-800 dark:text-neutral max-w-7xl"
+  ><header
+  class="flex justify-between py-6 font-semibold sm:items-center sm:py-10 text-neutral-800 dark:text-neutral"
+>
+  
+  <div>
+    
+      <a
+        class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+        rel="me"
+        href="/"
+        >Eric&rsquo;s Web.site</a
+      >
+  </div>
+  
+  
+    <nav>
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/posts/"
+              title="Posts"
+              >All Posts</a
+            >
+          </li>
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/categories/"
+              title="Categories"
+              >Categories</a
+            >
+          </li>
+        
+          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
+            <a
+              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
+              href="/profile/"
+              title="About Me"
+              >About</a
+            >
+          </li>
+        
+      </ul>
+    </nav>
+  
+</header>
+<main class="flex-grow">
+  <article class="max-w-prose">
+    <header>
+      
+        <ol class="text-sm text-neutral-400 dark:text-neutral-500">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Index</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/posts/"
+      >Posts</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      href="/posts/adventures-in-bsd/"
+      >Linux and BSD - A Tale of Two Operating Systems</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-800 dark:text-neutral">
+        Linux and BSD - A Tale of Two Operating Systems
+      </h1>
+      <div class="mt-8 mb-12 text-base text-neutral-400 dark:text-neutral-500">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row items-center">
+    
+    
+      <time datetime="2017-05-12 00:00:00 &#43;0000 UTC">12 May 2017</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">9 mins</span>
+    
+
+    
+    
+  </div>
+
+
+      </div>
+    </header>
+    <section class="prose dark:prose-light">
+      <p>I&rsquo;ve been using FreeBSD a lot recently. FreeBSD is similar to Linux operating systems in many ways,
+and at least initially, it will feel like home to Linux users. But along the way, there are lots of
+pitfalls stemming from the historical philosophical differences in the BSD and Linux communities. In this article,
+I&rsquo;m going to talk about my adventures in BSDand Linux, coming from mainly a MacOS background with some
+experience in Linux operating systems and a soft spot for FreeBSD.</p>
+<h2 id="a-history-lesson">A History Lesson <a class="heading-anchor" href="#a-history-lesson" aria-label="Anchor">#</a></h2>
+<p>This goes into the history of computing a bit. I find it interesting, but if you don&rsquo;t, there&rsquo;s a TL;DR
+at the bottom.</p>
+<p>In the days of early mainstream commercial computing (i.e. the 1960s and early 1970s), computers each
+came bundled with their own operating system, designed specifically for that computer. Many companies
+reused components from their other systems (IBM&rsquo;s System/360 especially), or tried to integrate support
+and similarities to other popularly used operating systems (many smaller companies needed their systems
+to work well with larger companies' computers), but operating systems were not as modular as those of
+today. The operating system you used was the one that came with the machine, because it was the only one
+that was designed to work with that particular machine.</p>
+<p>By the 1970s, computers were becoming cheaper, and minicomputers (as opposed to mainframes or
+supercomputers) were becoming popular, with one example being Digital Equipment Corporation&rsquo;s (DEC)
+PDP-7. The PDP-7 was a very economical choice at the time, with very good performance for the price. DEC
+was also a fairly major player at the time, having made some revolutionary changes to the industry over
+the course of its existence (though by no means a major competitor to IBM - but that&rsquo;s another story).
+Some researchers at AT&amp;T&rsquo;s Bell Labs got their hands on one, and started work on an operating system
+called Unix. The right to this eventually wound up with a consortium called The Open Group, which led to
+the creation of the Single UNIX specification, which became the name for the family of operating systems
+which operated in a similar manner to the original Unix operating system. The idea was that understanding
+of one operating system which matches the UNIX standard would give good understanding of others which
+also met the standard.</p>
+<p>While relatively few operating systems are actually registered as meeting this standard, many other
+operating systems follow this standard spiritually, including most Linux distributions, and can be
+considered UNIX-like. The abbreviation for UNIX-like operating systems is &ldquo;*NIX&rdquo;, which refers to the
+family of not just UNIX systems, but Linux, BSD, and other operating systems.</p>
+<p>From UNIX, two main open-source operating system paradigms emerged, the Berkeley Software Distribution
+(BSD) and GNU/Linux. GNU stands for &ldquo;GNU&rsquo;s Not Unix&rdquo; (programmers are silly people) and Linux is named
+after its creator, Linus Torvalds. These were born from two very different paradigms, from economic,
+practical, and academic perspectives.</p>
+<h3 id="a-simplified-version-of-the-nix-family-tree">A Simplified Version of the *NIX Family Tree <a class="heading-anchor" href="#a-simplified-version-of-the-nix-family-tree" aria-label="Anchor">#</a></h3>
+<p><img src="unix-family-history.svg" alt="A simple version of the *NIX family tree."></p>
+<p>Of note is MacOS, which itself was born from BSD. BSD was a great match, philosophically speaking, for
+Apple. Initially, they developed the Darwin kernel, which is based on BSD, and built what is now MacOS
+on top of that. This means that MacOS can be considered part of the BSD family, although their
+respective philosophies do diverge significantly. Other forms of BSD were also created, namely FreeBSD,
+NetBSD, and OpenBSD, which are all open and free.</p>
+<p>Also worth noting is that there were many, many descendants of Linux, called distributions or distros.
+Then, of course, those distros had their own children. Notable distros include Debian, Fedora, and Arch
+Linux, as well as the Android and ChromeOS operating systems.</p>
+<p>As an Aside, DOS/Windows just kind of did its own thing and is not related at all to *NIX systems,
+and was separated from the academics of the time. This
+led to some serious problems for Windows, but also some benefits (which in my opinion were outweighed by
+the problems). In recent years, Windows has bridged many of these gaps.</p>
+<p>TL;DR: Unix was created by Bell labs. This established a common thought pattern for operating systems,
+and the main child operating systems BSD and Linux were created. After that, many offshoots of these
+systems were created, including operating systems like MacOS, FreeBSD, Ubuntu, and Android.</p>
+<h2 id="philosophy">Philosophy <a class="heading-anchor" href="#philosophy" aria-label="Anchor">#</a></h2>
+<p>Linux users will often chide users of other operating systems, saying that their operating system of
+choice is better because it gives them more control. To some extent, this is true - Windows and MacOS are
+much more difficult to customize, especially at a low level, then Linux. The counterargument to this is
+that an easier interface, even if it&rsquo;s more limited in absolute control, is easier to use for most users,
+and thus will be most effective. I tend to agree more with the latter, which is one of the reasons I
+prefer MacOS for my day-to-day work.</p>
+<p>That said, BSD operating systems tend to have even more direct control than the Linux operating system
+does. Linux is actually designed to be an easier to work with operating system than BSD is - the idea
+is that it should be easy to get your system up and running in an easy, modular way. BSD, on the other
+hand, will tend to do what you tell it to - and nothing more. This is because the BSD ecosystem exists
+in two main components: The operating system, to which there are periodic and independent standalone
+updates, while in the Linux system, everything, even the kernel, is considered a software package to
+be updated whenever.</p>
+<p>Take, for example, installing a simple <em>NGINX</em> webserver. On Linux this is quite easy - you simply type
+<code>apt-get install nginx</code> into your terminal, and you&rsquo;re done. It&rsquo;s running with a default configuration,
+and you have a webserver up right away. With FreeBSD, the package manager was almost an afterthought.
+Initially, it just used something called the ports tree, which allowed building open-source packages
+from scratch. So you have two choices - install a pre-built one with <code>pkg install nginx</code>, or build it
+from scratch with <code>cd /usr/ports/www/nginx &amp;&amp; make build install</code>. Then, if you want it to run
+automatically, you&rsquo;ll have to update your /etc/rc.conf file to and add <code>nginx_enable=&quot;YES&quot;</code> to
+tell it that it&rsquo;s okay. As you can see,
+FreeBSD is much more confusing, but it also allows the user to be more careful and specific, if they have
+the knowledge to do so.</p>
+<p>BSD becomes, in my opinion, the OS of academics, while Linux becomes the OS of the people.</p>
+<h2 id="licenses">Licenses <a class="heading-anchor" href="#licenses" aria-label="Anchor">#</a></h2>
+<p>This is also
+reflected in the <a href="https://en.wikipedia.org/wiki/BSD_licenses">BSD licenses</a>, which BSD and the BSD
+utilities are licensed under, and the
+<a href="https://en.wikipedia.org/wiki/GNU_General_Public_License">GNU General Public License</a>,
+authored by Richard Stallman, which many utilities used commonly with Linux-based operating systems use.
+Both licenses are used for open-source software, but they have important indications of the underlying
+philosophies of the two communities.</p>
+<p>That important distinction is both an economic one and one based on the idea of &ldquo;Free Software&rdquo;. Free
+software, in this context, means free as in &ldquo;Free Speech&rdquo;, not free as in &ldquo;Free Pizza&rdquo;. The underlying
+idea of free software is that the societal benefit of the creation of a piece of software is maximized
+when it&rsquo;s released giving users freedom - the freedom to view, modify, and utilize the software however
+they wish.</p>
+<p>The GNU license adheres strongly to this philosophy - meaning that any derivative work of
+a GNU program must be released as GNU itself. This means, if you develop a program based on GNU code,
+perhaps with some modifications or improvements, then if you release it, it must be released under the
+GNU license. That said, the tools themselves are free to be <em>used</em> for any purpose, whether for-profit or
+not. For this reason, the GNU community is often considered to be philosophically aligned with communism,
+as it is based on the belief that collaborative work, the fruit of which is usable by all, maximizes
+that work&rsquo;s benefit to society. The GNU license is historically important, as it gave developers an assurance that
+whatever code they wrote would be free to any to use, and could never be charged for - that is, its full
+value would be applied to society. This license is one of the major causes of the popularity and success
+oof Linux-based operating systems.</p>
+<p>The BSD license, on the other hand, believes that the restriction placed on derivative works actually
+reduces its total benefit to society. The rationale is that if a for-profit entity can produce
+derivative software that poses enough value to make its way in the free market, then that is
+intrinsically valuable to society as well (though not as valuable as if it were free).
+However, it still allows altruistic developers to create their own free derivative works, much like GNU
+does.</p>
+<p>This is why BSD was such a good fit for Apple - it allowed them to repackage the BSD utilities, along
+with their own work, and sell it for a profit. Were it not for the BSD license, Apple would not be as
+successful as it is, if it would have been able to create an operating system at all.
+Of course, it is worth noting that the core of MacOS, Darwin, is available as open-source.</p>
+<h2 id="the-practical">The Practical <a class="heading-anchor" href="#the-practical" aria-label="Anchor">#</a></h2>
+<p>Let&rsquo;s look at some of the most common distributions of each - FreeBSD for BSD, and
+Ubuntu for Linux. We&rsquo;ll compare the minimum specs to run it, what comes installed, and how complicated
+setup is.</p>
+<h3 id="freebsd">FreeBSD <a class="heading-anchor" href="#freebsd" aria-label="Anchor">#</a></h3>
+<ul>
+<li>One thing to install. No options installed out-of-the box.</li>
+<li>Requires 96MB of RAM, and 1.5GB of disk space. Runs okay with most any CPU.</li>
+<li>Requires 2-4GB of RAM for a general-purpose desktop.</li>
+<li>Comes with just the basics installed - not even a desktop environment or common utilities are
+installed by default.</li>
+</ul>
+<h3 id="ubuntu">Ubuntu <a class="heading-anchor" href="#ubuntu" aria-label="Anchor">#</a></h3>
+<ul>
+<li>Multiple choices for installers and base operating systems.</li>
+<li>For server install, requires 256MB of RAM, 1.5GB of disk space, 300MHz CPU.</li>
+<li>For desktop, requires 512MB of RAM, 5GB of disk space, and a 700MHz CPU.</li>
+<li>Comes with many utilities and services installable from the start.</li>
+</ul>
+<p>As you can see, FreeBSD takes much more work to get up and running. The benefit of this, however,
+is that the system winds up being much leaner. This means it uses less processing power, less memory,
+and less disk space. It also means it can be easier to secure, as there are no attack vectors introduced
+without the maintainer knowing about it. Another benefit is that, with less moving parts, FreeBSD is more
+stable than its Linux counterparts, at least in my experience.</p>
+<h2 id="a-learning-experience">A Learning Experience <a class="heading-anchor" href="#a-learning-experience" aria-label="Anchor">#</a></h2>
+<p>But, interestingly enough, the most meaningful part of my experience with FreeBSD is how much I learned.
+Ironically, learning BSD drove my understanding of all *NIX operating systems, because it requires
+you to truly understand what you&rsquo;re doing every step of the way. It prepares you for different
+utilities, and adapting to new situations where your existing knowledge base may no longer be accurate.
+It teaches you to think in new ways, and to truly understand what&rsquo;s going on behind the scenes when you
+start your computer, install a package, or disable a service.</p>
+<p>And perhaps, most of all, it makes you appreciate easy-to-use operating systems like never before.</p>
+
+    </section>
+    <footer class="pt-8">
+      
+  <div class="flex">
+    
+      <img class="w-24 h-24 !mt-0 !mb-0 mr-4 rounded-full" src="/images/ericmiller.png" />
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] leading-3 text-neutral-400 dark:text-neutral-500 uppercase">
+          Author
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          Eric Miller
+        </div>
+      
+      
+        <div class="text-sm text-neutral-700 dark:text-neutral-400">DevOps Engineer, Kuberneter</div>
+      
+      
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/sosheskaz/"
+          target="_blank"
+          alt="Github"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+  </span>
+
+</a
+        >
+      
+    
+  </div>
+
+
+    </div>
+  </div>
+
+
+      
+
+      
+  
+    <div class="pt-8 article-pagination">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex" href="/2017/05/19/Ethical-Hacking/">
+              <span class="mr-3 article-pagination-direction">&larr;</span>
+              <span class="flex flex-col">
+                <span class="article-pagination-title mt-[0.1rem] leading-6"
+                  >What is Ethical Hacking? And Contemporary Cybersecurity Ethics</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                  
+                    <time datetime="2017-05-19 00:00:00 &#43;0000 UTC">19 May 2017</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right" href="/posts/beamforming/">
+              <span class="flex flex-col">
+                <span class="article-pagination-title mt-[0.1rem] leading-6"
+                  >What is Beamforming, and How Will it Change the World?</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                  
+                    <time datetime="2017-05-06 00:00:00 &#43;0000 UTC">6 May 2017</time>
+                  
+                </span>
+              </span>
+              <span class="ml-3 article-pagination-direction">&rarr;</span>
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    </footer>
+    
+  </article>
+</main><footer class="py-10">
+  
+  
+  <div class="flex justify-between">
+    <div>
+      
+      <p class="text-sm text-neutral-400 dark:text-neutral-500">
+          &copy;
+          2021
+          Eric Miller
+      </p>
+      
+      
+        <p class="text-xs text-neutral-300 dark:text-neutral-600">
+          
+          
+          Powered by <a class="hover:underline hover:underline-primary-300 hover:text-primary-400"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:underline-primary-300 hover:text-primary-400" href="https://git.io/hugo-congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    
+    
+      <div class="text-sm cursor-pointer text-neutral-400 dark:text-neutral-500">
+        <button
+          id="dark-toggle"
+          onclick="setPreferredAppearance('dark');"
+          oncontextmenu="setPreferredAppearance('default'); return false;"
+          class="inline px-2 py-1 border rounded-md border-neutral-200 dark:hidden hover:text-primary-500 hover:border-primary-400"
+          title="Switch to dark appearance"
+        >
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="moon" class="svg-inline--fa fa-moon fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"></path></svg>
+  </span>
+
+
+        </button>
+        <button
+          id="light-toggle"
+          onclick="setPreferredAppearance('light');"
+          oncontextmenu="setPreferredAppearance('default'); return false;"
+          class="hidden px-2 py-1 border rounded-md cursor-pointer dark:inline border-neutral-700 hover:text-primary-400 hover:border-primary-500"
+          title="Switch to light appearance"
+        >
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sun" class="svg-inline--fa fa-sun fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"></path></svg>
+  </span>
+
+
+        </button>
+      </div>
+    
+  </div>
+  
+  
+</footer>
+</body>
+</html>
