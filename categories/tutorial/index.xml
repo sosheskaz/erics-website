@@ -14,7 +14,7 @@
       
       <guid>https://ericsweb.site/2018/03/07/Duplicity/</guid>
       <description>Lately, I&amp;rsquo;ve been looking into backups a lot. At one point, I even looked into setting up a Time Machine Server on my FreeBSD machine. That said, it&amp;rsquo;s all been a headache that sometimes works and sometimes doesn&amp;rsquo;t. Now, however, I&amp;rsquo;ve discovered Duplicity, a GPL software package, powered by python, that is feature-heavy, simple, reliable, and fast.
-Features of Duplicity #  Relatively easy to automate Encrypts your backups by default Compresses your backups by default Takes incremental backups Can self-heal if a backup goes wrong Allows incremental restoration from backups Supports a lot of different protocols Supports AWS S3 very well by default.</description>
+Features of Duplicity # Relatively easy to automate Encrypts your backups by default Compresses your backups by default Takes incremental backups Can self-heal if a backup goes wrong Allows incremental restoration from backups Supports a lot of different protocols Supports AWS S3 very well by default.</description>
     </item>
     
     <item>

@@ -74,7 +74,7 @@
   
   <meta property="og:title" content="Duplicity: The Best Free Backup Software" />
 <meta property="og:description" content="Lately, I&rsquo;ve been looking into backups a lot. At one point, I even looked into setting up a Time Machine Server on my FreeBSD machine. That said, it&rsquo;s all been a headache that sometimes works and sometimes doesn&rsquo;t. Now, however, I&rsquo;ve discovered Duplicity, a GPL software package, powered by python, that is feature-heavy, simple, reliable, and fast.
-Features of Duplicity #  Relatively easy to automate Encrypts your backups by default Compresses your backups by default Takes incremental backups Can self-heal if a backup goes wrong Allows incremental restoration from backups Supports a lot of different protocols Supports AWS S3 very well by default." />
+Features of Duplicity # Relatively easy to automate Encrypts your backups by default Compresses your backups by default Takes incremental backups Can self-heal if a backup goes wrong Allows incremental restoration from backups Supports a lot of different protocols Supports AWS S3 very well by default." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ericsweb.site/2018/03/07/Duplicity/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2018-03-07T00:00:00+00:00" />
@@ -84,7 +84,7 @@ Features of Duplicity #  Relatively easy to automate Encrypts your backups by de
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Duplicity: The Best Free Backup Software"/>
 <meta name="twitter:description" content="Lately, I&rsquo;ve been looking into backups a lot. At one point, I even looked into setting up a Time Machine Server on my FreeBSD machine. That said, it&rsquo;s all been a headache that sometimes works and sometimes doesn&rsquo;t. Now, however, I&rsquo;ve discovered Duplicity, a GPL software package, powered by python, that is feature-heavy, simple, reliable, and fast.
-Features of Duplicity #  Relatively easy to automate Encrypts your backups by default Compresses your backups by default Takes incremental backups Can self-heal if a backup goes wrong Allows incremental restoration from backups Supports a lot of different protocols Supports AWS S3 very well by default."/>
+Features of Duplicity # Relatively easy to automate Encrypts your backups by default Compresses your backups by default Takes incremental backups Can self-heal if a backup goes wrong Allows incremental restoration from backups Supports a lot of different protocols Supports AWS S3 very well by default."/>
 
   
   <script type="application/ld+json">
@@ -94,7 +94,7 @@ Features of Duplicity #  Relatively easy to automate Encrypts your backups by de
     "articleSection": "Posts",
     "name": "Duplicity: The Best Free Backup Software",
     "headline": "Duplicity: The Best Free Backup Software",
-    "description": "Lately, I\u0026rsquo;ve been looking into backups a lot. At one point, I even looked into setting up a Time Machine Server on my FreeBSD machine. That said, it\u0026rsquo;s all been a headache that sometimes works and sometimes doesn\u0026rsquo;t. Now, however, I\u0026rsquo;ve discovered Duplicity, a GPL software package, powered by python, that is feature-heavy, simple, reliable, and fast.\nFeatures of Duplicity #  Relatively easy to automate Encrypts your backups by default Compresses your backups by default Takes incremental backups Can self-heal if a backup goes wrong Allows incremental restoration from backups Supports a lot of different protocols Supports AWS S3 very well by default.",
+    "description": "Lately, I\u0026rsquo;ve been looking into backups a lot. At one point, I even looked into setting up a Time Machine Server on my FreeBSD machine. That said, it\u0026rsquo;s all been a headache that sometimes works and sometimes doesn\u0026rsquo;t. Now, however, I\u0026rsquo;ve discovered Duplicity, a GPL software package, powered by python, that is feature-heavy, simple, reliable, and fast.\nFeatures of Duplicity # Relatively easy to automate Encrypts your backups by default Compresses your backups by default Takes incremental backups Can self-heal if a backup goes wrong Allows incremental restoration from backups Supports a lot of different protocols Supports AWS S3 very well by default.",
     "inLanguage": "en-us",
     "author" : {
       "@type": "Person",
@@ -110,7 +110,7 @@ Features of Duplicity #  Relatively easy to automate Encrypts your backups by de
     "datePublished": "2018-03-07T00:00:00\u002b00:00",
     "dateModified": "2018-03-07T00:00:00\u002b00:00",
     "url" : "https:\/\/ericsweb.site\/2018\/03\/07\/Duplicity\/",
-    "wordCount": "954",
+    "wordCount": "955",
     "keywords": ["backup","duplicity","python","freebsd",]
   }
   </script>
@@ -118,7 +118,7 @@ Features of Duplicity #  Relatively easy to automate Encrypts your backups by de
 
   
   
-    <meta name="generator" content="Hugo 0.90.0-DEV" />
+    <meta name="generator" content="Hugo 0.102.0" />
   
   
   <meta name="author" content="Eric Miller" />
@@ -448,41 +448,41 @@ gets expensive. If you want offsite backups, here&rsquo;s a quick price comparis
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/sh
-</span><span style="color:#75715e"></span><span style="color:#75715e"># Duplicity needs an environment variable or arg to decrypt. This is the best way of doing that.</span>
-export PASSPHRASE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;top_secret_password_for_encryption&#34;</span>
-cd $HOME
-backup_excludes<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;--exclude ./relative/path/1 --exclude ./relative/path/2&#34;</span>
-backup_targets<span style="color:#f92672">=</span>$HOME
-backup_server<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;192.168.x.y&#39;</span>
-backup_server_proto<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;sftp&#39;</span>
-backup_server_port<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;22&#39;</span>
-<span style="color:#75715e"># Generate a path based on our user and hostname. Ideally, this means there&#39;s a unique backup</span>
-<span style="color:#75715e"># namespace for every user on every machine you need to worry about. Adjust this to meet your needs.</span>
-backup_server_path<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/home/</span><span style="color:#66d9ef">$(</span>whoami<span style="color:#66d9ef">)</span><span style="color:#e6db74">/backups/</span><span style="color:#66d9ef">$(</span>whoami<span style="color:#66d9ef">)</span><span style="color:#e6db74">.</span><span style="color:#66d9ef">$(</span>hostname | cut -d <span style="color:#e6db74">&#39;.&#39;</span> -f 1<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
-backup_dest<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>backup_server_proto<span style="color:#e6db74">}</span><span style="color:#e6db74">://</span><span style="color:#e6db74">${</span>backup_server<span style="color:#e6db74">}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">${</span>backup_server_port<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">${</span>backup_server_path<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-backup_parameters<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$backup_excludes<span style="color:#e6db74"> . </span><span style="color:#e6db74">${</span>backup_dest<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-
-ulimit -n <span style="color:#ae81ff">1024</span> <span style="color:#75715e"># necessary on mac, on some linux distros</span>
-
-<span style="color:#75715e"># Build the commands we&#39;re going to run in advance.</span>
-<span style="color:#75715e"># The first command checks if there&#39;s a backup done within the last two weeks.</span>
-<span style="color:#75715e">#   If so, does an incremental backup. If not, do a full backup.</span>
-<span style="color:#75715e"># The second command removes any backups older than 2 weeks to save space.</span>
-<span style="color:#75715e">#   If a full backup doesn&#39;t exist that&#39;s newer than the last two weeks, it doesn&#39;t delete the full</span>
-<span style="color:#75715e">#   backup, just the incremental backups that have occurred since then.</span>
-full_if_old<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;incr --full-if-older-than 14D </span><span style="color:#e6db74">${</span>backup_parameters<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-remove_if_old<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;remove-older-than 14D </span><span style="color:#e6db74">${</span>backup_dest<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-incr<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;incr </span><span style="color:#e6db74">${</span>backup_parameters<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-
-<span style="color:#75715e"># Print out the commands we&#39;re running to make debugging easier</span>
-echo duplicity <span style="color:#e6db74">${</span>full_if_old<span style="color:#e6db74">}</span>
-duplicity <span style="color:#e6db74">${</span>full_if_old<span style="color:#e6db74">}</span>
-echo duplicity <span style="color:#e6db74">${</span>remove_if_old<span style="color:#e6db74">}</span>
-duplicity <span style="color:#e6db74">${</span>remove_if_old<span style="color:#e6db74">}</span>
-
-unset PASSPHRASE
-</code></pre></div><p>This script is designed to be <em>relatively</em> portable for different protocols and machines.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e"># Duplicity needs an environment variable or arg to decrypt. This is the best way of doing that.</span>
+</span></span><span style="display:flex;"><span>export PASSPHRASE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;top_secret_password_for_encryption&#34;</span>
+</span></span><span style="display:flex;"><span>cd $HOME
+</span></span><span style="display:flex;"><span>backup_excludes<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;--exclude ./relative/path/1 --exclude ./relative/path/2&#34;</span>
+</span></span><span style="display:flex;"><span>backup_targets<span style="color:#f92672">=</span>$HOME
+</span></span><span style="display:flex;"><span>backup_server<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;192.168.x.y&#39;</span>
+</span></span><span style="display:flex;"><span>backup_server_proto<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;sftp&#39;</span>
+</span></span><span style="display:flex;"><span>backup_server_port<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;22&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Generate a path based on our user and hostname. Ideally, this means there&#39;s a unique backup</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># namespace for every user on every machine you need to worry about. Adjust this to meet your needs.</span>
+</span></span><span style="display:flex;"><span>backup_server_path<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/home/</span><span style="color:#66d9ef">$(</span>whoami<span style="color:#66d9ef">)</span><span style="color:#e6db74">/backups/</span><span style="color:#66d9ef">$(</span>whoami<span style="color:#66d9ef">)</span><span style="color:#e6db74">.</span><span style="color:#66d9ef">$(</span>hostname | cut -d <span style="color:#e6db74">&#39;.&#39;</span> -f 1<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>backup_dest<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>backup_server_proto<span style="color:#e6db74">}</span><span style="color:#e6db74">://</span><span style="color:#e6db74">${</span>backup_server<span style="color:#e6db74">}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">${</span>backup_server_port<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">${</span>backup_server_path<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>backup_parameters<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$backup_excludes<span style="color:#e6db74"> . </span><span style="color:#e6db74">${</span>backup_dest<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ulimit -n <span style="color:#ae81ff">1024</span> <span style="color:#75715e"># necessary on mac, on some linux distros</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Build the commands we&#39;re going to run in advance.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The first command checks if there&#39;s a backup done within the last two weeks.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#   If so, does an incremental backup. If not, do a full backup.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The second command removes any backups older than 2 weeks to save space.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#   If a full backup doesn&#39;t exist that&#39;s newer than the last two weeks, it doesn&#39;t delete the full</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#   backup, just the incremental backups that have occurred since then.</span>
+</span></span><span style="display:flex;"><span>full_if_old<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;incr --full-if-older-than 14D </span><span style="color:#e6db74">${</span>backup_parameters<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>remove_if_old<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;remove-older-than 14D </span><span style="color:#e6db74">${</span>backup_dest<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>incr<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;incr </span><span style="color:#e6db74">${</span>backup_parameters<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Print out the commands we&#39;re running to make debugging easier</span>
+</span></span><span style="display:flex;"><span>echo duplicity <span style="color:#e6db74">${</span>full_if_old<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>duplicity <span style="color:#e6db74">${</span>full_if_old<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>echo duplicity <span style="color:#e6db74">${</span>remove_if_old<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>duplicity <span style="color:#e6db74">${</span>remove_if_old<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>unset PASSPHRASE
+</span></span></code></pre></div><p>This script is designed to be <em>relatively</em> portable for different protocols and machines.
 You may need some adjustments (for example, for the service authentication, or for some protocols'
 sensitivities to file paths or hosts). Notably, this won&rsquo;t work for the <code>s3://</code> protocol because it
 doesn&rsquo;t have access to AWS credentials, and it won&rsquo;t work for the <code>file://</code> protocol because it
@@ -605,7 +605,7 @@ issues won&rsquo;t matter. I use it personally because of its backups and effici
       
       <p class="text-sm text-neutral-400 dark:text-neutral-500">
           &copy;
-          2021
+          2022
           Eric Miller
       </p>
       

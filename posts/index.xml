@@ -6,7 +6,17 @@
     <description>Recent content in Posts on Eric&#39;s Web.site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 29 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://ericsweb.site/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Aug 2022 21:00:00 -0500</lastBuildDate><atom:link href="https://ericsweb.site/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Securing Offsite Borg Backups with Secretive and BorgBase</title>
+      <link>https://ericsweb.site/posts/2022-08-28-borgbackup-and-secretive/</link>
+      <pubDate>Sun, 28 Aug 2022 21:00:00 -0500</pubDate>
+      
+      <guid>https://ericsweb.site/posts/2022-08-28-borgbackup-and-secretive/</guid>
+      <description>Borg # I am a big fan of Borg Backup for my backup needs. It&amp;rsquo;s proven fast, secure, efficient, and reliable in the years that I&amp;rsquo;ve been using it. It&amp;rsquo;s also free and open-source, which is always a comfort.
+I&amp;rsquo;ve started using BorgBase for offsite backups. I generally consider these backups to be my personal &amp;ldquo;disaster recovery&amp;rdquo; backups. This means, if my house burns down, or someone manages to ransomware all of my data, I can still get back what I need.</description>
+    </item>
+    
     <item>
       <title>Bearclaw. Cornstalk. Turtles. Get Yolked.</title>
       <link>https://ericsweb.site/posts/bearclaw-cornstalk-turtles-getyolked/</link>
@@ -34,8 +44,8 @@ I was poking around my Pi-Hole (an ad-blocking/privacy solution), and noticed th
       
       <guid>https://ericsweb.site/posts/package-managers/</guid>
       <description>From the time I first got Linux to boot on a laptop I had, I became entranced with the idea of a system package manager. From Wikipedia:
- A package manager or package management system is a collection of software tools that automates the process of installing, upgrading, configuring, and removing computer programs for a computer&amp;rsquo;s operating system in a consistent manner.
- Basically, a package manager lets you install software in a uniform way - on Ubuntu Linux, apt install 7zip.</description>
+A package manager or package management system is a collection of software tools that automates the process of installing, upgrading, configuring, and removing computer programs for a computer&amp;rsquo;s operating system in a consistent manner.
+Basically, a package manager lets you install software in a uniform way - on Ubuntu Linux, apt install 7zip.</description>
     </item>
     
     <item>
@@ -74,7 +84,7 @@ Before General Purpose Computing # In the 1940s, computers were machines of war.
       
       <guid>https://ericsweb.site/2018/03/07/Duplicity/</guid>
       <description>Lately, I&amp;rsquo;ve been looking into backups a lot. At one point, I even looked into setting up a Time Machine Server on my FreeBSD machine. That said, it&amp;rsquo;s all been a headache that sometimes works and sometimes doesn&amp;rsquo;t. Now, however, I&amp;rsquo;ve discovered Duplicity, a GPL software package, powered by python, that is feature-heavy, simple, reliable, and fast.
-Features of Duplicity #  Relatively easy to automate Encrypts your backups by default Compresses your backups by default Takes incremental backups Can self-heal if a backup goes wrong Allows incremental restoration from backups Supports a lot of different protocols Supports AWS S3 very well by default.</description>
+Features of Duplicity # Relatively easy to automate Encrypts your backups by default Compresses your backups by default Takes incremental backups Can self-heal if a backup goes wrong Allows incremental restoration from backups Supports a lot of different protocols Supports AWS S3 very well by default.</description>
     </item>
     
     <item>
@@ -85,7 +95,7 @@ Features of Duplicity #  Relatively easy to automate Encrypts your backups by de
       <guid>https://ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/</guid>
       <description>As some know, I keep a personal server. I&amp;rsquo;ve developed tales of my (mis)adventures and the things I&amp;rsquo;ve learned from them. I found this one humorous. Why? The root cause.
 My hard drive is too fast.
- I&amp;rsquo;ll start at the beginning. If you&amp;rsquo;re not into computers, I&amp;rsquo;ll explain things in a way that hopefully anyone can understand, but to be honest I&amp;rsquo;m not sure if you&amp;rsquo;ll get a lot out of it.</description>
+I&amp;rsquo;ll start at the beginning. If you&amp;rsquo;re not into computers, I&amp;rsquo;ll explain things in a way that hopefully anyone can understand, but to be honest I&amp;rsquo;m not sure if you&amp;rsquo;ll get a lot out of it.</description>
     </item>
     
     <item>
@@ -104,7 +114,7 @@ Intel is a company that makes various components, but is most widely known for t
       <pubDate>Fri, 29 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://ericsweb.site/2017/12/29/Whats-Going-On-With-Apples-Batteries/</guid>
-      <description>There&amp;rsquo;ve been various articles going around about Apple&amp;rsquo;s batteries in iPhones, or, specifically, Apple&amp;rsquo;s throttling of phones&#39; hardware with older batteries. This post seeks to be primarily informational, but if you&amp;rsquo;re the owner of such a device that might be throttled, I&amp;rsquo;ll put in some useful information for you at the end of the post. But mostly, I&amp;rsquo;m going to be looking at the facts of the issue, since the internet in general and news in particular tends more towards sensationalism than complete information.</description>
+      <description>There&amp;rsquo;ve been various articles going around about Apple&amp;rsquo;s batteries in iPhones, or, specifically, Apple&amp;rsquo;s throttling of phones&amp;rsquo; hardware with older batteries. This post seeks to be primarily informational, but if you&amp;rsquo;re the owner of such a device that might be throttled, I&amp;rsquo;ll put in some useful information for you at the end of the post. But mostly, I&amp;rsquo;m going to be looking at the facts of the issue, since the internet in general and news in particular tends more towards sensationalism than complete information.</description>
     </item>
     
     <item>
@@ -424,8 +434,8 @@ Background: This is running on a server running FreeBSD 10.3.0. Avahi was instal
       <pubDate>Wed, 14 Sep 2016 00:00:00 +0000</pubDate>
       
       <guid>https://ericsweb.site/posts/iphone-7s-development-pitch/</guid>
-      <description>T is Tim Cook. All others&#39; positions are inferred by context. This is just a fun little script I wrote.
- T: &amp;ldquo;We need better photo quality.&amp;rdquo;
+      <description>T is Tim Cook. All others&amp;rsquo; positions are inferred by context. This is just a fun little script I wrote.
+T: &amp;ldquo;We need better photo quality.&amp;rdquo;
 A: &amp;ldquo;Really? I think users care more about-&amp;rdquo;
 The sniper Apple keeps across the street to monitor its engineers takes out A.
 B: &amp;ldquo;Photo quality is my top priority!&amp;rdquo;
@@ -440,7 +450,7 @@ B: &amp;ldquo;Well, people like zooming in, but digital zoom sucks.</description
       
       <guid>https://ericsweb.site/2016/09/10/0907-Apple-Event-Coverage/</guid>
       <description>So, I&amp;rsquo;ll do my regular coverage of the Apple event now that I&amp;rsquo;ve sat on it a few days, broken into relevant subsections:
-Apple Watch: #  Added a new iteration, called &amp;ldquo;Series 2&amp;rdquo;, and one that&amp;rsquo;s basically the same but with a processor update, &amp;ldquo;Series 1&amp;rdquo;. Processor update to both. Nothing truly substantial, but it will help future-proof it. Series 2 is waterproof and has built-in GPS. This makes it more usable for fitness without an iPhone nearby.</description>
+Apple Watch: # Added a new iteration, called &amp;ldquo;Series 2&amp;rdquo;, and one that&amp;rsquo;s basically the same but with a processor update, &amp;ldquo;Series 1&amp;rdquo;. Processor update to both. Nothing truly substantial, but it will help future-proof it. Series 2 is waterproof and has built-in GPS. This makes it more usable for fitness without an iPhone nearby.</description>
     </item>
     
     <item>
@@ -450,7 +460,7 @@ Apple Watch: #  Added a new iteration, called &amp;ldquo;Series 2&amp;rdquo;, an
       
       <guid>https://ericsweb.site/2015/09/23/Excerpts-from-Apple&#39;s-Review-Guidelines/</guid>
       <description>From this document: https://developer.apple.com/app-store/review/guidelines/
- &amp;ldquo;…if your app is plain creepy, it may not be accepted&amp;rdquo; &amp;ldquo;We have lots of serious developers who don&amp;rsquo;t want their quality Apps to be surrounded by amateur hour.&amp;rdquo; &amp;ldquo;We will reject Apps for any content or behavior that we believe is over the line. What line, you ask? Well, as a Supreme Court Justice once said, &amp;ldquo;I&amp;rsquo;ll know it when I see it&amp;rdquo;.&amp;rdquo; &amp;ldquo;If you run to the press and trash us, it never helps.</description>
+&amp;ldquo;…if your app is plain creepy, it may not be accepted&amp;rdquo; &amp;ldquo;We have lots of serious developers who don&amp;rsquo;t want their quality Apps to be surrounded by amateur hour.&amp;rdquo; &amp;ldquo;We will reject Apps for any content or behavior that we believe is over the line. What line, you ask? Well, as a Supreme Court Justice once said, &amp;ldquo;I&amp;rsquo;ll know it when I see it&amp;rdquo;.&amp;rdquo; &amp;ldquo;If you run to the press and trash us, it never helps.</description>
     </item>
     
   </channel>

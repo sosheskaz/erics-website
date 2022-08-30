@@ -118,7 +118,7 @@ What is Encryption? # From Wikipedia: &ldquo;encryption is the process of encodi
 
   
   
-    <meta name="generator" content="Hugo 0.90.0-DEV" />
+    <meta name="generator" content="Hugo 0.102.0" />
   
   
   <meta name="author" content="Eric Miller" />
@@ -350,8 +350,8 @@ the lazy dog&rdquo;.</p>
 <p>Now, it&rsquo;s pretty easy to encrypt it. For our &ldquo;key&rdquo;, all we need is a password. For my example, I&rsquo;m
 going to use <code>aovj[pr{14-0c9r/y423895]2.77u5rjf-sld</code>. This will be an example of how to encrypt a
 file using symmetric encryption.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ openssl enc -aes-256-cbc -k <span style="color:#e6db74">&#34;aovj[pr{14-0c9r/y423895]2.77u5rjf-sld&#34;</span> -in secret.txt -out encrypted.txt
-</code></pre></div><p>Whoa, that&rsquo;s a lot. Let&rsquo;s go step by step and break down exactly what happened, one command at a
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ openssl enc -aes-256-cbc -k <span style="color:#e6db74">&#34;aovj[pr{14-0c9r/y423895]2.77u5rjf-sld&#34;</span> -in secret.txt -out encrypted.txt
+</span></span></code></pre></div><p>Whoa, that&rsquo;s a lot. Let&rsquo;s go step by step and break down exactly what happened, one command at a
 time.</p>
 <ul>
 <li><code>enc</code> - this positional argument tells OpenSSL that we want to run in &ldquo;encode/decode&rdquo; mode.</li>
@@ -369,17 +369,17 @@ n6µá˚◊´0Î?z
 an additional low-level security measure - it doesn&rsquo;t matter to us right now. The word &ldquo;Salted&rdquo; is
 in there so that, when we&rsquo;re decrypting, OpenSSL knows that salting is used.</p>
 <p>Now, just for fun, let&rsquo;s try decrypting it with the wrong password.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ openssl enc -aes-256-cbc -d -k <span style="color:#e6db74">&#34;ThisIsNotThePassword&#34;</span> -in encrypted.txt -out decrypted.txt
-bad decrypt
-49993:error:06065064:digital envelope routines:EVP_DecryptFinal_ex:bad decrypt:/BuildRoot/Library/Caches/com.apple.xbs/Sources/OpenSSL098/OpenSSL098-64.50.6/src/crypto/evp/evp_enc.c:330:
-</code></pre></div><p>As you can see, we don&rsquo;t know what&rsquo;s in the file. We are <em>completely
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ openssl enc -aes-256-cbc -d -k <span style="color:#e6db74">&#34;ThisIsNotThePassword&#34;</span> -in encrypted.txt -out decrypted.txt
+</span></span><span style="display:flex;"><span>bad decrypt
+</span></span><span style="display:flex;"><span>49993:error:06065064:digital envelope routines:EVP_DecryptFinal_ex:bad decrypt:/BuildRoot/Library/Caches/com.apple.xbs/Sources/OpenSSL098/OpenSSL098-64.50.6/src/crypto/evp/evp_enc.c:330:
+</span></span></code></pre></div><p>As you can see, we don&rsquo;t know what&rsquo;s in the file. We are <em>completely
 unable</em> to figure out what&rsquo;s in the file without the password. In order to get in, we need to guess
 the password, which could take trillions of trillions of trillions of attempts, if we&rsquo;re really
 lucky. Breaking into AES, when it&rsquo;s protected with a good password, is conventionally thought of
 as impossible because of the computing time it would take (on current machines, think hea).</p>
 <p>Now, let&rsquo;s decrypt it.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ openssl enc -aes-256-cbc -d -k <span style="color:#e6db74">&#34;aovj[pr{14-0c9r/y423895]2.77u5rjf-sld&#34;</span> -in encrypted.txt -out decrypted.txt
-</code></pre></div><p>This is mostly the same, except we&rsquo;re going the other way around. the <code>-d</code> flag in there tells OpenSSL
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ openssl enc -aes-256-cbc -d -k <span style="color:#e6db74">&#34;aovj[pr{14-0c9r/y423895]2.77u5rjf-sld&#34;</span> -in encrypted.txt -out decrypted.txt
+</span></span></code></pre></div><p>This is mostly the same, except we&rsquo;re going the other way around. the <code>-d</code> flag in there tells OpenSSL
 that we&rsquo;re using &ldquo;decode&rdquo; mode. Let&rsquo;s look at the contents of <code>decrypted.txt</code>.</p>
 <pre tabindex="0"><code>    the quick brown fox jumped over the lazy dog
 </code></pre><p>Exactly what we expected! So now you should have some understanding of how symmetric encryption
@@ -419,12 +419,12 @@ key, unlike a symmetric encryption password, shouldn&rsquo;t be shared, and shou
 The public key, on the other hand, can be given out freely to anyone. In fact, it should be.</p>
 <p>The best way to understand how this works is to see it in action, so I&rsquo;ll show how to do it, and
 comment as we go along.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ openssl genrsa -out harry-private-key.pem <span style="color:#ae81ff">4096</span>
-Generating RSA private key, <span style="color:#ae81ff">4096</span> bit long modulus
-...........+++
-..............................................................................................................................................................+++
-e is <span style="color:#ae81ff">65537</span> <span style="color:#f92672">(</span>0x10001<span style="color:#f92672">)</span>
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ openssl genrsa -out harry-private-key.pem <span style="color:#ae81ff">4096</span>
+</span></span><span style="display:flex;"><span>Generating RSA private key, <span style="color:#ae81ff">4096</span> bit long modulus
+</span></span><span style="display:flex;"><span>...........+++
+</span></span><span style="display:flex;"><span>..............................................................................................................................................................+++
+</span></span><span style="display:flex;"><span>e is <span style="color:#ae81ff">65537</span> <span style="color:#f92672">(</span>0x10001<span style="color:#f92672">)</span>
+</span></span></code></pre></div><ul>
 <li><code>genrsa</code> - this tells OpenSSL that we want to create a new private RSA key.</li>
 <li><code>-out harry-private-key.pem</code> - this tells OpenSSL where to save the key.</li>
 <li><code>4096</code> - how many &ldquo;bits&rdquo; to use in the RSA key. More bits is more secure - 4096 is considered to
@@ -461,9 +461,9 @@ pmYplN3YpsM34VLMv1e0ZkldqwQMbsNiiL7ah+PTYCpmYQXdMvHP
 </code></pre><p>Now we&rsquo;ll create the public key that goes with the private key we just made. <strong>NOTE:</strong> the public
 key can be created from the private key, but the private key cannot be reproduced from the public
 key. This is critical.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ openssl rsa -in harry-private-key.pem -outform PEM -pubout -out harry-public-key.pem
-writing RSA key
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ openssl rsa -in harry-private-key.pem -outform PEM -pubout -out harry-public-key.pem
+</span></span><span style="display:flex;"><span>writing RSA key
+</span></span></code></pre></div><ul>
 <li><code>rsa</code> - tells OpenSSL we&rsquo;re doing something with RSA.</li>
 <li><code>-in harry-private-key.pem</code> - we&rsquo;re using the private key we just made as the base.</li>
 <li><code>-outform PEM</code> - there are a few formats that public keys can take, pem is just a way the key
@@ -485,8 +485,8 @@ ZQIDAQAB
 is used to decrypt. You don&rsquo;t encrypt with the private key or decrypt with the public key - you&rsquo;ll
 see why as we go on. So let&rsquo;s say you&rsquo;re Sally, and you want to send Harry a secret message about a
 certain brown fox.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ openssl rsautl -encrypt -pubin -inkey harry-public-key.pem -in secret.txt -out dearharry.txt
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ openssl rsautl -encrypt -pubin -inkey harry-public-key.pem -in secret.txt -out dearharry.txt
+</span></span></code></pre></div><ul>
 <li><code>rsautl</code> - RSA Utility</li>
 <li><code>-encrypt</code> - we&rsquo;re encrypting using a public key.</li>
 <li><code>-pubin</code> - tells OpenSSL we&rsquo;re inputting a public key.</li>
@@ -496,22 +496,22 @@ certain brown fox.</p>
 </ul>
 <p>Let&rsquo;s look at <code>dearharry.txt</code></p>
 <pre tabindex="0"><code>õÒIˆc
-nËÁú∞ò¥7Ñ¯'ΩkÈQ¥òù&quot;âˆ˘≠r/I
-÷›wE]“Ï’/í·2ƒã´À1U&gt;¥G‡áÈíªát‡∆¥‡'Ñ3&amp;∂ÙÊ3§(ê
+nËÁú∞ò¥7Ñ¯&#39;ΩkÈQ¥òù&#34;âˆ˘≠r/I
+÷›wE]“Ï’/í·2ƒã´À1U&gt;¥G‡áÈíªát‡∆¥‡&#39;Ñ3&amp;∂ÙÊ3§(ê
 
 ≤
 üƒlùDHWáMê7Odn-ù_©q2ˆwÆædà4
 êØ¶œ4BŒAˇ)
 ≠},ç∏ìY$‡òé˙
 ﬂ
-)hGóUÖS›z˘cãC¨—ÁRö.Ó+§Ω€u˝	»›NΩ+x…›©tÓöﬂ´ﬂXhë:ﬁ&gt;ìáCÀ¯ä&gt;»7W&quot;GŒ-W¢Â:Å£&lt;^YÌƒ7¢I9ç+VMê”
+)hGóUÖS›z˘cãC¨—ÁRö.Ó+§Ω€u˝	»›NΩ+x…›©tÓöﬂ´ﬂXhë:ﬁ&gt;ìáCÀ¯ä&gt;»7W&#34;GŒ-W¢Â:Å£&lt;^YÌƒ7¢I9ç+VMê”
 7ZÂr˝¡¶û,Ä“ÈY, ÏE~
 </code></pre><p>That&rsquo;s a big mess of garbage! Because of the nature of private/public keys, even though Sally encrypted
 this with the public key, she is unable to decrypt this file. Because we encrypted it with Harry&rsquo;s
 public key, only his private key can decrypt it. There is no way to recover the message without it.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ openssl rsautl -decrypt -inkey harry-private-key.pem -in dearharry.txt
-the quick brown fox jumped over the lazy dog
-</code></pre></div><p>It worked! This means Sally can send Harry a secret message that no one will be able to see, without
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ openssl rsautl -decrypt -inkey harry-private-key.pem -in dearharry.txt
+</span></span><span style="display:flex;"><span>the quick brown fox jumped over the lazy dog
+</span></span></code></pre></div><p>It worked! This means Sally can send Harry a secret message that no one will be able to see, without
 them ever needing to share a secret password. Like AES, this is considered more or less impossible
 to crack.</p>
 <h2 id="what-its-used-for-1">What it&rsquo;s Used For <a class="heading-anchor" href="#what-its-used-for-1" aria-label="Anchor">#</a></h2>
@@ -682,7 +682,7 @@ would they.</em></p>
       
       <p class="text-sm text-neutral-400 dark:text-neutral-500">
           &copy;
-          2021
+          2022
           Eric Miller
       </p>
       

@@ -118,7 +118,7 @@ Background: This is running on a server running FreeBSD 10.3.0. Avahi was instal
 
   
   
-    <meta name="generator" content="Hugo 0.90.0-DEV" />
+    <meta name="generator" content="Hugo 0.102.0" />
   
   
   <meta name="author" content="Eric Miller" />
@@ -296,16 +296,16 @@ set up. For example, I already had <code>sftp-ssh.service</code> amd <code>ssh.s
 <p>Create a new file called <code>&lt;your-service&gt;.service</code>. In my case, this is <code>plex.service</code>.
 Within that file, add the following (which I shamelessly stole most of from
 <a href="http://holyarmy.org/2008/01/advertising-linux-services-via-avahibonjour/">here</a>):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; standalone=&#39;no&#39;?&gt;</span><span style="color:#75715e">&lt;!--*-nxml-*--&gt;</span>
-<span style="color:#75715e">&lt;!DOCTYPE service-group SYSTEM &#34;avahi-service.dtd&#34;&gt;</span>
-<span style="color:#f92672">&lt;service-group&gt;</span>
-<span style="color:#f92672">&lt;name</span> <span style="color:#a6e22e">replace-wildcards=</span><span style="color:#e6db74">&#34;yes&#34;</span><span style="color:#f92672">&gt;</span>%h <span style="color:#f92672">&lt;YOUR_HTTP_SERVICE&gt;&lt;/name&gt;</span>
-<span style="color:#f92672">&lt;service&gt;</span>
-<span style="color:#f92672">&lt;type&gt;</span>_http._tcp<span style="color:#f92672">&lt;/type&gt;</span>
-<span style="color:#f92672">&lt;port&gt;&lt;YOUR_PORT&gt;&lt;/port&gt;</span>
-<span style="color:#f92672">&lt;/service&gt;</span>
-<span style="color:#f92672">&lt;/service-group&gt;</span>
-</code></pre></div><p>Now, restart avahi with the command <code>sudo service avahi-daemon restart</code>. The new service will now be
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; standalone=&#39;no&#39;?&gt;</span><span style="color:#75715e">&lt;!--*-nxml-*--&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE service-group SYSTEM &#34;avahi-service.dtd&#34;&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;service-group&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;name</span> <span style="color:#a6e22e">replace-wildcards=</span><span style="color:#e6db74">&#34;yes&#34;</span><span style="color:#f92672">&gt;</span>%h <span style="color:#f92672">&lt;YOUR_HTTP_SERVICE&gt;&lt;/name&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;service&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;type&gt;</span>_http._tcp<span style="color:#f92672">&lt;/type&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;port&gt;&lt;YOUR_PORT&gt;&lt;/port&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/service&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/service-group&gt;</span>
+</span></span></code></pre></div><p>Now, restart avahi with the command <code>sudo service avahi-daemon restart</code>. The new service will now be
 viewable via bonjour clients, such as Safari and dns-sd (see below).</p>
 <p><img src="avahi-in-safari.png" alt="Avahi-Safari"></p>
 <p><img src="avahi-in-terminal.png" alt="Avahi-dns-sd"></p>
@@ -470,7 +470,7 @@ advertized service.</p>
       
       <p class="text-sm text-neutral-400 dark:text-neutral-500">
           &copy;
-          2021
+          2022
           Eric Miller
       </p>
       

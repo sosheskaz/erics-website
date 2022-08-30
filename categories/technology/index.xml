@@ -34,8 +34,8 @@ I was poking around my Pi-Hole (an ad-blocking/privacy solution), and noticed th
       
       <guid>https://ericsweb.site/posts/package-managers/</guid>
       <description>From the time I first got Linux to boot on a laptop I had, I became entranced with the idea of a system package manager. From Wikipedia:
- A package manager or package management system is a collection of software tools that automates the process of installing, upgrading, configuring, and removing computer programs for a computer&amp;rsquo;s operating system in a consistent manner.
- Basically, a package manager lets you install software in a uniform way - on Ubuntu Linux, apt install 7zip.</description>
+A package manager or package management system is a collection of software tools that automates the process of installing, upgrading, configuring, and removing computer programs for a computer&amp;rsquo;s operating system in a consistent manner.
+Basically, a package manager lets you install software in a uniform way - on Ubuntu Linux, apt install 7zip.</description>
     </item>
     
     <item>

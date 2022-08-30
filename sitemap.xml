@@ -4,6 +4,24 @@
   
     
       <url>
+            <loc>https://ericsweb.site/posts/</loc>
+            <lastmod>2022-08-28T21:00:00-05:00</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://ericsweb.site/posts/2022-08-28-borgbackup-and-secretive/</loc>
+            <lastmod>2022-08-28T21:00:00-05:00</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
             <loc>https://ericsweb.site/</loc>
             <lastmod>2021-12-04T18:02:44-06:00</lastmod>
             <changefreq>weekly</changefreq>
@@ -29,15 +47,6 @@
           </url>
     
   
-    
-  
-    
-      <url>
-            <loc>https://ericsweb.site/posts/</loc>
-            <lastmod>2019-11-29T00:00:00+00:00</lastmod>
-            <changefreq>weekly</changefreq>
-            <priority>0.5</priority>
-          </url>
     
   
     
