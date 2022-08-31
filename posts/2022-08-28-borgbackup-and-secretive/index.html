@@ -110,7 +110,7 @@ I&rsquo;ve started using BorgBase for offsite backups. I generally consider thes
     "datePublished": "2022-08-28T21:00:00-05:00",
     "dateModified": "2022-08-28T21:00:00-05:00",
     "url" : "https:\/\/ericsweb.site\/posts\/2022-08-28-borgbackup-and-secretive\/",
-    "wordCount": "529",
+    "wordCount": "581",
     "keywords": []
   }
   </script>
@@ -118,7 +118,7 @@ I&rsquo;ve started using BorgBase for offsite backups. I generally consider thes
 
   
   
-    <meta name="generator" content="Hugo 0.102.0" />
+    <meta name="generator" content="Hugo 0.102.1" />
   
   
   <meta name="author" content="Eric Miller" />
@@ -323,6 +323,12 @@ Secretive app.</p>
 <p>When run, this script will prompt for authentication via the secret enclave (via any available
 biometric configuration) for each repository that you prune. This script can then be run manually on
 whatever cadence is convenient and prudent.</p>
+<p><strong>Important note</strong>: Append-only mode does not strictly prevent deletion, but configures delayed
+deletion. Pruned backups will be deleted during the next compaction. For this reason, one should
+validate the present state of the repository before running this prune/compact, as it will delete
+anything pending. See also the relevant
+<a href="https://borgbackup.readthedocs.io/en/stable/usage/notes.html?highlight=append-only#drawbacks">BorgBackup</a>
+and <a href="https://docs.borgbase.com/faq/#append-only-mode">BorgBase</a> docs.</p>
 <p>Remember to turn on 2FA for BorgBase too — to make it that much harder to compromise by altering the
 keys in your account.</p>
 <h2 id="closing">Closing <a class="heading-anchor" href="#closing" aria-label="Anchor">#</a></h2>
