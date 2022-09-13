@@ -6,7 +6,17 @@
     <description>Recent content in Technology on Eric&#39;s Web.site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 29 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://ericsweb.site/categories/technology/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Aug 2022 21:00:00 -0500</lastBuildDate><atom:link href="https://ericsweb.site/categories/technology/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Securing Offsite Borg Backups with Secretive and BorgBase</title>
+      <link>https://ericsweb.site/posts/2022-08-28-borgbackup-and-secretive/</link>
+      <pubDate>Sun, 28 Aug 2022 21:00:00 -0500</pubDate>
+      
+      <guid>https://ericsweb.site/posts/2022-08-28-borgbackup-and-secretive/</guid>
+      <description>Borg # I am a big fan of Borg Backup for my backup needs. It&amp;rsquo;s proven fast, secure, efficient, and reliable in the years that I&amp;rsquo;ve been using it. It&amp;rsquo;s also free and open-source, which is always a comfort.
+I&amp;rsquo;ve started using BorgBase for offsite backups. I generally consider these backups to be my personal &amp;ldquo;disaster recovery&amp;rdquo; backups. This means, if my house burns down, or someone manages to ransomware all of my data, I can still get back what I need.</description>
+    </item>
+    
     <item>
       <title>Bearclaw. Cornstalk. Turtles. Get Yolked.</title>
       <link>https://ericsweb.site/posts/bearclaw-cornstalk-turtles-getyolked/</link>
