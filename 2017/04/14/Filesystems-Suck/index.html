@@ -1,64 +1,69 @@
-<!DOCTYPE html>
+
+
+
+
+  
+
+
+
+
+<!doctype html>
 <html
   lang="en-us"
-  class="dark"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"
 ><head>
   <meta charset="utf-8" />
-  
-    <meta http-equiv="content-language" content="en-us" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="theme-color" content="#FFFFFF" />
   
   <title>The Problem with File Systems &middot; Eric&#39;s Web.site</title>
     <meta name="title" content="The Problem with File Systems &middot; Eric&#39;s Web.site" />
   
-  <meta name="description" content="Eric Miller&#39;s website to post about Technology, life, and anything else that comes up." />
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.74ad8406faea02f3e186ba5126249aaeed9073629e04b05037b903396b188724.js"
+    integrity="sha256-dK2EBvrqAvPhhrpRJiSaru2Qc2KeBLBQN7kDOWsYhyQ="
+  ></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.9602fe0216290b9ff0322c1fd14e88ab9fc0a13741f4de563f67831708d72bb2.css"
+    integrity="sha256-lgL&#43;AhYpC5/wMiwf0U6Iq5/AoTdB9N5WP2eDFwjXK7I="
+  />
+  
+  
+  
+  
+  
+  
+  
+  <meta
+    name="description"
+    content="
+      
+        File systems are organized hierarchically. This makes sense, and is somewhat intuitive to use. This is how your computer works. Everything is organized relative to the &ldquo;root directory&rdquo; (/ on Mac/Linux/BSD, C:\ on Windows). Every document, every executable, every system file is organized somewhere in that hierarchy. It&rsquo;s how personal computers have worked for almost as long as we&rsquo;ve had file systems on them. To those who are computer-savvy, or who grew up with computers, this makes complete sense.
+      
+    "
+  />
   
   
   
   <link rel="canonical" href="https://ericsweb.site/2017/04/14/Filesystems-Suck/" />
-  
-  
-  
-  
-  <link
-    type="text/css"
-    rel="stylesheet"
-    href="/css/schemes/congo.min.b48d6ba061dc77186a2524fb8aac5ac3823b2679a9299ca60325abbccc9c1764c884715f0ba24b4e2776cb3814df4af1f4c854b87207cd5d4c7a254da9b55751.css"
-    integrity="sha512-tI1roGHcdxhqJST7iqxaw4I7JnmpKZymAyWrvMycF2TIhHFfC6JLTid2yzgU30rx9MhUuHIHzV1MeiVNqbVXUQ=="
-  />
-  
-  
-  <link
-    type="text/css"
-    rel="stylesheet"
-    href="/css/compiled/main.min.4076b9cf114dd23cca017f3365e2205a4c9a4b2c0ef4193ccd08883f76e554aa40f674a8f6e77a1b2895be0975ba8e019b0c59996c2eea32e4970ca4d5221653.css"
-    integrity="sha512-QHa5zxFN0jzKAX8zZeIgWkyaSywO9Bk8zQiIP3blVKpA9nSo9ud6GyiVvgl1uo4BmwxZmWwu6jLklwyk1SIWUw=="
-  />
-  
-  
-  
-    <script>
-      function loadPreferredAppearance() {
-        if (localStorage.preferredAppearance === "dark" || (!("preferredAppearance" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-        }
-      }
-      function setPreferredAppearance(scheme) {
-        if (scheme == "default") {
-          localStorage.removeItem("preferredAppearance");
-        } else {
-          localStorage.preferredAppearance = scheme;
-        }
-        loadPreferredAppearance();
-      }
-      loadPreferredAppearance();
-      window.matchMedia("(prefers-color-scheme: dark)").addListener(loadPreferredAppearance);
-    </script>
-  
   
   
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -72,58 +77,52 @@
   
   
   
-  <meta property="og:title" content="The Problem with File Systems" />
-<meta property="og:description" content="File systems are organized hierarchically. This makes sense, and is somewhat intuitive to use. This is how your computer works. Everything is organized relative to the &ldquo;root directory&rdquo; (/ on Mac/Linux/BSD, C:\ on Windows). Every document, every executable, every system file is organized somewhere in that hierarchy. It&rsquo;s how personal computers have worked for almost as long as we&rsquo;ve had file systems on them. To those who are computer-savvy, or who grew up with computers, this makes complete sense." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://ericsweb.site/2017/04/14/Filesystems-Suck/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2017-04-14T00:00:00+00:00" />
-<meta property="article:modified_time" content="2017-04-14T00:00:00+00:00" /><meta property="og:site_name" content="Eric&#39;s Web.site" />
+  
+  <meta property="og:url" content="https://ericsweb.site/2017/04/14/Filesystems-Suck/">
+  <meta property="og:site_name" content="Eric&#39;s Web.site">
+  <meta property="og:title" content="The Problem with File Systems">
+  <meta property="og:description" content="File systems are organized hierarchically. This makes sense, and is somewhat intuitive to use. This is how your computer works. Everything is organized relative to the &amp;ldquo;root directory&amp;rdquo; (/ on Mac/Linux/BSD, C:\ on Windows). Every document, every executable, every system file is organized somewhere in that hierarchy. It&amp;rsquo;s how personal computers have worked for almost as long as we&amp;rsquo;ve had file systems on them. To those who are computer-savvy, or who grew up with computers, this makes complete sense.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+  <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2017-04-14T00:00:00+00:00">
+    <meta property="article:modified_time" content="2017-04-14T00:00:00+00:00">
 
-
-  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="The Problem with File Systems"/>
-<meta name="twitter:description" content="File systems are organized hierarchically. This makes sense, and is somewhat intuitive to use. This is how your computer works. Everything is organized relative to the &ldquo;root directory&rdquo; (/ on Mac/Linux/BSD, C:\ on Windows). Every document, every executable, every system file is organized somewhere in that hierarchy. It&rsquo;s how personal computers have worked for almost as long as we&rsquo;ve had file systems on them. To those who are computer-savvy, or who grew up with computers, this makes complete sense."/>
+  <meta name="twitter:card" content="summary"><meta name="twitter:title" content="The Problem with File Systems">
+<meta name="twitter:description" content="File systems are organized hierarchically. This makes sense, and is somewhat intuitive to use. This is how your computer works. Everything is organized relative to the &ldquo;root directory&rdquo; (/ on Mac/Linux/BSD, C:\ on Windows). Every document, every executable, every system file is organized somewhere in that hierarchy. It&rsquo;s how personal computers have worked for almost as long as we&rsquo;ve had file systems on them. To those who are computer-savvy, or who grew up with computers, this makes complete sense.">
 
   
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
+    "@type": "Article",
     "articleSection": "Posts",
     "name": "The Problem with File Systems",
     "headline": "The Problem with File Systems",
-    "description": "File systems are organized hierarchically. This makes sense, and is somewhat intuitive to use. This is how your computer works. Everything is organized relative to the \u0026ldquo;root directory\u0026rdquo; (\/ on Mac\/Linux\/BSD, C:\\ on Windows). Every document, every executable, every system file is organized somewhere in that hierarchy. It\u0026rsquo;s how personal computers have worked for almost as long as we\u0026rsquo;ve had file systems on them. To those who are computer-savvy, or who grew up with computers, this makes complete sense.",
+    
+    "abstract": "File systems are organized hierarchically. This makes sense, and is somewhat intuitive to use. This is how your computer works. Everything is organized relative to the \u0026ldquo;root directory\u0026rdquo; (\/ on Mac\/Linux\/BSD, C:\\ on Windows). Every document, every executable, every system file is organized somewhere in that hierarchy. It\u0026rsquo;s how personal computers have worked for almost as long as we\u0026rsquo;ve had file systems on them. To those who are computer-savvy, or who grew up with computers, this makes complete sense.",
     "inLanguage": "en-us",
+    "url" : "https:\/\/ericsweb.site\/2017\/04\/14\/Filesystems-Suck\/",
     "author" : {
       "@type": "Person",
-      "name": "Eric Miller"
+      "name": ""
     },
-    "creator" : {
-      "@type": "Person",
-      "name": "Eric Miller"
-    },
-    "copyrightHolder": "Eric Miller",
     "copyrightYear": "2017",
     "dateCreated": "2017-04-14T00:00:00\u002b00:00",
     "datePublished": "2017-04-14T00:00:00\u002b00:00",
+    
     "dateModified": "2017-04-14T00:00:00\u002b00:00",
-    "url" : "https:\/\/ericsweb.site\/2017\/04\/14\/Filesystems-Suck\/",
-    "wordCount": "3105",
-    "keywords": []
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "3096"
   }
   </script>
 
 
   
   
-    <meta name="generator" content="Hugo 0.102.3" />
-  
-  
-  <meta name="author" content="Eric Miller" />
-  
-    
-      <link href="https://github.com/sosheskaz/" rel="me" />
-    
   
   
   
@@ -137,94 +136,136 @@
   
   
   
+  
+  
+  
+
 
 
   
   
 </head>
 <body
-    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 bg-neutral text-neutral-900 sm:px-14 md:px-24 lg:px-32 dark:bg-neutral-800 dark:text-neutral max-w-7xl"
-  ><header
-  class="flex justify-between py-6 font-semibold sm:items-center sm:py-10 text-neutral-800 dark:text-neutral"
->
-  
-  <div>
-    
+    class="m-auto flex h-screen max-w-7xl flex-col bg-neutral px-6 text-lg leading-7 text-neutral-900 sm:px-14 md:px-24 lg:px-32 dark:bg-neutral-800 dark:text-neutral"
+  >
+    <div id="the-top" class="absolute flex self-center">
       <a
-        class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
-        rel="me"
-        href="/"
-        >Eric&rsquo;s Web.site</a
+        class="-translate-y-8 rounded-b-lg bg-primary-200 px-3 py-1 text-sm focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="pe-2 font-bold text-primary-600 dark:text-primary-400">&darr;</span
+        >Skip to main content</a
       >
-  </div>
-  
-  
-    <nav>
-      <ul class="flex flex-col list-none sm:flex-row">
+    </div>
+    
+    
+      <header class="py-6 font-semibold text-neutral-900 print:hidden sm:py-10 dark:text-neutral">
+  <nav class="flex items-start justify-between sm:items-center">
+    
+    <div class="flex flex-row items-center">
+      
+  <a
+    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+    rel="me"
+    href="/"
+    >Eric&rsquo;s Web.site</a
+  >
+
+    </div>
+    
+    
+      <ul class="flex list-none flex-col text-end sm:flex-row">
         
-          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
-            <a
-              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
-              href="/posts/"
-              title="Posts"
-              >All Posts</a
-            >
-          </li>
-        
-          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
-            <a
-              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
-              href="/categories/"
-              title="Categories"
-              >Categories</a
-            >
-          </li>
-        
-          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
-            <a
-              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
-              href="/profile/"
-              title="About Me"
-              >About</a
-            >
-          </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/posts/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >All Posts</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/categories/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Categories</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/profile/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >About</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+          
         
       </ul>
-    </nav>
-  
+    
+  </nav>
 </header>
-<main class="flex-grow">
-  <article class="max-w-prose">
-    <header>
+
+    
+    <div class="relative flex grow flex-col">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
       
-        <ol class="text-sm text-neutral-400 dark:text-neutral-500">
+        <ol class="text-sm text-neutral-500 print:hidden dark:text-neutral-400">
   
   
     
   
     
   
-  <li class="inline hidden">
+  <li class="hidden inline">
     <a
-      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
       href="/"
       >Index</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
   
-  <li class="inline ">
+  <li class=" inline">
     <a
-      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
       href="/posts/"
       >Posts</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
   
-  <li class="inline hidden">
+  <li class="hidden inline">
     <a
-      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
       href="/2017/04/14/Filesystems-Suck/"
       >The Problem with File Systems</a
     ><span class="px-1 text-primary-500">/</span>
@@ -234,11 +275,12 @@
 
 
       
-      <h1 class="mt-0 text-4xl font-extrabold text-neutral-800 dark:text-neutral">
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
         The Problem with File Systems
       </h1>
-      <div class="mt-8 mb-12 text-base text-neutral-400 dark:text-neutral-500">
-        
+      
+        <div class="mb-12 mt-8 text-base text-neutral-500 print:hidden dark:text-neutral-400">
+          
 
 
 
@@ -257,27 +299,38 @@
   
 
   
+
+  
+
+  
     
   
 
   
 
 
-  <div class="flex flex-row items-center">
+  <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2017-04-14 00:00:00 &#43;0000 UTC">14 April 2017</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">15 mins</span>
+      <time datetime="2017-04-14 00:00:00 &#43;0000 UTC">April 14, 2017</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">15 mins</span>
     
 
     
     
   </div>
 
+  
+  
 
-      </div>
+
+        </div>
+      
+      
     </header>
-    <section class="prose dark:prose-light">
-      <p>File systems are organized hierarchically. This makes sense, and is somewhat
+    <section class="prose mt-0 flex max-w-full flex-col dark:prose-invert lg:flex-row">
+      
+      <div class="min-h-0 min-w-0 max-w-prose grow">
+        <p>File systems are organized hierarchically. This makes sense, and is somewhat
 intuitive to use. This is how your computer works. Everything is organized
 relative to the &ldquo;root directory&rdquo; (/ on Mac/Linux/BSD, C:\ on Windows). Every
 document, every executable, every system file is organized somewhere in that
@@ -293,8 +346,7 @@ today. The truth is, this way of doing things simply doesn&rsquo;t make sense an
 <p>I sense some of you are angry or confused with me. But hear me out.</p>
 <p>I&rsquo;ll start off with showing why and how this way of organizing files has failed,
 mostly with examples.</p>
-<h2 id="more-information-about-the-topic">More Information About the Topic <a class="heading-anchor" href="#more-information-about-the-topic" aria-label="Anchor">#</a></h2>
-<p>File systems are the building blocks of files. It keeps track of what space is
+<h2 id="more-information-about-the-topic" class="relative group">More Information About the Topic <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#more-information-about-the-topic" aria-label="Anchor">#</a></span></h2><p>File systems are the building blocks of files. It keeps track of what space is
 used and what isn&rsquo;t, where files begin and end, and where everything is located.
 The fundamental ideas of file systems are fairly common, and work similarly no
 matter what operating system you&rsquo;re on. Of course, there are lots of different
@@ -323,9 +375,122 @@ a big Excel spreadsheet. You can put a ton of data in it. For each bit of
 information, you have a column (Address, Name, phone number in our example
 above). Each row is another entry, with another person. We can also filter or
 sort our entries by any of the columns too.</p>
-<p><img src="spreadsheet.jpg" alt="Example"></p>
-<h3 id="example-1-the-desktop">Example 1. The Desktop <a class="heading-anchor" href="#example-1-the-desktop" aria-label="Anchor">#</a></h3>
-<p><img src="cluttered-desktop.png" alt="A cluttered computer desktop"></p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            
+              srcset="/2017/04/14/Filesystems-Suck/spreadsheet_huf6877ac4cba1adc6c38fc7ec54bd4468_39333_560x174_resize_q75_h2_box.webp"
+            
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="560"
+        height="174"
+        class="mx-auto my-0 rounded-md"
+        alt="Example"
+        loading="lazy" decoding="async"
+        
+          src="/2017/04/14/Filesystems-Suck/spreadsheet.jpg"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<h3 id="example-1-the-desktop" class="relative group">Example 1. The Desktop <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#example-1-the-desktop" aria-label="Anchor">#</a></span></h3><p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/2017/04/14/Filesystems-Suck/cluttered-desktop_hud3fe3876fa3d3cfc0d831012070049d6_3495037_330x0_resize_q75_h2_box_3.webp 330w,/2017/04/14/Filesystems-Suck/cluttered-desktop_hud3fe3876fa3d3cfc0d831012070049d6_3495037_660x0_resize_q75_h2_box_3.webp 660w
+            
+              ,/2017/04/14/Filesystems-Suck/cluttered-desktop_hud3fe3876fa3d3cfc0d831012070049d6_3495037_1024x0_resize_q75_h2_box_3.webp 1024w
+            
+            
+              ,/2017/04/14/Filesystems-Suck/cluttered-desktop_hud3fe3876fa3d3cfc0d831012070049d6_3495037_1320x0_resize_q75_h2_box_3.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1920"
+        height="1080"
+        class="mx-auto my-0 rounded-md"
+        alt="A cluttered computer desktop"
+        loading="lazy" decoding="async"
+        
+          src="/2017/04/14/Filesystems-Suck/cluttered-desktop_hud3fe3876fa3d3cfc0d831012070049d6_3495037_660x0_resize_box_3.png"
+          srcset="/2017/04/14/Filesystems-Suck/cluttered-desktop_hud3fe3876fa3d3cfc0d831012070049d6_3495037_330x0_resize_box_3.png 330w,/2017/04/14/Filesystems-Suck/cluttered-desktop_hud3fe3876fa3d3cfc0d831012070049d6_3495037_660x0_resize_box_3.png 660w
+          
+            ,/2017/04/14/Filesystems-Suck/cluttered-desktop_hud3fe3876fa3d3cfc0d831012070049d6_3495037_1024x0_resize_box_3.png 1024w
+          
+          
+            ,/2017/04/14/Filesystems-Suck/cluttered-desktop_hud3fe3876fa3d3cfc0d831012070049d6_3495037_1320x0_resize_box_3.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
 <p>We all know someone whose desktop looks like this. Hell, I&rsquo;d barely blame you -
 the hierarchical structure of the file system basically encourages it. One of
 the basic principles of engineering a good user experience is this: <em>minimize the
@@ -337,8 +502,7 @@ explorer, or remember where you saved it - it&rsquo;s right there.</p>
 file system is, supposedly, to keep things organized. This is the opposite of
 that. And why does this flourish? Because the file system encourages people to
 do this. It encourages people to be disorganized, in favor of convenience.</p>
-<h3 id="example-2-alfred-and-quicksilver">Example 2. Alfred and QuickSilver <a class="heading-anchor" href="#example-2-alfred-and-quicksilver" aria-label="Anchor">#</a></h3>
-<p>Alfred and QuickSilver are mac apps, that allow you an easy to search your files
+<h3 id="example-2-alfred-and-quicksilver" class="relative group">Example 2. Alfred and QuickSilver <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#example-2-alfred-and-quicksilver" aria-label="Anchor">#</a></span></h3><p>Alfred and QuickSilver are mac apps, that allow you an easy to search your files
 and do some basic things. They were around before Apple revamped Spotlight to
 serve the same purpose. QuickSilver has been around for over 6 years, and it and
 Alfred were wildly popular in some circles, because of how much easier they made
@@ -352,10 +516,9 @@ keystrokes.</p>
 regardless of how deep in the file system it is. But it&rsquo;s another symptom of
 the problem - the fact that it was needed in the first place indicates a
 problem.</p>
-<h3 id="example-3-because-i-always-follow-the-rule-of-three">Example 3. Because I Always Follow the Rule of Three <a class="heading-anchor" href="#example-3-because-i-always-follow-the-rule-of-three" aria-label="Anchor">#</a></h3>
-<p><a href="https://en.wikipedia.org/wiki/Rule_of_three_(writing)">Seriously, it&rsquo;s built into me. I have to.</a></p>
+<h3 id="example-3-because-i-always-follow-the-rule-of-three" class="relative group">Example 3. Because I Always Follow the Rule of Three <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#example-3-because-i-always-follow-the-rule-of-three" aria-label="Anchor">#</a></span></h3><p><a href="https://en.wikipedia.org/wiki/Rule_of_three_%28writing%29" target="_blank" rel="noreferrer">Seriously, it&rsquo;s built into me. I have to.</a></p>
 <p>For this, you&rsquo;ll need to understand what a
-<a href="https://kb.iu.edu/d/abbe">symbolic link</a> is. It&rsquo;s basically a more powerful
+<a href="https://kb.iu.edu/d/abbe" target="_blank" rel="noreferrer">symbolic link</a> is. It&rsquo;s basically a more powerful
 version of Windows shortcuts or Mac aliases, that works particularly well for
 folders. Basically, you tell the computer &ldquo;Okay, when I say Documents/photos,
 just redirect me to my Photos folder&rdquo;.</p>
@@ -386,10 +549,9 @@ nicely.</p>
 <p>I believe that my way of organizing my file system among the most elegant, and
 one of the best I&rsquo;ve seen. I&rsquo;m really quite proud of it, but even then, I still
 feel it&rsquo;s often quite ugly and hacky due to its constraints.</p>
-<h2 id="technical-reasons">Technical Reasons <a class="heading-anchor" href="#technical-reasons" aria-label="Anchor">#</a></h2>
-<p>There are also technical reasons why this method of document management is
+<h2 id="technical-reasons" class="relative group">Technical Reasons <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#technical-reasons" aria-label="Anchor">#</a></span></h2><p>There are also technical reasons why this method of document management is
 flawed. The most obvious is viruses. Say you download some
-<a href="https://en.wikipedia.org/wiki/Ransomware">RansomWare</a>. It starts encrypting
+<a href="https://en.wikipedia.org/wiki/Ransomware" target="_blank" rel="noreferrer">RansomWare</a>. It starts encrypting
 all your documents, and BAM! you&rsquo;ve lost everything. This only works because
 since the process is running in your name, the file system lets it access all
 of your files, without asking any questions. Say the RansomWare was disguised as
@@ -399,7 +561,74 @@ That&rsquo;s why you don&rsquo;t really get RansomWare on iOS and Android device
 want to access your word documents, or your photos, or anything, they have to
 ask you for permission. Mobile devices already implement what I&rsquo;m talking about
 here.</p>
-<p><img src="ransomware.png" alt="What RansomWare looks like"></p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/2017/04/14/Filesystems-Suck/ransomware_hu6aa1a8cbe5166dc972848831a4d80112_194390_330x0_resize_q75_h2_box_3.webp 330w,/2017/04/14/Filesystems-Suck/ransomware_hu6aa1a8cbe5166dc972848831a4d80112_194390_660x0_resize_q75_h2_box_3.webp 660w
+            
+              
+                ,/2017/04/14/Filesystems-Suck/ransomware_hu6aa1a8cbe5166dc972848831a4d80112_194390_770x432_resize_q75_h2_box_3.webp 770w
+              
+            
+            
+              
+                ,/2017/04/14/Filesystems-Suck/ransomware_hu6aa1a8cbe5166dc972848831a4d80112_194390_770x432_resize_q75_h2_box_3.webp 770w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="770"
+        height="432"
+        class="mx-auto my-0 rounded-md"
+        alt="What RansomWare looks like"
+        loading="lazy" decoding="async"
+        
+          src="/2017/04/14/Filesystems-Suck/ransomware_hu6aa1a8cbe5166dc972848831a4d80112_194390_660x0_resize_box_3.png"
+          srcset="/2017/04/14/Filesystems-Suck/ransomware_hu6aa1a8cbe5166dc972848831a4d80112_194390_330x0_resize_box_3.png 330w,/2017/04/14/Filesystems-Suck/ransomware_hu6aa1a8cbe5166dc972848831a4d80112_194390_660x0_resize_box_3.png 660w
+          
+            ,/2017/04/14/Filesystems-Suck/ransomware.png 770w
+          
+          
+            ,/2017/04/14/Filesystems-Suck/ransomware.png 770w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
 <p>So while we&rsquo;re talking about mobile devices, let&rsquo;s bring up another point.
 On your phone, where are your photos located? Easy, in the Photos app. On your
 computer, where are your photos located? Probably all sorts of different places.
@@ -409,10 +638,9 @@ application. Want to open a word document? Open word. A photo? Open Photos. A
 photoshop file? Open photoshop. The entire hierarchy is abstracted away from the
 user. It&rsquo;s been <em>proven</em> that this is the safer and more intuitive way to do
 things.</p>
-<p>From <a href="https://en.wikipedia.org/wiki/Abstraction_(software_engineering)">Wikipedia</a>:
+<p>From <a href="https://en.wikipedia.org/wiki/Abstraction_%28software_engineering%29" target="_blank" rel="noreferrer">Wikipedia</a>:
 <em>&ldquo;In software engineering and computer science, abstraction is a technique for arranging complexity of computer systems. It works by establishing a level of complexity on which a person interacts with the system, suppressing the more complex details below the current level.&rdquo;</em></p>
-<h2 id="why-the-hierarchy-still-makes-sense">Why the Hierarchy Still Makes Sense <a class="heading-anchor" href="#why-the-hierarchy-still-makes-sense" aria-label="Anchor">#</a></h2>
-<p>Don&rsquo;t get me wrong, I don&rsquo;t want to do away with it entirely. It makes sense
+<h2 id="why-the-hierarchy-still-makes-sense" class="relative group">Why the Hierarchy Still Makes Sense <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#why-the-hierarchy-still-makes-sense" aria-label="Anchor">#</a></span></h2><p>Don&rsquo;t get me wrong, I don&rsquo;t want to do away with it entirely. It makes sense
 for computers to be organized this way, and they have been for a long time.
 Computer scientists have figured out how to organize and work with it. The
 world&rsquo;s servers are built on it, and it works great for that. It&rsquo;s absolutely
@@ -423,8 +651,7 @@ file system is an awful way to store documents and things.</p>
 where settings live, and so on. This makes sense, for the purpose it serves,
 and is actually a rather elegant solution. Again, my beef is with users'
 documents.</p>
-<h2 id="okay-smart-guy-if-the-old-way-is-wrong-what-should-we-do">Okay, Smart Guy, if the Old Way is Wrong, What Should we Do? <a class="heading-anchor" href="#okay-smart-guy-if-the-old-way-is-wrong-what-should-we-do" aria-label="Anchor">#</a></h2>
-<p>Thanks for asking. I&rsquo;ll admit, this is a really hard problem, for various
+<h2 id="okay-smart-guy-if-the-old-way-is-wrong-what-should-we-do" class="relative group">Okay, Smart Guy, if the Old Way is Wrong, What Should we Do? <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#okay-smart-guy-if-the-old-way-is-wrong-what-should-we-do" aria-label="Anchor">#</a></span></h2><p>Thanks for asking. I&rsquo;ll admit, this is a really hard problem, for various
 reasons. The most obvious is backwards-compatibility. File shares also pose a
 bit of a problem, but perhaps they can stay the way they are. There&rsquo;s a
 multitude of things that would make compatibility here difficult, but this post
@@ -437,7 +664,7 @@ to catch on, and just doesn&rsquo;t work very well in my opinion.</p>
 don&rsquo;t want to fundamentally change the way they do things, they just want to
 sloppily tack new ideas onto the older software. The best example of this is
 their (soon to be obsoleted) file system,
-<a href="https://en.wikipedia.org/wiki/HFS_Plus">HFS+</a>. HFS+ is the successor to HFS,
+<a href="https://en.wikipedia.org/wiki/HFS_Plus" target="_blank" rel="noreferrer">HFS+</a>. HFS+ is the successor to HFS,
 and was basically just Apple tacking on some newer features to HFS through
 ugly workarounds. It&rsquo;s somewhat infamous. When they tried to organize by app
 through their iCloud platform, they did something similar.</p>
@@ -453,7 +680,7 @@ similar, but I want to take it to the next level.</p>
 you have a whole folder full of files and assets, with lots of file types. I
 have some ideas about how to address this, namely by sandboxing the files in
 a single &ldquo;project&rdquo; file that&rsquo;s actually a folder (kind of like
-<a href="https://superuser.com/questions/78176/how-do-mac-app-execution-files-work?rq=1">how Apple handles .apps</a>),
+<a href="https://superuser.com/questions/78176/how-do-mac-app-execution-files-work?rq=1" target="_blank" rel="noreferrer">how Apple handles .apps</a>),
 but I won&rsquo;t get into it here.</p>
 <p>Next, we need a document manager. Actually, this would be pretty easy to write,
 even just on top of the file system. With the database, this would be incredibly
@@ -465,8 +692,7 @@ of your Microsoft Word files, organized by the last time you edited them. You&rs
 looking for one about a short story, so you type &ldquo;story&rdquo;. Seven files pop up,
 and you press enter to open the one at the top. You don&rsquo;t know what folder it&rsquo;s
 in. You don&rsquo;t care. But it&rsquo;s easy to find, and it&rsquo;s somewhere that makes sense.</p>
-<h2 id="lets-get-technical">Let&rsquo;s get Technical <a class="heading-anchor" href="#lets-get-technical" aria-label="Anchor">#</a></h2>
-<p>If you&rsquo;re non-technical, you can skip this section. If you want to try anyway,
+<h2 id="lets-get-technical" class="relative group">Let&rsquo;s get Technical <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#lets-get-technical" aria-label="Anchor">#</a></span></h2><p>If you&rsquo;re non-technical, you can skip this section. If you want to try anyway,
 you&rsquo;re welcome to, but may find yourself needing to look a lot up.</p>
 <p>Let&rsquo;s say our database is relational, and built on top of the file system. This
 is basically how the indexing in file systems already works, but we can do
@@ -506,14 +732,12 @@ Join app, read list, file type, and file, filtered by app. Easy.</p>
 <p>We could even have our own &ldquo;folder&rdquo; system, based around tags. Tag it with
 &ldquo;school&rdquo; to go in the school folder. This also bypasses the problem of
 hierarchical file systems not being able to share a document between folders.</p>
-<h2 id="some-credit-to-mobile-operating-systems">Some Credit to Mobile Operating Systems <a class="heading-anchor" href="#some-credit-to-mobile-operating-systems" aria-label="Anchor">#</a></h2>
-<p>Mobile operating systems had an opportunity to try doing things a new way,
+<h2 id="some-credit-to-mobile-operating-systems" class="relative group">Some Credit to Mobile Operating Systems <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#some-credit-to-mobile-operating-systems" aria-label="Anchor">#</a></span></h2><p>Mobile operating systems had an opportunity to try doing things a new way,
 because they didn&rsquo;t have to follow these aging paradigms. And I&rsquo;ll give credit
 to them for trying something new, and something different. It&rsquo;s still a young
 method to managing files, but I believe it&rsquo;s maturing, and I believe that it
 more or less holds the keys to the future.</p>
-<h2 id="closing">Closing <a class="heading-anchor" href="#closing" aria-label="Anchor">#</a></h2>
-<p>Now, I&rsquo;m no user experience expert. But the traditional way is outdated, and
+<h2 id="closing" class="relative group">Closing <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#closing" aria-label="Anchor">#</a></span></h2><p>Now, I&rsquo;m no user experience expert. But the traditional way is outdated, and
 worse, promotes bad practices. It&rsquo;s time to rethink how we do things in an age
 where computers are consumer products, and not arcane machines operated by
 specialists. With the rise of touchscreen devices, we&rsquo;re seeing lots of new
@@ -533,48 +757,19 @@ to do things both old and new. The software engineering field is less than
 100 years old (C is only 45 years old), and in a field this young, &ldquo;it&rsquo;s always
 been this way&rdquo; just isn&rsquo;t a good excuse.</p>
 
+      </div>
     </section>
-    <footer class="pt-8">
+    <footer class="max-w-prose pt-8 print:hidden">
       
   <div class="flex">
     
-      <img class="w-24 h-24 !mt-0 !mb-0 mr-4 rounded-full" src="/images/ericmiller.png" />
+    
     
     <div class="place-self-center">
       
-        <div class="text-[0.6rem] leading-3 text-neutral-400 dark:text-neutral-500 uppercase">
-          Author
-        </div>
-        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
-          Eric Miller
-        </div>
       
-      
-        <div class="text-sm text-neutral-700 dark:text-neutral-400">DevOps Engineer, Kuberneter</div>
-      
-      
-  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
-    
-      
-        <a
-          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
-          href="https://github.com/sosheskaz/"
-          target="_blank"
-          alt="Github"
-          rel="me noopener noreferrer"
-          >
-
-  <span class="relative inline-block align-text-bottom icon">
-    <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
-  </span>
-
-</a
-        >
-      
-    
-  </div>
-
-
+      <div class="text-2xl sm:text-lg">
+</div>
     </div>
   </div>
 
@@ -583,20 +778,28 @@ been this way&rdquo; just isn&rsquo;t a good excuse.</p>
 
       
   
-    <div class="pt-8 article-pagination">
+    
+    
+    
+    <div class="pt-8">
       <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex" href="/2017/04/21/Package-Managers/">
-              <span class="mr-3 article-pagination-direction">&larr;</span>
+            <a class="group flex" href="/2017/04/08/Computers-Are-Black-Magic/">
+              <span
+                class="me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&larr;</span
+                ><span class="ltr:hidden rtl:inline">&rarr;</span></span
+              >
               <span class="flex flex-col">
-                <span class="article-pagination-title mt-[0.1rem] leading-6"
-                  >Why Package Managers are Great - With a Focus on Homebrew</span
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Today's Computers are Black Magic</span
                 >
-                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2017-04-21 00:00:00 &#43;0000 UTC">21 April 2017</time>
+                    <time datetime="2017-04-08 00:00:00 &#43;0000 UTC">April 8, 2017</time>
                   
                 </span>
               </span>
@@ -605,18 +808,23 @@ been this way&rdquo; just isn&rsquo;t a good excuse.</p>
         </span>
         <span>
           
-            <a class="flex text-right" href="/2017/04/08/Computers-Are-Black-Magic/">
+            <a class="group flex text-right" href="/2017/04/21/Package-Managers/">
               <span class="flex flex-col">
-                <span class="article-pagination-title mt-[0.1rem] leading-6"
-                  >Today's Computers are Black Magic</span
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Why Package Managers are Great - With a Focus on Homebrew</span
                 >
-                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2017-04-08 00:00:00 &#43;0000 UTC">8 April 2017</time>
+                    <time datetime="2017-04-21 00:00:00 &#43;0000 UTC">April 21, 2017</time>
                   
                 </span>
               </span>
-              <span class="ml-3 article-pagination-direction">&rarr;</span>
+              <span
+                class="ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&rarr;</span
+                ><span class="ltr:hidden rtl:inline">&larr;</span></span
+              >
             </a>
           
         </span>
@@ -625,68 +833,56 @@ been this way&rdquo; just isn&rsquo;t a good excuse.</p>
   
 
 
+      
     </footer>
-    
   </article>
-</main><footer class="py-10">
+
+        
+          <div class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12">
+            <a
+              href="#the-top"
+              class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+              aria-label="Scroll to top"
+              title="Scroll to top"
+            >
+              &uarr;
+            </a>
+          </div>
+        
+      </main><footer class="py-10 print:hidden">
   
   
-  <div class="flex justify-between">
+  <div class="flex items-center justify-between">
     <div>
       
-      <p class="text-sm text-neutral-400 dark:text-neutral-500">
-          &copy;
-          2022
-          Eric Miller
-      </p>
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            &copy;
+            2024
+            
+        </p>
       
       
-        <p class="text-xs text-neutral-300 dark:text-neutral-600">
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
           
           
-          Powered by <a class="hover:underline hover:underline-primary-300 hover:text-primary-400"
-            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:underline-primary-300 hover:text-primary-400" href="https://git.io/hugo-congo" target="_blank" rel="noopener noreferrer">Congo</a>
+          Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://github.com/jpanther/congo" target="_blank" rel="noopener noreferrer">Congo</a>
         </p>
       
     </div>
-    
-    
-      <div class="text-sm cursor-pointer text-neutral-400 dark:text-neutral-500">
-        <button
-          id="dark-toggle"
-          onclick="setPreferredAppearance('dark');"
-          oncontextmenu="setPreferredAppearance('default'); return false;"
-          class="inline px-2 py-1 border rounded-md border-neutral-200 dark:hidden hover:text-primary-500 hover:border-primary-400"
-          title="Switch to dark appearance"
-        >
-          
-
-  <span class="relative inline-block align-text-bottom icon">
-    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="moon" class="svg-inline--fa fa-moon fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"></path></svg>
-  </span>
-
-
-        </button>
-        <button
-          id="light-toggle"
-          onclick="setPreferredAppearance('light');"
-          oncontextmenu="setPreferredAppearance('default'); return false;"
-          class="hidden px-2 py-1 border rounded-md cursor-pointer dark:inline border-neutral-700 hover:text-primary-400 hover:border-primary-500"
-          title="Switch to light appearance"
-        >
-          
-
-  <span class="relative inline-block align-text-bottom icon">
-    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sun" class="svg-inline--fa fa-sun fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"></path></svg>
-  </span>
-
-
-        </button>
-      </div>
-    
+    <div class="flex flex-row items-center">
+      
+      
+      
+      
+    </div>
   </div>
   
   
 </footer>
-</body>
+
+    </div>
+  </body>
 </html>

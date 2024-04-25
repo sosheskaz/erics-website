@@ -4,38 +4,30 @@
     <title>Security on Eric&#39;s Web.site</title>
     <link>https://ericsweb.site/categories/security/</link>
     <description>Recent content in Security on Eric&#39;s Web.site</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 May 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://ericsweb.site/categories/security/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 19 May 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://ericsweb.site/categories/security/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>What is Ethical Hacking? And Contemporary Cybersecurity Ethics</title>
       <link>https://ericsweb.site/2017/05/19/Ethical-Hacking/</link>
       <pubDate>Fri, 19 May 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://ericsweb.site/2017/05/19/Ethical-Hacking/</guid>
-      <description>Hackers. They&amp;rsquo;re becoming increasingly important and relevant. From government agencies, to international hackers and political controversies, to someone stealing your credit card. It&amp;rsquo;s becoming bigger and bigger, and question of how to deal with them is becoming increasingly important.
-For this, I&amp;rsquo;m going to use a definition of hacking that is a bit more expansive than most. Hacking, as far as I&amp;rsquo;m concerned, is deliberately getting unauthorized access to a computer system - whether that is reading data, running a program, or changing something.</description>
+      <description>Hackers. They&amp;rsquo;re becoming increasingly important and relevant. From government agencies, to international hackers and political controversies, to someone stealing your credit card. It&amp;rsquo;s becoming bigger and bigger, and question of how to deal with them is becoming increasingly important.&#xA;For this, I&amp;rsquo;m going to use a definition of hacking that is a bit more expansive than most. Hacking, as far as I&amp;rsquo;m concerned, is deliberately getting unauthorized access to a computer system - whether that is reading data, running a program, or changing something.</description>
     </item>
-    
     <item>
       <title>On the AES Encryption Algorithm</title>
       <link>https://ericsweb.site/2017/03/29/AES-Security-Paper/</link>
       <pubDate>Wed, 29 Mar 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://ericsweb.site/2017/03/29/AES-Security-Paper/</guid>
-      <description>I wrote this paper for my Information Security class. Original publish date: 20 December 2016
-The Advanced Encryption Standard, or AES, is a symmetric algorithm released by the United States National Instritute of Standards and Technology (NIST). It is technically specified in FIPS-197. It is another name for the Rijndael algorithm, though they are distinct; the Rijndael is its own algorithm, but it was selected by the NIST for the AES standard.</description>
+      <description>I wrote this paper for my Information Security class. Original publish date: 20 December 2016&#xA;The Advanced Encryption Standard, or AES, is a symmetric algorithm released by the United States National Instritute of Standards and Technology (NIST). It is technically specified in FIPS-197. It is another name for the Rijndael algorithm, though they are distinct; the Rijndael is its own algorithm, but it was selected by the NIST for the AES standard.</description>
     </item>
-    
     <item>
       <title>How to Secure Your Online Life</title>
       <link>https://ericsweb.site/2017/01/17/How-to-Secure-Your-Online-Life/</link>
       <pubDate>Tue, 17 Jan 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://ericsweb.site/2017/01/17/How-to-Secure-Your-Online-Life/</guid>
-      <description>Have an online stalker who you&amp;rsquo;re worried might hack your account? Have sensitive materials in your accounts or computer that you don&amp;rsquo;t want to be exposed to a threat? Just want to be safe in the modern day internet environment? Here you&amp;rsquo;ll find some simple guidelines to stay safe out there.
-As time goes on, personal information security has gotten more and more important, and knowing what exactly to do and how to do it is difficult.</description>
+      <description>Have an online stalker who you&amp;rsquo;re worried might hack your account? Have sensitive materials in your accounts or computer that you don&amp;rsquo;t want to be exposed to a threat? Just want to be safe in the modern day internet environment? Here you&amp;rsquo;ll find some simple guidelines to stay safe out there.&#xA;As time goes on, personal information security has gotten more and more important, and knowing what exactly to do and how to do it is difficult.</description>
     </item>
-    
   </channel>
 </rss>

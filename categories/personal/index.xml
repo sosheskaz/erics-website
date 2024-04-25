@@ -4,18 +4,16 @@
     <title>Personal on Eric&#39;s Web.site</title>
     <link>https://ericsweb.site/categories/personal/</link>
     <description>Recent content in Personal on Eric&#39;s Web.site</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Jun 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://ericsweb.site/categories/personal/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://ericsweb.site/categories/personal/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Look Back</title>
       <link>https://ericsweb.site/2017/06/18/A-Look-Back/</link>
       <pubDate>Sun, 18 Jun 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://ericsweb.site/2017/06/18/A-Look-Back/</guid>
-      <description>Since I just graduated college with a B.S. in software engineering, I think it&amp;rsquo;s a good time to look back.
-The Early Years # As a kid, some of my first exposure to computers was the computers the school had that we were sometimes allowed to play with after school. They had a few games on them, mostly edutainment games designed to help kids learn arithmetic, practice reading, and things like that.</description>
+      <description>Since I just graduated college with a B.S. in software engineering, I think it&amp;rsquo;s a good time to look back.&#xA;The Early Years #As a kid, some of my first exposure to computers was the computers the school had that we were sometimes allowed to play with after school. They had a few games on them, mostly edutainment games designed to help kids learn arithmetic, practice reading, and things like that.</description>
     </item>
-    
   </channel>
 </rss>

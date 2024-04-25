@@ -4,19 +4,16 @@
     <title>Server on Eric&#39;s Web.site</title>
     <link>https://ericsweb.site/categories/server/</link>
     <description>Recent content in Server on Eric&#39;s Web.site</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Feb 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://ericsweb.site/categories/server/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://ericsweb.site/categories/server/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Case of the Circular Dependency</title>
       <link>https://ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/</link>
       <pubDate>Tue, 20 Feb 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/</guid>
-      <description>As some know, I keep a personal server. I&amp;rsquo;ve developed tales of my (mis)adventures and the things I&amp;rsquo;ve learned from them. I found this one humorous. Why? The root cause.
-My hard drive is too fast.
-I&amp;rsquo;ll start at the beginning. If you&amp;rsquo;re not into computers, I&amp;rsquo;ll explain things in a way that hopefully anyone can understand, but to be honest I&amp;rsquo;m not sure if you&amp;rsquo;ll get a lot out of it.</description>
+      <description>As some know, I keep a personal server. I&amp;rsquo;ve developed tales of my (mis)adventures and the things I&amp;rsquo;ve learned from them. I found this one humorous. Why? The root cause.&#xA;My hard drive is too fast.&#xA;I&amp;rsquo;ll start at the beginning. If you&amp;rsquo;re not into computers, I&amp;rsquo;ll explain things in a way that hopefully anyone can understand, but to be honest I&amp;rsquo;m not sure if you&amp;rsquo;ll get a lot out of it.</description>
     </item>
-    
   </channel>
 </rss>

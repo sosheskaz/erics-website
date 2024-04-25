@@ -4,89 +4,79 @@
     <title>Categories on Eric&#39;s Web.site</title>
     <link>https://ericsweb.site/categories/</link>
     <description>Recent content in Categories on Eric&#39;s Web.site</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Sep 2022 19:19:53 -0500</lastBuildDate><atom:link href="https://ericsweb.site/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Apr 2024 19:49:26 -0500</lastBuildDate>
+    <atom:link href="https://ericsweb.site/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Open-Source</title>
+      <link>https://ericsweb.site/categories/open-source/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ericsweb.site/categories/open-source/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Photos</title>
       <link>https://ericsweb.site/categories/photos/</link>
-      <pubDate>Mon, 12 Sep 2022 19:19:53 -0500</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://ericsweb.site/categories/photos/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Technology</title>
       <link>https://ericsweb.site/categories/technology/</link>
-      <pubDate>Sun, 28 Aug 2022 21:00:00 -0500</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://ericsweb.site/categories/technology/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Apple</title>
       <link>https://ericsweb.site/categories/apple/</link>
-      <pubDate>Sun, 23 Sep 2018 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://ericsweb.site/categories/apple/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Tutorial</title>
       <link>https://ericsweb.site/categories/tutorial/</link>
-      <pubDate>Wed, 07 Mar 2018 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://ericsweb.site/categories/tutorial/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Server</title>
       <link>https://ericsweb.site/categories/server/</link>
-      <pubDate>Tue, 20 Feb 2018 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://ericsweb.site/categories/server/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Personal</title>
       <link>https://ericsweb.site/categories/personal/</link>
-      <pubDate>Sun, 18 Jun 2017 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://ericsweb.site/categories/personal/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Security</title>
       <link>https://ericsweb.site/categories/security/</link>
-      <pubDate>Fri, 19 May 2017 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://ericsweb.site/categories/security/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Privacy</title>
       <link>https://ericsweb.site/categories/privacy/</link>
-      <pubDate>Fri, 31 Mar 2017 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://ericsweb.site/categories/privacy/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Review</title>
       <link>https://ericsweb.site/categories/review/</link>
-      <pubDate>Fri, 27 Jan 2017 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://ericsweb.site/categories/review/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

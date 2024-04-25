@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open-Source on Eric&#39;s Web.site</title>
+    <link>https://ericsweb.site/categories/open-source/</link>
+    <description>Recent content in Open-Source on Eric&#39;s Web.site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 24 Apr 2024 19:49:26 -0500</lastBuildDate>
+    <atom:link href="https://ericsweb.site/categories/open-source/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Infinitude Home Assistant Addon</title>
+      <link>https://ericsweb.site/posts/2024-04-25-infinitude-ha-addon/</link>
+      <pubDate>Wed, 24 Apr 2024 19:49:26 -0500</pubDate>
+      <guid>https://ericsweb.site/posts/2024-04-25-infinitude-ha-addon/</guid>
+      <description>I recently completed initial work on a project, packaging Infinitude nicely as a Home Assistant Add-On.&#xA;Infinitude is a project that makes it possible to programmatically interact with Bryant thermostats, which I use at home. There is also an integration which allows the Home Assistant home automation platform to integrate with it. This project solves the piece of how one runs Infinitude itself, by packaging it neatly as a Home Assistant Add-On.</description>
+    </item>
+  </channel>
+</rss>

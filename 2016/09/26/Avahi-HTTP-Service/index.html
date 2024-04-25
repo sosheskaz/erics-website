@@ -1,64 +1,70 @@
-<!DOCTYPE html>
+
+
+
+
+  
+
+
+
+
+<!doctype html>
 <html
   lang="en-us"
-  class="dark"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"
 ><head>
   <meta charset="utf-8" />
-  
-    <meta http-equiv="content-language" content="en-us" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="theme-color" content="#FFFFFF" />
   
   <title>How to use Avahi to advertise an HTTP service &middot; Eric&#39;s Web.site</title>
     <meta name="title" content="How to use Avahi to advertise an HTTP service &middot; Eric&#39;s Web.site" />
   
-  <meta name="description" content="Eric Miller&#39;s website to post about Technology, life, and anything else that comes up." />
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.74ad8406faea02f3e186ba5126249aaeed9073629e04b05037b903396b188724.js"
+    integrity="sha256-dK2EBvrqAvPhhrpRJiSaru2Qc2KeBLBQN7kDOWsYhyQ="
+  ></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.9602fe0216290b9ff0322c1fd14e88ab9fc0a13741f4de563f67831708d72bb2.css"
+    integrity="sha256-lgL&#43;AhYpC5/wMiwf0U6Iq5/AoTdB9N5WP2eDFwjXK7I="
+  />
+  
+  
+  
+  
+  
+  
+  
+  <meta
+    name="description"
+    content="
+      
+        This is a simple guide to how to set up avahi to advertise an HTTP service that a web browser (in this case, Safari&rsquo;s Bonjour) can detect and hook into.
+Background: This is running on a server running FreeBSD 10.3.0. Avahi was installed using pkg and set up with the default configuration. It is used largely as a sandbox for experimenting, as well as being a media/file server and a light webserver.
+      
+    "
+  />
   
   
   
   <link rel="canonical" href="https://ericsweb.site/2016/09/26/Avahi-HTTP-Service/" />
-  
-  
-  
-  
-  <link
-    type="text/css"
-    rel="stylesheet"
-    href="/css/schemes/congo.min.b48d6ba061dc77186a2524fb8aac5ac3823b2679a9299ca60325abbccc9c1764c884715f0ba24b4e2776cb3814df4af1f4c854b87207cd5d4c7a254da9b55751.css"
-    integrity="sha512-tI1roGHcdxhqJST7iqxaw4I7JnmpKZymAyWrvMycF2TIhHFfC6JLTid2yzgU30rx9MhUuHIHzV1MeiVNqbVXUQ=="
-  />
-  
-  
-  <link
-    type="text/css"
-    rel="stylesheet"
-    href="/css/compiled/main.min.4076b9cf114dd23cca017f3365e2205a4c9a4b2c0ef4193ccd08883f76e554aa40f674a8f6e77a1b2895be0975ba8e019b0c59996c2eea32e4970ca4d5221653.css"
-    integrity="sha512-QHa5zxFN0jzKAX8zZeIgWkyaSywO9Bk8zQiIP3blVKpA9nSo9ud6GyiVvgl1uo4BmwxZmWwu6jLklwyk1SIWUw=="
-  />
-  
-  
-  
-    <script>
-      function loadPreferredAppearance() {
-        if (localStorage.preferredAppearance === "dark" || (!("preferredAppearance" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-        }
-      }
-      function setPreferredAppearance(scheme) {
-        if (scheme == "default") {
-          localStorage.removeItem("preferredAppearance");
-        } else {
-          localStorage.preferredAppearance = scheme;
-        }
-        loadPreferredAppearance();
-      }
-      loadPreferredAppearance();
-      window.matchMedia("(prefers-color-scheme: dark)").addListener(loadPreferredAppearance);
-    </script>
-  
   
   
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -72,60 +78,54 @@
   
   
   
-  <meta property="og:title" content="How to use Avahi to advertise an HTTP service" />
-<meta property="og:description" content="This is a simple guide to how to set up avahi to advertise an HTTP service that a web browser (in this case, Safari&rsquo;s Bonjour) can detect and hook into.
-Background: This is running on a server running FreeBSD 10.3.0. Avahi was installed using pkg and set up with the default configuration. It is used largely as a sandbox for experimenting, as well as being a media/file server and a light webserver." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://ericsweb.site/2016/09/26/Avahi-HTTP-Service/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2016-09-26T00:00:00+00:00" />
-<meta property="article:modified_time" content="2016-09-26T00:00:00+00:00" /><meta property="og:site_name" content="Eric&#39;s Web.site" />
+  
+  <meta property="og:url" content="https://ericsweb.site/2016/09/26/Avahi-HTTP-Service/">
+  <meta property="og:site_name" content="Eric&#39;s Web.site">
+  <meta property="og:title" content="How to use Avahi to advertise an HTTP service">
+  <meta property="og:description" content="This is a simple guide to how to set up avahi to advertise an HTTP service that a web browser (in this case, Safari&amp;rsquo;s Bonjour) can detect and hook into.
+Background: This is running on a server running FreeBSD 10.3.0. Avahi was installed using pkg and set up with the default configuration. It is used largely as a sandbox for experimenting, as well as being a media/file server and a light webserver.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+  <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2016-09-26T00:00:00+00:00">
+    <meta property="article:modified_time" content="2016-09-26T00:00:00+00:00">
 
-
-  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="How to use Avahi to advertise an HTTP service"/>
+  <meta name="twitter:card" content="summary"><meta name="twitter:title" content="How to use Avahi to advertise an HTTP service">
 <meta name="twitter:description" content="This is a simple guide to how to set up avahi to advertise an HTTP service that a web browser (in this case, Safari&rsquo;s Bonjour) can detect and hook into.
-Background: This is running on a server running FreeBSD 10.3.0. Avahi was installed using pkg and set up with the default configuration. It is used largely as a sandbox for experimenting, as well as being a media/file server and a light webserver."/>
+Background: This is running on a server running FreeBSD 10.3.0. Avahi was installed using pkg and set up with the default configuration. It is used largely as a sandbox for experimenting, as well as being a media/file server and a light webserver.">
 
   
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
+    "@type": "Article",
     "articleSection": "Posts",
     "name": "How to use Avahi to advertise an HTTP service",
     "headline": "How to use Avahi to advertise an HTTP service",
-    "description": "This is a simple guide to how to set up avahi to advertise an HTTP service that a web browser (in this case, Safari\u0026rsquo;s Bonjour) can detect and hook into.\nBackground: This is running on a server running FreeBSD 10.3.0. Avahi was installed using pkg and set up with the default configuration. It is used largely as a sandbox for experimenting, as well as being a media\/file server and a light webserver.",
+    
+    "abstract": "This is a simple guide to how to set up avahi to advertise an HTTP service that a web browser (in this case, Safari\u0026rsquo;s Bonjour) can detect and hook into.\nBackground: This is running on a server running FreeBSD 10.3.0. Avahi was installed using pkg and set up with the default configuration. It is used largely as a sandbox for experimenting, as well as being a media\/file server and a light webserver.",
     "inLanguage": "en-us",
+    "url" : "https:\/\/ericsweb.site\/2016\/09\/26\/Avahi-HTTP-Service\/",
     "author" : {
       "@type": "Person",
-      "name": "Eric Miller"
+      "name": ""
     },
-    "creator" : {
-      "@type": "Person",
-      "name": "Eric Miller"
-    },
-    "copyrightHolder": "Eric Miller",
     "copyrightYear": "2016",
     "dateCreated": "2016-09-26T00:00:00\u002b00:00",
     "datePublished": "2016-09-26T00:00:00\u002b00:00",
+    
     "dateModified": "2016-09-26T00:00:00\u002b00:00",
-    "url" : "https:\/\/ericsweb.site\/2016\/09\/26\/Avahi-HTTP-Service\/",
-    "wordCount": "954",
-    "keywords": ["programming",]
+    
+    "keywords": ["programming"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "948"
   }
   </script>
 
 
   
   
-    <meta name="generator" content="Hugo 0.102.3" />
-  
-  
-  <meta name="author" content="Eric Miller" />
-  
-    
-      <link href="https://github.com/sosheskaz/" rel="me" />
-    
   
   
   
@@ -139,94 +139,136 @@ Background: This is running on a server running FreeBSD 10.3.0. Avahi was instal
   
   
   
+  
+  
+  
+
 
 
   
   
 </head>
 <body
-    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 bg-neutral text-neutral-900 sm:px-14 md:px-24 lg:px-32 dark:bg-neutral-800 dark:text-neutral max-w-7xl"
-  ><header
-  class="flex justify-between py-6 font-semibold sm:items-center sm:py-10 text-neutral-800 dark:text-neutral"
->
-  
-  <div>
-    
+    class="m-auto flex h-screen max-w-7xl flex-col bg-neutral px-6 text-lg leading-7 text-neutral-900 sm:px-14 md:px-24 lg:px-32 dark:bg-neutral-800 dark:text-neutral"
+  >
+    <div id="the-top" class="absolute flex self-center">
       <a
-        class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
-        rel="me"
-        href="/"
-        >Eric&rsquo;s Web.site</a
+        class="-translate-y-8 rounded-b-lg bg-primary-200 px-3 py-1 text-sm focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="pe-2 font-bold text-primary-600 dark:text-primary-400">&darr;</span
+        >Skip to main content</a
       >
-  </div>
-  
-  
-    <nav>
-      <ul class="flex flex-col list-none sm:flex-row">
+    </div>
+    
+    
+      <header class="py-6 font-semibold text-neutral-900 print:hidden sm:py-10 dark:text-neutral">
+  <nav class="flex items-start justify-between sm:items-center">
+    
+    <div class="flex flex-row items-center">
+      
+  <a
+    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+    rel="me"
+    href="/"
+    >Eric&rsquo;s Web.site</a
+  >
+
+    </div>
+    
+    
+      <ul class="flex list-none flex-col text-end sm:flex-row">
         
-          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
-            <a
-              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
-              href="/posts/"
-              title="Posts"
-              >All Posts</a
-            >
-          </li>
-        
-          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
-            <a
-              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
-              href="/categories/"
-              title="Categories"
-              >Categories</a
-            >
-          </li>
-        
-          <li class="mb-1 text-right sm:mb-0 sm:mr-7 sm:last:mr-0">
-            <a
-              class="hover:underline hover:underline-primary-500 hover:underline-thickness-bold hover:underline-offset-small"
-              href="/profile/"
-              title="About Me"
-              >About</a
-            >
-          </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/posts/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >All Posts</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/categories/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Categories</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/profile/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >About</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+          
         
       </ul>
-    </nav>
-  
+    
+  </nav>
 </header>
-<main class="flex-grow">
-  <article class="max-w-prose">
-    <header>
+
+    
+    <div class="relative flex grow flex-col">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
       
-        <ol class="text-sm text-neutral-400 dark:text-neutral-500">
+        <ol class="text-sm text-neutral-500 print:hidden dark:text-neutral-400">
   
   
     
   
     
   
-  <li class="inline hidden">
+  <li class="hidden inline">
     <a
-      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
       href="/"
       >Index</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
   
-  <li class="inline ">
+  <li class=" inline">
     <a
-      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
       href="/posts/"
       >Posts</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
   
-  <li class="inline hidden">
+  <li class="hidden inline">
     <a
-      class="hover:underline hover:underline-neutral-300 dark:underline-neutral-600"
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
       href="/2016/09/26/Avahi-HTTP-Service/"
       >How to use Avahi to advertise an HTTP service</a
     ><span class="px-1 text-primary-500">/</span>
@@ -236,11 +278,12 @@ Background: This is running on a server running FreeBSD 10.3.0. Avahi was instal
 
 
       
-      <h1 class="mt-0 text-4xl font-extrabold text-neutral-800 dark:text-neutral">
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
         How to use Avahi to advertise an HTTP service
       </h1>
-      <div class="mt-8 mb-12 text-base text-neutral-400 dark:text-neutral-500">
-        
+      
+        <div class="mb-12 mt-8 text-base text-neutral-500 print:hidden dark:text-neutral-400">
+          
 
 
 
@@ -259,27 +302,38 @@ Background: This is running on a server running FreeBSD 10.3.0. Avahi was instal
   
 
   
+
+  
+
+  
     
   
 
   
 
 
-  <div class="flex flex-row items-center">
+  <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2016-09-26 00:00:00 &#43;0000 UTC">26 September 2016</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
+      <time datetime="2016-09-26 00:00:00 &#43;0000 UTC">September 26, 2016</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
     
 
     
     
   </div>
 
+  
+  
 
-      </div>
+
+        </div>
+      
+      
     </header>
-    <section class="prose dark:prose-light">
-      <p>This is a simple guide to how to set up avahi to advertise an HTTP service that a web browser (in
+    <section class="prose mt-0 flex max-w-full flex-col dark:prose-invert lg:flex-row">
+      
+      <div class="min-h-0 min-w-0 max-w-prose grow">
+        <p>This is a simple guide to how to set up avahi to advertise an HTTP service that a web browser (in
 this case, Safari&rsquo;s Bonjour) can detect and hook into.</p>
 <p>Background: This is running on a server running FreeBSD 10.3.0. Avahi was installed using pkg and
 set up with the default configuration. It is used largely as a sandbox for experimenting, as well as
@@ -295,7 +349,7 @@ The avahi service can now be manipulated with <code>sudo service avahi-daemon &l
 set up. For example, I already had <code>sftp-ssh.service</code> amd <code>ssh.service</code> in mine.</p>
 <p>Create a new file called <code>&lt;your-service&gt;.service</code>. In my case, this is <code>plex.service</code>.
 Within that file, add the following (which I shamelessly stole most of from
-<a href="http://holyarmy.org/2008/01/advertising-linux-services-via-avahibonjour/">here</a>):</p>
+<a href="http://holyarmy.org/2008/01/advertising-linux-services-via-avahibonjour/" target="_blank" rel="noreferrer">here</a>):</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; standalone=&#39;no&#39;?&gt;</span><span style="color:#75715e">&lt;!--*-nxml-*--&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE service-group SYSTEM &#34;avahi-service.dtd&#34;&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;service-group&gt;</span>
@@ -307,22 +361,137 @@ Within that file, add the following (which I shamelessly stole most of from
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/service-group&gt;</span>
 </span></span></code></pre></div><p>Now, restart avahi with the command <code>sudo service avahi-daemon restart</code>. The new service will now be
 viewable via bonjour clients, such as Safari and dns-sd (see below).</p>
-<p><img src="avahi-in-safari.png" alt="Avahi-Safari"></p>
-<p><img src="avahi-in-terminal.png" alt="Avahi-dns-sd"></p>
-<h2 id="update">Update <a class="heading-anchor" href="#update" aria-label="Anchor">#</a></h2>
-<p>So, after turning on SEO and forgetting about it for a few weeks, this page has gotten pretty
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            
+              srcset="/2016/09/26/Avahi-HTTP-Service/avahi-in-safari_hucb6795085ca0670ca3ab7c40cff4cd97_13673_181x81_resize_q75_h2_box_3.webp"
+            
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="181"
+        height="81"
+        class="mx-auto my-0 rounded-md"
+        alt="Avahi-Safari"
+        loading="lazy" decoding="async"
+        
+          src="/2016/09/26/Avahi-HTTP-Service/avahi-in-safari.png"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/2016/09/26/Avahi-HTTP-Service/avahi-in-terminal_huae7fac76229ab6c6079c8bac38ee88fb_41933_330x0_resize_q75_h2_box_3.webp 330w,/2016/09/26/Avahi-HTTP-Service/avahi-in-terminal_huae7fac76229ab6c6079c8bac38ee88fb_41933_660x0_resize_q75_h2_box_3.webp 660w
+            
+              
+                ,/2016/09/26/Avahi-HTTP-Service/avahi-in-terminal_huae7fac76229ab6c6079c8bac38ee88fb_41933_724x241_resize_q75_h2_box_3.webp 724w
+              
+            
+            
+              
+                ,/2016/09/26/Avahi-HTTP-Service/avahi-in-terminal_huae7fac76229ab6c6079c8bac38ee88fb_41933_724x241_resize_q75_h2_box_3.webp 724w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="724"
+        height="241"
+        class="mx-auto my-0 rounded-md"
+        alt="Avahi-dns-sd"
+        loading="lazy" decoding="async"
+        
+          src="/2016/09/26/Avahi-HTTP-Service/avahi-in-terminal_huae7fac76229ab6c6079c8bac38ee88fb_41933_660x0_resize_box_3.png"
+          srcset="/2016/09/26/Avahi-HTTP-Service/avahi-in-terminal_huae7fac76229ab6c6079c8bac38ee88fb_41933_330x0_resize_box_3.png 330w,/2016/09/26/Avahi-HTTP-Service/avahi-in-terminal_huae7fac76229ab6c6079c8bac38ee88fb_41933_660x0_resize_box_3.png 660w
+          
+            ,/2016/09/26/Avahi-HTTP-Service/avahi-in-terminal.png 724w
+          
+          
+            ,/2016/09/26/Avahi-HTTP-Service/avahi-in-terminal.png 724w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<h2 id="update" class="relative group">Update <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#update" aria-label="Anchor">#</a></span></h2><p>So, after turning on SEO and forgetting about it for a few weeks, this page has gotten pretty
 popular. Looking back, it&rsquo;s a bit lackluster in terms of information, so I&rsquo;ll put in a bit more
 information here. To be honest, I mostly made this so I could personally reference it later when I
 forgot how to use avahi, so it&rsquo;s a bit barebones. That said, the XML <code>.service</code> file above is a
 pretty good example, but I&rsquo;ll elaborate on a
 bit of the information here to hopefully make zeroconf networking a bit easier to understand.</p>
-<h3 id="important-caveat">Important Caveat <a class="heading-anchor" href="#important-caveat" aria-label="Anchor">#</a></h3>
-<p>On the client side, identifying a domain and resolving a domain are two different things. You first
+<h3 id="important-caveat" class="relative group">Important Caveat <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#important-caveat" aria-label="Anchor">#</a></span></h3><p>On the client side, identifying a domain and resolving a domain are two different things. You first
 need to <em>browse</em> for a domain, and then using the name, service, and domain information, issue a
 resolve command against it to resolve an address you can reach it at. <code>dns-sd</code> examples of how to
 do this can be found at the bottom of the page.</p>
-<h3 id="linux-guide">Linux Guide <a class="heading-anchor" href="#linux-guide" aria-label="Anchor">#</a></h3>
-<p>Because I understand Linux a bit better now, I&rsquo;ll include some details for it.</p>
+<h3 id="linux-guide" class="relative group">Linux Guide <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#linux-guide" aria-label="Anchor">#</a></span></h3><p>Because I understand Linux a bit better now, I&rsquo;ll include some details for it.</p>
 <p>On Debian-based distros, you can install avahi with <code>apt-get install avahi-daemon</code></p>
 <p>On RHEL/CentOS-based distros, use <code>yum install avahi</code>.</p>
 <p>On Alpine Linux, use <code>apk add -U avahi</code>.</p>
@@ -330,8 +499,7 @@ do this can be found at the bottom of the page.</p>
 syntax, it should be something like <code>service -e avahi-daemon</code> to enable it and
 <code>service avahi-daemon start</code> to start it.</p>
 <p>Your services directory will most likely be located in <code>/usr/etc/avahi/services</code>.</p>
-<h3 id="line-by-line-breakdown">Line-by-Line Breakdown <a class="heading-anchor" href="#line-by-line-breakdown" aria-label="Anchor">#</a></h3>
-<p><code>&lt;service-group&gt;&lt;/service-group&gt;</code> – This is the outermost tag required in your service definition.</p>
+<h3 id="line-by-line-breakdown" class="relative group">Line-by-Line Breakdown <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#line-by-line-breakdown" aria-label="Anchor">#</a></span></h3><p><code>&lt;service-group&gt;&lt;/service-group&gt;</code> – This is the outermost tag required in your service definition.</p>
 <p><code>&lt;service&gt;&lt;/service&gt;</code> – This defined an individual service offered. For HTTP, for example, you may
 offer both HTTP and HTTPS, and want to advertize two services, one for each port.</p>
 <p><code>&lt;name replace-wildcards=&quot;yes&quot;&gt;%h &lt;YOUR_HTTP_SERVICE&gt;&lt;/name&gt;</code> – this is the name your service will
@@ -354,61 +522,30 @@ This allows for custom text-based records to your avahi broadcast.
 This could be useful if you&rsquo;re running some sort of custom app where other servers on the network
 would need to know its characteristics. It&rsquo;s pretty much free-form, so you can put whatever useful
 information you need in these records.</p>
-<h3 id="developing-an-app">Developing an App <a class="heading-anchor" href="#developing-an-app" aria-label="Anchor">#</a></h3>
-<p>In general, if you&rsquo;re developing some sort of app (web, integrated, or otherwise), I&rsquo;d recommend
+<h3 id="developing-an-app" class="relative group">Developing an App <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#developing-an-app" aria-label="Anchor">#</a></span></h3><p>In general, if you&rsquo;re developing some sort of app (web, integrated, or otherwise), I&rsquo;d recommend
 looking for libraries for your specific language. The swift/iOS bonjour client is clunky, but if
 you&rsquo;re doing macOS/iOS development it&rsquo;s ultimately simpler to just use it. The one for python,
-aptly named <a href="https://pypi.python.org/pypi/zeroconf">zeroconf</a> works well, is easy to use, and is
+aptly named <a href="https://pypi.python.org/pypi/zeroconf" target="_blank" rel="noreferrer">zeroconf</a> works well, is easy to use, and is
 great for prototyping.</p>
-<h3 id="handy-dns-sd-commands">Handy dns-sd Commands <a class="heading-anchor" href="#handy-dns-sd-commands" aria-label="Anchor">#</a></h3>
-<p><code>dns-sd -B _http</code> – search the LAN for any HTTP services and update when any new ones are found.</p>
+<h3 id="handy-dns-sd-commands" class="relative group">Handy dns-sd Commands <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#handy-dns-sd-commands" aria-label="Anchor">#</a></span></h3><p><code>dns-sd -B _http</code> – search the LAN for any HTTP services and update when any new ones are found.</p>
 <p><code>dns-sd -R myservice _http._tcp local 8080</code> – Advertise a local HTTP service on port 8080 to your
 local network (whether there actually is one or not).</p>
 <p><code>dns-sd -L dns-sd -L myservername _http._tcp local</code> – resolve the IP/domain and port of an
 advertized service.</p>
 
+      </div>
     </section>
-    <footer class="pt-8">
+    <footer class="max-w-prose pt-8 print:hidden">
       
   <div class="flex">
     
-      <img class="w-24 h-24 !mt-0 !mb-0 mr-4 rounded-full" src="/images/ericmiller.png" />
+    
     
     <div class="place-self-center">
       
-        <div class="text-[0.6rem] leading-3 text-neutral-400 dark:text-neutral-500 uppercase">
-          Author
-        </div>
-        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
-          Eric Miller
-        </div>
       
-      
-        <div class="text-sm text-neutral-700 dark:text-neutral-400">DevOps Engineer, Kuberneter</div>
-      
-      
-  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
-    
-      
-        <a
-          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
-          href="https://github.com/sosheskaz/"
-          target="_blank"
-          alt="Github"
-          rel="me noopener noreferrer"
-          >
-
-  <span class="relative inline-block align-text-bottom icon">
-    <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
-  </span>
-
-</a
-        >
-      
-    
-  </div>
-
-
+      <div class="text-2xl sm:text-lg">
+</div>
     </div>
   </div>
 
@@ -417,20 +554,28 @@ advertized service.</p>
 
       
   
-    <div class="pt-8 article-pagination">
+    
+    
+    
+    <div class="pt-8">
       <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex" href="/2016/11/12/2016-Macbook-Pro-Impressions/">
-              <span class="mr-3 article-pagination-direction">&larr;</span>
+            <a class="group flex" href="/2016/09/24/Jurassic-World-Reversal/">
+              <span
+                class="me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&larr;</span
+                ><span class="ltr:hidden rtl:inline">&rarr;</span></span
+              >
               <span class="flex flex-col">
-                <span class="article-pagination-title mt-[0.1rem] leading-6"
-                  >2016 MacBook Pro Impressions</span
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Jurassic World with Chris Pratt as the Velociraptors and a Velociraptor as Chris Pratt</span
                 >
-                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2016-11-12 00:00:00 &#43;0000 UTC">12 November 2016</time>
+                    <time datetime="2016-09-24 00:00:00 &#43;0000 UTC">September 24, 2016</time>
                   
                 </span>
               </span>
@@ -439,18 +584,23 @@ advertized service.</p>
         </span>
         <span>
           
-            <a class="flex text-right" href="/2016/09/24/Jurassic-World-Reversal/">
+            <a class="group flex text-right" href="/2016/11/12/2016-Macbook-Pro-Impressions/">
               <span class="flex flex-col">
-                <span class="article-pagination-title mt-[0.1rem] leading-6"
-                  >Jurassic World with Chris Pratt as the Velociraptors and a Velociraptor as Chris Pratt</span
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >2016 MacBook Pro Impressions</span
                 >
-                <span class="mt-[0.1rem] text-xs text-neutral-400 dark:text-neutral-500">
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2016-09-24 00:00:00 &#43;0000 UTC">24 September 2016</time>
+                    <time datetime="2016-11-12 00:00:00 &#43;0000 UTC">November 12, 2016</time>
                   
                 </span>
               </span>
-              <span class="ml-3 article-pagination-direction">&rarr;</span>
+              <span
+                class="ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&rarr;</span
+                ><span class="ltr:hidden rtl:inline">&larr;</span></span
+              >
             </a>
           
         </span>
@@ -459,68 +609,56 @@ advertized service.</p>
   
 
 
+      
     </footer>
-    
   </article>
-</main><footer class="py-10">
+
+        
+          <div class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12">
+            <a
+              href="#the-top"
+              class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+              aria-label="Scroll to top"
+              title="Scroll to top"
+            >
+              &uarr;
+            </a>
+          </div>
+        
+      </main><footer class="py-10 print:hidden">
   
   
-  <div class="flex justify-between">
+  <div class="flex items-center justify-between">
     <div>
       
-      <p class="text-sm text-neutral-400 dark:text-neutral-500">
-          &copy;
-          2022
-          Eric Miller
-      </p>
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            &copy;
+            2024
+            
+        </p>
       
       
-        <p class="text-xs text-neutral-300 dark:text-neutral-600">
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
           
           
-          Powered by <a class="hover:underline hover:underline-primary-300 hover:text-primary-400"
-            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:underline-primary-300 hover:text-primary-400" href="https://git.io/hugo-congo" target="_blank" rel="noopener noreferrer">Congo</a>
+          Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://github.com/jpanther/congo" target="_blank" rel="noopener noreferrer">Congo</a>
         </p>
       
     </div>
-    
-    
-      <div class="text-sm cursor-pointer text-neutral-400 dark:text-neutral-500">
-        <button
-          id="dark-toggle"
-          onclick="setPreferredAppearance('dark');"
-          oncontextmenu="setPreferredAppearance('default'); return false;"
-          class="inline px-2 py-1 border rounded-md border-neutral-200 dark:hidden hover:text-primary-500 hover:border-primary-400"
-          title="Switch to dark appearance"
-        >
-          
-
-  <span class="relative inline-block align-text-bottom icon">
-    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="moon" class="svg-inline--fa fa-moon fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"></path></svg>
-  </span>
-
-
-        </button>
-        <button
-          id="light-toggle"
-          onclick="setPreferredAppearance('light');"
-          oncontextmenu="setPreferredAppearance('default'); return false;"
-          class="hidden px-2 py-1 border rounded-md cursor-pointer dark:inline border-neutral-700 hover:text-primary-400 hover:border-primary-500"
-          title="Switch to light appearance"
-        >
-          
-
-  <span class="relative inline-block align-text-bottom icon">
-    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sun" class="svg-inline--fa fa-sun fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"></path></svg>
-  </span>
-
-
-        </button>
-      </div>
-    
+    <div class="flex flex-row items-center">
+      
+      
+      
+      
+    </div>
   </div>
   
   
 </footer>
-</body>
+
+    </div>
+  </body>
 </html>
