@@ -15,5 +15,12 @@
       <guid>https://ericsweb.site/posts/2024-04-25-infinitude-ha-addon/</guid>
       <description>I recently completed initial work on a project, packaging Infinitude nicely as a Home Assistant Add-On.&#xA;Infinitude is a project that makes it possible to programmatically interact with Bryant thermostats, which I use at home. There is also an integration which allows the Home Assistant home automation platform to integrate with it. This project solves the piece of how one runs Infinitude itself, by packaging it neatly as a Home Assistant Add-On.</description>
     </item>
+    <item>
+      <title>Ubuntu Noble 24.04 Upgrade Notes</title>
+      <link>https://ericsweb.site/posts/2024-08-31-ubuntu-noble-upgrade/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ericsweb.site/posts/2024-08-31-ubuntu-noble-upgrade/</guid>
+      <description>This article was written to describe my experience performing an in-place upgrade of my home server to Ubuntu Noble Numbat 24.04.&#xA;I&amp;rsquo;m writing this during the process; my intent is to outline my experience with the upgrade for others considering the upgrade, and to document any problems I encounter. I like to update my stuff aggressively, as a personal preference (but still use LTS only).&#xA;Upshot #This section was written after all others, to give a final outline of what happened and avoid burying the lede.</description>
+    </item>
   </channel>
 </rss>

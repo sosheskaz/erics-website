@@ -28,8 +28,8 @@
   
   <script
     type="text/javascript"
-    src="/js/appearance.min.74ad8406faea02f3e186ba5126249aaeed9073629e04b05037b903396b188724.js"
-    integrity="sha256-dK2EBvrqAvPhhrpRJiSaru2Qc2KeBLBQN7kDOWsYhyQ="
+    src="/js/appearance.min.8a082f81b27f3cb2ee528df0b0bdc39787034cf2cc34d4669fbc9977c929023c.js"
+    integrity="sha256-iggvgbJ/PLLuUo3wsL3Dl4cDTPLMNNRmn7yZd8kpAjw="
   ></script>
   
   
@@ -42,8 +42,8 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.9602fe0216290b9ff0322c1fd14e88ab9fc0a13741f4de563f67831708d72bb2.css"
-    integrity="sha256-lgL&#43;AhYpC5/wMiwf0U6Iq5/AoTdB9N5WP2eDFwjXK7I="
+    href="/css/main.bundle.min.b0785c8131a75f72b211435af86269eb2d4b81dda03a8f2cf5ccb1c967747167.css"
+    integrity="sha256-sHhcgTGnX3KyEUNa&#43;GJp6y1Lgd2gOo8s9cyxyWd0cWc="
   />
   
   
@@ -81,15 +81,17 @@
   <meta property="og:url" content="https://ericsweb.site/posts/project-euler-performance-profiling/">
   <meta property="og:site_name" content="Eric&#39;s Web.site">
   <meta property="og:title" content="Profiling Language Performance with Project Euler">
-  <meta property="og:description" content="I&amp;rsquo;ve been sitting on a side project for a while, working on it when I have time. The project in question is Project Euler - specifically, implementing Project Euler in a few different programming languages. Pretty soon after starting, I realized that I had an opportunity to compare the performance of these implementations across not only different programming languages, but also across different ways of running the code in question and optimizing it to not just reach the right answer, but to maximize performance in measurable ways.">
-  <meta property="og:locale" content="en-us">
+  <meta property="og:description" content="I’ve been sitting on a side project for a while, working on it when I have time. The project in question is Project Euler - specifically, implementing Project Euler in a few different programming languages. Pretty soon after starting, I realized that I had an opportunity to compare the performance of these implementations across not only different programming languages, but also across different ways of running the code in question and optimizing it to not just reach the right answer, but to maximize performance in measurable ways.">
+  <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
-  <meta property="article:section" content="posts">
+    <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2019-05-26T00:00:00+00:00">
     <meta property="article:modified_time" content="2019-05-26T00:00:00+00:00">
 
-  <meta name="twitter:card" content="summary"><meta name="twitter:title" content="Profiling Language Performance with Project Euler">
-<meta name="twitter:description" content="I&rsquo;ve been sitting on a side project for a while, working on it when I have time. The project in question is Project Euler - specifically, implementing Project Euler in a few different programming languages. Pretty soon after starting, I realized that I had an opportunity to compare the performance of these implementations across not only different programming languages, but also across different ways of running the code in question and optimizing it to not just reach the right answer, but to maximize performance in measurable ways.">
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Profiling Language Performance with Project Euler">
+  <meta name="twitter:description" content="I’ve been sitting on a side project for a while, working on it when I have time. The project in question is Project Euler - specifically, implementing Project Euler in a few different programming languages. Pretty soon after starting, I realized that I had an opportunity to compare the performance of these implementations across not only different programming languages, but also across different ways of running the code in question and optimizing it to not just reach the right answer, but to maximize performance in measurable ways.">
 
   
   <script type="application/ld+json">
@@ -119,6 +121,48 @@
     "wordCount": "3081"
   }
   </script>
+    
+    <script type="application/ld+json">
+    {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "https://ericsweb.site/",
+       "name": "Index",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "https://ericsweb.site/posts/",
+       "name": "Posts",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "item": "https://ericsweb.site/categories/technology/",
+       "name": "Technology",
+       "position": 3
+     },
+     {
+       "@type": "ListItem",
+       "name": "Profiling Language Performance With Project Euler",
+       "position": 4
+     }
+   ]
+ }
+  </script>
+
+  
+  
+  
+  
+  
+
+
+
+
 
 
   
@@ -126,19 +170,9 @@
   
   
   
+  
+  
 
-
-
-
-
-
-  
-  
-  
-  
-  
-  
-  
 
 
 
@@ -146,7 +180,7 @@
   
 </head>
 <body
-    class="m-auto flex h-screen max-w-7xl flex-col bg-neutral px-6 text-lg leading-7 text-neutral-900 sm:px-14 md:px-24 lg:px-32 dark:bg-neutral-800 dark:text-neutral"
+    class="m-auto flex h-screen max-w-7xl flex-col bg-neutral px-6 text-lg leading-7 text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"
   >
     <div id="the-top" class="absolute flex self-center">
       <a
@@ -158,7 +192,7 @@
     </div>
     
     
-      <header class="py-6 font-semibold text-neutral-900 print:hidden sm:py-10 dark:text-neutral">
+      <header class="py-6 font-semibold text-neutral-900 dark:text-neutral sm:py-10 print:hidden">
   <nav class="flex items-start justify-between sm:items-center">
     
     <div class="flex flex-row items-center">
@@ -238,7 +272,7 @@
   <article>
     <header class="max-w-prose">
       
-        <ol class="text-sm text-neutral-500 print:hidden dark:text-neutral-400">
+        <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
   
   
     
@@ -275,11 +309,11 @@
 
 
       
-      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      <h1 class="mb-8 mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
         Profiling Language Performance with Project Euler
       </h1>
       
-        <div class="mb-12 mt-8 text-base text-neutral-500 print:hidden dark:text-neutral-400">
+        <div class="mb-10 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
           
 
 
@@ -427,12 +461,12 @@ the Golang implementation.</p>
       
         <source
           
-            srcset="/posts/project-euler-performance-profiling/relative-clock-time_hu00cee04fe43135fb51f12c243ee47e7a_374989_330x0_resize_q75_h2_box_3.webp 330w,/posts/project-euler-performance-profiling/relative-clock-time_hu00cee04fe43135fb51f12c243ee47e7a_374989_660x0_resize_q75_h2_box_3.webp 660w
+            srcset="/posts/project-euler-performance-profiling/relative-clock-time_hu15043705880164873219.webp 330w,/posts/project-euler-performance-profiling/relative-clock-time_hu17565915389254395015.webp 660w
             
-              ,/posts/project-euler-performance-profiling/relative-clock-time_hu00cee04fe43135fb51f12c243ee47e7a_374989_1024x0_resize_q75_h2_box_3.webp 1024w
+              ,/posts/project-euler-performance-profiling/relative-clock-time_hu18367894264593578995.webp 1024w
             
             
-              ,/posts/project-euler-performance-profiling/relative-clock-time_hu00cee04fe43135fb51f12c243ee47e7a_374989_1320x0_resize_q75_h2_box_3.webp 1320w
+              ,/posts/project-euler-performance-profiling/relative-clock-time_hu4018279622225055202.webp 1320w
             "
           
           sizes="100vw"
@@ -446,13 +480,13 @@ the Golang implementation.</p>
         alt="Relative Performance by Profile Strategy (GoLang as Reference Point)"
         loading="lazy" decoding="async"
         
-          src="/posts/project-euler-performance-profiling/relative-clock-time_hu00cee04fe43135fb51f12c243ee47e7a_374989_660x0_resize_box_3.png"
-          srcset="/posts/project-euler-performance-profiling/relative-clock-time_hu00cee04fe43135fb51f12c243ee47e7a_374989_330x0_resize_box_3.png 330w,/posts/project-euler-performance-profiling/relative-clock-time_hu00cee04fe43135fb51f12c243ee47e7a_374989_660x0_resize_box_3.png 660w
+          src="/posts/project-euler-performance-profiling/relative-clock-time_hu2398046080784055859.png"
+          srcset="/posts/project-euler-performance-profiling/relative-clock-time_hu7074313175596537223.png 330w,/posts/project-euler-performance-profiling/relative-clock-time_hu2398046080784055859.png 660w
           
-            ,/posts/project-euler-performance-profiling/relative-clock-time_hu00cee04fe43135fb51f12c243ee47e7a_374989_1024x0_resize_box_3.png 1024w
+            ,/posts/project-euler-performance-profiling/relative-clock-time_hu8596135217202317361.png 1024w
           
           
-            ,/posts/project-euler-performance-profiling/relative-clock-time_hu00cee04fe43135fb51f12c243ee47e7a_374989_1320x0_resize_box_3.png 1320w
+            ,/posts/project-euler-performance-profiling/relative-clock-time_hu10954221350691367688.png 1320w
           "
           sizes="100vw"
         
@@ -730,12 +764,12 @@ point of unreadability:</p>
       
         <source
           
-            srcset="/posts/project-euler-performance-profiling/memory-general_hu3c8ce94555d85163c7a7e219d62cc2b2_219678_330x0_resize_q75_h2_box_3.webp 330w,/posts/project-euler-performance-profiling/memory-general_hu3c8ce94555d85163c7a7e219d62cc2b2_219678_660x0_resize_q75_h2_box_3.webp 660w
+            srcset="/posts/project-euler-performance-profiling/memory-general_hu16272596238429705262.webp 330w,/posts/project-euler-performance-profiling/memory-general_hu12646489554034809937.webp 660w
             
-              ,/posts/project-euler-performance-profiling/memory-general_hu3c8ce94555d85163c7a7e219d62cc2b2_219678_1024x0_resize_q75_h2_box_3.webp 1024w
+              ,/posts/project-euler-performance-profiling/memory-general_hu2455828960452136656.webp 1024w
             
             
-              ,/posts/project-euler-performance-profiling/memory-general_hu3c8ce94555d85163c7a7e219d62cc2b2_219678_1320x0_resize_q75_h2_box_3.webp 1320w
+              ,/posts/project-euler-performance-profiling/memory-general_hu13520493908695695328.webp 1320w
             "
           
           sizes="100vw"
@@ -749,13 +783,13 @@ point of unreadability:</p>
         alt="Memory Footprint"
         loading="lazy" decoding="async"
         
-          src="/posts/project-euler-performance-profiling/memory-general_hu3c8ce94555d85163c7a7e219d62cc2b2_219678_660x0_resize_box_3.png"
-          srcset="/posts/project-euler-performance-profiling/memory-general_hu3c8ce94555d85163c7a7e219d62cc2b2_219678_330x0_resize_box_3.png 330w,/posts/project-euler-performance-profiling/memory-general_hu3c8ce94555d85163c7a7e219d62cc2b2_219678_660x0_resize_box_3.png 660w
+          src="/posts/project-euler-performance-profiling/memory-general_hu4101382802909357118.png"
+          srcset="/posts/project-euler-performance-profiling/memory-general_hu8552354795811199466.png 330w,/posts/project-euler-performance-profiling/memory-general_hu4101382802909357118.png 660w
           
-            ,/posts/project-euler-performance-profiling/memory-general_hu3c8ce94555d85163c7a7e219d62cc2b2_219678_1024x0_resize_box_3.png 1024w
+            ,/posts/project-euler-performance-profiling/memory-general_hu13263452145275033788.png 1024w
           
           
-            ,/posts/project-euler-performance-profiling/memory-general_hu3c8ce94555d85163c7a7e219d62cc2b2_219678_1320x0_resize_box_3.png 1320w
+            ,/posts/project-euler-performance-profiling/memory-general_hu14993921156346487493.png 1320w
           "
           sizes="100vw"
         
@@ -801,12 +835,12 @@ a lot:</p>
       
         <source
           
-            srcset="/posts/project-euler-performance-profiling/python-memory-footprint_huc0937e1f313139915d8960a8a0b326fa_179766_330x0_resize_q75_h2_box_3.webp 330w,/posts/project-euler-performance-profiling/python-memory-footprint_huc0937e1f313139915d8960a8a0b326fa_179766_660x0_resize_q75_h2_box_3.webp 660w
+            srcset="/posts/project-euler-performance-profiling/python-memory-footprint_hu4425370138141894381.webp 330w,/posts/project-euler-performance-profiling/python-memory-footprint_hu9614424863443078282.webp 660w
             
-              ,/posts/project-euler-performance-profiling/python-memory-footprint_huc0937e1f313139915d8960a8a0b326fa_179766_1024x0_resize_q75_h2_box_3.webp 1024w
+              ,/posts/project-euler-performance-profiling/python-memory-footprint_hu11642936853089378773.webp 1024w
             
             
-              ,/posts/project-euler-performance-profiling/python-memory-footprint_huc0937e1f313139915d8960a8a0b326fa_179766_1320x0_resize_q75_h2_box_3.webp 1320w
+              ,/posts/project-euler-performance-profiling/python-memory-footprint_hu16918445501018224126.webp 1320w
             "
           
           sizes="100vw"
@@ -820,13 +854,13 @@ a lot:</p>
         alt="CPython vs PyPy Memory Footprint"
         loading="lazy" decoding="async"
         
-          src="/posts/project-euler-performance-profiling/python-memory-footprint_huc0937e1f313139915d8960a8a0b326fa_179766_660x0_resize_box_3.png"
-          srcset="/posts/project-euler-performance-profiling/python-memory-footprint_huc0937e1f313139915d8960a8a0b326fa_179766_330x0_resize_box_3.png 330w,/posts/project-euler-performance-profiling/python-memory-footprint_huc0937e1f313139915d8960a8a0b326fa_179766_660x0_resize_box_3.png 660w
+          src="/posts/project-euler-performance-profiling/python-memory-footprint_hu16941251738275705135.png"
+          srcset="/posts/project-euler-performance-profiling/python-memory-footprint_hu11147324360989839244.png 330w,/posts/project-euler-performance-profiling/python-memory-footprint_hu16941251738275705135.png 660w
           
-            ,/posts/project-euler-performance-profiling/python-memory-footprint_huc0937e1f313139915d8960a8a0b326fa_179766_1024x0_resize_box_3.png 1024w
+            ,/posts/project-euler-performance-profiling/python-memory-footprint_hu581775367181052561.png 1024w
           
           
-            ,/posts/project-euler-performance-profiling/python-memory-footprint_huc0937e1f313139915d8960a8a0b326fa_179766_1320x0_resize_box_3.png 1320w
+            ,/posts/project-euler-performance-profiling/python-memory-footprint_hu8145052062553086203.png 1320w
           "
           sizes="100vw"
         
@@ -868,12 +902,12 @@ increases.</p>
       
         <source
           
-            srcset="/posts/project-euler-performance-profiling/node-memory-footprint_hu7ac3635ab4cd83f629c0a7f69f5fcd69_226691_330x0_resize_q75_h2_box_3.webp 330w,/posts/project-euler-performance-profiling/node-memory-footprint_hu7ac3635ab4cd83f629c0a7f69f5fcd69_226691_660x0_resize_q75_h2_box_3.webp 660w
+            srcset="/posts/project-euler-performance-profiling/node-memory-footprint_hu15534500773602860073.webp 330w,/posts/project-euler-performance-profiling/node-memory-footprint_hu3686035339837037461.webp 660w
             
-              ,/posts/project-euler-performance-profiling/node-memory-footprint_hu7ac3635ab4cd83f629c0a7f69f5fcd69_226691_1024x0_resize_q75_h2_box_3.webp 1024w
+              ,/posts/project-euler-performance-profiling/node-memory-footprint_hu9299532026993146194.webp 1024w
             
             
-              ,/posts/project-euler-performance-profiling/node-memory-footprint_hu7ac3635ab4cd83f629c0a7f69f5fcd69_226691_1320x0_resize_q75_h2_box_3.webp 1320w
+              ,/posts/project-euler-performance-profiling/node-memory-footprint_hu11154210004915789432.webp 1320w
             "
           
           sizes="100vw"
@@ -887,13 +921,13 @@ increases.</p>
         alt="Node.js Memory Footprint"
         loading="lazy" decoding="async"
         
-          src="/posts/project-euler-performance-profiling/node-memory-footprint_hu7ac3635ab4cd83f629c0a7f69f5fcd69_226691_660x0_resize_box_3.png"
-          srcset="/posts/project-euler-performance-profiling/node-memory-footprint_hu7ac3635ab4cd83f629c0a7f69f5fcd69_226691_330x0_resize_box_3.png 330w,/posts/project-euler-performance-profiling/node-memory-footprint_hu7ac3635ab4cd83f629c0a7f69f5fcd69_226691_660x0_resize_box_3.png 660w
+          src="/posts/project-euler-performance-profiling/node-memory-footprint_hu6459298576697414336.png"
+          srcset="/posts/project-euler-performance-profiling/node-memory-footprint_hu17445395352490290538.png 330w,/posts/project-euler-performance-profiling/node-memory-footprint_hu6459298576697414336.png 660w
           
-            ,/posts/project-euler-performance-profiling/node-memory-footprint_hu7ac3635ab4cd83f629c0a7f69f5fcd69_226691_1024x0_resize_box_3.png 1024w
+            ,/posts/project-euler-performance-profiling/node-memory-footprint_hu725188077594002739.png 1024w
           
           
-            ,/posts/project-euler-performance-profiling/node-memory-footprint_hu7ac3635ab4cd83f629c0a7f69f5fcd69_226691_1320x0_resize_box_3.png 1320w
+            ,/posts/project-euler-performance-profiling/node-memory-footprint_hu16551010794827239001.png 1320w
           "
           sizes="100vw"
         
@@ -937,12 +971,12 @@ improvements for large datasets.</p>
       
         <source
           
-            srcset="/posts/project-euler-performance-profiling/memory-groovy-vs-ruby_hu8aec9e63f09db09799dd7f79845123de_188982_330x0_resize_q75_h2_box_3.webp 330w,/posts/project-euler-performance-profiling/memory-groovy-vs-ruby_hu8aec9e63f09db09799dd7f79845123de_188982_660x0_resize_q75_h2_box_3.webp 660w
+            srcset="/posts/project-euler-performance-profiling/memory-groovy-vs-ruby_hu8732135781152003972.webp 330w,/posts/project-euler-performance-profiling/memory-groovy-vs-ruby_hu1239262030788504.webp 660w
             
-              ,/posts/project-euler-performance-profiling/memory-groovy-vs-ruby_hu8aec9e63f09db09799dd7f79845123de_188982_1024x0_resize_q75_h2_box_3.webp 1024w
+              ,/posts/project-euler-performance-profiling/memory-groovy-vs-ruby_hu708991349740106494.webp 1024w
             
             
-              ,/posts/project-euler-performance-profiling/memory-groovy-vs-ruby_hu8aec9e63f09db09799dd7f79845123de_188982_1320x0_resize_q75_h2_box_3.webp 1320w
+              ,/posts/project-euler-performance-profiling/memory-groovy-vs-ruby_hu9628217312131052518.webp 1320w
             "
           
           sizes="100vw"
@@ -956,13 +990,13 @@ improvements for large datasets.</p>
         alt="Groovy vs Ruby Memory Footprint"
         loading="lazy" decoding="async"
         
-          src="/posts/project-euler-performance-profiling/memory-groovy-vs-ruby_hu8aec9e63f09db09799dd7f79845123de_188982_660x0_resize_box_3.png"
-          srcset="/posts/project-euler-performance-profiling/memory-groovy-vs-ruby_hu8aec9e63f09db09799dd7f79845123de_188982_330x0_resize_box_3.png 330w,/posts/project-euler-performance-profiling/memory-groovy-vs-ruby_hu8aec9e63f09db09799dd7f79845123de_188982_660x0_resize_box_3.png 660w
+          src="/posts/project-euler-performance-profiling/memory-groovy-vs-ruby_hu15609135823473610660.png"
+          srcset="/posts/project-euler-performance-profiling/memory-groovy-vs-ruby_hu5133674940657462902.png 330w,/posts/project-euler-performance-profiling/memory-groovy-vs-ruby_hu15609135823473610660.png 660w
           
-            ,/posts/project-euler-performance-profiling/memory-groovy-vs-ruby_hu8aec9e63f09db09799dd7f79845123de_188982_1024x0_resize_box_3.png 1024w
+            ,/posts/project-euler-performance-profiling/memory-groovy-vs-ruby_hu11846933149907955129.png 1024w
           
           
-            ,/posts/project-euler-performance-profiling/memory-groovy-vs-ruby_hu8aec9e63f09db09799dd7f79845123de_188982_1320x0_resize_box_3.png 1320w
+            ,/posts/project-euler-performance-profiling/memory-groovy-vs-ruby_hu9855134626793504715.png 1320w
           "
           sizes="100vw"
         
@@ -1020,12 +1054,12 @@ languages in functional programming functionality and performance.</p>
       
         <source
           
-            srcset="/posts/project-euler-performance-profiling/python-memory-footprint_huc0937e1f313139915d8960a8a0b326fa_179766_330x0_resize_q75_h2_box_3.webp 330w,/posts/project-euler-performance-profiling/python-memory-footprint_huc0937e1f313139915d8960a8a0b326fa_179766_660x0_resize_q75_h2_box_3.webp 660w
+            srcset="/posts/project-euler-performance-profiling/python-memory-footprint_hu4425370138141894381.webp 330w,/posts/project-euler-performance-profiling/python-memory-footprint_hu9614424863443078282.webp 660w
             
-              ,/posts/project-euler-performance-profiling/python-memory-footprint_huc0937e1f313139915d8960a8a0b326fa_179766_1024x0_resize_q75_h2_box_3.webp 1024w
+              ,/posts/project-euler-performance-profiling/python-memory-footprint_hu11642936853089378773.webp 1024w
             
             
-              ,/posts/project-euler-performance-profiling/python-memory-footprint_huc0937e1f313139915d8960a8a0b326fa_179766_1320x0_resize_q75_h2_box_3.webp 1320w
+              ,/posts/project-euler-performance-profiling/python-memory-footprint_hu16918445501018224126.webp 1320w
             "
           
           sizes="100vw"
@@ -1039,13 +1073,13 @@ languages in functional programming functionality and performance.</p>
         alt="CPython vs PyPy Memory Footprint"
         loading="lazy" decoding="async"
         
-          src="/posts/project-euler-performance-profiling/python-memory-footprint_huc0937e1f313139915d8960a8a0b326fa_179766_660x0_resize_box_3.png"
-          srcset="/posts/project-euler-performance-profiling/python-memory-footprint_huc0937e1f313139915d8960a8a0b326fa_179766_330x0_resize_box_3.png 330w,/posts/project-euler-performance-profiling/python-memory-footprint_huc0937e1f313139915d8960a8a0b326fa_179766_660x0_resize_box_3.png 660w
+          src="/posts/project-euler-performance-profiling/python-memory-footprint_hu16941251738275705135.png"
+          srcset="/posts/project-euler-performance-profiling/python-memory-footprint_hu11147324360989839244.png 330w,/posts/project-euler-performance-profiling/python-memory-footprint_hu16941251738275705135.png 660w
           
-            ,/posts/project-euler-performance-profiling/python-memory-footprint_huc0937e1f313139915d8960a8a0b326fa_179766_1024x0_resize_box_3.png 1024w
+            ,/posts/project-euler-performance-profiling/python-memory-footprint_hu581775367181052561.png 1024w
           
           
-            ,/posts/project-euler-performance-profiling/python-memory-footprint_huc0937e1f313139915d8960a8a0b326fa_179766_1320x0_resize_box_3.png 1320w
+            ,/posts/project-euler-performance-profiling/python-memory-footprint_hu8145052062553086203.png 1320w
           "
           sizes="100vw"
         
@@ -1183,7 +1217,7 @@ compilation of small, standalone binaries can get complicated.</p>
                 </span>
               </span>
               <span
-                class="ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                class="ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[-2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
                 ><span class="ltr:inline rtl:hidden">&rarr;</span
                 ><span class="ltr:hidden rtl:inline">&larr;</span></span
               >
@@ -1199,19 +1233,23 @@ compilation of small, standalone binaries can get complicated.</p>
     </footer>
   </article>
 
-        
-          <div class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12">
-            <a
-              href="#the-top"
-              class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
-              aria-label="Scroll to top"
-              title="Scroll to top"
-            >
-              &uarr;
-            </a>
-          </div>
-        
-      </main><footer class="py-10 print:hidden">
+      </main>
+      
+        <div
+          class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12"
+          id="to-top"
+          hidden="true"
+        >
+          <a
+            href="#the-top"
+            class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+            aria-label="Scroll to top"
+            title="Scroll to top"
+          >
+            &uarr;
+          </a>
+        </div>
+      <footer class="py-10 print:hidden">
   
   
   <div class="flex items-center justify-between">

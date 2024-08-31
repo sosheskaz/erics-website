@@ -28,8 +28,8 @@
   
   <script
     type="text/javascript"
-    src="/js/appearance.min.74ad8406faea02f3e186ba5126249aaeed9073629e04b05037b903396b188724.js"
-    integrity="sha256-dK2EBvrqAvPhhrpRJiSaru2Qc2KeBLBQN7kDOWsYhyQ="
+    src="/js/appearance.min.8a082f81b27f3cb2ee528df0b0bdc39787034cf2cc34d4669fbc9977c929023c.js"
+    integrity="sha256-iggvgbJ/PLLuUo3wsL3Dl4cDTPLMNNRmn7yZd8kpAjw="
   ></script>
   
   
@@ -42,8 +42,8 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.9602fe0216290b9ff0322c1fd14e88ab9fc0a13741f4de563f67831708d72bb2.css"
-    integrity="sha256-lgL&#43;AhYpC5/wMiwf0U6Iq5/AoTdB9N5WP2eDFwjXK7I="
+    href="/css/main.bundle.min.b0785c8131a75f72b211435af86269eb2d4b81dda03a8f2cf5ccb1c967747167.css"
+    integrity="sha256-sHhcgTGnX3KyEUNa&#43;GJp6y1Lgd2gOo8s9cyxyWd0cWc="
   />
   
   
@@ -83,19 +83,21 @@ Vocabulary #If you&rsquo;re familiar with CI, you can probably skip this (short)
   <meta property="og:url" content="https://ericsweb.site/2017/03/07/XCode-CI-Article/">
   <meta property="og:site_name" content="Eric&#39;s Web.site">
   <meta property="og:title" content="Setting up Simple Continuous Integration for iOS Development with XCode">
-  <meta property="og:description" content="Setting up reliable continuous integration (CI) for XCode can be a nightmare. I personally wrestled with the problem for a long while, eventually finding a somewhat convoluted workaround to make it work. However, I&amp;rsquo;ve since found a way to develop and maintain a reliable CI solution. Following is how you can whip together something similar.
-In this guide, you&amp;rsquo;ll find a start-to-finish CI solution for an XCode project.
-Vocabulary #If you&amp;rsquo;re familiar with CI, you can probably skip this (short) section.">
-  <meta property="og:locale" content="en-us">
+  <meta property="og:description" content="Setting up reliable continuous integration (CI) for XCode can be a nightmare. I personally wrestled with the problem for a long while, eventually finding a somewhat convoluted workaround to make it work. However, I’ve since found a way to develop and maintain a reliable CI solution. Following is how you can whip together something similar.
+In this guide, you’ll find a start-to-finish CI solution for an XCode project.
+Vocabulary #If you’re familiar with CI, you can probably skip this (short) section.">
+  <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
-  <meta property="article:section" content="posts">
+    <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2017-03-07T00:00:00+00:00">
     <meta property="article:modified_time" content="2017-03-07T00:00:00+00:00">
 
-  <meta name="twitter:card" content="summary"><meta name="twitter:title" content="Setting up Simple Continuous Integration for iOS Development with XCode">
-<meta name="twitter:description" content="Setting up reliable continuous integration (CI) for XCode can be a nightmare. I personally wrestled with the problem for a long while, eventually finding a somewhat convoluted workaround to make it work. However, I&rsquo;ve since found a way to develop and maintain a reliable CI solution. Following is how you can whip together something similar.
-In this guide, you&rsquo;ll find a start-to-finish CI solution for an XCode project.
-Vocabulary #If you&rsquo;re familiar with CI, you can probably skip this (short) section.">
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Setting up Simple Continuous Integration for iOS Development with XCode">
+  <meta name="twitter:description" content="Setting up reliable continuous integration (CI) for XCode can be a nightmare. I personally wrestled with the problem for a long while, eventually finding a somewhat convoluted workaround to make it work. However, I’ve since found a way to develop and maintain a reliable CI solution. Following is how you can whip together something similar.
+In this guide, you’ll find a start-to-finish CI solution for an XCode project.
+Vocabulary #If you’re familiar with CI, you can probably skip this (short) section.">
 
   
   <script type="application/ld+json">
@@ -125,6 +127,48 @@ Vocabulary #If you&rsquo;re familiar with CI, you can probably skip this (short)
     "wordCount": "2255"
   }
   </script>
+    
+    <script type="application/ld+json">
+    {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "https://ericsweb.site/",
+       "name": "Index",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "https://ericsweb.site/posts/",
+       "name": "Posts",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "item": "https://ericsweb.site/categories/tutorial/",
+       "name": "Tutorial",
+       "position": 3
+     },
+     {
+       "@type": "ListItem",
+       "name": "Setting Up Simple Continuous Integration for I Os Development With Xcode",
+       "position": 4
+     }
+   ]
+ }
+  </script>
+
+  
+  
+  
+  
+  
+
+
+
+
 
 
   
@@ -132,19 +176,9 @@ Vocabulary #If you&rsquo;re familiar with CI, you can probably skip this (short)
   
   
   
+  
+  
 
-
-
-
-
-
-  
-  
-  
-  
-  
-  
-  
 
 
 
@@ -152,7 +186,7 @@ Vocabulary #If you&rsquo;re familiar with CI, you can probably skip this (short)
   
 </head>
 <body
-    class="m-auto flex h-screen max-w-7xl flex-col bg-neutral px-6 text-lg leading-7 text-neutral-900 sm:px-14 md:px-24 lg:px-32 dark:bg-neutral-800 dark:text-neutral"
+    class="m-auto flex h-screen max-w-7xl flex-col bg-neutral px-6 text-lg leading-7 text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"
   >
     <div id="the-top" class="absolute flex self-center">
       <a
@@ -164,7 +198,7 @@ Vocabulary #If you&rsquo;re familiar with CI, you can probably skip this (short)
     </div>
     
     
-      <header class="py-6 font-semibold text-neutral-900 print:hidden sm:py-10 dark:text-neutral">
+      <header class="py-6 font-semibold text-neutral-900 dark:text-neutral sm:py-10 print:hidden">
   <nav class="flex items-start justify-between sm:items-center">
     
     <div class="flex flex-row items-center">
@@ -244,7 +278,7 @@ Vocabulary #If you&rsquo;re familiar with CI, you can probably skip this (short)
   <article>
     <header class="max-w-prose">
       
-        <ol class="text-sm text-neutral-500 print:hidden dark:text-neutral-400">
+        <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
   
   
     
@@ -281,11 +315,11 @@ Vocabulary #If you&rsquo;re familiar with CI, you can probably skip this (short)
 
 
       
-      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      <h1 class="mb-8 mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
         Setting up Simple Continuous Integration for iOS Development with XCode
       </h1>
       
-        <div class="mb-12 mt-8 text-base text-neutral-500 print:hidden dark:text-neutral-400">
+        <div class="mb-10 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
           
 
 
@@ -424,13 +458,13 @@ will not run on startup, and you will need to use launchd/systemd/Services as ap
       
         <source
           
-            srcset="/2017/03/07/XCode-CI-Article/runAll-start_hu8f81f899e2e3829d73dbfcefe11ba797_143786_330x0_resize_q75_h2_box.webp 330w,/2017/03/07/XCode-CI-Article/runAll-start_hu8f81f899e2e3829d73dbfcefe11ba797_143786_660x0_resize_q75_h2_box.webp 660w
+            srcset="/2017/03/07/XCode-CI-Article/runAll-start_hu7813035456860901711.webp 330w,/2017/03/07/XCode-CI-Article/runAll-start_hu5233708224596239434.webp 660w
             
-              ,/2017/03/07/XCode-CI-Article/runAll-start_hu8f81f899e2e3829d73dbfcefe11ba797_143786_1024x0_resize_q75_h2_box.webp 1024w
+              ,/2017/03/07/XCode-CI-Article/runAll-start_hu5205046882427544414.webp 1024w
             
             
               
-                ,/2017/03/07/XCode-CI-Article/runAll-start_hu8f81f899e2e3829d73dbfcefe11ba797_143786_1094x718_resize_q75_h2_box.webp 1094w
+                ,/2017/03/07/XCode-CI-Article/runAll-start_hu17693844053713136766.webp 1094w
               
             "
           
@@ -445,10 +479,10 @@ will not run on startup, and you will need to use launchd/systemd/Services as ap
         alt="Sample output"
         loading="lazy" decoding="async"
         
-          src="/2017/03/07/XCode-CI-Article/runAll-start_hu8f81f899e2e3829d73dbfcefe11ba797_143786_660x0_resize_q75_box.jpg"
-          srcset="/2017/03/07/XCode-CI-Article/runAll-start_hu8f81f899e2e3829d73dbfcefe11ba797_143786_330x0_resize_q75_box.jpg 330w,/2017/03/07/XCode-CI-Article/runAll-start_hu8f81f899e2e3829d73dbfcefe11ba797_143786_660x0_resize_q75_box.jpg 660w
+          src="/2017/03/07/XCode-CI-Article/runAll-start_hu14641608934344629964.jpg"
+          srcset="/2017/03/07/XCode-CI-Article/runAll-start_hu16134397536965188937.jpg 330w,/2017/03/07/XCode-CI-Article/runAll-start_hu14641608934344629964.jpg 660w
           
-            ,/2017/03/07/XCode-CI-Article/runAll-start_hu8f81f899e2e3829d73dbfcefe11ba797_143786_1024x0_resize_q75_box.jpg 1024w
+            ,/2017/03/07/XCode-CI-Article/runAll-start_hu796664471784390245.jpg 1024w
           
           
             ,/2017/03/07/XCode-CI-Article/runAll-start.jpg 1094w
@@ -494,12 +528,12 @@ fine for simple use cases.</p>
       
         <source
           
-            srcset="/2017/03/07/XCode-CI-Article/setup-dialog_hu5cc98921e3e4d860f96e6e45032467dc_111374_330x0_resize_q75_h2_box.webp 330w,/2017/03/07/XCode-CI-Article/setup-dialog_hu5cc98921e3e4d860f96e6e45032467dc_111374_660x0_resize_q75_h2_box.webp 660w
+            srcset="/2017/03/07/XCode-CI-Article/setup-dialog_hu11691115528307855103.webp 330w,/2017/03/07/XCode-CI-Article/setup-dialog_hu10508105555688197261.webp 660w
             
-              ,/2017/03/07/XCode-CI-Article/setup-dialog_hu5cc98921e3e4d860f96e6e45032467dc_111374_1024x0_resize_q75_h2_box.webp 1024w
+              ,/2017/03/07/XCode-CI-Article/setup-dialog_hu14613083504771815564.webp 1024w
             
             
-              ,/2017/03/07/XCode-CI-Article/setup-dialog_hu5cc98921e3e4d860f96e6e45032467dc_111374_1320x0_resize_q75_h2_box.webp 1320w
+              ,/2017/03/07/XCode-CI-Article/setup-dialog_hu18422076334166493902.webp 1320w
             "
           
           sizes="100vw"
@@ -513,13 +547,13 @@ fine for simple use cases.</p>
         alt="Setup Dialog"
         loading="lazy" decoding="async"
         
-          src="/2017/03/07/XCode-CI-Article/setup-dialog_hu5cc98921e3e4d860f96e6e45032467dc_111374_660x0_resize_q75_box.jpg"
-          srcset="/2017/03/07/XCode-CI-Article/setup-dialog_hu5cc98921e3e4d860f96e6e45032467dc_111374_330x0_resize_q75_box.jpg 330w,/2017/03/07/XCode-CI-Article/setup-dialog_hu5cc98921e3e4d860f96e6e45032467dc_111374_660x0_resize_q75_box.jpg 660w
+          src="/2017/03/07/XCode-CI-Article/setup-dialog_hu5369079036563239304.jpg"
+          srcset="/2017/03/07/XCode-CI-Article/setup-dialog_hu10144351615044063062.jpg 330w,/2017/03/07/XCode-CI-Article/setup-dialog_hu5369079036563239304.jpg 660w
           
-            ,/2017/03/07/XCode-CI-Article/setup-dialog_hu5cc98921e3e4d860f96e6e45032467dc_111374_1024x0_resize_q75_box.jpg 1024w
+            ,/2017/03/07/XCode-CI-Article/setup-dialog_hu5298336230206349899.jpg 1024w
           
           
-            ,/2017/03/07/XCode-CI-Article/setup-dialog_hu5cc98921e3e4d860f96e6e45032467dc_111374_1320x0_resize_q75_box.jpg 1320w
+            ,/2017/03/07/XCode-CI-Article/setup-dialog_hu13438211820452442551.jpg 1320w
           "
           sizes="100vw"
         
@@ -563,12 +597,12 @@ make things easier down the line.</p>
       
         <source
           
-            srcset="/2017/03/07/XCode-CI-Article/admin-page-link_hu999a67729fdf0ba1eedd86bd59a1adac_62843_330x0_resize_q75_h2_box.webp 330w,/2017/03/07/XCode-CI-Article/admin-page-link_hu999a67729fdf0ba1eedd86bd59a1adac_62843_660x0_resize_q75_h2_box.webp 660w
+            srcset="/2017/03/07/XCode-CI-Article/admin-page-link_hu2484339539766937115.webp 330w,/2017/03/07/XCode-CI-Article/admin-page-link_hu2763098653787273992.webp 660w
             
-              ,/2017/03/07/XCode-CI-Article/admin-page-link_hu999a67729fdf0ba1eedd86bd59a1adac_62843_1024x0_resize_q75_h2_box.webp 1024w
+              ,/2017/03/07/XCode-CI-Article/admin-page-link_hu6758929456815010647.webp 1024w
             
             
-              ,/2017/03/07/XCode-CI-Article/admin-page-link_hu999a67729fdf0ba1eedd86bd59a1adac_62843_1320x0_resize_q75_h2_box.webp 1320w
+              ,/2017/03/07/XCode-CI-Article/admin-page-link_hu2919706224206270487.webp 1320w
             "
           
           sizes="100vw"
@@ -582,13 +616,13 @@ make things easier down the line.</p>
         alt="admin page"
         loading="lazy" decoding="async"
         
-          src="/2017/03/07/XCode-CI-Article/admin-page-link_hu999a67729fdf0ba1eedd86bd59a1adac_62843_660x0_resize_q75_box.jpg"
-          srcset="/2017/03/07/XCode-CI-Article/admin-page-link_hu999a67729fdf0ba1eedd86bd59a1adac_62843_330x0_resize_q75_box.jpg 330w,/2017/03/07/XCode-CI-Article/admin-page-link_hu999a67729fdf0ba1eedd86bd59a1adac_62843_660x0_resize_q75_box.jpg 660w
+          src="/2017/03/07/XCode-CI-Article/admin-page-link_hu16968332082628918283.jpg"
+          srcset="/2017/03/07/XCode-CI-Article/admin-page-link_hu17294712232725148894.jpg 330w,/2017/03/07/XCode-CI-Article/admin-page-link_hu16968332082628918283.jpg 660w
           
-            ,/2017/03/07/XCode-CI-Article/admin-page-link_hu999a67729fdf0ba1eedd86bd59a1adac_62843_1024x0_resize_q75_box.jpg 1024w
+            ,/2017/03/07/XCode-CI-Article/admin-page-link_hu10984367744865178863.jpg 1024w
           
           
-            ,/2017/03/07/XCode-CI-Article/admin-page-link_hu999a67729fdf0ba1eedd86bd59a1adac_62843_1320x0_resize_q75_box.jpg 1320w
+            ,/2017/03/07/XCode-CI-Article/admin-page-link_hu70381936664122109.jpg 1320w
           "
           sizes="100vw"
         
@@ -627,15 +661,15 @@ make things easier down the line.</p>
       
         <source
           
-            srcset="/2017/03/07/XCode-CI-Article/create-project_hu8fa09a8fbde5e862586bf71ebe752f51_54142_330x0_resize_q75_h2_box.webp 330w,/2017/03/07/XCode-CI-Article/create-project_hu8fa09a8fbde5e862586bf71ebe752f51_54142_660x0_resize_q75_h2_box.webp 660w
+            srcset="/2017/03/07/XCode-CI-Article/create-project_hu18031602195759611144.webp 330w,/2017/03/07/XCode-CI-Article/create-project_hu14198647186471670220.webp 660w
             
               
-                ,/2017/03/07/XCode-CI-Article/create-project_hu8fa09a8fbde5e862586bf71ebe752f51_54142_696x308_resize_q75_h2_box.webp 696w
+                ,/2017/03/07/XCode-CI-Article/create-project_hu11373107054527320855.webp 696w
               
             
             
               
-                ,/2017/03/07/XCode-CI-Article/create-project_hu8fa09a8fbde5e862586bf71ebe752f51_54142_696x308_resize_q75_h2_box.webp 696w
+                ,/2017/03/07/XCode-CI-Article/create-project_hu11373107054527320855.webp 696w
               
             "
           
@@ -650,8 +684,8 @@ make things easier down the line.</p>
         alt="create project"
         loading="lazy" decoding="async"
         
-          src="/2017/03/07/XCode-CI-Article/create-project_hu8fa09a8fbde5e862586bf71ebe752f51_54142_660x0_resize_q75_box.jpg"
-          srcset="/2017/03/07/XCode-CI-Article/create-project_hu8fa09a8fbde5e862586bf71ebe752f51_54142_330x0_resize_q75_box.jpg 330w,/2017/03/07/XCode-CI-Article/create-project_hu8fa09a8fbde5e862586bf71ebe752f51_54142_660x0_resize_q75_box.jpg 660w
+          src="/2017/03/07/XCode-CI-Article/create-project_hu14516860683393897846.jpg"
+          srcset="/2017/03/07/XCode-CI-Article/create-project_hu17049508161502525516.jpg 330w,/2017/03/07/XCode-CI-Article/create-project_hu14516860683393897846.jpg 660w
           
             ,/2017/03/07/XCode-CI-Article/create-project.jpg 696w
           
@@ -717,13 +751,13 @@ is a concern, cocoapods can be faster.</p>
       
         <source
           
-            srcset="/2017/03/07/XCode-CI-Article/carthage-step_hu2cf0742cb315eedefd7ab255ec152fe7_102436_330x0_resize_q75_h2_box.webp 330w,/2017/03/07/XCode-CI-Article/carthage-step_hu2cf0742cb315eedefd7ab255ec152fe7_102436_660x0_resize_q75_h2_box.webp 660w
+            srcset="/2017/03/07/XCode-CI-Article/carthage-step_hu234419911312165372.webp 330w,/2017/03/07/XCode-CI-Article/carthage-step_hu5839487476563617075.webp 660w
             
-              ,/2017/03/07/XCode-CI-Article/carthage-step_hu2cf0742cb315eedefd7ab255ec152fe7_102436_1024x0_resize_q75_h2_box.webp 1024w
+              ,/2017/03/07/XCode-CI-Article/carthage-step_hu11262149420982003264.webp 1024w
             
             
               
-                ,/2017/03/07/XCode-CI-Article/carthage-step_hu2cf0742cb315eedefd7ab255ec152fe7_102436_1215x647_resize_q75_h2_box.webp 1215w
+                ,/2017/03/07/XCode-CI-Article/carthage-step_hu3563615782124763253.webp 1215w
               
             "
           
@@ -738,10 +772,10 @@ is a concern, cocoapods can be faster.</p>
         alt="Carthage in XCode"
         loading="lazy" decoding="async"
         
-          src="/2017/03/07/XCode-CI-Article/carthage-step_hu2cf0742cb315eedefd7ab255ec152fe7_102436_660x0_resize_q75_box.jpg"
-          srcset="/2017/03/07/XCode-CI-Article/carthage-step_hu2cf0742cb315eedefd7ab255ec152fe7_102436_330x0_resize_q75_box.jpg 330w,/2017/03/07/XCode-CI-Article/carthage-step_hu2cf0742cb315eedefd7ab255ec152fe7_102436_660x0_resize_q75_box.jpg 660w
+          src="/2017/03/07/XCode-CI-Article/carthage-step_hu10344660704179865396.jpg"
+          srcset="/2017/03/07/XCode-CI-Article/carthage-step_hu9706171810180579301.jpg 330w,/2017/03/07/XCode-CI-Article/carthage-step_hu10344660704179865396.jpg 660w
           
-            ,/2017/03/07/XCode-CI-Article/carthage-step_hu2cf0742cb315eedefd7ab255ec152fe7_102436_1024x0_resize_q75_box.jpg 1024w
+            ,/2017/03/07/XCode-CI-Article/carthage-step_hu13014335000793385538.jpg 1024w
           
           
             ,/2017/03/07/XCode-CI-Article/carthage-step.jpg 1215w
@@ -815,13 +849,13 @@ the device we set up in the previous step.</p>
       
         <source
           
-            srcset="/2017/03/07/XCode-CI-Article/xcode-step_huddc04290c81fdf9e9b5aee7b81068d79_130509_330x0_resize_q75_h2_box.webp 330w,/2017/03/07/XCode-CI-Article/xcode-step_huddc04290c81fdf9e9b5aee7b81068d79_130509_660x0_resize_q75_h2_box.webp 660w
+            srcset="/2017/03/07/XCode-CI-Article/xcode-step_hu16995840250938418506.webp 330w,/2017/03/07/XCode-CI-Article/xcode-step_hu626268755448179350.webp 660w
             
-              ,/2017/03/07/XCode-CI-Article/xcode-step_huddc04290c81fdf9e9b5aee7b81068d79_130509_1024x0_resize_q75_h2_box.webp 1024w
+              ,/2017/03/07/XCode-CI-Article/xcode-step_hu9662337386830486752.webp 1024w
             
             
               
-                ,/2017/03/07/XCode-CI-Article/xcode-step_huddc04290c81fdf9e9b5aee7b81068d79_130509_1061x741_resize_q75_h2_box.webp 1061w
+                ,/2017/03/07/XCode-CI-Article/xcode-step_hu10604561763724597923.webp 1061w
               
             "
           
@@ -836,10 +870,10 @@ the device we set up in the previous step.</p>
         alt="XCode Step"
         loading="lazy" decoding="async"
         
-          src="/2017/03/07/XCode-CI-Article/xcode-step_huddc04290c81fdf9e9b5aee7b81068d79_130509_660x0_resize_q75_box.jpg"
-          srcset="/2017/03/07/XCode-CI-Article/xcode-step_huddc04290c81fdf9e9b5aee7b81068d79_130509_330x0_resize_q75_box.jpg 330w,/2017/03/07/XCode-CI-Article/xcode-step_huddc04290c81fdf9e9b5aee7b81068d79_130509_660x0_resize_q75_box.jpg 660w
+          src="/2017/03/07/XCode-CI-Article/xcode-step_hu4820774858091874463.jpg"
+          srcset="/2017/03/07/XCode-CI-Article/xcode-step_hu14931968291822412359.jpg 330w,/2017/03/07/XCode-CI-Article/xcode-step_hu4820774858091874463.jpg 660w
           
-            ,/2017/03/07/XCode-CI-Article/xcode-step_huddc04290c81fdf9e9b5aee7b81068d79_130509_1024x0_resize_q75_box.jpg 1024w
+            ,/2017/03/07/XCode-CI-Article/xcode-step_hu5589687983276103545.jpg 1024w
           
           
             ,/2017/03/07/XCode-CI-Article/xcode-step.jpg 1061w
@@ -892,7 +926,7 @@ all branches and commits, enter <code>+:*</code> in the branch specification box
         <source
           
             
-              srcset="/2017/03/07/XCode-CI-Article/vcs-config_huadc710e0560c1fe4cee35a8b6bc0bc8d_52986_432x480_resize_q75_h2_box.webp"
+              srcset="/2017/03/07/XCode-CI-Article/vcs-config_hu5658299988501968437.webp"
             
           
           sizes="100vw"
@@ -943,15 +977,15 @@ all branches and commits, enter <code>+:*</code> in the branch specification box
       
         <source
           
-            srcset="/2017/03/07/XCode-CI-Article/branch-spec_hu7b829abd4f45e6a40ea70c1430173edc_22483_330x0_resize_q75_h2_box.webp 330w,/2017/03/07/XCode-CI-Article/branch-spec_hu7b829abd4f45e6a40ea70c1430173edc_22483_660x0_resize_q75_h2_box.webp 660w
+            srcset="/2017/03/07/XCode-CI-Article/branch-spec_hu8480791146271368618.webp 330w,/2017/03/07/XCode-CI-Article/branch-spec_hu9676359232943525595.webp 660w
             
               
-                ,/2017/03/07/XCode-CI-Article/branch-spec_hu7b829abd4f45e6a40ea70c1430173edc_22483_884x224_resize_q75_h2_box.webp 884w
+                ,/2017/03/07/XCode-CI-Article/branch-spec_hu4598521199696123719.webp 884w
               
             
             
               
-                ,/2017/03/07/XCode-CI-Article/branch-spec_hu7b829abd4f45e6a40ea70c1430173edc_22483_884x224_resize_q75_h2_box.webp 884w
+                ,/2017/03/07/XCode-CI-Article/branch-spec_hu4598521199696123719.webp 884w
               
             "
           
@@ -966,8 +1000,8 @@ all branches and commits, enter <code>+:*</code> in the branch specification box
         alt="Branch Specification"
         loading="lazy" decoding="async"
         
-          src="/2017/03/07/XCode-CI-Article/branch-spec_hu7b829abd4f45e6a40ea70c1430173edc_22483_660x0_resize_q75_box.jpg"
-          srcset="/2017/03/07/XCode-CI-Article/branch-spec_hu7b829abd4f45e6a40ea70c1430173edc_22483_330x0_resize_q75_box.jpg 330w,/2017/03/07/XCode-CI-Article/branch-spec_hu7b829abd4f45e6a40ea70c1430173edc_22483_660x0_resize_q75_box.jpg 660w
+          src="/2017/03/07/XCode-CI-Article/branch-spec_hu2701618266337924689.jpg"
+          srcset="/2017/03/07/XCode-CI-Article/branch-spec_hu2503444141478426114.jpg 330w,/2017/03/07/XCode-CI-Article/branch-spec_hu2701618266337924689.jpg 660w
           
             ,/2017/03/07/XCode-CI-Article/branch-spec.jpg 884w
           
@@ -1039,12 +1073,12 @@ zip file distribution.</p>
       
         <source
           
-            srcset="/2017/03/07/XCode-CI-Article/agent-install_huef04e7f0de257df0ef2422f4ef4e5c93_82621_330x0_resize_q75_h2_box.webp 330w,/2017/03/07/XCode-CI-Article/agent-install_huef04e7f0de257df0ef2422f4ef4e5c93_82621_660x0_resize_q75_h2_box.webp 660w
+            srcset="/2017/03/07/XCode-CI-Article/agent-install_hu11232296761523328844.webp 330w,/2017/03/07/XCode-CI-Article/agent-install_hu8877465737106966267.webp 660w
             
-              ,/2017/03/07/XCode-CI-Article/agent-install_huef04e7f0de257df0ef2422f4ef4e5c93_82621_1024x0_resize_q75_h2_box.webp 1024w
+              ,/2017/03/07/XCode-CI-Article/agent-install_hu10783149963963319000.webp 1024w
             
             
-              ,/2017/03/07/XCode-CI-Article/agent-install_huef04e7f0de257df0ef2422f4ef4e5c93_82621_1320x0_resize_q75_h2_box.webp 1320w
+              ,/2017/03/07/XCode-CI-Article/agent-install_hu7399385618827978046.webp 1320w
             "
           
           sizes="100vw"
@@ -1058,13 +1092,13 @@ zip file distribution.</p>
         alt="Agent Installation"
         loading="lazy" decoding="async"
         
-          src="/2017/03/07/XCode-CI-Article/agent-install_huef04e7f0de257df0ef2422f4ef4e5c93_82621_660x0_resize_q75_box.jpg"
-          srcset="/2017/03/07/XCode-CI-Article/agent-install_huef04e7f0de257df0ef2422f4ef4e5c93_82621_330x0_resize_q75_box.jpg 330w,/2017/03/07/XCode-CI-Article/agent-install_huef04e7f0de257df0ef2422f4ef4e5c93_82621_660x0_resize_q75_box.jpg 660w
+          src="/2017/03/07/XCode-CI-Article/agent-install_hu1524004053114830305.jpg"
+          srcset="/2017/03/07/XCode-CI-Article/agent-install_hu17606735663576116970.jpg 330w,/2017/03/07/XCode-CI-Article/agent-install_hu1524004053114830305.jpg 660w
           
-            ,/2017/03/07/XCode-CI-Article/agent-install_huef04e7f0de257df0ef2422f4ef4e5c93_82621_1024x0_resize_q75_box.jpg 1024w
+            ,/2017/03/07/XCode-CI-Article/agent-install_hu6742439774374231800.jpg 1024w
           
           
-            ,/2017/03/07/XCode-CI-Article/agent-install_huef04e7f0de257df0ef2422f4ef4e5c93_82621_1320x0_resize_q75_box.jpg 1320w
+            ,/2017/03/07/XCode-CI-Article/agent-install_hu12027770241233987275.jpg 1320w
           "
           sizes="100vw"
         
@@ -1147,7 +1181,7 @@ these easier.</p>
                 </span>
               </span>
               <span
-                class="ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                class="ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[-2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
                 ><span class="ltr:inline rtl:hidden">&rarr;</span
                 ><span class="ltr:hidden rtl:inline">&larr;</span></span
               >
@@ -1163,19 +1197,23 @@ these easier.</p>
     </footer>
   </article>
 
-        
-          <div class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12">
-            <a
-              href="#the-top"
-              class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
-              aria-label="Scroll to top"
-              title="Scroll to top"
-            >
-              &uarr;
-            </a>
-          </div>
-        
-      </main><footer class="py-10 print:hidden">
+      </main>
+      
+        <div
+          class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12"
+          id="to-top"
+          hidden="true"
+        >
+          <a
+            href="#the-top"
+            class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+            aria-label="Scroll to top"
+            title="Scroll to top"
+          >
+            &uarr;
+          </a>
+        </div>
+      <footer class="py-10 print:hidden">
   
   
   <div class="flex items-center justify-between">

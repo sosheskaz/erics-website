@@ -344,5 +344,12 @@
       <guid>https://ericsweb.site/2015/09/23/Excerpts-from-Apple&#39;s-Review-Guidelines/</guid>
       <description>From this document: https://developer.apple.com/app-store/review/guidelines/&#xA;&amp;ldquo;…if your app is plain creepy, it may not be accepted&amp;rdquo; &amp;ldquo;We have lots of serious developers who don&amp;rsquo;t want their quality Apps to be surrounded by amateur hour.&amp;rdquo; &amp;ldquo;We will reject Apps for any content or behavior that we believe is over the line. What line, you ask? Well, as a Supreme Court Justice once said, &amp;ldquo;I&amp;rsquo;ll know it when I see it&amp;rdquo;.&amp;rdquo; &amp;ldquo;If you run to the press and trash us, it never helps.</description>
     </item>
+    <item>
+      <title>Ubuntu Noble 24.04 Upgrade Notes</title>
+      <link>https://ericsweb.site/posts/2024-08-31-ubuntu-noble-upgrade/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ericsweb.site/posts/2024-08-31-ubuntu-noble-upgrade/</guid>
+      <description>This article was written to describe my experience performing an in-place upgrade of my home server to Ubuntu Noble Numbat 24.04.&#xA;I&amp;rsquo;m writing this during the process; my intent is to outline my experience with the upgrade for others considering the upgrade, and to document any problems I encounter. I like to update my stuff aggressively, as a personal preference (but still use LTS only).&#xA;Upshot #This section was written after all others, to give a final outline of what happened and avoid burying the lede.</description>
+    </item>
   </channel>
 </rss>

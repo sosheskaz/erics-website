@@ -1,0 +1,613 @@
+
+
+
+
+  
+
+
+
+
+<!doctype html>
+<html
+  lang="en-us"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FFFFFF" />
+  
+  <title>Kubernetes CPU Limits &middot; Eric&#39;s Web.site</title>
+    <meta name="title" content="Kubernetes CPU Limits &middot; Eric&#39;s Web.site" />
+  
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.8a082f81b27f3cb2ee528df0b0bdc39787034cf2cc34d4669fbc9977c929023c.js"
+    integrity="sha256-iggvgbJ/PLLuUo3wsL3Dl4cDTPLMNNRmn7yZd8kpAjw="
+  ></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.b0785c8131a75f72b211435af86269eb2d4b81dda03a8f2cf5ccb1c967747167.css"
+    integrity="sha256-sHhcgTGnX3KyEUNa&#43;GJp6y1Lgd2gOo8s9cyxyWd0cWc="
+  />
+  
+  
+  
+  
+  
+  
+  
+  <meta
+    name="description"
+    content="
+      
+        Kubernetes, the container orchestrator, allows an operator to assign resources (such as CPU) to running containers through two mechanisms: limits and requests. Requests can guarantee that a given amount of that resource is available to the container, while limits prevents the container from using more than a certain value. So, if we assign a CPU request of 1, and a limit of 2, our application will always have at least one full CPU core available to it, and will be prevented from using more than 2 CPU cores.
+      
+    "
+  />
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/posts/2023-06-05-kubernetes-cpu-limits/" />
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/posts/2023-06-05-kubernetes-cpu-limits/">
+  <meta property="og:site_name" content="Eric&#39;s Web.site">
+  <meta property="og:title" content="Kubernetes CPU Limits">
+  <meta property="og:description" content="Kubernetes, the container orchestrator, allows an operator to assign resources (such as CPU) to running containers through two mechanisms: limits and requests. Requests can guarantee that a given amount of that resource is available to the container, while limits prevents the container from using more than a certain value. So, if we assign a CPU request of 1, and a limit of 2, our application will always have at least one full CPU core available to it, and will be prevented from using more than 2 CPU cores.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-06-04T11:24:14-05:00">
+    <meta property="article:modified_time" content="2023-06-04T11:24:14-05:00">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Kubernetes CPU Limits">
+  <meta name="twitter:description" content="Kubernetes, the container orchestrator, allows an operator to assign resources (such as CPU) to running containers through two mechanisms: limits and requests. Requests can guarantee that a given amount of that resource is available to the container, while limits prevents the container from using more than a certain value. So, if we assign a CPU request of 1, and a limit of 2, our application will always have at least one full CPU core available to it, and will be prevented from using more than 2 CPU cores.">
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "Kubernetes CPU Limits",
+    "headline": "Kubernetes CPU Limits",
+    
+    "abstract": "Kubernetes, the container orchestrator, allows an operator to assign resources (such as CPU) to running containers through two mechanisms: limits and requests. Requests can guarantee that a given amount of that resource is available to the container, while limits prevents the container from using more than a certain value. So, if we assign a CPU request of 1, and a limit of 2, our application will always have at least one full CPU core available to it, and will be prevented from using more than 2 CPU cores.",
+    "inLanguage": "en-us",
+    "url" : "http:\/\/localhost:1313\/posts\/2023-06-05-kubernetes-cpu-limits\/",
+    "author" : {
+      "@type": "Person",
+      "name": ""
+    },
+    "copyrightYear": "2023",
+    "dateCreated": "2023-06-04T11:24:14-05:00",
+    "datePublished": "2023-06-04T11:24:14-05:00",
+    
+    "dateModified": "2023-06-04T11:24:14-05:00",
+    
+    "keywords": ["Kubernetes","K8s","Linux","CFS","Completely Fair Scheduler","CPU","time"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "611"
+  }
+  </script>
+    
+    <script type="application/ld+json">
+    {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/",
+       "name": "Index",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/posts/",
+       "name": "Posts",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/categories/technology/",
+       "name": "Technology",
+       "position": 3
+     },
+     {
+       "@type": "ListItem",
+       "name": "Kubernetes CPU Limits",
+       "position": 4
+     }
+   ]
+ }
+  </script>
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="m-auto flex h-screen max-w-7xl flex-col bg-neutral px-6 text-lg leading-7 text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="-translate-y-8 rounded-b-lg bg-primary-200 px-3 py-1 text-sm focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="pe-2 font-bold text-primary-600 dark:text-primary-400">&darr;</span
+        >Skip to main content</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold text-neutral-900 dark:text-neutral sm:py-10 print:hidden">
+  <nav class="flex items-start justify-between sm:items-center">
+    
+    <div class="flex flex-row items-center">
+      
+  <a
+    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+    rel="me"
+    href="/"
+    >Eric&rsquo;s Web.site</a
+  >
+
+    </div>
+    
+    
+      <ul class="flex list-none flex-col text-end sm:flex-row">
+        
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/posts/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >All Posts</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/categories/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Categories</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/profile/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >About</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+          
+        
+      </ul>
+    
+  </nav>
+</header>
+
+    
+    <div class="relative flex grow flex-col">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+        <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="hidden inline">
+    <a
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
+      href="/"
+      >Index</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class=" inline">
+    <a
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
+      href="/posts/"
+      >Posts</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="hidden inline">
+    <a
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
+      href="/posts/2023-06-05-kubernetes-cpu-limits/"
+      >Kubernetes CPU Limits</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mb-8 mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Kubernetes CPU Limits
+      </h1>
+      
+        <div class="mb-10 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+          
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2023-06-04 11:24:14 -0500 CDT">June 4, 2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
+    
+
+    
+    
+      <span class="ps-2"><span class="flex">
+  <span
+    class="ms-1 rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    Draft
+  </span>
+</span>
+</span>
+    
+  </div>
+
+  
+  
+
+
+        </div>
+      
+      
+    </header>
+    <section class="prose mt-0 flex max-w-full flex-col dark:prose-invert lg:flex-row">
+      
+      <div class="min-h-0 min-w-0 max-w-prose grow">
+        <p>Kubernetes, the container orchestrator, allows an operator to assign resources (such as CPU) to
+running containers through two mechanisms: <code>limits</code> and <code>requests</code>. <code>Requests</code> can guarantee that a
+given amount of that resource is available to the container, while <code>limits</code> prevents the container
+from using more than a certain value. So, if we assign a CPU <code>request</code> of <code>1</code>, and a <code>limit</code> of <code>2</code>,
+our application will always have at least one full CPU core available to it, and will be prevented
+from using more than 2 CPU cores.</p>
+<p>In the past, conventional wisdom around CPU <code>limits</code> and <code>requests</code> was that they should both be
+set, and generally, relatively close or matching. Even ChatGPT will, when asked, give this advice:</p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/posts/2023-06-05-kubernetes-cpu-limits/chatgpt_hu8179068852200652228.webp 330w,/posts/2023-06-05-kubernetes-cpu-limits/chatgpt_hu18139198538964647006.webp 660w
+            
+              ,/posts/2023-06-05-kubernetes-cpu-limits/chatgpt_hu9237057078259420600.webp 1024w
+            
+            
+              ,/posts/2023-06-05-kubernetes-cpu-limits/chatgpt_hu16826496589703989690.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1472"
+        height="426"
+        class="mx-auto my-0 rounded-md"
+        alt="When asked for the best practice on setting CPU limits, ChatGPT says that CPU limits should be matched to CPU requests"
+        loading="lazy" decoding="async"
+        
+          src="/posts/2023-06-05-kubernetes-cpu-limits/chatgpt_hu14044547409997571056.png"
+          srcset="/posts/2023-06-05-kubernetes-cpu-limits/chatgpt_hu1615657721729952644.png 330w,/posts/2023-06-05-kubernetes-cpu-limits/chatgpt_hu14044547409997571056.png 660w
+          
+            ,/posts/2023-06-05-kubernetes-cpu-limits/chatgpt_hu14757898288334970859.png 1024w
+          
+          
+            ,/posts/2023-06-05-kubernetes-cpu-limits/chatgpt_hu13017524011082688950.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>Kubernetes also has a feature discussed in their documentation, called
+<a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-qos/" target="_blank" rel="noreferrer">Quality of Service (QoS)</a>, which
+offers preferential treatment to pods with matching limits and requests:</p>
+<blockquote>
+<p>When a Node runs out of resources, Kubernetes will first evict BestEffort Pods running on that
+Node, followed by Burstable and finally Guaranteed Pods. When this eviction is due to resource
+pressure, only Pods exceeding resource requests are candidates for eviction.</p>
+</blockquote>
+<p>Which, upon reading, one could take as an implication that this is going to be a better experience,
+a better guarantee for an application, and makes the application a better tenant of the cluster.</p>
+<p>Intuitively, that makes sense: If the workload is better constrained, has a more predictable shape,
+and will not be a &ldquo;noisy neighbor&rdquo; because its resource usage will be constrained to what it is
+reserved, then it will be easier and to schedule, and less likely to be the cause of a resource
+constraint issue. Plus, we generally want to scale resources horizontally, not vertically, so not
+matching them would be kind of an anti-pattern on that front. If CPU is pressured, you can just
+scale up more pods — no need to overrun your provisioned resources.</p>
+<p><em>Right?</em></p>
+<h2 id="wrong" class="relative group">Wrong. <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#wrong" aria-label="Anchor">#</a></span></h2><p>For some time, there has been increasingly louder push-back against this idea, especially among
+those experienced with running Kubernetes clusters. People started to notice that, while the above
+sounded good <em>in theory</em>, in practice it came with issues, to the point where the supposed benefits
+were just not worth the headaches that would come from CPU limits. Many applications would exhibit
+strange behaviors. Many observed that latencies went through the roof, unless everything was vastly
+over-provisioned.</p>
+<ul>
+<li><a href="https://home.robusta.dev/blog/stop-using-cpu-limits" target="_blank" rel="noreferrer">For the love of god, stop using CPU limits on Kubernetes</a></li>
+<li><a href="https://community.ibm.com/community/user/aiops/blogs/dina-henderson/2022/06/29/kubernetes-cpu-throttling-the-silent-killer-of-res" target="_blank" rel="noreferrer">Kubernetes CPU Throttling: The Silent Killer of Response Time</a></li>
+<li><a href="https://erickhun.com/posts/kubernetes-faster-services-no-cpu-limits/" target="_blank" rel="noreferrer">Kubernetes: Make your services faster by removing CPU limits</a></li>
+</ul>
+<p>The idea that Kubernetes CPU Limits are worthwhile, does not survive scrutiny or experimentation.
+There may be cases where they are useful or beneficial, but they are generally detrimental.</p>
+<h2 id="why-are-kuberenetes-cpu-limits-bad" class="relative group">Why are Kuberenetes CPU Limits Bad? <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#why-are-kuberenetes-cpu-limits-bad" aria-label="Anchor">#</a></span></h2><p>A shortcoming of the articles just linked is that, while they provide ample and convincing evidence
+that Kubernetes CPU limits cause problems, they don&rsquo;t offer a cohesive theory as to why. And they do
+not address some of the strangest behaviors I have personally seen: TLS handshaking failures, memory
+leaks, dial timeouts, and the like. Even with latency, which is well-observed, we might wonder why
+the effect is so extreme?</p>
+<p>When I first ran into people suggesting that removing limits was the way to go, I was skeptical. Is
+it really that detrimental, or was it down to choosing poor configuration values? If this is so
+reliable, what is the underlying cause? I sometimes feel that there can be a tendency in this space
+to defer to superstition, and I&rsquo;m just not satisfied with the lack of specificity. Strong claims are
+often made, but the mechanism is not generally very clear.</p>
+<h2 id="the-mechanism" class="relative group">The Mechanism <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#the-mechanism" aria-label="Anchor">#</a></span></h2>
+      </div>
+    </section>
+    <footer class="max-w-prose pt-8 print:hidden">
+      
+  <div class="flex">
+    
+    
+    
+    <div class="place-self-center">
+      
+      
+      <div class="text-2xl sm:text-lg">
+</div>
+    </div>
+  </div>
+
+
+      
+
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="group flex" href="/posts/2022-09-12-groucho-henry/">
+              <span
+                class="me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&larr;</span
+                ><span class="ltr:hidden rtl:inline">&rarr;</span></span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Groucho Henry</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2022-09-12 19:19:53 -0500 CDT">September 12, 2022</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="group flex text-right" href="/posts/2024-01-06-ai/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Generative AI</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2024-01-06 15:15:39 -0600 CST">January 6, 2024</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[-2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&rarr;</span
+                ><span class="ltr:hidden rtl:inline">&larr;</span></span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+      </main>
+      
+        <div
+          class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12"
+          id="to-top"
+          hidden="true"
+        >
+          <a
+            href="#the-top"
+            class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+            aria-label="Scroll to top"
+            title="Scroll to top"
+          >
+            &uarr;
+          </a>
+        </div>
+      <footer class="py-10 print:hidden">
+  
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            &copy;
+            2024
+            
+        </p>
+      
+      
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          
+          
+          Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://github.com/jpanther/congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    <div class="flex flex-row items-center">
+      
+      
+      
+      
+    </div>
+  </div>
+  
+  
+</footer>
+
+    </div>
+  </body>
+</html>
