@@ -6,8 +6,15 @@
     <description>Recent content in Index on Eric&#39;s Web.site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 24 Apr 2024 19:49:26 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 31 Aug 2024 13:50:11 -0500</lastBuildDate>
     <atom:link href="https://ericsweb.site/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu Noble 24.04 Upgrade Notes</title>
+      <link>https://ericsweb.site/posts/2024-08-31-ubuntu-noble-upgrade/</link>
+      <pubDate>Sat, 31 Aug 2024 13:50:11 -0500</pubDate>
+      <guid>https://ericsweb.site/posts/2024-08-31-ubuntu-noble-upgrade/</guid>
+      <description>This article was written to describe my experience performing an in-place upgrade of my home server to Ubuntu Noble Numbat 24.04.&#xA;I&amp;rsquo;m writing this during the process; my intent is to outline my experience with the upgrade for others considering the upgrade, and to document any problems I encounter. I like to update my stuff aggressively, as a personal preference (but still use LTS only).&#xA;Upshot #This section was written after all others, to give a final outline of what happened and avoid burying the lede.</description>
+    </item>
     <item>
       <title>Infinitude Home Assistant Addon</title>
       <link>https://ericsweb.site/posts/2024-04-25-infinitude-ha-addon/</link>
@@ -34,7 +41,7 @@
       <link>https://ericsweb.site/profile/</link>
       <pubDate>Sat, 04 Dec 2021 17:21:18 -0600</pubDate>
       <guid>https://ericsweb.site/profile/</guid>
-      <description>Hi, my name is Eric. They call me a DevOps Engineer. I&amp;rsquo;ve been living with a constant stream of computer problems since 2004, and eventually became good enough at dealing with those problems to do so professionally. I work for Instructure, makers of the EdTech product Canvas. Opinions, views, and facts on this site are entirely my own, not representative of my employer.&#xA;This website is for a range of things - including technical tutorials, personal content, media analysis, photos, and whatever else comes up.</description>
+      <description>Hi, my name is Eric. They call me a DevOps Engineer. I&amp;rsquo;ve been living with a constant stream of computer problems since 2004, and eventually became good enough at dealing with those problems to do so professionally. I work for Coreweave. Opinions, view on this site are entirely my own, not representative of my employer.&#xA;This website is for a range of things - including technical tutorials, personal content, media analysis, photos, and whatever else comes up.</description>
     </item>
     <item>
       <title>Bearclaw. Cornstalk. Turtles. Get Yolked.</title>
@@ -350,13 +357,6 @@
       <pubDate>Wed, 23 Sep 2015 00:00:00 +0000</pubDate>
       <guid>https://ericsweb.site/2015/09/23/Excerpts-from-Apple&#39;s-Review-Guidelines/</guid>
       <description>From this document: https://developer.apple.com/app-store/review/guidelines/&#xA;&amp;ldquo;…if your app is plain creepy, it may not be accepted&amp;rdquo; &amp;ldquo;We have lots of serious developers who don&amp;rsquo;t want their quality Apps to be surrounded by amateur hour.&amp;rdquo; &amp;ldquo;We will reject Apps for any content or behavior that we believe is over the line. What line, you ask? Well, as a Supreme Court Justice once said, &amp;ldquo;I&amp;rsquo;ll know it when I see it&amp;rdquo;.&amp;rdquo; &amp;ldquo;If you run to the press and trash us, it never helps.</description>
-    </item>
-    <item>
-      <title>Ubuntu Noble 24.04 Upgrade Notes</title>
-      <link>https://ericsweb.site/posts/2024-08-31-ubuntu-noble-upgrade/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ericsweb.site/posts/2024-08-31-ubuntu-noble-upgrade/</guid>
-      <description>This article was written to describe my experience performing an in-place upgrade of my home server to Ubuntu Noble Numbat 24.04.&#xA;I&amp;rsquo;m writing this during the process; my intent is to outline my experience with the upgrade for others considering the upgrade, and to document any problems I encounter. I like to update my stuff aggressively, as a personal preference (but still use LTS only).&#xA;Upshot #This section was written after all others, to give a final outline of what happened and avoid burying the lede.</description>
     </item>
   </channel>
 </rss>

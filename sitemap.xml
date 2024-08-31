@@ -5,19 +5,28 @@
     
   
     
+  
+    
       <url>
-            <loc>https://ericsweb.site/posts/2024-04-25-infinitude-ha-addon/</loc>
-            <lastmod>2024-04-24T19:49:26-05:00</lastmod>
+            <loc>https://ericsweb.site/posts/</loc>
+            <lastmod>2024-08-31T13:50:11-05:00</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.5</priority>
           </url>
     
   
     
+      <url>
+            <loc>https://ericsweb.site/posts/2024-08-31-ubuntu-noble-upgrade/</loc>
+            <lastmod>2024-08-31T13:50:11-05:00</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
   
     
       <url>
-            <loc>https://ericsweb.site/posts/</loc>
+            <loc>https://ericsweb.site/posts/2024-04-25-infinitude-ha-addon/</loc>
             <lastmod>2024-04-24T19:49:26-05:00</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.5</priority>
@@ -478,14 +487,6 @@
       <url>
             <loc>https://ericsweb.site/2015/09/23/Excerpts-from-Apple&#39;s-Review-Guidelines/</loc>
             <lastmod>2015-09-23T00:00:00+00:00</lastmod>
-            <changefreq>weekly</changefreq>
-            <priority>0.5</priority>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://ericsweb.site/posts/2024-08-31-ubuntu-noble-upgrade/</loc>
             <changefreq>weekly</changefreq>
             <priority>0.5</priority>
           </url>
