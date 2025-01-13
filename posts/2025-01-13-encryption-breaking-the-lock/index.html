@@ -1,0 +1,831 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html
+  lang="en-us"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FFFFFF" />
+  
+  <title>Encryption: Breaking the Lock &middot; Eric&#39;s Web.site</title>
+    <meta name="title" content="Encryption: Breaking the Lock &middot; Eric&#39;s Web.site" />
+  
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.8a082f81b27f3cb2ee528df0b0bdc39787034cf2cc34d4669fbc9977c929023c.js"
+    integrity="sha256-iggvgbJ/PLLuUo3wsL3Dl4cDTPLMNNRmn7yZd8kpAjw="
+  ></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.b0785c8131a75f72b211435af86269eb2d4b81dda03a8f2cf5ccb1c967747167.css"
+    integrity="sha256-sHhcgTGnX3KyEUNa&#43;GJp6y1Lgd2gOo8s9cyxyWd0cWc="
+  />
+  
+  
+  
+  
+  
+  
+  
+  <meta
+    name="description"
+    content="
+      
+        Encryption has become ubiquitous in our everyday life, to the point that it fades into the
+background. This page is served over an encrypted connection, as are most web pages, our phones are
+generally encrypted, many laptops are encrypted, and virtually all communications that travel over
+the internet are encrypted in transit. To explain the utility of the technology of encryption, we
+often use the metaphor of &ldquo;lock and key&rdquo;. This metaphor is not wrong, but it is limited in a
+way that I think would benefit from broader understanding. This becomes particularly important when
+we start talking about public policy, and the relationship between encryption and governments.
+      
+    "
+  />
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/posts/2025-01-13-encryption-breaking-the-lock/" />
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/posts/2025-01-13-encryption-breaking-the-lock/">
+  <meta property="og:site_name" content="Eric&#39;s Web.site">
+  <meta property="og:title" content="Encryption: Breaking the Lock">
+  <meta property="og:description" content="Encryption has become ubiquitous in our everyday life, to the point that it fades into the background. This page is served over an encrypted connection, as are most web pages, our phones are generally encrypted, many laptops are encrypted, and virtually all communications that travel over the internet are encrypted in transit. To explain the utility of the technology of encryption, we often use the metaphor of “lock and key”. This metaphor is not wrong, but it is limited in a way that I think would benefit from broader understanding. This becomes particularly important when we start talking about public policy, and the relationship between encryption and governments.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-12T00:00:00-06:00">
+    <meta property="article:modified_time" content="2025-01-12T00:00:00-06:00">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Encryption: Breaking the Lock">
+  <meta name="twitter:description" content="Encryption has become ubiquitous in our everyday life, to the point that it fades into the background. This page is served over an encrypted connection, as are most web pages, our phones are generally encrypted, many laptops are encrypted, and virtually all communications that travel over the internet are encrypted in transit. To explain the utility of the technology of encryption, we often use the metaphor of “lock and key”. This metaphor is not wrong, but it is limited in a way that I think would benefit from broader understanding. This becomes particularly important when we start talking about public policy, and the relationship between encryption and governments.">
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "Encryption: Breaking the Lock",
+    "headline": "Encryption: Breaking the Lock",
+    
+    "abstract": "\u003cp\u003eEncryption has become ubiquitous in our everyday life, to the point that it fades into the\nbackground. This page is served over an encrypted connection, as are most web pages, our phones are\ngenerally encrypted, many laptops are encrypted, and virtually all communications that travel over\nthe internet are encrypted in transit. To explain the utility of the technology of encryption, we\noften use the metaphor of \u0026ldquo;lock and key\u0026rdquo;. This metaphor is not \u003cem\u003ewrong\u003c\/em\u003e, but it is limited in a\nway that I think would benefit from broader understanding. This becomes particularly important when\nwe start talking about public policy, and the relationship between encryption and governments.\u003c\/p\u003e",
+    "inLanguage": "en-us",
+    "url" : "http:\/\/localhost:1313\/posts\/2025-01-13-encryption-breaking-the-lock\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Eric Miller"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-01-12T00:00:00-06:00",
+    "datePublished": "2025-01-12T00:00:00-06:00",
+    
+    "dateModified": "2025-01-12T00:00:00-06:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "3453"
+  }
+  </script>
+    
+    <script type="application/ld+json">
+    {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/",
+       "name": "Index",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/posts/",
+       "name": "Posts",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "name": "Encryption Breaking the Lock",
+       "position": 3
+     }
+   ]
+ }
+  </script>
+
+  
+  <meta name="author" content="Eric Miller" />
+  
+    
+      <link href="https://github.com/sosheskaz/" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="m-auto flex h-screen max-w-7xl flex-col bg-neutral px-6 text-lg leading-7 text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="-translate-y-8 rounded-b-lg bg-primary-200 px-3 py-1 text-sm focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="pe-2 font-bold text-primary-600 dark:text-primary-400">&darr;</span
+        >Skip to main content</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold text-neutral-900 dark:text-neutral sm:py-10 print:hidden">
+  <nav class="flex items-start justify-between sm:items-center">
+    
+    <div class="flex flex-row items-center">
+      
+  <a
+    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+    rel="me"
+    href="/"
+    >Eric&rsquo;s Web.site</a
+  >
+
+    </div>
+    
+    
+      <ul class="flex list-none flex-col text-end sm:flex-row">
+        
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/posts/"
+                  title="Posts"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >All Posts</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/categories/"
+                  title="Categories"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Categories</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/profile/"
+                  title="About Me"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >About</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+          
+        
+      </ul>
+    
+  </nav>
+</header>
+
+    
+    <div class="relative flex grow flex-col">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+        <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="hidden inline">
+    <a
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
+      href="/"
+      >Index</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class=" inline">
+    <a
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
+      href="/posts/"
+      >Posts</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="hidden inline">
+    <a
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
+      href="/posts/2025-01-13-encryption-breaking-the-lock/"
+      >Encryption: Breaking the Lock</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mb-8 mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Encryption: Breaking the Lock
+      </h1>
+      
+        <div class="mb-10 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+          
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-01-12 00:00:00 -0600 CST">January 12, 2025</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">17 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+  
+
+
+        </div>
+      
+      
+    </header>
+    <section class="prose mt-0 flex max-w-full flex-col dark:prose-invert lg:flex-row">
+      
+      <div class="min-h-0 min-w-0 max-w-prose grow">
+        <p>Encryption has become ubiquitous in our everyday life, to the point that it fades into the
+background. This page is served over an encrypted connection, as are most web pages, our phones are
+generally encrypted, many laptops are encrypted, and virtually all communications that travel over
+the internet are encrypted in transit. To explain the utility of the technology of encryption, we
+often use the metaphor of &ldquo;lock and key&rdquo;. This metaphor is not <em>wrong</em>, but it is limited in a
+way that I think would benefit from broader understanding. This becomes particularly important when
+we start talking about public policy, and the relationship between encryption and governments.</p>
+<hr>
+<h2 id="lock-and-key" class="relative group">Lock and Key <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#lock-and-key" aria-label="Anchor">#</a></span></h2><p>The encryption/lock metaphor is fairly straightforward. A lock is a device that restricts access to
+&ldquo;something&rdquo;. The lock is activated with a key, making that &ldquo;something&rdquo; accessible. Thus, we ensure
+that only authorized people may access that &ldquo;something&rdquo;, by only sharing the key with authorized
+people. Encryption is similar, but for data: It has a key, only shared with parties who should have
+access to the data. Without the key, the data is unreadable. However, by processing the data with
+that key, we can render it into a readable format.</p>
+<p>This metaphor glosses over some details, but broadly speaking, it gives a fair understanding of what
+encryption does and how it works. However, there are a few lies here—some about encryption, and some
+about actual, physical locks.</p>
+<h2 id="the-technology-of-physical-locks" class="relative group">The Technology of Physical Locks <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#the-technology-of-physical-locks" aria-label="Anchor">#</a></span></h2><p>When we imagine a lock, we imagine a physical device, like a padlock, a deadbolt, or a safe. These
+devices use mechanical or electro-mechanical components in order to maintain and transition between
+two possible states: &ldquo;locked&rdquo; and &ldquo;unlocked&rdquo;. The device is built to transition state easily when
+presented with its matching key, but to resist transitioning state, especially from &ldquo;unlocked&rdquo; to
+&ldquo;locked&rdquo;, without that key. A mechanical component of the lock usually comes out of it, in order to
+create this physical effect, which allows us to link the system of the &ldquo;lock&rdquo; with other systems,
+like a door. On a deadbolt lock, this s the bolt. On a padlock, this is the shank. This part is also
+generally pretty sturdy, to avoid being circumvented by physical means.</p>
+<p>However, locks are not <em>absolute</em>. They can be tricked, bypassed, broken, or used improperly. In one
+sense, this is an inherent limitation of the technology. In another sense, this is absolutely vital
+to the function of our society.</p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/posts/2025-01-13-encryption-breaking-the-lock/gate_hu4598278041047081609.webp 330w,/posts/2025-01-13-encryption-breaking-the-lock/gate_hu4044038416303666860.webp 660w
+            
+              ,/posts/2025-01-13-encryption-breaking-the-lock/gate_hu12429879237013030945.webp 1024w
+            
+            
+              ,/posts/2025-01-13-encryption-breaking-the-lock/gate_hu7549302115425048227.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1728"
+        height="1296"
+        class="mx-auto my-0 rounded-md"
+        alt="picture of a gate, locked with a padlock, which is free-standing and not connected to a fence, allowing anyone to simply walk around it, illustrating the pointlessness of a lock which is improperly installed"
+        loading="lazy" decoding="async"
+        
+          src="/posts/2025-01-13-encryption-breaking-the-lock/gate_hu10240180072911110401.png"
+          srcset="/posts/2025-01-13-encryption-breaking-the-lock/gate_hu9658969700178186341.png 330w,/posts/2025-01-13-encryption-breaking-the-lock/gate_hu10240180072911110401.png 660w
+          
+            ,/posts/2025-01-13-encryption-breaking-the-lock/gate_hu5655476378888911349.png 1024w
+          
+          
+            ,/posts/2025-01-13-encryption-breaking-the-lock/gate_hu9361747683294423773.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>It is important to understand that locks are not purely a mechanical technology; they are also a
+social technology. To illustrate what I mean: a padlock is pretty easy to defeat, using only basic
+and inexpensive tools, i.e. bolt cutters. Despite this fact, people generally expect that when
+leaving their things in a public locker, their things will still be present upon return. This is
+because a lock is not merely protected by its mechanical apparatus, but also by social forces. If
+a random person walks into a locker area with a pair of bolt cutters, a fuss will be raised, the
+person will likely be threatened, and police will likely show up. Even if the person escapes, they
+will likely show up on camera footage. These things are not inherent, nor are they properties of the
+mechanical device. Rather, they are properties of the social technology we have around that
+mechanical device. Further, without that social technology, a lock would offer no meaningful
+protection.</p>
+<p>This is something that is broadly understood within the physical security industry. The purpose of a
+lock is not so much to &ldquo;deny&rdquo; unauthorized access, as it is to &ldquo;delay&rdquo; unauthorized access. This is
+also evident in the <a href="https://inkassafes.com/ul-certifications/" target="_blank" rel="noreferrer">certification of safes</a>; their
+security ratings are not based on whether it can be broken into with certain tools, but
+<em>how long it takes</em> for a person of sufficient skill to break in with a specific set of tools. The
+greater time and difficulty makes the attacker more conspicuous, more likely to be seen, heard, or
+caught on camera.</p>
+<p>This is because the goal of a lock is not to prohibit access completely, but to impede
+or dissuade an attack, either ensuring that the attacker gets caught, or preventing the attack
+completely with the threat of catching the attacker.</p>
+<p>Another goal of locks is to make tampering evident after-the-fact. A broken lock shows the owner
+that the lock has been bypassed by someone who did not have the key, most likely s</p>
+<p>In a similar vein, locks are an important construct from a legal standpoint. A part of the social
+technology of a lock is that, when a person encounters a lock, they may infer &ldquo;this is private
+property that the owner wishes to exclude me from&rdquo;, similar to a sign. Where opening a closed door
+may be trespassing, picking or circumventing a lock to open that door will usually upgrade the
+severity of that crime to &ldquo;breaking and entering&rdquo;, and may be used in assessing the criminal&rsquo;s
+intent. &ldquo;I was looking for the bathroom&rdquo; becomes a less plausible excuse, if you&rsquo;ve just finished
+drilling through a deadbolt.</p>
+<p>In part, this is because a &ldquo;perfect&rdquo; lock is not possible. In part, this is because an perfect lock
+is not desirable. A perfect lock would never open without the key, even if the true owner of that
+lock was present. It would not open for a firefighter, or for a warranted search. It would become
+impossible for a locksmith to help you break back into your home if you lose the key. There are many
+problems here that the social technology can adapt well to.</p>
+<h2 id="the-hostility-of-cyberspace" class="relative group">The Hostility of Cyberspace <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#the-hostility-of-cyberspace" aria-label="Anchor">#</a></span></h2><p>
+
+
+
+
+
+
+  
+  
+<figure><img src="dog.webp" alt="Picture of a hacker dog sitting at laptop" class="mx-auto my-0 rounded-md" />
+</figure>
+</p>
+<p><em>On the Internet, nobody knows you&rsquo;re a dog.</em></p>
+<p>The social technologies that locks rely on generally do not translate particularly well to computer
+systems.</p>
+<p>First, some background on what encryption is and how it works: Someone generates a &ldquo;key&rdquo;. That key is a
+small chunk of random data, about 32 bytes. There is an algorithm, which can pass some <em>other</em> data
+through, using the key like a filter. This is &ldquo;encryption&rdquo;. The result appears to be a bunch of
+random nonsense to anyone looking at it—completely invalid, random data. That data can be passed
+back through the algorithm, filtered back through the key, running in reverse, and restored back to
+the original data. This is &ldquo;decryption&rdquo;. This process, of rendering data into nonsense, and back
+into usable data, by using the key to form the filter, is the core of what encryption is.</p>
+<p>Described above is &ldquo;symmetric&rdquo; encryption. There is a second kind of encryption,
+&ldquo;asymmetric encryption&rdquo;, which uses different maths and has somewhat different goals. Asymmetric
+encryption can obfuscate data similar to symmetric encryption, but it can be used for communication
+between two parties which <em>do not have the same key</em>, allowing messages to be sent safely without
+pre-sharing a key.</p>
+<p>The greatest problem is a core characteristic of computers: they are excellent at <strong>copying data
+quickly and perfectly</strong>. When a message is sent over the internet, like when opening a web page, the
+local computer first forms the data it wants to send in-memory, then sends that data over the
+network. The data then reaches a router or repeater, which then reads the data, copies it, and sends
+the copy wherever it needs to go. This happens repeatedly as the data transits the internet, likely
+over a dozen times, before reaching its destination. For computers, copying information is so easy,
+we don&rsquo;t bother moving it, and instead just copy, copy, copy. There is no distinction between the
+original data and a copy of it, because the copy is perfect. The process of copying computer data
+also does not inherently leave any trace; some computer systems may record some access activity, but
+these systems may themselves be compromised, and because data is copied extremely often, it can be
+difficult to differentiate between access by a human, and access which was functionally necessary.</p>
+<p>Gaining unauthorized access to computer data is meaningfully different than getting access to a
+physical location, because access to data generally confers the ability to make a copy of that data.
+Imagine sending someone a text; you cannot prevent them from taking a screenshot, nor can you detect
+that they took a screenshot. We may suggest a solution of making the phone notify the other person
+in the conversation about the screenshot, but this could be circumvented by taking a picture of the
+phone, and would create many new problems.</p>
+<p>Since copying data is necessary to the basic function the computers, it is not a particularly
+conspicuous activity. And once data is copied, it can be worked on later. Where bypassing a lock may
+require time working on the lock, tools, or both, making the attacker very conspicuous, these are
+not requirements for bypassing encryption. When encrypted data transits a network, anywhere it
+transits through may secretly take a copy, and take their time attempting to break in, and it is
+completely invisible and anonymous. There is little to no risk of someone noticing, and even if they
+notice, they probably can&rsquo;t tie it to the attacker.</p>
+<p>At the same time, anonymity on the internet is generally available. VPNs and Onion Routers can make
+it quite difficult to trace an attack back to the person who made it, which in turn makes the
+consequences for attempting to break in quite low.</p>
+<p>The permissible gaps of locks enable also introduce problems. A physical lock may be opened by force
+in response to a legal warrant, but this capability does not exist for computers; it cannot exist.
+This is because, from an encryption algorithm&rsquo;s perspective, there is <em>no meaningful difference</em>
+between a government attempting to gain unauthorized access, and a criminal enterprise attempting to
+gain, unauthorized access; their actions are fundamentally identical in the context of the system.</p>
+<p><em>Ahem.</em></p>
+<p>This all makes encryption much more subject to scrutiny than physical locks. Because it is easy to
+simply &ldquo;make a copy&rdquo; of the data you want to attack, and to do it privately, the mechanism
+of encryption itself must be practically perfect. While this is an undesirable characteristic for a
+physical lock, the <em>sheer hostility</em> of cyberspace means that anything short of &ldquo;impenetrable&rdquo; will
+be broken into by bad actors.</p>
+<h2 id="policy-and-news" class="relative group">Policy and News <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#policy-and-news" aria-label="Anchor">#</a></span></h2><p>The article to this point should explain, in broad strokes, why a &ldquo;perfect lock&rdquo; does not, and
+cannot, exist in the physical world, but is a <em>necessity</em> for information security. Hopefully, the
+examination of the social technology behind locks, and the extended application of that metaphor,
+lead to some severe issues.</p>
+<h3 id="end-to-end-encryption" class="relative group">End-To-End Encryption <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#end-to-end-encryption" aria-label="Anchor">#</a></span></h3><p>A technology has been rising, called &ldquo;end-to-end () encryption&rdquo;, or its counterpart, &ldquo;zero-knowledge
+encryption&rdquo;.</p>
+<p>Let&rsquo;s say that you open MySpace, and send a message to your friend Tom. When you open MySpace in
+your browser, the connection is encrypted. This means that your message is sent to MySpace
+privately, and no one in between you and MySpace can snoop on its contents. MySpace then sends the
+message to Tom, also using encryption. This means that your message to Tom is not entirely private;
+the carrier of the message, MySpace, also gets to see it.</p>
+<p>This is the default way that the internet, and communications on it, work. For some communications,
+it is entirely appropriate, but for some communications, this is not a sufficient level of privacy.
+End-to-end encryption solves this problem, by having the local computers encrypt it. This means that
+the provider (MySpace) is never able to see the contents of the message sent. MySpace can still see
+that <strong>a</strong> message was sent, and probably its approximate size and frequency, but not the <strong>contents</strong>.</p>
+<p>Zero-Knowledge Encryption is a somewhat similar concept, but not for communication. When uploading
+files to Google Drive, Google can see all of the contents of those files. Zero-knowledge encryption
+platforms, on the other hand, ensure that the data is encrypted before it is uploaded to their
+servers, so that they do not have access to their contents.</p>
+<p>The gold standard for end-to-end encrypted communications is <a href="https://signal.org/" target="_blank" rel="noreferrer">Signal</a>. They
+have a high-quality protocol, using strong algorithms, are early adopters to quantum-resistant
+cryptography, and their technology is open-source for free inspection by security researchers and
+consumer advocates.</p>
+<p>Some other mentions:</p>
+<ul>
+<li>WhatsApp is E2E encrypted using the Signal protocol, but their implementation is closed-source and
+is owned by Meta, which I do not consider to be trustworthy stewards of data.</li>
+<li>iMessage is E2E encrypted, but the details are not readily available.</li>
+<li>Text messages (SMS) are never E2E encrypted.</li>
+<li>Email is never E2E encrypted, and essentially cannot be.</li>
+<li>High-quality encryption can be added to otherwise-unencrypted communications using <a href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy" target="_blank" rel="noreferrer">PGP</a>, but this is generally complicated and annoying.</li>
+</ul>
+<h3 id="the-government" class="relative group">The Government <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#the-government" aria-label="Anchor">#</a></span></h3><p>The United States government, as well as many other governments, have expressed an interest in being
+able to decrypt their subjects&rsquo; encrypted communications, or, failing that, to eliminate civilian
+encrypted communications entirely. This is an extraordinarily bad idea.</p>
+<p>An old approach to this is called &ldquo;Key Escrow&rdquo;. The basic idea of this is that the government has a
+secret key, which is able to decrypt all encrypted materials. This generally requires an algorithm
+that supports such a key, which would mean that other forms of encryption would need to be
+prohibited. This was attempted in the 90s, and
+<a href="https://www.eff.org/deeplinks/2015/04/clipper-chips-birthday-looking-back-22-years-key-escrow-failures" target="_blank" rel="noreferrer">failed spectacularly</a>,
+with the government&rsquo;s encryption demonstrated to be insecure, even before the real challenges showed
+themselves. If the key ever leaked, because someone with access decided to spy on their ex, or to
+sell the key on the black market, or because they were an asset of an adversarial nation, just once,
+then that key would now be out in the wild—every bit of data using that encryption mechanism would
+become possible to decrypt by anyone who had a copy of the data.</p>
+<p>Historically, the FBI has occasionally highlighted a criminal as &ldquo;this is why we need to ban
+encryption&rdquo;, to play to emotional manipulation. They like to draw metaphors to &ldquo;warrants&rdquo;, and to
+claim that the private sector is refusing to cooperate, even when they are doing everything that
+they can to help.</p>
+<p>More recently, they have been switching to a much more dishonest tact: liability. In the
+<a href="https://apnews.com/united-states-government-united-states-congress-bc380dfcdb2140c98e4dc7ac77d5039d" target="_blank" rel="noreferrer">most recent bill</a>,
+the government simply set out the requirement that any company which</p>
+<p>It is worth recalling the bit about computers, how &ldquo;copying data&rdquo; is a pretty easy thing to do. A
+powerful key would expand the government&rsquo;s surveillance abilities dramatically, and if the
+government (or a rogue government employee who couldn&rsquo;t get over their ex) were to surveil citizens
+without a warrant, it would be virtually impossible to prove that they had done so, and it would
+almost certainly happen. I am not inclined to trust that the government will be respectful of its
+citizens&rsquo; privacy
+<a href="https://arstechnica.com/tech-policy/2014/07/snowden-nsa-employees-routinely-pass-around-intercepted-nude-photos/" target="_blank" rel="noreferrer">based on their previous behavior</a>.
+Remember, also, that because copying is generally covert, it would be virtually impossible to prove
+or disprove that this kind of thing was going on.</p>
+<p>Recently, however, the government has changed tact somewhat.</p>
+<h3 id="the-telecom-hack-and-cisa" class="relative group">The Telecom Hack and CISA <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#the-telecom-hack-and-cisa" aria-label="Anchor">#</a></span></h3><p>The Unites States telecommunications industry has recently experienced one of
+<a href="https://www.reuters.com/business/media-telecom/suspected-china-linked-hack-us-telecoms-worst-nations-history-senator-says-2024-11-22/" target="_blank" rel="noreferrer">the largest hacks of all time</a>,
+believed to be perpetrated by hackers backed by the Chinese government,
+<a href="https://www.schneier.com/blog/archives/2024/10/china-possibly-hacking-us-lawful-access-backdoor.html" target="_blank" rel="noreferrer">using a back door that the US installed to be able to wiretap its citizens</a>.
+This should demonstrate a secondary issue with government interference. As mentioned before, there
+is no meaningful distinction in a computer system between &ldquo;lawful unauthorized access&rdquo; and
+&ldquo;unlawful unauthorized access&rdquo;. Any rails that are set up for the government, can be used by other
+actors.</p>
+<p>In 2018, a new government agency was formed, the Cybersecurity and Infrastructure Security Agency
+(CISA). This agency&rsquo;s goal is to work to make sure that the United States&rsquo; digital infrastructure
+is reasonably secure against foreign intrusion, including private infrastructure. More recently,
+they have been trying to amp up encryption within the US private sector, because the country is
+under-prepared for the impact of cyber warfare, as the United States foreign policy apparatus is
+pivoting to deal with &ldquo;near-peer&rdquo; adversaries.</p>
+<p>As this foreign policy pivot kicks into gear, I would expect the calls to remove encryption to get
+a bit quieter, as any compromise to encryption to facilitate domestic surveillance would also
+weaken the country&rsquo;s national defense posture. We may also get contradictory views from the domestic
+law enforcement apparatus and the foreign policy apparatus, which may have disaligned objectives on
+this matter.</p>
+<h3 id="crypto-currency-and-crypto-assets" class="relative group">Crypto Currency and Crypto Assets <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#crypto-currency-and-crypto-assets" aria-label="Anchor">#</a></span></h3><p>In 2025, the topic of encryption merits a discussion of cryptocurrency.</p>
+<p>Recall earlier the discussion of how locks have both &ldquo;mechanical&rdquo; and &ldquo;social&rdquo; components to their
+technology. Financial systems act similarly. We have many mathematical technologies, and
+computerized applications of those technologies, which make up our financial systems. These
+technologies are also applied and administered by human beings. A company may use a credit score to
+decide whether you qualify for a loan, but the decision about the score required to qualify will be
+informed, if not by a human, then by an algorithm written by a human, to achieve certain outcomes of
+risk, profit, and liquidity for the financial institution.</p>
+<p>Cryptocurrency is an attempt to create a distributed computer system, controlled by no one entity,
+which can perform the full function of a transactional financial system, without the need for
+intermediaries or arbitrariness. A system defined not by who controls it, because no one controls
+it, but by firm rules, as unmovable as mathematics itself. A system which is perfectly fair,
+perfectly equal, and perfectly accessible. The principles of cryptocurrency are in encryption, which
+makes it relevant, and makes it inherit many of the characteristics discussed earlier.</p>
+<p>An important departure, however, is cryptocurrency&rsquo;s defining characteristic: strict uniqueness.
+While it may be possible to &ldquo;view&rdquo; a bitcoin, or even to &ldquo;copy&rdquo; it, but doing so would not
+<em>transfer</em> the bitcoin. When that bitcoin is transferred, it is not copied, but <em>moved</em>. Further,
+this is done with <em>no central authority</em> keeping track of who has the currency. This is an
+incredible technological feat, to use cryptography to overcome what have historically been
+fundamental limitations of computer systems.</p>
+<p>Unfortunately, in practice, cryptocurrency&rsquo;s primary value proposition is illicit payments, although
+it has assembled an impressive secondary ecosystem of grifters, scammers, and gurus.</p>
+<p>Most cryptocurrency, like the U.S. dollar, is &ldquo;Fiat money&rdquo;. It does not have any backing source of
+inherent value. Instead, its value is based in whatever it can be redeemed for. For example, most
+stores near me will accept U.S. dollars, while relatively few will accept Bitcoin. Bitcoin has many
+problems, but one of them is that as a medium of exchange, it is both expensive and slow. On a good
+day, the average Bitcoin transaction is about $50, and takes over an hour to complete. Further, the
+underlying currency has an extremely unstable value, and may change significantly between the start
+and and of the transaction. Visa may have their issues, but they are also the better option.</p>
+<p>For paying for lunch, these limitations are unaccessible. However, for illicit payments, these
+trade-offs are often worthwhile. Cryptocurrency makes it possible to anonymously transfer large sums
+of money over long distances in a way that cannot directly be associated with the identity of either
+participant. These characteristics are highly desirable for dealing drugs, evading taxes,
+extortion, and other illegal activities.</p>
+<p>This first rose to prominence in the rise of
+<a href="https://www.avast.com/c-silk-road-dark-web-market" target="_blank" rel="noreferrer">The Silk Road</a>, where it enabled buying and
+selling of illicit goods and services over long distances. This could not have had the success that
+it did without cryptocurrency, and at the time, was the main selling point of bitcoin. Ultimately,
+they failed not because of insolvency, but because of a government raid.</p>
+<p>These days, the Silk Road is no more, but Crypto is still a great tool for illicit payments. Most
+prominent and problematic is Ransomware, software which encrypts computers, rendering them unusable,
+and suggests that they will be decrypted should sufficient payment be sent in cryptocurrency. This
+is currently an endemic problem for businesses and municipalities. Cryptocurrency is what makes this
+criminal enterprise viable.</p>
+<p>The other major use of cryptocurrency seems to be &ldquo;Non-Fungible Tokens&rdquo;, or NFTs. These take
+advantage of the &ldquo;strong uniqueness&rdquo; characteristics that Crypto offers, and to imbue them into
+small tokens, representative of&hellip; something. It is possible to prove to whom that token belongs,
+but not much else. They have no legal bearing, and any practical use would require software
+services to support <em>that specific kind</em> of NFT, and thus their utility is best described as
+&ldquo;theoretical&rdquo;.</p>
+<p>For a detailed and entertaining breakdown of the ecosystem, I would recommend Dan Olson&rsquo;s
+<a href="https://youtu.be/YQ_xWvX1n9g" target="_blank" rel="noreferrer">Line Goes Up</a>, a well-researched, informative, and critical breakdown
+of the cryptocurrency ecosystem, with a focus on NFTs, but covering cryptocurrency as well.</p>
+
+      </div>
+    </section>
+    <footer class="max-w-prose pt-8 print:hidden">
+      
+  <div class="flex">
+    
+    
+    
+      
+      
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+          Author
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          Eric Miller
+        </div>
+      
+      
+        <div class="text-sm text-neutral-700 dark:text-neutral-400">Software Engineer, Kuberneter</div>
+      
+      <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://github.com/sosheskaz/"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></a
+        >
+      
+    
+  </div>
+
+</div>
+    </div>
+  </div>
+
+
+      
+
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="group flex" href="/posts/2024-10-01-consumer-advocacy/">
+              <span
+                class="me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&larr;</span
+                ><span class="ltr:hidden rtl:inline">&rarr;</span></span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >On Consumer Advocacy</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2024-09-29 08:15:15 -0500 CDT">September 29, 2024</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+      </main>
+      
+        <div
+          class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12"
+          id="to-top"
+          hidden="true"
+        >
+          <a
+            href="#the-top"
+            class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+            aria-label="Scroll to top"
+            title="Scroll to top"
+          >
+            &uarr;
+          </a>
+        </div>
+      <footer class="py-10 print:hidden">
+  
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            &copy;
+            2025
+            Eric Miller
+        </p>
+      
+      
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          
+          
+          Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://github.com/jpanther/congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    <div class="flex flex-row items-center">
+      
+      
+      
+      
+    </div>
+  </div>
+  
+  
+</footer>
+
+    </div>
+  </body>
+</html>

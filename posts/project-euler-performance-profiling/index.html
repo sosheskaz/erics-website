@@ -2,8 +2,6 @@
 
 
 
-  
-
 
 
 
@@ -56,7 +54,16 @@
     name="description"
     content="
       
-        I&rsquo;ve been sitting on a side project for a while, working on it when I have time. The project in question is Project Euler - specifically, implementing Project Euler in a few different programming languages. Pretty soon after starting, I realized that I had an opportunity to compare the performance of these implementations across not only different programming languages, but also across different ways of running the code in question and optimizing it to not just reach the right answer, but to maximize performance in measurable ways.
+        I&rsquo;ve been sitting on a side project for a while, working on it when I have time. The project in
+question is Project Euler - specifically, implementing Project Euler in a few different programming
+languages. Pretty soon after starting, I realized that I had an opportunity to compare the
+performance of these implementations across not only different programming languages, but also
+across different ways of running the code in question and optimizing it to not just reach the right
+answer, but to maximize performance in measurable ways. Most Project Euler solutions I&rsquo;ve seen
+haven&rsquo;t quantified their performance in this way, and when they do optimize, usually only optimize
+in favor of one metric, usually the &ldquo;Clock Time&rdquo; taken to compute the answer. Here, I&rsquo;m sitting on
+a lot of data – currently, 21 problems (and a control) across 5 different programming languages,
+as well as different performance approaches for the differerent languages.
       
     "
   />
@@ -81,7 +88,7 @@
   <meta property="og:url" content="https://ericsweb.site/posts/project-euler-performance-profiling/">
   <meta property="og:site_name" content="Eric&#39;s Web.site">
   <meta property="og:title" content="Profiling Language Performance with Project Euler">
-  <meta property="og:description" content="I’ve been sitting on a side project for a while, working on it when I have time. The project in question is Project Euler - specifically, implementing Project Euler in a few different programming languages. Pretty soon after starting, I realized that I had an opportunity to compare the performance of these implementations across not only different programming languages, but also across different ways of running the code in question and optimizing it to not just reach the right answer, but to maximize performance in measurable ways.">
+  <meta property="og:description" content="I’ve been sitting on a side project for a while, working on it when I have time. The project in question is Project Euler - specifically, implementing Project Euler in a few different programming languages. Pretty soon after starting, I realized that I had an opportunity to compare the performance of these implementations across not only different programming languages, but also across different ways of running the code in question and optimizing it to not just reach the right answer, but to maximize performance in measurable ways. Most Project Euler solutions I’ve seen haven’t quantified their performance in this way, and when they do optimize, usually only optimize in favor of one metric, usually the “Clock Time” taken to compute the answer. Here, I’m sitting on a lot of data – currently, 21 problems (and a control) across 5 different programming languages, as well as different performance approaches for the differerent languages.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -91,7 +98,7 @@
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Profiling Language Performance with Project Euler">
-  <meta name="twitter:description" content="I’ve been sitting on a side project for a while, working on it when I have time. The project in question is Project Euler - specifically, implementing Project Euler in a few different programming languages. Pretty soon after starting, I realized that I had an opportunity to compare the performance of these implementations across not only different programming languages, but also across different ways of running the code in question and optimizing it to not just reach the right answer, but to maximize performance in measurable ways.">
+  <meta name="twitter:description" content="I’ve been sitting on a side project for a while, working on it when I have time. The project in question is Project Euler - specifically, implementing Project Euler in a few different programming languages. Pretty soon after starting, I realized that I had an opportunity to compare the performance of these implementations across not only different programming languages, but also across different ways of running the code in question and optimizing it to not just reach the right answer, but to maximize performance in measurable ways. Most Project Euler solutions I’ve seen haven’t quantified their performance in this way, and when they do optimize, usually only optimize in favor of one metric, usually the “Clock Time” taken to compute the answer. Here, I’m sitting on a lot of data – currently, 21 problems (and a control) across 5 different programming languages, as well as different performance approaches for the differerent languages.">
 
   
   <script type="application/ld+json">
@@ -102,12 +109,12 @@
     "name": "Profiling Language Performance with Project Euler",
     "headline": "Profiling Language Performance with Project Euler",
     
-    "abstract": "I\u0026rsquo;ve been sitting on a side project for a while, working on it when I have time. The project in question is Project Euler - specifically, implementing Project Euler in a few different programming languages. Pretty soon after starting, I realized that I had an opportunity to compare the performance of these implementations across not only different programming languages, but also across different ways of running the code in question and optimizing it to not just reach the right answer, but to maximize performance in measurable ways.",
+    "abstract": "\u003cp\u003eI\u0026rsquo;ve been sitting on a side project for a while, working on it when I have time. The project in\nquestion is Project Euler - specifically, implementing Project Euler in a few different programming\nlanguages. Pretty soon after starting, I realized that I had an opportunity to compare the\nperformance of these implementations across not only different programming languages, but also\nacross different ways of running the code in question and optimizing it to not just reach the right\nanswer, but to maximize performance in measurable ways. Most Project Euler solutions I\u0026rsquo;ve seen\nhaven\u0026rsquo;t quantified their performance in this way, and when they do optimize, usually only optimize\nin favor of one metric, usually the \u0026ldquo;Clock Time\u0026rdquo; taken to compute the answer. Here, I\u0026rsquo;m sitting on\na lot of data – currently, 21 problems (and a control) across 5 different programming languages,\nas well as different performance approaches for the differerent languages.\u003c\/p\u003e",
     "inLanguage": "en-us",
     "url" : "https:\/\/ericsweb.site\/posts\/project-euler-performance-profiling\/",
     "author" : {
       "@type": "Person",
-      "name": ""
+      "name": "Eric Miller"
     },
     "copyrightYear": "2019",
     "dateCreated": "2019-05-26T00:00:00\u002b00:00",
@@ -155,25 +162,26 @@
   </script>
 
   
+  <meta name="author" content="Eric Miller" />
   
-  
-  
-  
-
-
-
-
-
-
-  
-  
-  
-  
+    
+      <link href="https://github.com/sosheskaz/" rel="me" />
+    
   
   
   
 
 
+
+
+
+
+  
+  
+  
+  
+  
+  
 
 
   
@@ -215,7 +223,7 @@
               
                 <a
                   href="/posts/"
-                  title=""
+                  title="Posts"
                   
                   ><span
                       class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
@@ -231,7 +239,7 @@
               
                 <a
                   href="/categories/"
-                  title=""
+                  title="Categories"
                   
                   ><span
                       class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
@@ -247,7 +255,7 @@
               
                 <a
                   href="/profile/"
-                  title=""
+                  title="About Me"
                   
                   ><span
                       class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
@@ -502,66 +510,66 @@ between the five languages, I suspect that is likely due to startup times of eac
 that the problems where behavior differs significantly are the same problems which take a long time.
 Let&rsquo;s look at the average clock time, relative to Golang:</p>
 <table>
-<thead>
-<tr>
-<th>Go 1.12.3 (Compiled)</th>
-<th>Groovy 2.5.6/JDK8 (NailGun)</th>
-<th>Groovy 2.5.6/JDK8 (Standard)</th>
-<th>Node.js 10.15.3</th>
-<th>Node.js 11.15.0</th>
-<th>Node.js 12.3.0</th>
-<th>PyPy 3.6-7.1.0</th>
-<th>Python 3.7.3</th>
-<th>Ruby 2.6.0</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1.0</td>
-<td>18.9</td>
-<td>705.4</td>
-<td>44.4</td>
-<td>45.1</td>
-<td>25.3</td>
-<td>35.7</td>
-<td>38.4</td>
-<td>57.3</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Go 1.12.3 (Compiled)</th>
+          <th>Groovy 2.5.6/JDK8 (NailGun)</th>
+          <th>Groovy 2.5.6/JDK8 (Standard)</th>
+          <th>Node.js 10.15.3</th>
+          <th>Node.js 11.15.0</th>
+          <th>Node.js 12.3.0</th>
+          <th>PyPy 3.6-7.1.0</th>
+          <th>Python 3.7.3</th>
+          <th>Ruby 2.6.0</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1.0</td>
+          <td>18.9</td>
+          <td>705.4</td>
+          <td>44.4</td>
+          <td>45.1</td>
+          <td>25.3</td>
+          <td>35.7</td>
+          <td>38.4</td>
+          <td>57.3</td>
+      </tr>
+  </tbody>
 </table>
 <p>We can see that the performance of just about everything is pretty terrible when compared to Golang.
 However, this does seem a bit extreme. Groovy Direct is particularly bad, given the startup cost of
 the JVM. Problem 014, however, takes much longer and are much more computationally
 intensive, which should give us a better idea of long-running performance:</p>
 <table>
-<thead>
-<tr>
-<th>Problem</th>
-<th>Go 1.12.3 (Compiled)</th>
-<th>Groovy 2.5.6/JDK8 (NailGun)</th>
-<th>Groovy 2.5.6/JDK8 (Standard)</th>
-<th>Node.js 10.15.3</th>
-<th>Node.js 11.15.0</th>
-<th>Node.js 12.3.0</th>
-<th>PyPy 3.6-7.1.0</th>
-<th>Python 3.7.3</th>
-<th>Ruby 2.6.0</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Euler014</td>
-<td>1.00</td>
-<td>24.6</td>
-<td>20.1</td>
-<td>2.08</td>
-<td>2.03</td>
-<td>2.08</td>
-<td>0.736</td>
-<td>21.5</td>
-<td>9.02</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Problem</th>
+          <th>Go 1.12.3 (Compiled)</th>
+          <th>Groovy 2.5.6/JDK8 (NailGun)</th>
+          <th>Groovy 2.5.6/JDK8 (Standard)</th>
+          <th>Node.js 10.15.3</th>
+          <th>Node.js 11.15.0</th>
+          <th>Node.js 12.3.0</th>
+          <th>PyPy 3.6-7.1.0</th>
+          <th>Python 3.7.3</th>
+          <th>Ruby 2.6.0</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Euler014</td>
+          <td>1.00</td>
+          <td>24.6</td>
+          <td>20.1</td>
+          <td>2.08</td>
+          <td>2.03</td>
+          <td>2.08</td>
+          <td>0.736</td>
+          <td>21.5</td>
+          <td>9.02</td>
+      </tr>
+  </tbody>
 </table>
 <p>Now, there&rsquo;s a lot of interesting data in this row, and I promise we&rsquo;ll get to them later.
 It&rsquo;s also worth noting that Golang&rsquo;s implementation of this problem is multithreaded.</p>
@@ -572,46 +580,46 @@ times for all of these profiles:</p>
 <p>(Note: &ldquo;Baseline&rdquo; refers to a file I created for each language with the bare minimum required to
 compile and run, and serves to act as a reference point.)</p>
 <table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Go 1.12.3 (Compiled)</th>
-<th>Groovy 2.5.6/JDK8 (NailGun)</th>
-<th>Groovy 2.5.6/JDK8 (Standard)</th>
-<th>Node.js 10.15.3</th>
-<th>Node.js 11.15.0</th>
-<th>Node.js 12.3.0</th>
-<th>PyPy 3.6-7.1.0</th>
-<th>Python 3.7.3</th>
-<th>Ruby 2.6.0</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Absolute</td>
-<td>0.000989</td>
-<td>0.0153</td>
-<td>0.867</td>
-<td>0.0608</td>
-<td>0.0572</td>
-<td>0.0307</td>
-<td>0.0414</td>
-<td>0.0392</td>
-<td>0.0723</td>
-</tr>
-<tr>
-<td>Relative</td>
-<td>1.00</td>
-<td>15.5</td>
-<td>877</td>
-<td>61.5</td>
-<td>57.8</td>
-<td>31.1</td>
-<td>41.9</td>
-<td>39.7</td>
-<td>73.2</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Method</th>
+          <th>Go 1.12.3 (Compiled)</th>
+          <th>Groovy 2.5.6/JDK8 (NailGun)</th>
+          <th>Groovy 2.5.6/JDK8 (Standard)</th>
+          <th>Node.js 10.15.3</th>
+          <th>Node.js 11.15.0</th>
+          <th>Node.js 12.3.0</th>
+          <th>PyPy 3.6-7.1.0</th>
+          <th>Python 3.7.3</th>
+          <th>Ruby 2.6.0</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Absolute</td>
+          <td>0.000989</td>
+          <td>0.0153</td>
+          <td>0.867</td>
+          <td>0.0608</td>
+          <td>0.0572</td>
+          <td>0.0307</td>
+          <td>0.0414</td>
+          <td>0.0392</td>
+          <td>0.0723</td>
+      </tr>
+      <tr>
+          <td>Relative</td>
+          <td>1.00</td>
+          <td>15.5</td>
+          <td>877</td>
+          <td>61.5</td>
+          <td>57.8</td>
+          <td>31.1</td>
+          <td>41.9</td>
+          <td>39.7</td>
+          <td>73.2</td>
+      </tr>
+  </tbody>
 </table>
 <p>Comparing the relative numbers with those from our overall averages, we can see that they track the
 averages very closely. While this tells us a lot about startup time, it means that we have to rely
@@ -621,34 +629,34 @@ data points are not measuring much more than startup time. How unfortunate.</p>
 reasonable comparisons between them. Let&rsquo;s take a look at that table again, and pull some of those
 interesting tidbits out:</p>
 <table>
-<thead>
-<tr>
-<th>Problem</th>
-<th>Go 1.12.3 (Compiled)</th>
-<th>Groovy 2.5.6/JDK8 (NailGun)</th>
-<th>Groovy 2.5.6/JDK8 (Standard)</th>
-<th>Node.js 10.15.3</th>
-<th>Node.js 11.15.0</th>
-<th>Node.js 12.3.0</th>
-<th>PyPy 3.6-7.1.0</th>
-<th>Python 3.7.3</th>
-<th>Ruby 2.6.0</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Euler014</td>
-<td>1.00</td>
-<td>24.6</td>
-<td>20.1</td>
-<td>2.08</td>
-<td>2.03</td>
-<td>2.08</td>
-<td>0.736</td>
-<td>21.5</td>
-<td>9.02</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Problem</th>
+          <th>Go 1.12.3 (Compiled)</th>
+          <th>Groovy 2.5.6/JDK8 (NailGun)</th>
+          <th>Groovy 2.5.6/JDK8 (Standard)</th>
+          <th>Node.js 10.15.3</th>
+          <th>Node.js 11.15.0</th>
+          <th>Node.js 12.3.0</th>
+          <th>PyPy 3.6-7.1.0</th>
+          <th>Python 3.7.3</th>
+          <th>Ruby 2.6.0</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Euler014</td>
+          <td>1.00</td>
+          <td>24.6</td>
+          <td>20.1</td>
+          <td>2.08</td>
+          <td>2.03</td>
+          <td>2.08</td>
+          <td>0.736</td>
+          <td>21.5</td>
+          <td>9.02</td>
+      </tr>
+  </tbody>
 </table>
 <p>First of all, I&rsquo;d like to give special kudos to Node.js. Given its reputation and nature, it seems
 natural to think of node as a terribly underperforming language. However, it&rsquo;s actually competitive
@@ -665,30 +673,30 @@ Groovy&rsquo;s strengths.</p>
 <p>Just for fun, let&rsquo;s compare the real time numbers to the sum of system time and user time for the
 Euler014 problem (leaving out NailGun, as times will not be accurate):</p>
 <table>
-<thead>
-<tr>
-<th>Go 1.12.3 (Compiled)</th>
-<th>Groovy 2.5.6/JDK8 (Standard)</th>
-<th>Node.js 10.15.3</th>
-<th>Node.js 11.15.0</th>
-<th>Node.js 12.3.0</th>
-<th>PyPy 3.6-7.1.0</th>
-<th>Python 3.7.3</th>
-<th>Ruby 2.6.0</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1.000</td>
-<td>7.236</td>
-<td>0.670</td>
-<td>0.651</td>
-<td>0.669</td>
-<td>0.232</td>
-<td>6.794</td>
-<td>2.846</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Go 1.12.3 (Compiled)</th>
+          <th>Groovy 2.5.6/JDK8 (Standard)</th>
+          <th>Node.js 10.15.3</th>
+          <th>Node.js 11.15.0</th>
+          <th>Node.js 12.3.0</th>
+          <th>PyPy 3.6-7.1.0</th>
+          <th>Python 3.7.3</th>
+          <th>Ruby 2.6.0</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1.000</td>
+          <td>7.236</td>
+          <td>0.670</td>
+          <td>0.651</td>
+          <td>0.669</td>
+          <td>0.232</td>
+          <td>6.794</td>
+          <td>2.846</td>
+      </tr>
+  </tbody>
 </table>
 <p>Measuring these metrics eliminates the benefits of multithreading (actually, it slightly penalizes
 them), and better shows the raw performance of each profiler&rsquo;s methods. We can see that node is
@@ -701,30 +709,30 @@ performance remains incredible.</p>
 but given the size of these problems, it should be appropriate. First, let&rsquo;s look at the baselines
 for the profilers (Leaving out NailGun):</p>
 <table>
-<thead>
-<tr>
-<th>Go 1.12.3 (Compiled)</th>
-<th>Groovy 2.5.6/JDK8 (Standard)</th>
-<th>Node.js 10.15.3</th>
-<th>Node.js 11.15.0</th>
-<th>Node.js 12.3.0</th>
-<th>PyPy 3.6-7.1.0</th>
-<th>Python 3.7.3</th>
-<th>Ruby 2.6.0</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>5096</td>
-<td>109389</td>
-<td>21459</td>
-<td>16595</td>
-<td>15550</td>
-<td>43976</td>
-<td>6036</td>
-<td>11499</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Go 1.12.3 (Compiled)</th>
+          <th>Groovy 2.5.6/JDK8 (Standard)</th>
+          <th>Node.js 10.15.3</th>
+          <th>Node.js 11.15.0</th>
+          <th>Node.js 12.3.0</th>
+          <th>PyPy 3.6-7.1.0</th>
+          <th>Python 3.7.3</th>
+          <th>Ruby 2.6.0</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>5096</td>
+          <td>109389</td>
+          <td>21459</td>
+          <td>16595</td>
+          <td>15550</td>
+          <td>43976</td>
+          <td>6036</td>
+          <td>11499</td>
+      </tr>
+  </tbody>
 </table>
 <p>The first thing that jumps out is how incredibly expensive Groovy is. Even for a no op, we have to
 spin up the JVM, which is incredibly expensive.</p>
@@ -1161,10 +1169,39 @@ compilation of small, standalone binaries can get complicated.</p>
     
     
     
+      
+      
+    
     <div class="place-self-center">
       
+        <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+          Author
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          Eric Miller
+        </div>
+      
+      
+        <div class="text-sm text-neutral-700 dark:text-neutral-400">Software Engineer, Kuberneter</div>
       
       <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://github.com/sosheskaz/"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></a
+        >
+      
+    
+  </div>
+
 </div>
     </div>
   </div>
@@ -1258,8 +1295,8 @@ compilation of small, standalone binaries can get complicated.</p>
       
         <p class="text-sm text-neutral-500 dark:text-neutral-400">
             &copy;
-            2024
-            
+            2025
+            Eric Miller
         </p>
       
       
