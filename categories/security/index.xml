@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Security on Eric&#39;s Web.site</title>
-    <link>https://ericsweb.site/categories/security/</link>
+    <link>https://www.ericsweb.site/categories/security/</link>
     <description>Recent content in Security on Eric&#39;s Web.site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 12 Jan 2025 00:00:00 -0600</lastBuildDate>
-    <atom:link href="https://ericsweb.site/categories/security/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.ericsweb.site/categories/security/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Encryption: Breaking the Lock</title>
-      <link>https://ericsweb.site/posts/2025-01-12-encryption-breaking-the-lock/</link>
+      <link>https://www.ericsweb.site/posts/2025-01-12-encryption-breaking-the-lock/</link>
       <pubDate>Sun, 12 Jan 2025 00:00:00 -0600</pubDate>
-      <guid>https://ericsweb.site/posts/2025-01-12-encryption-breaking-the-lock/</guid>
+      <guid>https://www.ericsweb.site/posts/2025-01-12-encryption-breaking-the-lock/</guid>
       <description>&lt;p&gt;Encryption has become ubiquitous in our everyday life, to the point that it fades into the&#xA;background. This page is served over an encrypted connection, as are most web pages. Our phones are&#xA;generally encrypted, many laptops are encrypted, and virtually all communications that travel over&#xA;the internet are encrypted in transit. To explain the utility of the technology of encryption, we&#xA;often use the metaphor of &amp;ldquo;lock and key&amp;rdquo;. This metaphor is not &lt;em&gt;wrong&lt;/em&gt;, but it is limited in a&#xA;way that I think would benefit from broader understanding. This becomes particularly important when&#xA;we start talking about public policy, and the relationship between encryption and governments.&lt;/p&gt;</description>
     </item>
     <item>
       <title>What is Ethical Hacking? And Contemporary Cybersecurity Ethics</title>
-      <link>https://ericsweb.site/2017/05/19/Ethical-Hacking/</link>
+      <link>https://www.ericsweb.site/2017/05/19/Ethical-Hacking/</link>
       <pubDate>Fri, 19 May 2017 00:00:00 +0000</pubDate>
-      <guid>https://ericsweb.site/2017/05/19/Ethical-Hacking/</guid>
+      <guid>https://www.ericsweb.site/2017/05/19/Ethical-Hacking/</guid>
       <description>&lt;p&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;  &#xA;  &#xA;&lt;figure&gt;&lt;img src=&#34;wannacry.png%22&#34; alt=&#34;Screen showing WannaCry Ransomware Message&#34; class=&#34;mx-auto my-0 rounded-md&#34; /&gt;&#xA;&lt;/figure&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;Hackers. They&amp;rsquo;re becoming increasingly important and relevant. From government agencies, to international&#xA;hackers and political controversies, to someone stealing your credit card. It&amp;rsquo;s becoming bigger and bigger,&#xA;and question of how to deal with them is becoming increasingly important.&lt;/p&gt;&#xA;&lt;p&gt;For this, I&amp;rsquo;m going to use a definition of hacking that is a bit more expansive than most. Hacking, as far&#xA;as I&amp;rsquo;m concerned, is deliberately getting unauthorized access to a computer system - whether that is&#xA;reading data, running a program, or changing something. It&amp;rsquo;s a wide definition because the question of&#xA;cybersecurity considers these various methods to be of similar importance. It doesn&amp;rsquo;t matter how someone&#xA;got access to your system - it&amp;rsquo;s a cybersecurity professional&amp;rsquo;s job to prevent it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>On the AES Encryption Algorithm</title>
-      <link>https://ericsweb.site/2017/03/29/AES-Security-Paper/</link>
+      <link>https://www.ericsweb.site/2017/03/29/AES-Security-Paper/</link>
       <pubDate>Wed, 29 Mar 2017 00:00:00 +0000</pubDate>
-      <guid>https://ericsweb.site/2017/03/29/AES-Security-Paper/</guid>
+      <guid>https://www.ericsweb.site/2017/03/29/AES-Security-Paper/</guid>
       <description>&lt;p&gt;I wrote this paper for my Information Security class. Original publish date: 20 December 2016&lt;/p&gt;&#xA;&lt;p&gt;The Advanced Encryption Standard, or AES, is a symmetric algorithm released by the United States National Instritute of Standards and Technology (NIST). It is technically specified in FIPS-197. It is another name for the Rijndael algorithm, though they are distinct; the Rijndael is its own algorithm, but it was selected by the NIST for the AES standard. It can use multiple lengths of key, including 128- 192- and 256-bit keys. It encrypts data in 128-bit blocks. The 128-bit block size allows for easy integration with most file systems (which tend to use block sizes of 512 bits and larger) much easier and more efficient.&lt;/p&gt;</description>
     </item>
     <item>
       <title>How to Secure Your Online Life</title>
-      <link>https://ericsweb.site/2017/01/17/How-to-Secure-Your-Online-Life/</link>
+      <link>https://www.ericsweb.site/2017/01/17/How-to-Secure-Your-Online-Life/</link>
       <pubDate>Tue, 17 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>https://ericsweb.site/2017/01/17/How-to-Secure-Your-Online-Life/</guid>
+      <guid>https://www.ericsweb.site/2017/01/17/How-to-Secure-Your-Online-Life/</guid>
       <description>&lt;p&gt;Have an online stalker who you&amp;rsquo;re worried might hack your account? Have sensitive materials in your accounts or computer&#xA;that you don&amp;rsquo;t want to be exposed to a threat? Just want to be safe in the modern day internet environment? Here you&amp;rsquo;ll&#xA;find some simple guidelines to stay safe out there.&lt;/p&gt;&#xA;&lt;p&gt;As time goes on, personal information security has gotten more and more important, and knowing what exactly to do and&#xA;how to do it is difficult. For that reason, I&amp;rsquo;m making a short post about how to lock down your online life.&lt;/p&gt;</description>
     </item>
   </channel>

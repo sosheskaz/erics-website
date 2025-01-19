@@ -2,136 +2,136 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Technology on Eric&#39;s Web.site</title>
-    <link>https://ericsweb.site/categories/technology/</link>
+    <link>https://www.ericsweb.site/categories/technology/</link>
     <description>Recent content in Technology on Eric&#39;s Web.site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 28 Aug 2022 21:00:00 -0500</lastBuildDate>
-    <atom:link href="https://ericsweb.site/categories/technology/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.ericsweb.site/categories/technology/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Securing Offsite Borg Backups with Secretive and BorgBase</title>
-      <link>https://ericsweb.site/posts/2022-08-28-borgbackup-and-secretive/</link>
+      <link>https://www.ericsweb.site/posts/2022-08-28-borgbackup-and-secretive/</link>
       <pubDate>Sun, 28 Aug 2022 21:00:00 -0500</pubDate>
-      <guid>https://ericsweb.site/posts/2022-08-28-borgbackup-and-secretive/</guid>
+      <guid>https://www.ericsweb.site/posts/2022-08-28-borgbackup-and-secretive/</guid>
       <description>&lt;h2 id=&#34;borg&#34; class=&#34;relative group&#34;&gt;Borg &lt;span class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100&#34;&gt;&lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34; style=&#34;text-decoration-line: none !important;&#34; href=&#34;#borg&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;I am a big fan of &lt;a href=&#34;https://www.borgbackup.org/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Borg Backup&lt;/a&gt; for my backup needs. It&amp;rsquo;s proven fast,&#xA;secure, efficient, and reliable in the years that I&amp;rsquo;ve been using it. It&amp;rsquo;s also free and&#xA;open-source, which is always a comfort.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve started using &lt;a href=&#34;https://www.borgbackup.org/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;BorgBase&lt;/a&gt; for offsite backups. I generally&#xA;consider these backups to be my personal &amp;ldquo;disaster recovery&amp;rdquo; backups. This means, if my house&#xA;burns down, or someone manages to ransomware all of my data, I can still get back what I need.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Bearclaw. Cornstalk. Turtles. Get Yolked.</title>
-      <link>https://ericsweb.site/posts/bearclaw-cornstalk-turtles-getyolked/</link>
+      <link>https://www.ericsweb.site/posts/bearclaw-cornstalk-turtles-getyolked/</link>
       <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
-      <guid>https://ericsweb.site/posts/bearclaw-cornstalk-turtles-getyolked/</guid>
+      <guid>https://www.ericsweb.site/posts/bearclaw-cornstalk-turtles-getyolked/</guid>
       <description>&lt;p&gt;What do these words mean?&lt;/p&gt;&#xA;&lt;p&gt;I don&amp;rsquo;t know. I found them by accident, when poking around a part of the internet no one was ever&#xA;supposed to find.&lt;/p&gt;&#xA;&lt;p&gt;I was poking around my &lt;a href=&#34;https://pi-hole.net&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Pi-Hole&lt;/a&gt; (an ad-blocking/privacy solution), and noticed&#xA;that one of the most blocked domains was &lt;code&gt;ads.mopub.com&lt;/code&gt;. If you visit that URL, you will find that&#xA;most enigmatic phrase: &lt;code&gt;Bearclaw. Cornstalk. Turtles. Get Yolked.&lt;/code&gt;, followed by a number between 1&#xA;and 1000. Most curious.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Profiling Language Performance with Project Euler</title>
-      <link>https://ericsweb.site/posts/project-euler-performance-profiling/</link>
+      <link>https://www.ericsweb.site/posts/project-euler-performance-profiling/</link>
       <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
-      <guid>https://ericsweb.site/posts/project-euler-performance-profiling/</guid>
+      <guid>https://www.ericsweb.site/posts/project-euler-performance-profiling/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve been sitting on a side project for a while, working on it when I have time. The project in&#xA;question is Project Euler - specifically, implementing Project Euler in a few different programming&#xA;languages. Pretty soon after starting, I realized that I had an opportunity to compare the&#xA;performance of these implementations across not only different programming languages, but also&#xA;across different ways of running the code in question and optimizing it to not just reach the right&#xA;answer, but to maximize performance in measurable ways. Most Project Euler solutions I&amp;rsquo;ve seen&#xA;haven&amp;rsquo;t quantified their performance in this way, and when they do optimize, usually only optimize&#xA;in favor of one metric, usually the &amp;ldquo;Clock Time&amp;rdquo; taken to compute the answer. Here, I&amp;rsquo;m sitting on&#xA;a lot of data – currently, 21 problems (and a control) across 5 different programming languages,&#xA;as well as different performance approaches for the differerent languages.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The New Package Managers</title>
-      <link>https://ericsweb.site/posts/package-managers/</link>
+      <link>https://www.ericsweb.site/posts/package-managers/</link>
       <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
-      <guid>https://ericsweb.site/posts/package-managers/</guid>
+      <guid>https://www.ericsweb.site/posts/package-managers/</guid>
       <description>&lt;p&gt;From the time I first got Linux to boot on a laptop I had, I became entranced with the idea of a&#xA;system &lt;em&gt;package manager&lt;/em&gt;. From &lt;a href=&#34;https://en.wikipedia.org/wiki/Package_manager&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Wikipedia&lt;/a&gt;:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;A package manager or package management system is a collection of software tools that automates the process of installing, upgrading, configuring, and removing computer programs for a computer&amp;rsquo;s operating system in a consistent manner.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Basically, a package manager lets you install software in a uniform way - on Ubuntu Linux,&#xA;&lt;code&gt;apt install 7zip&lt;/code&gt;. On CentOS Linux, &lt;code&gt;yum install 7zip&lt;/code&gt;. On OpenSUSE Linux &lt;code&gt;zypper install 7zip&lt;/code&gt;. No&#xA;more double-checking that you&amp;rsquo;re installing it from the right source, no more &amp;ldquo;Choose where you want&#xA;to install this&amp;rdquo;, no more &amp;ldquo;oh crap oh crap I forgot to uncheck the &amp;lsquo;Install NotMalware™️ Toolbar&amp;rsquo;&amp;rdquo;.&#xA;Clean. Uniform. It just knows how to install it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>General Purpose Computing – Then and Now</title>
-      <link>https://ericsweb.site/2018/04/04/General-Purpose-Computing/</link>
+      <link>https://www.ericsweb.site/2018/04/04/General-Purpose-Computing/</link>
       <pubDate>Wed, 04 Apr 2018 00:00:00 +0000</pubDate>
-      <guid>https://ericsweb.site/2018/04/04/General-Purpose-Computing/</guid>
+      <guid>https://www.ericsweb.site/2018/04/04/General-Purpose-Computing/</guid>
       <description>&lt;p&gt;The term &amp;ldquo;general purpose computing&amp;rdquo; is kind of a strange term. Until I was introduced to it within&#xA;the context of computer science history, it didn&amp;rsquo;t make much sense. I want to talk about the future&#xA;and some interesting developments happening within the computer industry, but that&amp;rsquo;s really&#xA;impossible without looking at how computers came to work like they do now.&lt;/p&gt;&#xA;&lt;h2 id=&#34;before-general-purpose-computing&#34; class=&#34;relative group&#34;&gt;Before General Purpose Computing &lt;span class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100&#34;&gt;&lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34; style=&#34;text-decoration-line: none !important;&#34; href=&#34;#before-general-purpose-computing&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;In the 1940s, computers were machines of war. They were for calculating the trajectories of&#xA;explosives, making aeronautical calculations, and so on. As former government employees who built&#xA;computers moved into the private sector, the technology started to come to market. Computers were&#xA;then used largely for high-level number crunching, in particular payroll. However, because of their&#xA;extremely high price, they were really only used by the largest customers who had a massive amount&#xA;of information to process.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Intel Disaster</title>
-      <link>https://ericsweb.site/2018/01/04/Intel-Security-Bug/</link>
+      <link>https://www.ericsweb.site/2018/01/04/Intel-Security-Bug/</link>
       <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
-      <guid>https://ericsweb.site/2018/01/04/Intel-Security-Bug/</guid>
+      <guid>https://www.ericsweb.site/2018/01/04/Intel-Security-Bug/</guid>
       <description>&lt;p&gt;It&amp;rsquo;s a bit of a hot topic right now, still in the early stages: one of the biggest security bugs&#xA;ever.&lt;/p&gt;&#xA;&lt;p&gt;Intel is a company that makes various components, but is most widely known for their processors for&#xA;desktop and laptop computers. They are by far the largest processor manufacturer, with up to 70%&#xA;market share, depending on your source. Processors power everything your computer does – in&#xA;computer science 101, they&amp;rsquo;re called the main &amp;ldquo;brain&amp;rdquo; of the computer, which is fairly apt.&#xA;Everything your computer does touches the processor at some point.&lt;/p&gt;</description>
     </item>
     <item>
       <title>How Encryption Works</title>
-      <link>https://ericsweb.site/2017/10/26/How-Encryption-Works/</link>
+      <link>https://www.ericsweb.site/2017/10/26/How-Encryption-Works/</link>
       <pubDate>Thu, 26 Oct 2017 00:00:00 +0000</pubDate>
-      <guid>https://ericsweb.site/2017/10/26/How-Encryption-Works/</guid>
+      <guid>https://www.ericsweb.site/2017/10/26/How-Encryption-Works/</guid>
       <description>&lt;p&gt;These days, encryption is becoming more and more important to understand, politically and&#xA;personally. However, when it gets discussed in an open forum, it&amp;rsquo;s usually discussed so abstractly&#xA;that the layperson doesn&amp;rsquo;t really understand the specifics of what&amp;rsquo;s going on. That&amp;rsquo;s what I&amp;rsquo;m here&#xA;for. I&amp;rsquo;m going to talk about encryption in a way that anyone can understand, and explain how it&#xA;works and why.&lt;/p&gt;&#xA;&lt;h1 id=&#34;what-is-encryption&#34; class=&#34;relative group&#34;&gt;What is Encryption? &lt;span class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100&#34;&gt;&lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34; style=&#34;text-decoration-line: none !important;&#34; href=&#34;#what-is-encryption&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;&lt;/span&gt;&lt;/h1&gt;&lt;p&gt;From &lt;a href=&#34;https://en.wikipedia.org/wiki/Encryption&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Wikipedia&lt;/a&gt;: &amp;ldquo;&lt;em&gt;encryption is the process of&#xA;encoding a message or information in such a way that only authorized parties can access it&lt;/em&gt;&amp;rdquo;.&#xA;Essentially, this means we want our data to be a secret from anyone who tries to look at it. The&#xA;internet, and almost everything on it, &lt;em&gt;needs&lt;/em&gt; encryption to function. The process of turning&#xA;encrypted information back into useful information is called &amp;ldquo;decryption&amp;rdquo;. Banks need to protect&#xA;information to protect identity theft. Companies need it to protect intellectual property. In fact,&#xA;&lt;em&gt;everything that has a login screen&lt;/em&gt; should have encryption (some sites haven&amp;rsquo;t caught up yet) to&#xA;prevent bad actors from intercepting the message and stealing passwords.&lt;/p&gt;</description>
     </item>
     <item>
       <title>How Modern Video Works</title>
-      <link>https://ericsweb.site/2017/08/27/how-video-works/</link>
+      <link>https://www.ericsweb.site/2017/08/27/how-video-works/</link>
       <pubDate>Sun, 27 Aug 2017 00:00:00 +0000</pubDate>
-      <guid>https://ericsweb.site/2017/08/27/how-video-works/</guid>
+      <guid>https://www.ericsweb.site/2017/08/27/how-video-works/</guid>
       <description>&lt;p&gt;Video is one of the most important technologies on the internet today. We use it so much we don&amp;rsquo;t&#xA;even really think about it anymore. We stream TV shows, watch cat videos, teleconference, and share&#xA;on social media. It&amp;rsquo;s become common and mundane, but it took a lot of smart people working very&#xA;hard to get to this point. Motion film is a bit over 100 years old, and in that time it&amp;rsquo;s gone from&#xA;a strange novelty to a series of multibillion-dollar industries that we interact with every day.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Problem with PowerShell</title>
-      <link>https://ericsweb.site/2017/08/21/The-Problem-With-Powershell/</link>
+      <link>https://www.ericsweb.site/2017/08/21/The-Problem-With-Powershell/</link>
       <pubDate>Mon, 21 Aug 2017 00:00:00 +0000</pubDate>
-      <guid>https://ericsweb.site/2017/08/21/The-Problem-With-Powershell/</guid>
+      <guid>https://www.ericsweb.site/2017/08/21/The-Problem-With-Powershell/</guid>
       <description>&lt;p&gt;In my past life as a Windows/.NET developer, I spent a lot of time working with various parts of the&#xA;.NET world, including PowerShell.&lt;/p&gt;&#xA;&lt;p&gt;For those uninitiated, the .NET framework is the framework Microsoft has been increasingly&#xA;pushing for development for their operating systems. Multiple programming languages in the MS world&#xA;use this same framework - it&amp;rsquo;s made to work well across different programming languages. The most&#xA;popular languages for the framework are C# (one of my favorite programming languages, right next&#xA;to Swift), Visual C++, Visual Basic, F#, and PowerShell. It&amp;rsquo;s a powerful and, in my opinion, very&#xA;good framework.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Why I Like FreeBSD</title>
-      <link>https://ericsweb.site/2017/07/03/Why-I-Like-FreeBSD/</link>
+      <link>https://www.ericsweb.site/2017/07/03/Why-I-Like-FreeBSD/</link>
       <pubDate>Mon, 03 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>https://ericsweb.site/2017/07/03/Why-I-Like-FreeBSD/</guid>
+      <guid>https://www.ericsweb.site/2017/07/03/Why-I-Like-FreeBSD/</guid>
       <description>&lt;p&gt;Those of you who know me may have noticed I&amp;rsquo;ve been talking about FreeBSD. When&#xA;I get into a technology, I like to research it. I like to understand the&#xA;philosophy behind it, and I like to learn how to use it to its full potential.&#xA;When I&amp;rsquo;m into a technology, I try to dig in and maximize my use of it. So since&#xA;I&amp;rsquo;ve been living with FreeBSD for quite a while, I&amp;rsquo;ll explain why I like it so&#xA;much, and what it has to offer (in my opinion) over other alternatives, as well&#xA;as reasons why I, personally, like it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Case for the Artificial Sciences</title>
-      <link>https://ericsweb.site/2017/06/09/The-Case-For-Artificial-Science/</link>
+      <link>https://www.ericsweb.site/2017/06/09/The-Case-For-Artificial-Science/</link>
       <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
-      <guid>https://ericsweb.site/2017/06/09/The-Case-For-Artificial-Science/</guid>
+      <guid>https://www.ericsweb.site/2017/06/09/The-Case-For-Artificial-Science/</guid>
       <description>&lt;p&gt;The two traditional branches of science are the natural sciences (such as physics, chemistry, and biology)&#xA;and the social sciences (such as sociology, psychology, and anthropology). Computer science falls into&#xA;neither of these categories, as it is neither a study of the natural world nor a study of human society.&#xA;It&amp;rsquo;s been argued that, because of this, the term &amp;ldquo;Computer Science&amp;rdquo; is a misnomer, instead relegating&#xA;Computer Science to the realm of mathematics. That said, I have some problems with this.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Linux and BSD - A Tale of Two Operating Systems</title>
-      <link>https://ericsweb.site/posts/adventures-in-bsd/</link>
+      <link>https://www.ericsweb.site/posts/adventures-in-bsd/</link>
       <pubDate>Fri, 12 May 2017 00:00:00 +0000</pubDate>
-      <guid>https://ericsweb.site/posts/adventures-in-bsd/</guid>
+      <guid>https://www.ericsweb.site/posts/adventures-in-bsd/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve been using FreeBSD a lot recently. FreeBSD is similar to Linux operating systems in many ways,&#xA;and at least initially, it will feel like home to Linux users. But along the way, there are lots of&#xA;pitfalls stemming from the historical philosophical differences in the BSD and Linux communities. In this article,&#xA;I&amp;rsquo;m going to talk about my adventures in BSDand Linux, coming from mainly a MacOS background with some&#xA;experience in Linux operating systems and a soft spot for FreeBSD.&lt;/p&gt;</description>
     </item>
     <item>
       <title>What is Beamforming, and How Will it Change the World?</title>
-      <link>https://ericsweb.site/posts/beamforming/</link>
+      <link>https://www.ericsweb.site/posts/beamforming/</link>
       <pubDate>Sat, 06 May 2017 00:00:00 +0000</pubDate>
-      <guid>https://ericsweb.site/posts/beamforming/</guid>
+      <guid>https://www.ericsweb.site/posts/beamforming/</guid>
       <description>&lt;p&gt;As the internet&amp;rsquo;s grown up, more and more areas have started to be explored, especially in consumer&#xA;devices. The best examples are smarthome hardware, wearable tech, and the ever-growing power of&#xA;smartphones. Engineers are moving Heaven and Earth to make everyday things slightly more convenient.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-beamforming&#34; class=&#34;relative group&#34;&gt;What is Beamforming? &lt;span class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100&#34;&gt;&lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34; style=&#34;text-decoration-line: none !important;&#34; href=&#34;#what-is-beamforming&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;It&amp;rsquo;s a wireless technology, based around electomagnetic fields, especially WiFi. Traditionally, WiFi is&#xA;radiated out in a sphere, in the same way that light emits from a lightbulb in every direction. One of the&#xA;big problems of this is that it gets weak very fast as you move away from the source. Beamforming is an&#xA;attempt to alleviate this.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The World Runs on Bad Code</title>
-      <link>https://ericsweb.site/posts/the-world-runs-on-bad-code/</link>
+      <link>https://www.ericsweb.site/posts/the-world-runs-on-bad-code/</link>
       <pubDate>Fri, 05 May 2017 00:00:00 +0000</pubDate>
-      <guid>https://ericsweb.site/posts/the-world-runs-on-bad-code/</guid>
+      <guid>https://www.ericsweb.site/posts/the-world-runs-on-bad-code/</guid>
       <description>&lt;p&gt;Code quality, the savior of, and the bane of, programmers.&lt;/p&gt;&#xA;&lt;p&gt;Writing code is easy. I really do believe that with effort and willingness to learn, just about anybody&#xA;can write a simple program. The challenge, however, is writing good code.&lt;/p&gt;&#xA;&lt;p&gt;In the paraphrased words of Peter Welch (a lot of this post is inspired by his essay,&#xA;&lt;a href=&#34;https://www.stilldrinking.org/programming-sucks&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Programming Sucks&lt;/a&gt;, and its counterpart by a different&#xA;author,&#xA;&lt;a href=&#34;http://blog.samstokes.co.uk/blog/2014/05/01/what-programming-is-like/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;What Programming is Like&lt;/a&gt;),&#xA;good code reads like poetry&#xA;written by someone over thirty.&#xA;Expounding on this idea, it&amp;rsquo;s quite accurate. Good code is descriptive without being obnoxious, neither&#xA;too concise nor too verbose, carefully thought out, well organized, and has a nice rhythm.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Why Package Managers are Great - With a Focus on Homebrew</title>
-      <link>https://ericsweb.site/2017/04/21/Package-Managers/</link>
+      <link>https://www.ericsweb.site/2017/04/21/Package-Managers/</link>
       <pubDate>Fri, 21 Apr 2017 00:00:00 +0000</pubDate>
-      <guid>https://ericsweb.site/2017/04/21/Package-Managers/</guid>
+      <guid>https://www.ericsweb.site/2017/04/21/Package-Managers/</guid>
       <description>&lt;p&gt;I really like package managers. Often, I&amp;rsquo;ll even get a bit preachy about them.&#xA;So guess what I&amp;rsquo;m going to do!&lt;/p&gt;&#xA;&lt;p&gt;Package managers are a lovely piece of technology. Linux users will be very&#xA;familiar with the terminology, but the fact is most of us interact with them&#xA;regularly without even realizing it.&lt;/p&gt;&#xA;&lt;p&gt;From &lt;a href=&#34;https://en.wikipedia.org/wiki/Package_manager&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Wikipedia&lt;/a&gt;: &lt;em&gt;A package&#xA;manager or package management system is a collection of software tools that&#xA;automates the process of installing, upgrading, configuring, and removing&#xA;computer programs for a computer&amp;rsquo;s operating system in a consistent manner.&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Problem with File Systems</title>
-      <link>https://ericsweb.site/2017/04/14/Filesystems-Suck/</link>
+      <link>https://www.ericsweb.site/2017/04/14/Filesystems-Suck/</link>
       <pubDate>Fri, 14 Apr 2017 00:00:00 +0000</pubDate>
-      <guid>https://ericsweb.site/2017/04/14/Filesystems-Suck/</guid>
+      <guid>https://www.ericsweb.site/2017/04/14/Filesystems-Suck/</guid>
       <description>&lt;p&gt;File systems are organized hierarchically. This makes sense, and is somewhat&#xA;intuitive to use. This is how your computer works. Everything is organized&#xA;relative to the &amp;ldquo;root directory&amp;rdquo; (/ on Mac/Linux/BSD, C:\ on Windows). Every&#xA;document, every executable, every system file is organized somewhere in that&#xA;hierarchy. It&amp;rsquo;s how personal computers have worked for almost as long as we&amp;rsquo;ve&#xA;had file systems on them. To those who are computer-savvy, or who grew up with&#xA;computers, this makes complete sense. Of course they&amp;rsquo;re hierarchical - you have&#xA;folders and subfolders to organize things, you have things separated by purpose,&#xA;it makes for a powerful organizational tool.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Today&#39;s Computers are Black Magic</title>
-      <link>https://ericsweb.site/2017/04/08/Computers-Are-Black-Magic/</link>
+      <link>https://www.ericsweb.site/2017/04/08/Computers-Are-Black-Magic/</link>
       <pubDate>Sat, 08 Apr 2017 00:00:00 +0000</pubDate>
-      <guid>https://ericsweb.site/2017/04/08/Computers-Are-Black-Magic/</guid>
+      <guid>https://www.ericsweb.site/2017/04/08/Computers-Are-Black-Magic/</guid>
       <description>&lt;p&gt;Today&amp;rsquo;s computers are insanely fast and sophisticated. We don&amp;rsquo;t necessarily think of them that way, because&#xA;they do such simple things like browse the web, read emails, and run dishwashers. Almost everything that&#xA;uses electricity these days has a computer in it. We&amp;rsquo;re really seeing this with things like home automation,&#xA;where even individual lightbulbs have small computers in them. They&amp;rsquo;re insanely cheap too, going to as &lt;a href=&#34;https://www.raspberrypi.org/blog/raspberry-pi-zero/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;little&#xA;as $5&lt;/a&gt; for something that can run a full operating&#xA;system.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Ethical Considerations in Advanced Robotics and AI</title>
-      <link>https://ericsweb.site/2017/01/20/Ethical-Considerations-In-Advanced-Robotics-and-AI/</link>
+      <link>https://www.ericsweb.site/2017/01/20/Ethical-Considerations-In-Advanced-Robotics-and-AI/</link>
       <pubDate>Fri, 20 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>https://ericsweb.site/2017/01/20/Ethical-Considerations-In-Advanced-Robotics-and-AI/</guid>
+      <guid>https://www.ericsweb.site/2017/01/20/Ethical-Considerations-In-Advanced-Robotics-and-AI/</guid>
       <description>&lt;p&gt;Advanced robotics and Artificial Intelligence is a very new area of scientific and sociological discussion. There wind up being a lot of problems with these kinds of products as they become increasingly complex, and when something goes wrong it&amp;rsquo;s not always clear whether responsibility lies with the user or with the manufacturer. I was inspired by &lt;a href=&#34;http://www.theverge.com/2017/1/19/14322334/robot-electronic-persons-eu-report-liability-civil-suits&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;this article&lt;/a&gt;, where the author discussed&lt;/p&gt;&#xA;&lt;h1 id=&#34;important-terms&#34; class=&#34;relative group&#34;&gt;Important Terms &lt;span class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100&#34;&gt;&lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34; style=&#34;text-decoration-line: none !important;&#34; href=&#34;#important-terms&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;&lt;/span&gt;&lt;/h1&gt;&lt;p&gt;AI: Artificial Intelligence - A human-created entity that can respond to external stimuli in a way that is &lt;em&gt;comparable&lt;/em&gt; to a human in terms of sophistication.&lt;/p&gt;</description>
     </item>
   </channel>
