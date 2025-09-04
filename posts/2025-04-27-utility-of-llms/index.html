@@ -1,0 +1,917 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html
+  lang="en-us"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="true"
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FFFFFF" />
+  
+  <title>LLMs, pt. 1 &middot; Eric&#39;s Web.site</title>
+    <meta name="title" content="LLMs, pt. 1 &middot; Eric&#39;s Web.site" />
+  
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="http://localhost:1313/js/appearance.min.8a082f81b27f3cb2ee528df0b0bdc39787034cf2cc34d4669fbc9977c929023c.js"
+    integrity="sha256-iggvgbJ/PLLuUo3wsL3Dl4cDTPLMNNRmn7yZd8kpAjw="
+  ></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="http://localhost:1313/css/main.bundle.min.8363fdb90097634558e4c060565c2caefbddbf21152432d1b5ca1f55adca4e75.css"
+    integrity="sha256-g2P9uQCXY0VY5MBgVlwsrvvdvyEVJDLRtcofVa3KTnU="
+  />
+  
+  
+  
+  
+  
+  
+  
+  <meta
+    name="description"
+    content="
+      
+        Large Language Models, or LLMs, have been making news lately. The US government is treating it as a
+national security issue, with AI capability being seen as an axis of the contest between the US and
+China. At the same time, skeptics and critics question what practical utility they have, or what
+side effects they come with. Fans propose it could be the end of labor, while detractors argue
+they&rsquo;re simply improved chatbots.
+      
+    "
+  />
+  
+  
+  
+  
+    <link rel="canonical" href="http://localhost:1313/posts/2025-04-27-utility-of-llms/" />
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/posts/2025-04-27-utility-of-llms/">
+  <meta property="og:site_name" content="Eric&#39;s Web.site">
+  <meta property="og:title" content="LLMs, pt. 1">
+  <meta property="og:description" content="Large Language Models, or LLMs, have been making news lately. The US government is treating it as a national security issue, with AI capability being seen as an axis of the contest between the US and China. At the same time, skeptics and critics question what practical utility they have, or what side effects they come with. Fans propose it could be the end of labor, while detractors argue they’re simply improved chatbots.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-04-27T14:37:41-05:00">
+    <meta property="article:modified_time" content="2025-04-27T14:37:41-05:00">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="LLMs, pt. 1">
+  <meta name="twitter:description" content="Large Language Models, or LLMs, have been making news lately. The US government is treating it as a national security issue, with AI capability being seen as an axis of the contest between the US and China. At the same time, skeptics and critics question what practical utility they have, or what side effects they come with. Fans propose it could be the end of labor, while detractors argue they’re simply improved chatbots.">
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "LLMs, pt. 1",
+    "headline": "LLMs, pt. 1",
+    
+    "abstract": "\u003cp\u003eLarge Language Models, or LLMs, have been making news lately. The US government is treating it as a\nnational security issue, with AI capability being seen as an axis of the contest between the US and\nChina. At the same time, skeptics and critics question what practical utility they have, or what\nside effects they come with. Fans propose it could be the end of labor, while detractors argue\nthey\u0026rsquo;re simply improved chatbots.\u003c\/p\u003e",
+    "inLanguage": "en-us",
+    "url" : "http:\/\/localhost:1313\/posts\/2025-04-27-utility-of-llms\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Eric Miller"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-04-27T14:37:41-05:00",
+    "datePublished": "2025-04-27T14:37:41-05:00",
+    
+    "dateModified": "2025-04-27T14:37:41-05:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "3814"
+  }
+  </script>
+    
+    <script type="application/ld+json">
+    {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/",
+       "name": "Index",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/posts/",
+       "name": "Posts",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "name": "Llms, Pt. 1",
+       "position": 3
+     }
+   ]
+ }
+  </script>
+
+  
+  
+    <meta name="author" content="Eric Miller" />
+  
+  
+    
+      <link href="https://github.com/sosheskaz/" rel="me" />
+    
+      <link href="https://www.linkedin.com/in/eric-miller/" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="m-auto flex h-screen max-w-7xl flex-col bg-neutral px-6 text-lg leading-7 text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="-translate-y-8 rounded-b-lg bg-primary-200 px-3 py-1 text-sm focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="pe-2 font-bold text-primary-600 dark:text-primary-400">&darr;</span
+        >Skip to main content</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold text-neutral-900 dark:text-neutral sm:py-10 print:hidden">
+  <nav class="flex items-start justify-between sm:items-center">
+    
+    <div class="flex flex-row items-center">
+      
+  <a
+    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+    rel="me"
+    href="/"
+    >Eric&rsquo;s Web.site</a
+  >
+
+    </div>
+    
+    
+      <ul class="flex list-none flex-col text-end sm:flex-row">
+        
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/posts/"
+                  title="Posts"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >All Posts</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/categories/"
+                  title="Categories"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Categories</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/index.xml"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >RSS</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/profile/"
+                  title="About Me"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >About</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+          
+        
+      </ul>
+    
+  </nav>
+</header>
+
+    
+    <div class="relative flex grow flex-col">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+        <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="hidden inline">
+    <a
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
+      href="http://localhost:1313/"
+      >Index</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class=" inline">
+    <a
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
+      href="http://localhost:1313/posts/"
+      >Posts</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="hidden inline">
+    <a
+      class="dark:underline-neutral-600 decoration-neutral-300 hover:underline"
+      href="http://localhost:1313/posts/2025-04-27-utility-of-llms/"
+      >LLMs, pt. 1</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mb-8 mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        LLMs, pt. 1
+      </h1>
+      
+        <div class="mb-10 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+          
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-04-27 14:37:41 -0500 CDT">April 27, 2025</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">18 mins</span>
+    
+
+    
+    
+      <span class="ps-2"><span class="flex">
+  <span
+    class="ms-1 rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    Draft
+  </span>
+</span>
+</span>
+    
+  </div>
+
+  
+  
+
+
+        </div>
+      
+      
+    </header>
+    <section class="prose mt-0 flex max-w-full flex-col dark:prose-invert lg:flex-row">
+      
+      <div class="min-h-0 min-w-0 max-w-prose grow">
+        <p>Large Language Models, or LLMs, have been making news lately. The US government is treating it as a
+national security issue, with AI capability being seen as an axis of the contest between the US and
+China. At the same time, skeptics and critics question what practical utility they have, or what
+side effects they come with. Fans propose it could be the end of labor, while detractors argue
+they&rsquo;re simply improved chatbots.</p>
+<p>I&rsquo;ve spent a lot of time lately reading about, thinking about, and playing with this technology. I
+really like a lot of it, and see a lot of potential, and want to share some of my thoughts and
+observations as a participant in the technology industry.</p>
+<h2 id="what-are-large-language-models" class="relative group">What are Large Language Models? <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#what-are-large-language-models" aria-label="Anchor">#</a></span></h2><p>&ldquo;AI&rdquo; is a complicated term, with a lot of history. It&rsquo;s had a few different meanings over time, but
+more recently, it&rsquo;s come to indicate technologies using a technique called &ldquo;machine learning&rdquo;, which
+is built on the underling technology of &ldquo;neural networks&rdquo;. Neural networks are a method of
+programming computers based on our understanding of how brains work, with simulated neurons
+interacting. Instead of programming with if/else clauses, it is programmed by feeding inputs into
+it, checking them against outputs, and reinforcing the outputs of the neural networks that yield
+better results. This process yields a system that can pattern-match quite well, uncovering
+connections that humans don&rsquo;t even realize, and doing a good job of it. This is, naturally, one of
+the key technology that underlies recommendation algorithms, image recognition, and&hellip; LLMs.</p>
+<p>A LLM is a clever trick on top of this technology. At its core, a LLM merely predicts the next word
+in a sequence (<a href="https://www.forbes.com/sites/lanceeliot/2025/03/07/generative-ai-gets-shaken-up-by-newly-announced-text-producing-diffusion-llms/" target="_blank" rel="noreferrer">well&hellip; usually, anyway</a>). More or less:
+&ldquo;based on the preceding text, what is the next piece of text&rdquo;. Originally, the technology wasn&rsquo;t
+very good, but by vastly increasing the size of the neural networks, and developing some key
+techniques, vast improvements were made. As a result, we have now created a machine that can
+generate text that is hard to tell from being human.</p>
+<p>As an additional layer, the LLM is not actually aware of the text that&rsquo;s fed into it; not directly.
+As part of its neural network, the actual text is broken up into pieces through a process called &ldquo;tokenization&rdquo;. Each token is assigned a number, and the neural network operates on these numbers. Text gets translated into these tokens when fed into the LLM, and get translated back to text on their way back out. Incidentally, this is why LLMs tend to fail at the &ldquo;how many R&rsquo;s are there in &lsquo;strawberry&rsquo;?&rdquo; question.</p>
+<p>The Turing test was a long-standing experiment in computer science. Given a computer generating
+text, and a human writing text, could a judge determine which was the human and which was the
+machine, just by communicating with written questions and answers? The idea of a computer being able
+to pass as human relatively consistently has always been theoretical, a &ldquo;goal that might be possible
+someday, but probably not&rdquo;. People used to try to make chatbots that could fool people into think
+they were human; today they program their chatbots to make sure their users know that they&rsquo;re not.
+The Turing test is now irrelevant.</p>
+<p>Hopefully, this gives a decent intuition on why &ldquo;sentience&rdquo; is not really a feasible things for LLMs
+to have. They&rsquo;re ultimately mappings of probabilities of tokens in order. To quote Star Wars, &ldquo;The
+ability to speak does not make you intelligent.&rdquo; Incidentally, research has borne this out. While
+LLMs exhibit some interesting emergent properties, <a href="https://machinelearning.apple.com/research/illusion-of-thinking" target="_blank" rel="noreferrer">they don&rsquo;t truly have the ability to reason</a>. However, it turns out, a next token predictor can &ldquo;approximate&rdquo; reasoning, by taking that next token predictor and shaping the output toward problem-solving.</p>
+<p>The consumption of a Large Language Model, the usage of that &ldquo;next token prediction&rdquo; engine, is generally called &ldquo;inference&rdquo;. There are various inference providers. Most famously, OpenAI and Anthropic, but also clouds like AWS, Google, and Alibaba, and global LLM companies that have emerged like Mistral, Z.AI, and Deepseek. Inference may be purchased in a couple different ways. Most consumer-facing inference services charge a monthly fee and have usage limits, or may charge based on usage, in terms of the number of tokens in inputs and outputs.</p>
+<h3 id="why-are-they-important" class="relative group">Why are they Important? <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#why-are-they-important" aria-label="Anchor">#</a></span></h3><p>Historically, computers are much better at &ldquo;hard&rdquo; skills than &ldquo;soft&rdquo; skills. If one can describe how to do something in detail, break it into instructions, then it can be made into a computer program. It&rsquo;s easy for a computer to draw a perfect square, but hard to draw a watercolor portrait. It&rsquo;s easy for a computer to read structured code or data, but hard for a computer to understand the tone of an email.</p>
+<p><a href="https://xkcd.com/1425/" target="_blank" rel="noreferrer">
+
+
+
+
+
+
+  
+  
+<figure><img src="https://imgs.xkcd.com/comics/tasks.png" alt="A stick-figure cartoon depicts a conversation between two people. The first, on the left, is shown with a speech bubble containing the request: “WHEN A USER TAKES A PHOTO, THE APP SHOULD CHECK WHETHER THEY&rsquo;RE IN A NATIONAL PARK… AND CHECK WHETHER THE PHOTO IS OF A BIRD.” The second figure, seated at a computer, responds with two separate speech bubbles. To the first request, the response is “SURE, EASY GIS LOOKUP? GIMME A FEW HOURS.” To the second request, the response is “I’LL NEED A RESEARCH TEAM AND FIVE YEARS.” Below the figures is a caption: “IN CS, IT CAN BE HARD TO EXPLAIN THE DIFFERENCE BETWEEN THE EASY AND THE VIRTUALLY IMPOSSIBLE. This alt-text was written by an LLM, specifically Gemma 3. I&rsquo;m particularly excited about the advancements LLMs will make in accessibility technology.”" class="mx-auto my-0 rounded-md" />
+</figure>
+</a></p>
+<p>One of the core value propositions of neural networks is that they&rsquo;re better able to do these &ldquo;softer&rdquo; tasks. This is important because:</p>
+<ul>
+<li>There is a massive amount of labor spent on language tasks, and the potential to automate them is very valuable for productivity.</li>
+<li>Complex language can be used generically. An LLM does not need to be trained on any specific domain in order to achieve useful results, making them easy to use for many tasks.</li>
+<li>While LLMs are not capable of true <em>reasoning</em>, they&rsquo;re able to <em>approximate</em> cognitition, on-demand and at low-cost.</li>
+</ul>
+<p>This means that we now have cognition, capable of dealing with novel situations, available on-demand, in a format that one does not have to be very skilled to use successfully. This is a fundamentlaly new world for the industry, in many ways.</p>
+<hr>
+<p>I&rsquo;m hesitant to trust the large firms running hosted LLM inference providers,
+and find that I learn a lot from running things myself, so I&rsquo;ve been predominantly
+running models locally using open-source tools, and the most popular models.</p>
+<p>The first industry that LLMs have truly revolutionized is the spam industry. It&rsquo;s now possible to
+create text or images that appear real with a minimum of effort, and this has obvious value for
+spam, propaganda, and other disreputable fields. That said, within the popular zeitgeist, LLM
+capabilities are still often discussed as &ldquo;just chatbots&rdquo;, but I think it&rsquo;s worth looking at
+applications beyond chatbots, and why chatbots are popular and persistent implementations, but also
+at the broader context of what this technology actually is, and what we can do with it.</p>
+<h2 id="llm-diy" class="relative group">LLM DIY <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#llm-diy" aria-label="Anchor">#</a></span></h2><p>If you want to try running a large language model locally, there are various projects that are
+available out there. The easiest one to get started with is probably
+<a href="https://lmstudio.ai/" target="_blank" rel="noreferrer">LM Studio</a>. The main caveat is that you&rsquo;ll tend to want a fairly powerful
+computer, with lots of RAM, and ideally a good GPU. AMD GPUs are a lot harder to get to work than
+NVIDIA GPUs. That said, a lot of people run these models on Apple computers; the Apple Silicon
+chips, M1 and newer, tend to run these models fairly well.</p>
+<h2 id="the-discourse" class="relative group">The Discourse <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#the-discourse" aria-label="Anchor">#</a></span></h2><p>Before we get started, the discourse™️ must be addressed, although I don&rsquo;t want to spend much time
+on it.</p>
+<p>Companies behind LLMs have engaged in various behaviors that people have found worthy of criticism,
+and if one wants to be critical of LLM companies, there is ample material to do so. At the same
+time, many of those in the cryptocurrency arena have found that market to be drying up, and moved
+over to this one to hock their wares. Where a culture war touch point had cropped up there, it has
+now moved to &ldquo;AI&rdquo;, and the battle lines have moved over to LLMs.</p>
+<p>Those battle lines seem to me to be more informed by cultural signifiers than material argument for
+the most part. That said, the worst arguments I&rsquo;ve seen, in any direction, have come from people who
+engage with &ldquo;AI&rdquo; predominantly through that lens. It is an attitude that lends itself to motivated
+reasoning.</p>
+<p>At the same time, technology companies make bold statements about the future, how their product is
+going to be completely revolutionary to every aspect of our society, while inviting comparisons to
+science fiction. It is not wise to take the output of a company that wants to sell you a product at
+face value of its actual capability. The tech industry always engages in these strong hype cycles,
+and it&rsquo;s worth keeping in mind that those who make the strongest promises about these tools, often
+also stand to financially benefit the most from their uptake.</p>
+<p>That hype is probably the most important aspect of the cultural understanding of LLMs to
+deconstruct. The more their capabilities are overstated, the more we risk applying them to
+inappropriate circumstances, or to viewing them as harbingers of the end of humanity.</p>
+<h2 id="beyond-the-hype" class="relative group">Beyond the Hype <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#beyond-the-hype" aria-label="Anchor">#</a></span></h2><p>The framing around LLMs, from the beginning, is a bit problematic. First, we need to discuss &ldquo;AI&rdquo;,
+or Artificial intelligence. It is a marketing term, and a relatively old one, that doesn&rsquo;t
+necessarily indicate a specific technology. These day, the word &ldquo;AI&rdquo; is generally used to indicate
+technologies based on &ldquo;neural network&rdquo; machine learning techniques.</p>
+<p>Then, the related term of &ldquo;Generative AI&rdquo; is more like &ldquo;machine learning models which generate
+content&rdquo;. This is a meaningful distinction from previous machine learning models, which would tend
+to be non-generative, instead being used in places like algorithmic recommendation, image
+recognition, and natural language processing.</p>
+<p>This is why I tend to avoid the term &ldquo;AI&rdquo; altogether, especially in more specific technical
+discussions like I want this to be. As a term, it is non-specific, and plays into the marketing,
+which is something that I we must resist if we are to understand the technology accurately.
+&ldquo;AI&rdquo; invites us to think of these technologies as the realization of the concept explored in
+fiction, a device which exists to serve the purpose the author needs it to, as opposed to a specific
+and material technology with capabilities, social consequences, and limitations. That they are
+&ldquo;intelligent&rdquo; is something that there is not much evidence for, and an extraordinary claim. While AI
+does not explicitly make this claim, it invites this comparison in its lack of specificity; whereas
+LLM refers to a specific technology, with specific capabilities and limitations.</p>
+<p>The reason AI has been picked up for machine learning, is because the techniques underlying
+contemporary machine learning, called &ldquo;neural networks&rdquo;, are inspired by how we understand the
+function of biological intelligence. Neural networks effectively simulate a simplified version of
+the brain&rsquo;s neural structure by using layers of interconnected nodes, and implementing training
+functions to train them how to perform a task. This is theorized to be relatively similar to how
+biological intelligence learns things. A consequence of this approach, however, is that it is
+extremely difficult to figure out how they work, or what they do. There is no source code to read
+how they work, and the interactions are too complex for us to understand.</p>
+<p>Relatedly, &ldquo;Artificial General Intelligence&rdquo; is also best treated as a marketing term. In recent
+years, we&rsquo;ve seen people start defining what it should be, because it feels like we are getting
+closer. However, this strikes me as a sleight of hand; AGI is a term that similarly invites
+comparisons to science fiction, but it is not a well-defined concept. In moving from Sci-Fi to the
+real world, a concept that is boundless in a literary context, where it means whatever specifics the
+author needs it to, it now has more measurable requirements. Specific requirements are generally a
+good thing, but carrying the term over from Sci-Fi indicates the intent to draw the comparison to
+the nigh-<em>magical</em> concept, while shifting the requirements to something more mundane.</p>
+<h3 id="on-public-statements" class="relative group">On Public Statements <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#on-public-statements" aria-label="Anchor">#</a></span></h3><p>When a business entity makes a public statement, I discourage taking those statements literally,
+unless they are made in a context where a business has a legal obligation to tell the truth, such as
+a context where statements are covered under fiduciary responsibility, or sworn testimony.
+Businesses do not make public statements in the interest of truth. Rather, they make public
+statements in service of maximizing profit. This takes many forms. The most obvious relevant example
+is that technology companies will tend to overstate the capabilities of their products, and to
+understate their limitations. The most basic example of this is that practically every time any
+company releases a new model, it is &ldquo;the best model&rdquo;.</p>
+<p>Relatedly, some companies have made public statements about layoffs due to &ldquo;AI&rdquo;, and alleged
+productivity increases. While these claims will likely be true in some contexts, one should be
+suspicious of these claims. For example, in a business environment where there is a lot of
+uncertainty, and financial institutions are forecasting a likely recession, businesses may look to
+reduce their expenses ahead of time, and to maintain a bit more cash, in order to manage their risk.
+Being worried about a potential recession is not a good look, but a company which is rapidly
+adopting new technologies and making productivity improvements, is a good look. The main reason I&rsquo;m
+suspicious of this claim is that, when companies are able to make significant efficiency
+improvements, it is often a better business decision to lower prices somewhat, use lower prices to
+capture greater market share, and make more profit overall. Efficiency tends to lend itself better
+to expansion than to reduction, in many industries.</p>
+<p>This is not to say that these claims are never true, or that there is no truth to them. It is to say
+that, intermittently, &ldquo;AI&rdquo; technology may be a useful scapegoat for other decisions that a company is
+making. Overstating the capabilities of LLM technology often suits the business interests of both
+producers and consumers of LLM technology.</p>
+<h1 id="linguistic-computation" class="relative group">Linguistic Computation <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#linguistic-computation" aria-label="Anchor">#</a></span></h1><p>A better mental model for dealing with LLMs is something like &ldquo;linguistic computation&rdquo;.</p>
+<p>The core function of a large language model is simply: predict the next word in a sequence (note:
+as of recently, this is not always true, but it will probably remain &ldquo;close enough&rdquo; to true to build
+a mental model of how LLMs work). It does this repeatedly, with each prediction being based on the
+previous words. Much of what has been achieved in the past few years has been a combination of
+creating vastly larger models (which
+require more powerful graphics cards, more memory, and more training) and the development of
+techniques to iterate on and extend this. That said, it would be wrong to say that LLMs &ldquo;just&rdquo;
+predict the next word in a sequence. There is clearly emergent behavior present that creates
+capabilities beyond anything which has existed before in computer science.</p>
+<p>So, LLMs are good at <em>language</em>. This is the truly revolutionary thing about LLMs—they grasp
+language in a way that no other technology ever created <em>can</em>. I would go a step further, and say
+that I think that they understand language in roughly the same way that humans do. If anything, it
+seems like they are probably better at it than us in many respects.</p>
+<p>There are a few big reasons why this is significant.</p>
+<p>First, language is the primary way that humans communicate. Even programming languages are called as
+such, because they are easier and preferable ways for humans to instruct computers, compared to
+machine language, or even assembly language, which work by directly instructing the machine on which
+circuits to activate and what to do with them. The ability of computers to interact with humans,
+bidirectionally, in a way which is natural to us, is a capability that is incredibly relevant to
+everything that they do—because everything that computers have ever been tasked with doing, is also
+a human construct. This technology solves for a very old communication problem.</p>
+<p>Second, complex language carries incredible capabilities with it, and it can be used for other
+tasks. It creates an ability to take, and to use, notes. It is even possible to perform functions
+like math, using techniques like long division. And, if we look at thinking models, and present them
+with math questions that would normally require a calculator, we do see that they can often
+calculate out the right answer&hellip; at great effort and expense. There have been plenty of posts
+online where someone asks a model a relatively simple math question, and it takes several minutes or
+even hours to compute the answer. This is usually posted along with a joke like &ldquo;this is the future
+of computing?&rdquo; But, a calculator is a tool that has long since been invented, and we don&rsquo;t
+particularly need a better one; this critique misses the point entirely. But nonetheless, the
+insight that we can get here is that LLMs are capable of using pure language, in order to construct
+the answer to a math problem.</p>
+<p>This is honestly incredible, and if you&rsquo;d told me that we&rsquo;d reach this point a year ago, I don&rsquo;t
+think I would&rsquo;ve believed it. As discussed, LLMs are language engines. Language is the entirety of
+what they do—they are &ldquo;next word&rdquo; predictors at their core. They do not comprehend the concepts that
+words represent, only the relationships between those words in sequence. And yet, it turns out that
+<strong>the relation of words in sequence</strong> is sufficient to perform mathematical computations. This is
+not a computer doing math as we would understand it. This is a language engine throwing words at a
+math problem until it can reverse engineer a shoddy math engine. It has reconstructed mathematics,
+from nothing, out of words. This is an emergent property of this form of linguistic computation; it
+goes beyond merely predicting the next word, into a more generalized problem-solving space.</p>
+<p>This is the true power of complex language. Just as humans can bend language to suit whatever needs
+we&rsquo;ve had historically, so too can these LLMs bend language into a more general-purpose
+problem-solving tool. When those most optimistic about the capabilities about LLMs discuss the
+potential of an &ldquo;artificial general intelligence&rdquo;, this is largely what they refer to; we are not
+yet sure how far these capabilities can go.</p>
+<h2 id="tools" class="relative group">Tools <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#tools" aria-label="Anchor">#</a></span></h2><p>Where there is greater power still though, is in tool use. From what we&rsquo;ve seen of LLMs&rsquo; ability to
+apply complex language, it can detect when a tool may be appropriate. And, given appropriate
+configuration, LLMs can be provided with programmatic tools, and they can operate those tools. For
+example: a computer may not be good at math, but it can be provided with a programming language
+interpreter, and taught to use it—and then write a small program to compute whatever it needs to do,
+using traditional computation.</p>
+<p>An emerging method to offer &ldquo;tools&rdquo; is MCP: Model Context Protocol. This is an active development,
+and it&rsquo;s not yet clear how it&rsquo;s going to shake out on the grand scale. The promise is that it
+provides a standard to teach any LLM, on-the-fly, how to operate a given traditional software
+system.</p>
+<p>There are a number of examples <a href="https://modelcontextprotocol.io/examples" target="_blank" rel="noreferrer">here</a>, which can be
+illustrative of the variety of potential uses. For generic problem-solving purposes, it may allow
+a model to access a set of tools, think about which ones may be appropriate to solve a general
+problem, and to use those tools to solve the problem.</p>
+<p>This augments an LLM&rsquo;s capabilities in ways that allow it to selectively tackle novel problems in
+unprecedented ways. We can now create a system that, when presented with a generic problem,
+presented in a novel way, by someone without programming experience, and it can leverage the tools
+at its disposal to try to figure out an answer in a generic way. This allows LLMs to serve as the
+&ldquo;engine&rdquo; of a generic problem-solving machine, that can communicate and interact in ways that it has
+never been explicitly programmed to.</p>
+<p>In premise, this implies interesting potential: the ability to outfit a large language model with
+a massive set of integrations, defined by the owners of those integrations—an &ldquo;app store&rdquo; for LLM
+integrations. There&rsquo;s no reason any given LLM can&rsquo;t have the ability to organize your email for you.</p>
+<h2 id="change" class="relative group">Change <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#change" aria-label="Anchor">#</a></span></h2><p>While this may seem on the surface like &ldquo;just a better chatbot&rdquo;, this creates a fundamentally new
+paradigm in computer programming, not unlike the Internet. And just like the Internet, it&rsquo;s not
+entirely clear what&rsquo;s going to happen. One possibility along that spectrum is that it turns out to
+be a fad, and fizzles out. Another is that it ends the need for human toil, and creates either a
+utopia or a dystopia. I&rsquo;m not prepared to rule out either of these possibilities completely, but I
+don&rsquo;t think they&rsquo;re particularly likely. That said, I think we are going to see a technological
+change, on a scale similar to that of the Internet, unfold over the next couple of decades, as this
+technology is developed and built upon. The Internet of today, with its encrypted connections, its
+interactive elements, its commercialization, its user-generated content—and the fact that anyone can
+access it at just about any time—is not something that its creators could never have envisioned.</p>
+<p>It is impossible to accurately or completely predict how the complex systems of our world will
+interact with a novel technology with novel capabilities, let alone the downstream consequences of
+that development, or of the response to those consequences.</p>
+<p>Technological development moves in unexpected ways. The development of video games created a market
+better GPUs. This led to development on GPUs over time. As those GPUs came out, people created new
+ways to use this technology. Complex and expensive scientific modeling emerged, as did crypto and
+blockchain. The wide adoption and development of these technologies led to a vastly wider market,
+where there was seemingly no cap on the power that could be demanded from GPUs, and a huge influx
+of capital to finance the development of these new GPUs. While blockchain itself has not seen a
+massive, society-changing development, it has created new cryptographic techniques that are being
+adopted inside the tech industry to validate security and authenticity. And, the vastly more
+powerful GPUs that have been developed as a result of blockchain&rsquo;s demands, made the massive
+computation power that was necessary to develop the first true contemporary LLMs, like ChatGPT,
+possible.</p>
+<p>It is apparent to me that something big is occurring, but I don&rsquo;t think anyone today truly has a
+clear idea of where it&rsquo;s going. I think that this is one of the most important things to understand
+about today&rsquo;s generative AI in general, but LLMs in particular. Some people seem to think that we
+should not use them, but that cat is out of the bag. They will become important, and they <em>will</em> be
+widely used, whether or not they <em>should</em>. The questions in front of us, at this point, are to what
+ends they are used.</p>
+<h1 id="emergence" class="relative group">Emergence <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#emergence" aria-label="Anchor">#</a></span></h1><p>Complex systems can exhibit a peculiar characteristic: <em>emergence</em>. Emergence is when characteristics
+or capabilities</p>
+<h2 id="opportunities" class="relative group">Opportunities <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#opportunities" aria-label="Anchor">#</a></span></h2><ul>
+<li>Flagging for criteria</li>
+<li>Summarization and note-taking</li>
+<li>Translation</li>
+<li>Second-guessing and review</li>
+</ul>
+<h1 id="early-applications" class="relative group">Early Applications <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#early-applications" aria-label="Anchor">#</a></span></h1><ul>
+<li>PII redaction</li>
+</ul>
+<h1 id="expansion" class="relative group">Expansion <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#expansion" aria-label="Anchor">#</a></span></h1><h1 id="risks" class="relative group">Risks <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#risks" aria-label="Anchor">#</a></span></h1>
+      </div>
+    </section>
+    <footer class="max-w-prose pt-8 print:hidden">
+      
+  <div class="flex">
+    
+    
+    
+      
+      
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+          Author
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          Eric Miller
+        </div>
+      
+      
+        <div class="text-sm text-neutral-700 dark:text-neutral-400">Software Engineer, Kuberneter</div>
+      
+      <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://github.com/sosheskaz/"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+          style="will-change:transform;"
+          href="https://www.linkedin.com/in/eric-miller/"
+          target="_blank"
+          aria-label="Linkedin"
+          rel="me noopener noreferrer"
+          ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+</span></a
+        >
+      
+    
+  </div>
+
+</div>
+    </div>
+  </div>
+
+
+      
+  
+  <section class="flex flex-row flex-wrap justify-center pt-4 text-xl">
+    
+      
+        <a
+          class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/posts/2025-04-27-utility-of-llms/&amp;quote=LLMs,%20pt.%201"
+          title="Share on Facebook"
+          aria-label="Share on Facebook"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://x.com/intent/tweet/?url=http://localhost:1313/posts/2025-04-27-utility-of-llms/&amp;text=LLMs,%20pt.%201"
+          title="Post on X"
+          aria-label="Post on X"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://tootpick.org/#text=http://localhost:1313/posts/2025-04-27-utility-of-llms/%20LLMs,%20pt.%201"
+          title="Toot on Mastodon"
+          aria-label="Toot on Mastodon"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M433 179.11c0-97.2-63.71-125.7-63.71-125.7-62.52-28.7-228.56-28.4-290.48 0 0 0-63.72 28.5-63.72 125.7 0 115.7-6.6 259.4 105.63 289.1 40.51 10.7 75.32 13 103.33 11.4 50.81-2.8 79.32-18.1 79.32-18.1l-1.7-36.9s-36.31 11.4-77.12 10.1c-40.41-1.4-83-4.4-89.63-54a102.54 102.54 0 0 1-.9-13.9c85.63 20.9 158.65 9.1 178.75 6.7 56.12-6.7 105-41.3 111.23-72.9 9.8-49.8 9-121.5 9-121.5zm-75.12 125.2h-46.63v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.33V197c0-58.5-64-56.6-64-6.9v114.2H90.19c0-122.1-5.2-147.9 18.41-175 25.9-28.9 79.82-30.8 103.83 6.1l11.6 19.5 11.6-19.5c24.11-37.1 78.12-34.8 103.83-6.1 23.71 27.3 18.4 53 18.4 175z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/posts/2025-04-27-utility-of-llms/&amp;title=LLMs,%20pt.%201"
+          title="Share on LinkedIn"
+          aria-label="Share on LinkedIn"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+</span></a
+        >
+      
+    
+      
+        <a
+          class="m-1 inline-block min-w-[2.4rem] rounded bg-neutral-300 p-1 text-center text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="mailto:?body=http://localhost:1313/posts/2025-04-27-utility-of-llms/&amp;subject=LLMs,%20pt.%201"
+          title="Send via email"
+          aria-label="Send via email"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+</span></a
+        >
+      
+    
+  </section>
+
+
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="group flex" href="http://localhost:1313/posts/2025-02-17-home-automation/">
+              <span
+                class="me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&larr;</span
+                ><span class="ltr:hidden rtl:inline">&rarr;</span></span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >2025 02 17 Home Automation</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-02-16 09:54:13 -0600 CST">February 16, 2025</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="group flex text-right" href="http://localhost:1313/posts/2025-07-28-large-language-models/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Large Language Models</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-07-28 00:00:00 -0500 CDT">July 28, 2025</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[-2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&rarr;</span
+                ><span class="ltr:hidden rtl:inline">&larr;</span></span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+      </main>
+      
+        <div
+          class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12"
+          id="to-top"
+          hidden="true"
+        >
+          <a
+            href="#the-top"
+            class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+            aria-label="Scroll to top"
+            title="Scroll to top"
+          >
+            &uarr;
+          </a>
+        </div>
+      <footer class="py-10 print:hidden">
+  
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            &copy;
+            2025
+            Eric Miller
+        </p>
+      
+      
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          
+          
+          Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://github.com/jpanther/congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    <div class="flex flex-row items-center">
+      
+      
+      
+      
+        <div
+          class="me-14 cursor-pointer text-sm text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        >
+          <button id="appearance-switcher-0" type="button" aria-label="appearance switcher">
+            <div
+              class="flex h-12 w-12 items-center justify-center dark:hidden"
+              title="Switch to dark appearance"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+            </div>
+            <div
+              class="hidden h-12 w-12 items-center justify-center dark:flex"
+              title="Switch to light appearance"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+            </div>
+          </button>
+        </div>
+      
+    </div>
+  </div>
+  
+  
+</footer>
+
+    </div>
+  </body>
+</html>

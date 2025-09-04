@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://ericsweb.site/sitemap.xml
+Sitemap: https://www.ericsweb.site/sitemap.xml
