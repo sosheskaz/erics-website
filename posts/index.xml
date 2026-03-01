@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Eric&#39;s Web.site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Oct 2025 20:18:00 -0500</lastBuildDate>
+    <lastBuildDate>Sun, 01 Mar 2026 23:23:54 +0000</lastBuildDate>
     <atom:link href="https://www.ericsweb.site/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>On Refusing</title>
+      <link>https://www.ericsweb.site/posts/2026-03-01-on-refusing/</link>
+      <pubDate>Sun, 01 Mar 2026 23:23:54 +0000</pubDate>
+      <guid>https://www.ericsweb.site/posts/2026-03-01-on-refusing/</guid>
+      <description>&lt;p&gt;On the surface, engineering catastrophes appear to be technical failures. In reality, a single mistake does not create catastrophe; it is institutional conditions that often shape whether it escalates into disaster.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;One of the quintessential case studies for the role of ethics in engineering is the Challenger disaster. During development, flight data from earlier missions showed &lt;a href=&#34;https://en.wikipedia.org/wiki/O-ring&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;O-ring&lt;/a&gt; erosion and blow-by (hot gases leaking past a damaged seal), but the risk was treated as acceptable. The forecast called for temperatures far colder than any previous launch conditions, and engineers argued they lacked evidence the O-rings would seal reliably under those conditions. During a teleconference the night before launch, an engineering manager asked the team to &amp;ldquo;take off their engineering hats and put on their management hats,&amp;rdquo; and the delay recommendation was reversed after internal discussion. 73 seconds after liftoff, the rocket exploded, killing all seven people aboard.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Large Language Models, pt. 1: What are LLMs?</title>
       <link>https://www.ericsweb.site/posts/2025-10-14-llms-1/</link>

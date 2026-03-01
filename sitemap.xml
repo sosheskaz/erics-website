@@ -3,9 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     
+  
+    
       <url>
-            <loc>https://www.ericsweb.site/posts/2025-10-14-llms-1/</loc>
-            <lastmod>2025-10-14T20:18:00-05:00</lastmod>
+            <loc>https://www.ericsweb.site/posts/2026-03-01-on-refusing/</loc>
+            <lastmod>2026-03-01T23:23:54+00:00</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.5</priority>
           </url>
@@ -14,12 +16,21 @@
     
       <url>
             <loc>https://www.ericsweb.site/posts/</loc>
-            <lastmod>2025-10-14T20:18:00-05:00</lastmod>
+            <lastmod>2026-03-01T23:23:54+00:00</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.5</priority>
           </url>
     
   
+    
+  
+    
+      <url>
+            <loc>https://www.ericsweb.site/posts/2025-10-14-llms-1/</loc>
+            <lastmod>2025-10-14T20:18:00-05:00</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.5</priority>
+          </url>
     
   
     
@@ -71,8 +82,6 @@
             <changefreq>weekly</changefreq>
             <priority>0.5</priority>
           </url>
-    
-  
     
   
     
