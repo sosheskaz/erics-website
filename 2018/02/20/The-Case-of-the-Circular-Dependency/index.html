@@ -40,8 +40,8 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="https://www.ericsweb.site/css/main.bundle.min.a645f3fa02b2ca20e7ef61b236048d95cc9bc2e5b2faf1f0ac0aa85431187c1c.css"
-    integrity="sha256-pkXz&#43;gKyyiDn72GyNgSNlcybwuWy&#43;vHwrAqoVDEYfBw="
+    href="https://www.ericsweb.site/css/main.bundle.min.100caa677b4bc416cdd884107b203b4869f9b413a19aa57d12069fb826f1abe9.css"
+    integrity="sha256-EAyqZ3tLxBbN2IQQeyA7SGn5tBOhmqV9EgafuCbxq&#43;k="
   />
   
   
@@ -233,6 +233,7 @@ I’ll start at the beginning. If you’re not into computers, I’ll explain th
                   href="/posts/"
                   title="Posts"
                   
+                  
                   ><span
                       class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
                       >All Posts</span
@@ -248,6 +249,7 @@ I’ll start at the beginning. If you’re not into computers, I’ll explain th
                 <a
                   href="/categories/"
                   title="Categories"
+                  
                   
                   ><span
                       class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
@@ -265,6 +267,7 @@ I’ll start at the beginning. If you’re not into computers, I’ll explain th
                   href="/index.xml"
                   title=""
                   
+                  
                   ><span
                       class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
                       >RSS</span
@@ -280,6 +283,7 @@ I’ll start at the beginning. If you’re not into computers, I’ll explain th
                 <a
                   href="/profile/"
                   title="About Me"
+                  
                   
                   ><span
                       class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
@@ -433,15 +437,15 @@ showed me any of my files or folders. Vexing.</p>
 <p>I could identify the process that was tied up trying to access the drive by seeing which one my
 monitors showed was down. My first attempt was pretty simple, restart the service that ran the
 process.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>service restart myservice
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>service restart myservice
 </span></span></code></pre></div><p>I waited. And waited. I figured it was trying to figure out what was going on with the drive in
 order to clean itself up. But after a while, it was apparent that it was totally stuck with no way
 out. So then I tried something a bit nastier. I got the process ID and tried to kill it myself.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kill <span style="color:#ae81ff">9876</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kill <span style="color:#ae81ff">9876</span>
 </span></span></code></pre></div><p>I waited. And waited. And nothing happened. What that command basically does is tell the process
 in question &ldquo;You need to stop. Right now please. Seriously.&rdquo; It almost always works. Sometimes it
 doesn&rsquo;t. When it doesn&rsquo;t, there&rsquo;s a fallback that always works.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kill -9 <span style="color:#ae81ff">9876</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kill -9 <span style="color:#ae81ff">9876</span>
 </span></span></code></pre></div><p>Unlike normal <code>kill</code>, this doesn&rsquo;t ask the process to stop. It tells the operating system to
 terminate the process immediately. No being nice, no letting it clean up resources. Just drop
 everything it&rsquo;s doing. That&rsquo;s why it can&rsquo;t fail – you&rsquo;re telling the part of the computer that
@@ -476,12 +480,12 @@ allows processes to run <strong>at all</strong> to not let that process run anym
       
         <source
           
-            srcset="https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/inexplicable_2x_hu_450e765baae3c9f.webp 330w,https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/inexplicable_2x_hu_371981e012efb263.webp 660w
+            srcset="https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/inexplicable_2x_hu_b44e308f3ae34d9a.webp 330w,https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/inexplicable_2x_hu_25059bd48c850c6b.webp 660w
             
-              ,https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/inexplicable_2x_hu_f2d1496ebbdf3454.webp 1024w
+              ,https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/inexplicable_2x_hu_b76fe82f0031dca9.webp 1024w
             
             
-              ,https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/inexplicable_2x_hu_931941a9cd5f9f45.webp 1320w
+              ,https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/inexplicable_2x_hu_aac80e38845d49ee.webp 1320w
             "
           
           sizes="100vw"
@@ -495,12 +499,12 @@ allows processes to run <strong>at all</strong> to not let that process run anym
         alt="Source: xkcd.com"
         loading="lazy" decoding="async"
         
-          src="https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/inexplicable_2x_hu_3015942644cf256e.png" srcset="https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/inexplicable_2x_hu_eece007dfeb12c26.png 330w,https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/inexplicable_2x_hu_3015942644cf256e.png 660w
+          src="https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/inexplicable_2x_hu_2fbfb95a9b9f629f.png" srcset="https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/inexplicable_2x_hu_fcb4efbe5cf64186.png 330w,https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/inexplicable_2x_hu_2fbfb95a9b9f629f.png 660w
           
-            ,https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/inexplicable_2x_hu_801f21141c0c6bde.png 1024w
+            ,https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/inexplicable_2x_hu_918a2557e7a65f0c.png 1024w
           
           
-            ,https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/inexplicable_2x_hu_bf997c30e1a7ad94.png 1320w
+            ,https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/inexplicable_2x_hu_d1d7a3f9b8264388.png 1320w
           "
           sizes="100vw"
         
@@ -512,7 +516,7 @@ allows processes to run <strong>at all</strong> to not let that process run anym
 </figure>
 </p>
 <p>Well, nothing&rsquo;s working. Time to pull out the big guns.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>reboot
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>reboot
 </span></span></code></pre></div><p>Here&rsquo;s a note to the Linux/BSD fans out there. If the operating system isn&rsquo;t able to force kill
 a process, it can&rsquo;t reboot. The reboot hung my server in a state of purgatory, unable to die
 but far from alive.</p>
@@ -580,12 +584,12 @@ again) an apt xkcd comic.</p>
       
         <source
           
-            srcset="https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/tv_problems_2x_hu_6423b070bfc5cfca.webp 330w,https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/tv_problems_2x_hu_149ec13a50485f79.webp 660w
+            srcset="https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/tv_problems_2x_hu_900b8ae8934d7550.webp 330w,https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/tv_problems_2x_hu_50fc419c0dcd6141.webp 660w
             
-              ,https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/tv_problems_2x_hu_578f8ad127d69dd7.webp 1024w
+              ,https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/tv_problems_2x_hu_6cac23d35ce4ee60.webp 1024w
             
             
-              ,https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/tv_problems_2x_hu_b9976d7cb42a98b6.webp 1320w
+              ,https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/tv_problems_2x_hu_33a090855b9f7f68.webp 1320w
             "
           
           sizes="100vw"
@@ -599,12 +603,12 @@ again) an apt xkcd comic.</p>
         alt="Source: xkcd.com"
         loading="lazy" decoding="async"
         
-          src="https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/tv_problems_2x_hu_2358d425c37e6e4d.png" srcset="https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/tv_problems_2x_hu_e3ef5fb01eb00d53.png 330w,https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/tv_problems_2x_hu_2358d425c37e6e4d.png 660w
+          src="https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/tv_problems_2x_hu_740d08293fbe3bc1.png" srcset="https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/tv_problems_2x_hu_64b9fa21113746cd.png 330w,https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/tv_problems_2x_hu_740d08293fbe3bc1.png 660w
           
-            ,https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/tv_problems_2x_hu_6b9976fbb3134772.png 1024w
+            ,https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/tv_problems_2x_hu_f318e2841518ca78.png 1024w
           
           
-            ,https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/tv_problems_2x_hu_11633960c61510b6.png 1320w
+            ,https://www.ericsweb.site/2018/02/20/The-Case-of-the-Circular-Dependency/tv_problems_2x_hu_a454375b0125acf1.png 1320w
           "
           sizes="100vw"
         
@@ -637,7 +641,7 @@ auto-mount is running a few seconds before the USB ports are fully on. That&rsqu
 up <strong>too fast</strong> for it to work correctly.</p>
 <p>Taking to IRC, someone gives me a helpful line to add to <code>/boot/loader.conf</code> (the settings for
 booting up).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#a6e22e">kern.cam.boot_delay</span><span style="color:#f92672">=</span><span style="color:#e6db74">10000</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#a6e22e">kern.cam.boot_delay</span><span style="color:#f92672">=</span><span style="color:#e6db74">10000</span>
 </span></span></code></pre></div><p>That&rsquo;s delaying 10 seconds (10,000 milliseconds) before starting the bootup processes.</p>
 <p>And when I say computers are the work of the Devil, that&rsquo;s what I mean.</p>
 
@@ -858,7 +862,7 @@ booting up).</p>
       
         <p class="text-sm text-neutral-500 dark:text-neutral-400">
             &copy;
-            2025
+            2026
             Eric Miller
         </p>
       

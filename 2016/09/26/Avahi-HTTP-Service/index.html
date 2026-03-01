@@ -40,8 +40,8 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="https://www.ericsweb.site/css/main.bundle.min.a645f3fa02b2ca20e7ef61b236048d95cc9bc2e5b2faf1f0ac0aa85431187c1c.css"
-    integrity="sha256-pkXz&#43;gKyyiDn72GyNgSNlcybwuWy&#43;vHwrAqoVDEYfBw="
+    href="https://www.ericsweb.site/css/main.bundle.min.100caa677b4bc416cdd884107b203b4869f9b413a19aa57d12069fb826f1abe9.css"
+    integrity="sha256-EAyqZ3tLxBbN2IQQeyA7SGn5tBOhmqV9EgafuCbxq&#43;k="
   />
   
   
@@ -230,6 +230,7 @@ Background: This is running on a server running FreeBSD 10.3.0. Avahi was instal
                   href="/posts/"
                   title="Posts"
                   
+                  
                   ><span
                       class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
                       >All Posts</span
@@ -245,6 +246,7 @@ Background: This is running on a server running FreeBSD 10.3.0. Avahi was instal
                 <a
                   href="/categories/"
                   title="Categories"
+                  
                   
                   ><span
                       class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
@@ -262,6 +264,7 @@ Background: This is running on a server running FreeBSD 10.3.0. Avahi was instal
                   href="/index.xml"
                   title=""
                   
+                  
                   ><span
                       class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
                       >RSS</span
@@ -277,6 +280,7 @@ Background: This is running on a server running FreeBSD 10.3.0. Avahi was instal
                 <a
                   href="/profile/"
                   title="About Me"
+                  
                   
                   ><span
                       class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
@@ -410,7 +414,7 @@ set up. For example, I already had <code>sftp-ssh.service</code> amd <code>ssh.s
 <p>Create a new file called <code>&lt;your-service&gt;.service</code>. In my case, this is <code>plex.service</code>.
 Within that file, add the following (which I shamelessly stole most of from
 <a href="http://holyarmy.org/2008/01/advertising-linux-services-via-avahibonjour/" target="_blank" rel="noreferrer">here</a>):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; standalone=&#39;no&#39;?&gt;</span><span style="color:#75715e">&lt;!--*-nxml-*--&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; standalone=&#39;no&#39;?&gt;</span><span style="color:#75715e">&lt;!--*-nxml-*--&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE service-group SYSTEM &#34;avahi-service.dtd&#34;&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;service-group&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;name</span> <span style="color:#a6e22e">replace-wildcards=</span><span style="color:#e6db74">&#34;yes&#34;</span><span style="color:#f92672">&gt;</span>%h <span style="color:#f92672">&lt;YOUR_HTTP_SERVICE&gt;&lt;/name&gt;</span>
@@ -450,7 +454,7 @@ viewable via bonjour clients, such as Safari and dns-sd (see below).</p>
         <source
           
             
-              srcset="https://www.ericsweb.site/2016/09/26/Avahi-HTTP-Service/avahi-in-safari_hu_2a0fb64d260bb72f.webp"
+              srcset="https://www.ericsweb.site/2016/09/26/Avahi-HTTP-Service/avahi-in-safari_hu_13411ea62b932850.webp"
             
           
           sizes="100vw"
@@ -501,15 +505,15 @@ viewable via bonjour clients, such as Safari and dns-sd (see below).</p>
       
         <source
           
-            srcset="https://www.ericsweb.site/2016/09/26/Avahi-HTTP-Service/avahi-in-terminal_hu_91d3ef617657a235.webp 330w,https://www.ericsweb.site/2016/09/26/Avahi-HTTP-Service/avahi-in-terminal_hu_2300044d0a70f0b6.webp 660w
+            srcset="https://www.ericsweb.site/2016/09/26/Avahi-HTTP-Service/avahi-in-terminal_hu_24576d6ffe3fe7fb.webp 330w,https://www.ericsweb.site/2016/09/26/Avahi-HTTP-Service/avahi-in-terminal_hu_53a4f0dc242daec.webp 660w
             
               
-                ,https://www.ericsweb.site/2016/09/26/Avahi-HTTP-Service/avahi-in-terminal_hu_4c70087334d98e76.webp 724w
+                ,https://www.ericsweb.site/2016/09/26/Avahi-HTTP-Service/avahi-in-terminal_hu_18305107eea92bd2.webp 724w
               
             
             
               
-                ,https://www.ericsweb.site/2016/09/26/Avahi-HTTP-Service/avahi-in-terminal_hu_4c70087334d98e76.webp 724w
+                ,https://www.ericsweb.site/2016/09/26/Avahi-HTTP-Service/avahi-in-terminal_hu_18305107eea92bd2.webp 724w
               
             "
           
@@ -524,7 +528,7 @@ viewable via bonjour clients, such as Safari and dns-sd (see below).</p>
         alt="Avahi-dns-sd"
         loading="lazy" decoding="async"
         
-          src="https://www.ericsweb.site/2016/09/26/Avahi-HTTP-Service/avahi-in-terminal_hu_501ee66a101f8621.png" srcset="https://www.ericsweb.site/2016/09/26/Avahi-HTTP-Service/avahi-in-terminal_hu_58ec207c34a58173.png 330w,https://www.ericsweb.site/2016/09/26/Avahi-HTTP-Service/avahi-in-terminal_hu_501ee66a101f8621.png 660w
+          src="https://www.ericsweb.site/2016/09/26/Avahi-HTTP-Service/avahi-in-terminal_hu_4343bae4675f4388.png" srcset="https://www.ericsweb.site/2016/09/26/Avahi-HTTP-Service/avahi-in-terminal_hu_83d6db0bf14d070f.png 330w,https://www.ericsweb.site/2016/09/26/Avahi-HTTP-Service/avahi-in-terminal_hu_4343bae4675f4388.png 660w
           
             ,https://www.ericsweb.site/2016/09/26/Avahi-HTTP-Service/avahi-in-terminal.png 724w
           
@@ -809,7 +813,7 @@ advertized service.</p>
       
         <p class="text-sm text-neutral-500 dark:text-neutral-400">
             &copy;
-            2025
+            2026
             Eric Miller
         </p>
       
